@@ -5,8 +5,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { validateContent, type RawFile } from '../src/content/validate';
-// Vikeplikt-motoren kobles inn i commit for domain/yield.
-const sceneEngineCheck = undefined;
+import { sceneEngineCheck } from '../src/domain/yield/sceneCheck';
 
 const root = join(import.meta.dirname, '..');
 const contentDir = join(root, 'src', 'content');
