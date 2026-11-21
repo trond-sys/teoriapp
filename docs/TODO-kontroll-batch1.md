@@ -140,7 +140,7 @@ Fil: `src/content/signs.json`. For skiltene under er bare tittelen lest. Finn de
 | 139 Sporvogn (fareskilt) | «Varsler om at trikk (sporvogn) krysser eller kjører i vegen. Trikken har fri veg.» |
 | 406 Påbudt rundkjøring | «Du skal kjøre rundt i pilenes retning (mot klokka).» |
 
-Kontroller også at de offisielle navnene stemmer for alle 12 skiltene i `signs.json` (202, 204, 206, 208, 210, 212, 124, 126, 132, 139, 406 og 516). Navnene på 210 «Forkjørskryss» og 212 «Vikeplikt overfor møtende kjørende» er lest ordrett. Skiltbildene kommer fra Statens vegvesens skiltfiler (zip per skiltgruppe). For skilt 516 brukes filen `516_H.jpg`, men det finnes også `516_V.jpg`, og det er ikke kjent hva H og V betyr. Finn ut hvilken variant som er riktig å vise.
+Kontroller også at de offisielle navnene stemmer for alle 12 skiltene i `signs.json` (202, 204, 206, 208, 210, 212, 124, 126, 132, 139, 406 og 516). Navnene på 210 «Forkjørskryss» og 212 «Vikeplikt overfor møtende kjørende» er lest ordrett. Skilt 516 er filen «516.H» på Commons, og det er ikke kjent hva H og V betyr. Finn ut hvilken variant som er riktig å vise.
 
 ---
 
@@ -155,4 +155,183 @@ Kontroller også at de offisielle navnene stemmer for alle 12 skiltene i `signs.
 
 ## Funn
 
-*(Fylles ut av økten som gjør søket. Én blokk per punkt: konklusjon, sitat, kilde-URL, forslag til endring.)*
+**Utført:** 21.11.2026 (chat-økt, ikke Claude Code).
+
+**Om kildene i denne runden – les dette først:**
+- Lovdata avviste direkte henting (robots). Ordlyden under er derfor hentet fra Lovdatas egne søketreff, og fra speilinger av samme tekst (lovnorge.no, juridika.no, trafikksiden), regjeringen.no og Statens vegvesens håndbøker. Der speilingene er enige med Lovdata-treffet, regnes ordlyden som sikker.
+- N300-sitatene kommer fra **eldre utgaver** av skiltnormalen (Håndbok 050 del 2 fra 2007/2009, og N300 del 2 fra 2014). Gjeldende N300 (2024) er ikke lest. Bruk dem som støtte, ikke som endelig hjemmel.
+- **Anbefaling:** Åpne Lovdata i nettleseren og les skiltforskriften §§ 24–25 og trafikkreglene § 6 nr. 4 selv. Det tar fem minutter og lukker de siste usikkerhetene.
+
+### Oppsummering
+
+| Punkt | Konklusjon | Må appen endres? |
+|---|---|---|
+| A1 Politi foran grønt lys | Bekreftet | Nei. Bytt gjerne `source`. |
+| A2 Arm rett opp | Bekreftet | Nei. Liten presisering foreslås. |
+| A3 Grønt lys / vikepliktskilt | Bekreftet | Nei. Gult blink: se notat. |
+| A4 Stoppskilt gir vikeplikt | Bekreftet | `source`-tekst bør oppdateres. |
+| A5 Trikk | Delvis uklart. Oppgaven er riktig. | Nei for oppgaven. **Ja for motoren (B1).** |
+| B1 Trikk har alltid fri veg | **Feil i to tilfeller** | **Ja** |
+| B2 Utrykning, alle viker | Forenkling, delvis feil | Ja, avgrens |
+| B3 Skilt foran høyreregel, 204 = vikeplikt | Bekreftet | Nei |
+| B4 Avkjørsel viker for alle | Bekreftet | Nei |
+| B5 Rundkjøring | Antakelse 1 i hovedsak bekreftet, men av skiltnormalen. Antakelse 2 uklart. | Ja, modeller skiltet eksplisitt |
+| B6 Begge svinger til venstre | **Uklart – kan være motsatt av motorens antakelse** | **Ja, sett på vent** |
+| C Skiltforklaringer | 208, 126, 139: delvis bekreftet. 132, 406: uklart. 516: forklaring funnet. | 139: ja, juster |
+| D1 vtl. § 21 | Ordlyd funnet | Sjekk temaet |
+| D2 Forbud på offentlig veg | Uklart | — |
+| D3 Temaliste mot trinn | Ikke utført | — |
+
+---
+
+### A1. Politiets tegn går foran grønt lys – **Bekreftet**
+
+- **Sitat 1 (trafikkreglene § 3):** «Anvisning gitt av politiet, Statens vegvesen, tollvesenet eller militærpolitiet gjelder foran anvisning gitt på annen måte.»
+  Kilde: https://lovdata.no/dokument/SF/forskrift/1986-03-21-747 (søketreff)
+- **Begrunnelse:** Samme paragraf kaller trafikklys en «anvisning gitt ved trafikklyssignal» (§ 3 nr. 1). Trafikklys er dermed en «anvisning gitt på annen måte», og politiets tegn går foran.
+- **Sitat 2 (Statens vegvesen, håndbok 051 Arbeidsvarsling):** «Manuell dirigering gjelder foran lyssignaler (for eksempel grønt lys).»
+  Kilde: https://docplayer.me/6953295-Arbeidsvarsling-retningslinjer-handbok-051.html
+- **Forslag:** Teksten kan stå. Sett `source` til «Trafikkreglene § 3 nr. 1 og 2». Det finnes ingen setning i forskriften som nevner trafikklys og politi i samme setning, så forklaringen bør vise koblingen: «Trafikklys er en anvisning. Politiets anvisning går foran alle andre anvisninger.»
+
+### A2. Politiet holder armen rett opp – **Bekreftet**
+
+- **Sitat (skiltforskriften § 25):**
+  - «Er arm rettet utad, skal trafikant som nærmer seg forfra eller bakfra stanse. Den som nærmer seg fra siden, kan passere.»
+  - «Er arm rettet oppad, skal enhver trafikant stanse. Kjørende som har nådd så langt fram at kjøretøyet ikke uten fare kan stanses, kan fortsette. Trafikant som er i vegkryss, skal forlate krysset.»
+  - «Når lykt med rødt lys svinges fram og tilbake, skal trafikant som ferdes i retning mot lyset stanse.»
+  Kilde: https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219/KAPITTEL_16 (søketreff). Samme tekst finnes hos https://www.lovnorge.no/dokument/SF/forskrift/2005-10-07-1219
+- **Svar på spørsmålene:**
+  1. Ordlyden i appen er riktig.
+  2. Begge unntakene står i forskriften.
+  3. Ja. «Arm utad» stanser trafikk forfra og bakfra, og trafikk fra siden kan passere.
+- **Merk:** Unntaket «kan fortsette» gjelder etter ordlyden *kjørende* (ikke gående). Appens «Kan du ikke stanse uten fare …» er rettet mot fører, så det stemmer.
+- **Forslag:** Sett `source` til «Skiltforskriften § 25». Nummereringen vises ulikt i speilingene (a/b/c eller 1/2/3), så skriv paragrafen uten bokstav eller nummer til du har sett Lovdata selv. Ny oppgaveidé: den svingende røde lykten.
+
+### A3. Grønt lys og vikepliktskilt – **Bekreftet**
+
+- **Sitat (skiltforskriften § 24, signal 1080 Hovedsignal):** «Ved rødt lys må kjørende ikke passere signal eller stopplinje. Rødt lys sammen med gult lys varsler at veksling til grønt lys vil skje straks. Ved grønt lys kan kjørende passere signal eller stopplinje dersom vegen er fri.»
+  Kilde: https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219 (søketreff). Samme tekst i Statens vegvesens håndbok N303: https://www.vegvesen.no/globalassets/fag/handboker/hb-n303.pdf
+- **Svar på spørsmålene:**
+  1. Se sitatet. Appens «kan kjøre hvis vegen er fri» gjengir det riktig.
+  2. § 24 sier ikke noe eget om venstresving. Grønt lys opphever ikke vikeplikten etter trafikkreglene § 7 nr. 2 (venstresving har vikeplikt for møtende). «Dersom vegen er fri» er nøkkelen. Vegvesenets håndbok 048 sier at **grønn pil** bare skal vises der føreren kan kjøre uten konflikt, altså uten å få vikeplikt. Kilde: https://fileserver.motocross.io/trafikksiden/HB048_Trafikksignalanlegg_2012.pdf
+  3. **Gult blinkende lys:** Ordlyden i gjeldende § 24 er ikke lest ordrett. Den gamle skiltforskriften (1980) sa: «Gult blinksignal angir at trafikantene må vise særlig aktsomhet og oppmerksomhet. Signalet kan nyttes i trelyssignal når disse ikke er i vanlig drift.» Kilde: https://lovdata.no/dokument/LTI/forskrift/1986-07-25-1611. Den gjeldende teksten bruker etter alt å dømme «særlig aktpågivenhet og varsomhet» (regjeringen.no-PDF av 2005-forskriften, bare delvis lest).
+     - *Slutning, ikke sitat:* Når lyset blinker gult eller er av, gir signalet ingen anvisning om vikeplikt. Da gjelder skilt og oppmerking, og deretter trafikkreglene (høyreregelen), etter rangordningen i trafikkreglene § 3 nr. 1.
+- **Forslag:** Ingen endring i vikeplikt-011. Før du lager oppgaver om gult blink: les gjeldende § 24 på Lovdata og bruk ordlyden derfra.
+
+### A4. Stoppskilt gir også vikeplikt – **Bekreftet**
+
+- **Sitat (skiltforskriften § 6, skilt 204, hele teksten):** «Skiltet angir at kjørende skal stanse helt før kjøring inn på kryssende veg eller før kryssing av planovergang, og at den kjørende har vikeplikt for kjørende trafikk i begge retninger på kryssende veg eller at den kjørende skal gi fri veg for sporvogn og jernbanetog på kryssende planovergang.»
+  Kilde: https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219?q=skiltforskrift (søketreff), sitert i sin helhet av Trafikksikkerhetshåndboken: https://www.tshandbok.no/del-2/3-trafikkregulering/doc657/
+- **Forslag:** Teksten kan stå. Oppdater `source` til hele ordlyden over. Legg til i forklaringen at vikeplikten gjelder trafikk **i begge retninger** på kryssende veg. Ny oppgaveidé: stoppskilt foran planovergang (fri veg for tog og trikk).
+
+### A5. Trikk og vikepliktskilt – **Oppgaven er riktig. Delvis uklart for motoren.**
+
+- **Sitat (trafikkreglene § 2):** «For fører av sporvogn gjelder trafikkreglene bare når dette framgår av vedkommende bestemmelse.» Kilde: https://lovdata.no/dokument/SF/forskrift/1986-03-21-747 (søketreff)
+- **Sitat (trafikkreglene § 3):** «Denne paragraf gjelder også for fører av sporvogn.» (samme kilde)
+- **Sitat (§ 10 nr. 1):** «Trafikant skal gi fri veg for utrykningskjøretøy når føreren varsler med blinkende blått lys. Om nødvendig skal trafikanten stanse.» Og § 10 nr. 4: «Nr. 1 og 3 i denne paragraf gjelder også for fører av sporvogn.» Kilde: https://opphevet.juridika.no/no/forskrift/1986-03-21-747 og https://lovdata.no/dokument/SF/forskrift/1986-03-21-747
+- **Svar på spørsmålene:**
+  1. **Ja, trikken kan ha vikeplikt.**
+     - *Trafikklys:* § 3 (anvisninger) gjelder uttrykkelig for sporvognfører. Trikken må altså følge trafikklys.
+     - *Skilt:* Skiltnormalen sier: «Foran rundkjøring skiltet med vikepliktskilt har sporvogn vikeplikt inn mot rundkjøringen, men ikke ut av sentraløya». Kilde: Håndbok 050 del 2 (2007), https://www.vegvesen.no/s/bransjekontakt/Hb/050-2ForelopigUtg2007.pdf. Det er **uklart** om vikepliktskilt gir trikken vikeplikt også i vanlige kryss. Sjekk gjeldende N300 under skilt 139 og 202.
+  2. **Gående i gangfelt viker for trikk.** Samme håndbok: «Gående i gangfelt har vikeplikt for sporvogn». Håndboken viser til trafikkreglene § 2 og § 9. Kjørende trafikk har også vikeplikt for sporvogn som kommer fra venstre.
+  3. Unntak: § 7 nr. 3 annet ledd: «Fører av sporvogn som vil svinge inn i veg med gangfelt, har vikeplikt for gående når fotgjengersignalet lyser grønt.» Kilde: https://www.regjeringen.no/globalassets/upload/sd/vedlegg/vikepliktforskrift_230513.pdf. **Da viker trikken for de gående.**
+- **Forslag:** vikeplikt-015 kan stå (kryss uten skilt og lys). Konsekvensene for motoren står i B1.
+
+---
+
+### B1. Trikk har alltid fri veg – **Feil i to tilfeller**
+
+Motoren er riktig i det vanlige tilfellet: kjørende og gående i gangfelt viker for trikk (se A5). Den tar feil i to tilfeller:
+1. **Trafikklys mot trikken:** Trikken skal følge lysregulering (§ 3 gjelder sporvogn). Rødt lys for trikken betyr at trikken stanser.
+2. **Trikk som svinger, gående med grønt signal:** Trikken har vikeplikt for gående (§ 7 nr. 3 annet ledd).
+
+I tillegg kommer rundkjøring med vikepliktskilt, der trikken har vikeplikt inn (N300, se A5). Det gjelder bare hvis det lages rundkjøringsscener med trikk.
+
+- **Forslag til `rules.ts`:** La anvisninger (trafikklys, og vikepliktskilt ved rundkjøring) **mot trikken** gjelde før regelen «trikk har fri veg». Legg til en egen regel for trikk som svinger mot gående med grønt fotgjengersignal. Til det er gjort: lag ikke scener med lys eller skilt mot trikken.
+
+### B2. Utrykning: alle viker – **Forenkling, delvis feil**
+
+- **Sitat (§ 10 nr. 1):** «Trafikant skal gi fri veg for utrykningskjøretøy når føreren varsler med blinkende blått lys. **Om nødvendig** skal trafikanten stanse.»
+- **Vurdering:** Plikten er å *gi fri veg*. Stans er bare påkrevd «om nødvendig». Et kjøretøy som ikke er i vegen for utrykningen, har ingen plikt til å stanse. At utrykningen kjører først, stemmer. At alle andre *må vente*, er ikke hjemlet.
+- **Utrykning går foran trikk:** Bekreftet. § 10 nr. 4 sier at nr. 1 også gjelder sporvognfører.
+- **Forslag:** For en «hvem kjører først»-oppgave kan rekkefølgen beholdes. Forklaringen må ikke si at alle skal stanse, men: «Alle som er i vegen, skal gi fri veg, og stanse om nødvendig.» Lag ikke oppgaver der riktig svar er at en bil uten konflikt må stå stille.
+
+### B3. Skilt foran høyreregelen, stoppskilt som vikepliktskilt – **Bekreftet**
+
+- § 3 nr. 1 første ledd er allerede lest ordrett.
+- Skilt 204 gir vikeplikt etter sin egen ordlyd (se A4). Det er riktig å behandle 204 som 202 pluss full stans.
+- **Forslag:** I `rules.ts`, bruk ordlyden fra A4 som kilde for 204.
+
+### B4. Avkjørsel viker også for den som har vikepliktskilt – **Bekreftet (ordlyd)**
+
+- **Sitat (§ 7 nr. 4):** «Kjørende som kommer fra parkeringsplass, holdeplass, torg, eiendom, bensinstasjon, gågate, gatetun eller liknende område har vikeplikt for annen trafikant.» Kilde: https://www.regjeringen.no/globalassets/upload/sd/vedlegg/vikepliktforskrift_230513.pdf
+- **Statens vegvesen:** Du har vikeplikt for *all annen trafikk* når du kjører inn på en vei fra slike områder. Kilde: https://www.vegvesen.no/trafikkinformasjon/trafikksikkerhet/trafikkregler/vikeplikt/vikeplikt-ulike-trafikksituasjoner/
+- **Vurdering:** Ordlyden har ingen unntak for trafikant som selv har vikepliktskilt. Motorens regel stemmer.
+- **Merk:** § 7 nr. 4 omfatter også den som kjører inn fra sykkelveg, gangveg eller fortau. Det sier Finansklagenemndas gjengivelse av paragrafen: https://publisering.finkn.no/api/statements/openPDF/2021-460. Les hele nr. 4 på Lovdata før du lager oppgaver om det.
+
+### B5. Rundkjøring – **Antakelse 1 i hovedsak bekreftet, antakelse 2 uklart**
+
+- **Trafikkreglene:** Fant ingen egen regel om rundkjøring (bekrefter observasjonen din).
+- **Skiltnormalen (N300 del 2, 2014, skilt 126):** «Forvarsling av rundkjøring skal skje med skiltkombinasjonen 202 ”Vikeplikt”/406 ”Påbudt rundkjøring”/802 ”Avstand”, eller med skilt 703.1 ”Diagramorienteringstavle for rundkjøring”.» Kilde: https://www.saferoad-traffic.no/uploads/hb-n300-del2.pdf
+- **Vurdering:**
+  1. Skilting med 202 er normalen for rundkjøringer. Kravet står i skiltnormalen (et krav til vegeier), ikke i trafikkreglene. *Det er skiltet som gir vikeplikt, ikke at det er en rundkjøring.* Uten skilt ville høyreregelen gjelde.
+  2. «Ikke i konflikt»: Ingen kilde funnet. Det stemmer i øyeblikket bilene kjører inn. Men når den ene er inne, har den andre vikeplikt for den etter skilt 202.
+- **Blinklys og feltvalg:** Ikke lest ordrett. Trafikkreglene § 14 (tegn) må leses før det lages oppgaver om dette. Kildene som ble funnet om blinklys i rundkjøring, er ikke offisielle.
+- **Forslag:** Legg skilt 202 inn **eksplisitt** i hver rundkjøringsscene. Gjør det i stedet for at motoren antar at skiltet står der, så scenen og regelen henger sammen. Behandle «inne i rundkjøringen» som en egen posisjon som de som skal inn, viker for. Ikke lag oppgaver om blinklys i rundkjøring før § 14 er lest.
+
+### B6. To møtende som begge svinger til venstre – **Uklart. Sett regelen på vent.**
+
+- **Sitat (trafikkreglene § 6 nr. 4):** «Kjøretøyer som kommer fra motsatte retninger, kan svinges til venstre for hverandre.»
+  Kilde: https://lovdata.no/nav/forskrift/1986-03-21-747/%C2%A76 (søketreff), og samme tekst hos https://lovdata.no/dokument/SF/forskrift/1986-03-21-747
+- **Problemet:** Regelen *tillater* (kan) en bestemt måte å svinge på, men det er uklart hvilken. Leser man den bokstavelig, passerer to møtende biler vanligvis hverandre *til venstre*, venstre side mot venstre side. Det tilsvarer at de svinger **rundt / bak hverandre** gjennom krysset, ikke *foran* hverandre. Det kan altså være det motsatte av det motoren antar. Ingen offisiell kilde som forklarer bestemmelsen med figur ble funnet. Kildene som sier «svinge foran hverandre», er forum, ikke offisielle.
+- **Forslag:**
+  - Fjern eller deaktiver scener der to møtende begge svinger til venstre, til tolkningen er avklart.
+  - Avklar med en trafikkskole, læreverket «Veien til førerkortet» eller kommentarutgaven til trafikkreglene.
+  - Uansett tolkning er § 6 nr. 4 en *kan*-regel. Motoren bør ikke gjøre den til en *skal*-regel.
+
+---
+
+### C. Skiltforklaringer
+
+| Skilt | Funn | Konklusjon og forslag |
+|---|---|---|
+| **208** Slutt på forkjørsveg | «Skiltet angir at forkjørsveg er slutt.» Det brukes «på veg som slutter foran kryss med veg som ikke er forkjørsveg, eller på fri vegstrekning». (N300-tekst via https://trafikksiden.motocross.io/trafikkskilt/trafikkskilt.html) | **Bekreftet i hovedsak.** Appens tillegg om høyreregelen er en slutning, ikke ordlyd. Behold, men merk i `todo` at setningen er slutning. |
+| **126** Rundkjøring | «Skiltet varsler om rundkjøring.» (samme kilde). N300: brukes bare **unntaksvis**, i tillegg til 202/406/802 (se B5). | **Bekreftet.** Legg gjerne til i forklaringen: «Skiltet er sjeldent. Vanligvis varsles rundkjøring med vikepliktskilt og skilt 406.» |
+| **132** Trafikklyssignal | Ordlyden ble ikke funnet. Navnet er bekreftet. | **Uklart.** Les § 4 på Lovdata. |
+| **139** Sporvogn | N300 (2007): «Skilt 139 brukes til å varsle om sporvogn i blandet trafikk.» | **Første del bekreftet. «Trikken har fri veg» er for kategorisk** (se A5/B1). Forslag: «Trikk har som hovedregel fri veg (trafikkreglene § 10 nr. 2).» |
+| **406** Påbudt rundkjøring | Ordlyden ble ikke funnet. Navnet er bekreftet. | **Uklart.** «Mot klokka» er riktig ut fra skiltets symbol og høyretrafikk, men les § 10 på Lovdata før `verified`. |
+
+**Offisielle navn** – alle 12 er sett i skiltforskriften eller skiltnormalen: 202 Vikeplikt, 204 Stopp, 206 Forkjørsveg, 208 Slutt på forkjørsveg, 210 Forkjørskryss, 212 Vikeplikt overfor møtende kjørende, 124 Farlig vegkryss, 126 Rundkjøring, 132 Trafikklyssignal, 139 Sporvogn, 406 Påbudt rundkjøring, 516 Gangfelt. **Bekreftet.**
+- 124, ordlyd: «Skiltet varsler om farlig vegkryss hvor det gjelder vanlig vikeplikt for trafikk fra høyre» (1980-forskriften). Vegvesen.no bruker «overfor kjørende fra høyre». Bruk gjeldende Lovdata-tekst.
+
+**516 Gangfelt – H og V:**
+- Store norske leksikon viser begge variantene, «Trafikkskilt 516.H: Gangfelt» og «Trafikkskilt 516.V: Gangfelt». Betydning: «Skiltet opplyser om at det er kryssingsstad for gåande på staden, og at reglane i trafikklovgivinga om gangfelt gjeld.» Kilde: https://snl.no/Gangfelt_-_trafikkskilt
+- *Slutning:* H/V betyr etter alt å dømme høyre/venstre (speilvendt figur etter hvilken side av vegen skiltet står). Vegvesenets datakatalog bruker samme mønster for andre skilt, for eksempel «713.V – Vanlig vegviser, Venstre». Kilde: https://tfprod1.sintef.no/datakatalog/eksport/produktspesifikasjon/97.pdf. Ikke bekreftet for 516 spesielt.
+- **Forslag:** Begge er offisielle. Bruk 516.H som standard i skiltquiz (skilt på høyre side av vegen). Godta begge i scener.
+
+---
+
+### D. Åpne punkter
+
+**D1. Vegtrafikkloven § 21 – ordlyd funnet**
+- **Sitat (første ledd):** «Ingen må føre eller forsøke å føre kjøretøy når han er i en slik tilstand at han ikke kan anses skikket til å kjøre på trygg måte, hva enten dette har sin årsak i at han er påvirket av alkohol eller annet berusende eller bedøvende middel, eller i at han er syk, svekket, sliten eller trett, eller skyldes andre omstendigheter.»
+  Kilde: https://lovdata.no/nav/lov/1965-06-18-4/kapIV/%C2%A727 (søketreff, § 21 vises i kapitteloversikten)
+- **Merk:** Resten av § 21 handler om forskrifter for kjøre- og hviletid (ikke relevant for klasse B-teori).
+- **Viktig for øvelseskjøringsmodulen:** Ledsager regnes som fører, men § 21 gjelder **også for eleven**. Vegtrafikkloven: «Ved øvingskjøring anses lærer eller ledsager som fører av motorvognen.» Og: «… §§ 21, 22 og 22 a, gjelder likevel også for eleven.» Kilde: https://trafikksiden.motocross.io/regelverk/Vegtrafikkloven.html (speiling – sjekk paragrafnummeret på Lovdata).
+- **Forslag:** Kontroller at temaet `lr-vtl-3-21` handler om *skikkethet* (rus, sykdom, trøtthet). Hvis det er tenkt som generelle førerplikter, bør det endres.
+
+**D2. «Forbud på offentlig veg» – Uklart**
+- Ingen kilde funnet som forklarer hva temaet omfatter. Tolkningen din er rimelig, men ikke bekreftet.
+- **Forslag:** La temaet stå med `verified: false`. Spør en trafikkskole, eller send en henvendelse til Statens vegvesen via vegvesen.no/kontakt-oss.
+
+**D3. Temalisten mot læreplanens trinn – Ikke utført**
+- Krever `docs/PLAN-fase0.md` og læreplanen side om side. Ingen av dem var tilgjengelig i denne økten. Læreplanen (Håndbok V851 / tidligere 252) er en PDF fra Statens vegvesen. Ta dette i en Claude Code-økt med repoet åpent.
+
+---
+
+### Neste steg for Trond
+
+1. Les Lovdata selv for: skiltforskriften § 24 (gult blink) og § 25, trafikkreglene § 6 nr. 4 og § 7 nr. 4 (hele), og skiltforskriften § 4 (132) og § 10 (406).
+2. Avklar B6 med trafikkskole eller læreverk.
+3. Gi Claude Code klarsignal til endringene i B1, B2, B5 og skilt 139.
+4. Sett `verified: true` på A1–A4 og B3–B4 når du er fornøyd.
