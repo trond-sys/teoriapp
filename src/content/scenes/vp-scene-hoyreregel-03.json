@@ -1,0 +1,67 @@
+{
+  "id": "vp-scene-hoyreregel-03",
+  "topic": "vikeplikt",
+  "subtopic": "hoyreregel",
+  "temalisteRef": "vp-hoyreregel",
+  "tier": "kjerne",
+  "difficulty": 3,
+  "layout": {
+    "type": "x-kryss",
+    "arms": ["N", "E", "S", "W"],
+    "signs": [],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    { "id": "A", "kind": "bil", "from": "S", "intent": "rett-fram", "color": "red" },
+    { "id": "B", "kind": "bil", "from": "E", "intent": "rett-fram", "color": "blue" },
+    { "id": "C", "kind": "bil", "from": "N", "intent": "rett-fram", "color": "yellow" }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "Kryss uten skilt eller lys. A, B og C skal alle rett fram. I hvilken rekkefølge kjører de?",
+      "en": "Junction with no signs or lights. A, B and C are all going straight ahead. In what order do they go?",
+      "th": "ทางแยกที่ไม่มีป้ายหรือสัญญาณไฟ A, B และ C จะตรงไปทั้งหมด รถจะไปตามลำดับใด?"
+    }
+  },
+  "answer": {
+    "order": [["C"], ["B"], ["A"]],
+    "steps": [
+      {
+        "who": "B",
+        "yieldsTo": ["C"],
+        "explanation": {
+          "nb": "C kommer fra høyre for B. B har vikeplikt for C.",
+          "en": "C comes from the right of B. B must give way to C.",
+          "th": "C มาจากทางขวาของ B ดังนั้น B ต้องให้ทาง C"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 7 nr. 2 første punktum",
+          "quote": "Kjørende har vikeplikt for kjøretøy som kommer fra høyre.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      },
+      {
+        "who": "A",
+        "yieldsTo": ["B"],
+        "explanation": {
+          "nb": "B kommer fra høyre for A. A har vikeplikt for B og må vente til B har kjørt. A og C møtes rett fram og krysser ikke hverandre, men A må likevel vente på B.",
+          "en": "B comes from the right of A. A must give way to B and wait until B has gone. A and C meet going straight and do not cross, but A still has to wait for B.",
+          "th": "B มาจากทางขวาของ A ดังนั้น A ต้องให้ทาง B และรอจนกว่า B จะไป A และ C ขับตรงสวนกันและไม่ตัดผ่านกัน แต่ A ยังต้องรอ B"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 7 nr. 2 første punktum",
+          "quote": "Kjørende har vikeplikt for kjøretøy som kommer fra høyre.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": ["hoyreregelen", "vikeplikt", "vegkryss"],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Kjede av høyreregel: C → B → A. At A må vente til B har kjørt (og ikke kan kjøre samtidig med C), følger av at A har vikeplikt for B, som venter på C. Kontroller at dette er slik det læres."
+}

@@ -1,0 +1,53 @@
+{
+  "id": "vp-scene-hoyreregel-04",
+  "topic": "vikeplikt",
+  "subtopic": "hoyreregel",
+  "temalisteRef": "vp-hoyreregel",
+  "alsoRefs": ["ft-samhandling"],
+  "tier": "kjerne",
+  "difficulty": 1,
+  "layout": {
+    "type": "x-kryss",
+    "arms": ["N", "E", "S", "W"],
+    "signs": [],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    { "id": "A", "kind": "bil", "from": "S", "intent": "rett-fram", "color": "red" },
+    { "id": "B", "kind": "syklist", "from": "E", "intent": "rett-fram", "color": "green" }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "Kryss uten skilt eller lys. A skal rett fram. Syklisten B sykler på kjørebanen, kommer fra høyre og skal også rett fram. Hvem kjører først?",
+      "en": "Junction with no signs or lights. A is going straight ahead. Cyclist B is riding on the road, coming from the right and also going straight ahead. Who goes first?",
+      "th": "ทางแยกที่ไม่มีป้ายหรือสัญญาณไฟ A จะตรงไป คนขี่จักรยาน B ขี่อยู่บนช่องทางเดินรถ มาจากทางขวา และจะตรงไปเช่นกัน ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [["B"], ["A"]],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": ["B"],
+        "explanation": {
+          "nb": "Syklisten B kommer fra høyre på kjørebanen. Høyreregelen gjelder for kjøretøy fra høyre, og en sykkel er et kjøretøy. A har vikeplikt for B, selv om B er en syklist.",
+          "en": "Cyclist B is coming from the right on the road. The right-hand rule applies to vehicles from the right, and a bicycle is a vehicle. A must give way to B, even though B is a cyclist.",
+          "th": "คนขี่จักรยาน B มาจากทางขวาบนช่องทางเดินรถ กฎให้ทางรถทางขวาใช้กับยานพาหนะที่มาจากทางขวา และจักรยานก็เป็นยานพาหนะ A ต้องให้ทาง B แม้ว่า B จะเป็นคนขี่จักรยาน"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 7 nr. 2 første punktum",
+          "quote": "Kjørende har vikeplikt for kjøretøy som kommer fra høyre.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": ["hoyreregelen", "vikeplikt"],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "At sykkel er «kjøretøy» er en slutning av vegtrafikkloven § 2: «Med kjøretøy forstås innretning som er bestemt til å kjøre på bakken uten skinner.» Ingen lest kilde sier rett ut at syklist på kjørebanen omfattes av høyreregelen. Merk forskjellen fra syklist som kommer fra sykkelveg, gangveg eller fortau (§ 7 nr. 4 annet ledd), som har vikeplikt."
+}

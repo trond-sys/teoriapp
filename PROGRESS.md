@@ -5,7 +5,7 @@ Denne filen viser status for prosjektet, slik at en ny økt kan fortsette uten �
 ## Status per fase
 - [x] Fase 0 – plan (`docs/PLAN-fase0.md`), **godkjent 21.11.2026** (svarene står i §8a)
 - [ ] Fase 1 – MVP: **all kode er ferdig. Innholdsbatch 1 (vikeplikt) er laget og kontrollert av en egen søkeøkt** (funn i `docs/TODO-kontroll-batch1.md`).
-- [ ] **Endring 01 – håndlagde scenarier** (`docs/endringer/ENDRING-01-handlagde-scenarier.md`): steg 1–5 er ferdige (formatet ble godkjent 22.11.2026). **Neste er steg 6 (kjernekatalogen) eller 7 (knapp for verifisering på `/review`).** Ingen scener er verifisert ennå, så eleven ser ikke vikeplikt-krysset før Trond har kontrollert dem på `/review`.
+- [ ] **Endring 01 – håndlagde scenarier** (`docs/endringer/ENDRING-01-handlagde-scenarier.md`): steg 1–5 er ferdige, og steg 6 (kjernekatalogen) er i gang: batch «høyreregel» er laget (9 av 41 kjernescener). **Neste batch er «avkjørsel» i en ny økt, etter at Trond har kontrollert høyreregel-batchen.** Ingen scener er verifisert ennå, så eleven ser ikke vikeplikt-krysset før Trond har kontrollert dem på `/review`.
 - [ ] Fase 2 – Eksamensklar
 - [ ] Fase 3 – Øvelseskjøring og oppkjøring
 - [ ] Fase 4 – Kvalitet
@@ -131,7 +131,20 @@ Målet er at fasiten er data, ikke beregning: ingen kode i `src/` skal avgjøre 
   - **Ingen fil i `src/` importerer motoren lenger.** `src/domain/yield/` er fjernet, også `RULES` på `/review`.
 
 **Gjenstår:**
-- **6. Kjernekatalogen** (~40 scener, §6) lages i batcher per undertema.
+- **6. Kjernekatalogen** (41 scener, §6) lages i batcher per undertema, én batch per økt.
+  - `npm run validate-scenes` viser dekningen per undertema. Målene står i `src/domain/scenes/catalog.ts`.
+  - **Batch «høyreregel» (22.11.2026), ferdig 4 av 4:**
+    - `vp-scene-hoyreregel-02`: T-kryss, A på den gjennomgående vegen, B fra sidevegen til høyre.
+    - `vp-scene-hoyreregel-03`: kjede av tre biler, C → B → A.
+    - `vp-scene-hoyreregel-04`: syklist fra høyre på kjørebanen.
+    - Alle har `verified: false`. Revisjonen er enig.
+    - TODO til Trond: at høyreregelen gjelder i T-kryss, er en slutning (ingen kilde nevner T-kryss), og at sykkel er «kjøretøy», er en slutning av vtl. § 2.
+  - **Status per undertema:** høyreregel 4/4, avkjørsel 2/4, venstresving 2/3, skilt 1/6. Resten har 0.
+  - **Foreslått rekkefølge videre:**
+    - Først avkjørsel og fra-sykkelveg (§ 7 nr. 4 er lest ordrett), deretter bussholdeplass og rygging-vending.
+    - Så svinging mot gående og syklende, og skilt.
+    - Lysregulering og politi kommer etter at skiltforskriften §§ 24–25 er lest ordrett på Lovdata.
+    - fri-veg kommer etter at B1/B2 er avklart, og rundkjøring etter B5.
 - **7. `/review` får knapp for å verifisere** (`verifiedBy` og `verifiedAt`), med eksport.
 - **8. Oppdatering** av `docs/PROMPT.md` §4.3 og §6, og denne filen.
 - **Når alle kjernescener er verifisert**, slettes `decide()`, `rules.ts` og revisjonsskriptet.

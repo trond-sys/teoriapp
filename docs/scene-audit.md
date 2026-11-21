@@ -1,7 +1,7 @@
 # Revisjon av vikeplikt-scenene
 
 **Laget:** 2026-11-22 med `npm run audit-scenes` (Endring 01, steg 5).
-**Scener:** 6. **Uenige med motoren:** 0.
+**Scener:** 9. **Uenige med motoren:** 0.
 
 Rapporten sammenligner fasiten i hver scene (`src/content/scenes/`) med den gamle regelmotoren (`scripts/audit/engine.ts`).
 Den er et hjelpemiddel når scenene kontrolleres, **ikke en dommer**: fasiten i scenen gjelder alltid.
@@ -19,6 +19,9 @@ Den er et hjelpemiddel når scenene kontrolleres, **ikke en dommer**: fasiten i 
 |---|---|---|---|---|
 | `vp-scene-forkjorsveg-01` | nei | B → C → A | B → C → A | ja |
 | `vp-scene-hoyreregel-01` | nei | B → A | B → A | ja |
+| `vp-scene-hoyreregel-02` | nei | B → A | B → A | ja |
+| `vp-scene-hoyreregel-03` | nei | C → B → A | C → B → A | ja |
+| `vp-scene-hoyreregel-04` | nei | B → A | B → A | ja |
 | `vp-scene-parkering-01` | nei | B → A | B → A | ja |
 | `vp-scene-parkering-02` | nei | B + C → A | B + C → A | ja |
 | `vp-scene-venstre-venstre-01` | nei | A + B | A + B | ja |

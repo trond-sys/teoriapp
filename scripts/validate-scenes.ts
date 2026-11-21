@@ -5,6 +5,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { Scenario, Sign, GlossaryTerm } from '../src/content/schema';
 import { validateScenario } from '../src/domain/scenes/validate';
+import { CATALOG } from '../src/domain/scenes/catalog';
 
 const root = join(import.meta.dirname, '..');
 const dir = join(root, 'src', 'content', 'scenes');
@@ -36,5 +37,16 @@ for (const f of files) {
   e.forEach((i) => console.log(`    feil: ${i.message}`));
   w.forEach((i) => console.log(`    advarsel: ${i.message}`));
 }
+// Dekning av kjernekatalogen (Endring 01 §6).
+const parsed = files.map((f) => Scenario.safeParse(read(join(dir, f)))).flatMap((r) => (r.success ? [r.data] : []));
+console.log('\nKjernekatalog (kjerne-scener per undertema):');
+for (const c of CATALOG) {
+  const made = parsed.filter((s) => s.tier === 'kjerne' && s.subtopic === c.subtopic);
+  const ver = made.filter((s) => s.verified).length;
+  console.log(`  ${c.subtopic.padEnd(16)} ${String(made.length).padStart(2)} / ${c.target}  (verifisert ${ver})  ${made.length >= c.target ? '✓' : ''}`);
+}
+const total = CATALOG.reduce((n, c) => n + c.target, 0);
+console.log(`  ${'sum'.padEnd(16)} ${String(parsed.filter((s) => s.tier === 'kjerne').length).padStart(2)} / ${total}`);
+
 console.log(`\n${files.length} scener, ${errors} feil, ${warnings} advarsler.`);
 if (errors) process.exit(1);
