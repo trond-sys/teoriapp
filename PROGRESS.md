@@ -15,8 +15,7 @@ npm install
 npm run dev               # http://localhost:5173
 npm run check             # validate-content + typecheck + tester (kjøres før hver commit)
 npm run build             # produksjonsbygg med service worker (dist/)
-npm run fetch-signs       # laster ned manglende skilt-SVG-er fra Wikimedia (langsomt, stopper ved 429)
-node scripts/write-licenses.mjs   # skriver public/signs/LICENSES.md fra signs.json
+npm run import-signs      # henter manglende skilt fra Statens vegvesens zip-filer og skriver LICENSES.md
 ```
 Git: repoet har lokal `user.email` = GitHub noreply for `trond-sys`. **Ikke bruk BT Flyt-adressen her.** Ingenting er pushet. `.github/workflows/pages.yml` publiserer til GitHub Pages når repoet er pushet til `trond-sys/teoriapp` (offentlig) og Pages er satt til «GitHub Actions».
 
@@ -87,7 +86,7 @@ Innhold utenom oppgavebanken: 12 av ~70 kjerneskilt, 4 av 12 vikeplikt-scener, 0
 ## Batch 1 – vikeplikt (venter på Tronds kontroll)
 - **Oppgaver:** `src/content/questions/vp-*.json` (vikeplikt-001 til -020). Alle har `source`, `verified: false` og `thReview: "pending"`.
 - **Scener:** `src/content/scenes/` – `scene-hoyreregel-01`, `scene-hoyreregel-02`, `scene-forkjorsveg-01`, `scene-avkjorsel-01`. `expectedOrder` er kryssjekket mot motoren.
-- **Skilt:** `src/content/signs.json` – 202, 204, 206, 208, 210, 212, 124, 126, 132, 139, 406, 516. Alle er public domain (PD-Statens vegvesen) fra Wikimedia Commons.
+- **Skilt:** `src/content/signs.json` – 202, 204, 206, 208, 210, 212, 124, 126, 132, 139, 406, 516. Bildene kommer fra Statens vegvesens offisielle skiltfiler (NLOD 2.0) og ligger som PNG i `public/signs/`.
 - **Ordliste:** `src/content/glossary.json` (21 begreper).
 - **Kilder:** trafikkreglene (FOR-1986-03-21-747, sist endret FOR-2022-06-17-1049) og skiltforskriften (FOR-2005-10-07-1219) er lest på Lovdata 21.11.2026. Paragrafene §§ 3, 7, 8, 9, 10 og 11 i trafikkreglene og skilt 124, 202, 204, 206, 210, 212 og 516 i skiltforskriften er lest ordrett. Skiltforskriften §§ 23–25 (lys og politi) er bare lest som sammendrag.
 
@@ -106,7 +105,7 @@ Alt innhold er `verified: false` til Trond har kontrollert det. Dette er det jeg
 - **Thai:** All thai-tekst er mitt utkast. Kona flagger feil med «Rapporter oversettelse». Rapportene eksporteres fra Innstillinger eller `/review`.
 
 ## Kjente begrensninger
-- **Skiltfiler:** Wikimedia svarte med 429 (for mange forespørsler) da skiltene skulle lastes ned. Bare **202 og 210** er hentet. Disse mangler: **204, 206, 208, 212, 124, 126, 132, 139, 406 og 516**. Til filene er hentet, viser appen skiltnummeret som plassholder, og `validate-content` gir en advarsel (ikke feil). `npm run fetch-signs` henter manglende filer langsomt og stopper ved 429. Commit filene for seg når de er hentet.
+- **Skiltbilder:** Skiltene er PNG (maks 480 px), konvertert fra vegvesenets CMYK-JPG, fordi vegvesenet bare tilbyr EPS og JPG og maskinen ikke har verktøy for EPS → SVG. Utenfor runde og trekantede skilt er hjørnene hvite, ikke gjennomsiktige. Mangler en bildefil, viser appen skiltnummeret som plassholder, og `validate-content` gir en advarsel.
 - Vikeplikt-motoren støtter ikke kø (to kjøretøy fra samme arm), trafikklys eller politi i scener, gang- og sykkelveg som egen armtype, og buss fra holdeplass. Dette dekkes foreløpig av flervalg.
 - Leksjoner (4.1) er ikke laget. Visningen bygges sammen med første leksjonsbatch.
 - Import av eksportfil kommer i Fase 4. Eksport finnes i Innstillinger og på Fremgang.
@@ -116,10 +115,9 @@ Alt innhold er `verified: false` til Trond har kontrollert det. Dette er det jeg
 - Vikeplikt-krysset retter etter vikeplikt-grafen. De som kan kjøre samtidig, godtas i begge rekkefølger. `validate-content` kryssjekker `expectedOrder` mot motoren.
 - Fonter kommer fra `@fontsource` (bare latin og thai), ikke fra `public/fonts/`.
 - `/review` og JSON-eksport kom allerede i Fase 1.
-- Skiltskjemaet har `credit.original` (direkte fil-URL), og `LICENSES.md` genereres fra `signs.json`.
+- **Skiltkilde byttet fra Wikimedia Commons til Statens vegvesen (21.11.2026).** Wikimedia stengte for nedlasting (429), og Trond ba meg finne en annen løsning. Vegvesenets filer er den offisielle kilden (Commons-filene er laget fra dem), med åpen lisens NLOD 2.0. Alle skilt hentes med `npm run import-signs`. Skjemaet har `credit.original` (zip-URL) og `credit.variant`, og `LICENSES.md` genereres fra `signs.json`.
 
 ## Neste steg
 1. **Trond kontrollerer batch 1.** Sjekk særlig TODO-punktene over. De er samlet med spørsmål og kilder i `docs/TODO-kontroll-batch1.md`, som er laget for et dypere søk i en egen økt. Sett `verified: true` (og eventuelt `thReview`) i JSON-filene for det som er riktig, eller gi tilbakemelding om systematiske feil, så justeres arbeidsmåten før mer innhold lages.
-2. Hent eventuelle manglende skilt med `npm run fetch-signs`.
-3. Test på Xiaomi Pad 5 (Chrome, installert som app) og iPhone (Safari, Legg til på Hjem-skjerm). Krever at appen er publisert, se «Git» over.
-4. Deretter, i nye økter: én innholdsbatch per tema. Foreslått rekkefølge er resten av `vp-hoyreregel`, deretter `so-skilt` med ~58 skilt, `fp-veggrep` (vinter), `fa-trafikkuhell` (tunnel), `fp-sikt-lys` og så resten. De 8 siste vikeplikt-scenene kan komme med trikk, utrykning, gangfelt og rundkjøring.
+2. Test på Xiaomi Pad 5 (Chrome, installert som app) og iPhone (Safari, Legg til på Hjem-skjerm). Krever at appen er publisert, se «Git» over.
+3. Deretter, i nye økter: én innholdsbatch per tema. Foreslått rekkefølge er resten av `vp-hoyreregel`, deretter `so-skilt` med ~58 skilt, `fp-veggrep` (vinter), `fa-trafikkuhell` (tunnel), `fp-sikt-lys` og så resten. De 8 siste vikeplikt-scenene kan komme med trikk, utrykning, gangfelt og rundkjøring.

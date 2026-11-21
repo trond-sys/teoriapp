@@ -5,17 +5,22 @@ import { join } from 'node:path';
 const root = join(import.meta.dirname, '..');
 const signs = JSON.parse(readFileSync(join(root, 'src/content/signs.json'), 'utf8'));
 const rows = signs
-  .map((s) => `| ${s.file} | ${s.nr} ${s.name.nb} | ${s.credit.page} | ${s.credit.author} | ${s.credit.license} |`)
+  .map((s) => `| ${s.file} | ${s.nr} ${s.name.nb} | ${s.credit.original.split('/').pop()}${s.credit.variant ? ` (variant ${s.credit.variant})` : ''} | ${s.credit.author} | ${s.credit.license} |`)
   .join('\n');
 writeFileSync(
   join(root, 'public/signs/LICENSES.md'),
   `# Skiltgrafikk – kilde og lisens
 
-Alle skilt er SVG-filer fra Wikimedia Commons, lastet ned uendret med \`npm run fetch-signs\`.
-Lisensen er kontrollert på filsiden for hver fil (21.11.2026). Skiltnummer følger skiltforskriften.
-Tabellen lages av \`node scripts/write-licenses.mjs\` ut fra src/content/signs.json.
+Skiltbildene kommer fra Statens vegvesens offisielle skiltfiler:
+https://www.vegvesen.no/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/filer-og-fargekoder-for-trafikkskilt/
 
-| Fil | Skilt | Commons-side | Forfatter | Lisens |
+Inneholder data under Norsk lisens for offentlige data (NLOD) 2.0, tilgjengeliggjort av Statens vegvesen.
+Lisens: https://data.norge.no/nlod/no/2.0 (datasett: https://data.norge.no/en/datasets/62cd16c5-91ad-3083-8f56-cef0d7bd18de).
+
+Filene er konvertert fra CMYK-JPG til sRGB-PNG (maks 480 px, hvit kant fjernet) med \`npm run import-signs\`.
+Skiltnummer følger skiltforskriften. Tabellen lages av \`node scripts/write-licenses.mjs\` ut fra src/content/signs.json.
+
+| Fil | Skilt | Zip-fil hos vegvesen.no | Kilde | Lisens |
 |---|---|---|---|---|
 ${rows}
 `,

@@ -2,15 +2,26 @@
   {
     "nr": "202",
     "group": "vikepliktskilt",
-    "name": { "nb": "Vikeplikt", "en": "Give way", "th": "ให้ทาง" },
+    "name": {
+      "nb": "Vikeplikt",
+      "en": "Give way",
+      "th": "ให้ทาง"
+    },
     "meaning": {
       "nb": "Du har vikeplikt for kjørende trafikk i begge retninger på vegen du skal inn på eller krysse.",
       "en": "You must give way to traffic in both directions on the road you are entering or crossing.",
       "th": "คุณต้องให้ทางแก่รถที่วิ่งทั้งสองทิศทางบนถนนที่คุณกำลังจะเข้าไปหรือข้าม"
     },
-    "file": "202.svg",
-    "credit": { "page": "https://commons.wikimedia.org/wiki/File:NO_road_sign_202.svg", "original": "https://upload.wikimedia.org/wikipedia/commons/7/74/NO_road_sign_202.svg", "author": "Peter J. Acklam (etter Statens vegvesen)", "license": "Public domain (PD-Statens vegvesen)" },
-    "glossaryTerms": ["vikeplikt"],
+    "file": "202.png",
+    "credit": {
+      "page": "https://www.vegvesen.no/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/filer-og-fargekoder-for-trafikkskilt/",
+      "original": "https://www.vegvesen.no/globalassets/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/vikeplikt-jpg.zip",
+      "author": "Statens vegvesen",
+      "license": "NLOD 2.0 (Norsk lisens for offentlige data)"
+    },
+    "glossaryTerms": [
+      "vikeplikt"
+    ],
     "source": "Skiltforskriften § 6, skilt 202",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,
@@ -19,15 +30,27 @@
   {
     "nr": "204",
     "group": "vikepliktskilt",
-    "name": { "nb": "Stopp", "en": "Stop", "th": "หยุด" },
+    "name": {
+      "nb": "Stopp",
+      "en": "Stop",
+      "th": "หยุด"
+    },
     "meaning": {
       "nb": "Du skal stanse helt ved stopplinjen (eller så nær den kryssende vegen som mulig) og har vikeplikt før du kjører videre.",
       "en": "You must stop completely at the stop line (or as close to the crossing road as possible) and give way before you drive on.",
       "th": "คุณต้องหยุดรถให้สนิทที่เส้นหยุด (หรือใกล้ถนนที่ตัดผ่านมากที่สุด) และต้องให้ทางก่อนขับต่อไป"
     },
-    "file": "204.svg",
-    "credit": { "page": "https://commons.wikimedia.org/wiki/File:NO_road_sign_204.svg", "original": "https://upload.wikimedia.org/wikipedia/commons/b/b6/NO_road_sign_204.svg", "author": "Peter J. Acklam (etter Statens vegvesen)", "license": "Public domain (PD-Statens vegvesen)" },
-    "glossaryTerms": ["stopplinje", "vikeplikt"],
+    "file": "204.png",
+    "credit": {
+      "page": "https://www.vegvesen.no/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/filer-og-fargekoder-for-trafikkskilt/",
+      "original": "https://www.vegvesen.no/globalassets/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/vikeplikt-jpg.zip",
+      "author": "Statens vegvesen",
+      "license": "NLOD 2.0 (Norsk lisens for offentlige data)"
+    },
+    "glossaryTerms": [
+      "stopplinje",
+      "vikeplikt"
+    ],
     "source": "Skiltforskriften § 6, skilt 204 og 206",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,
@@ -37,15 +60,27 @@
   {
     "nr": "206",
     "group": "vikepliktskilt",
-    "name": { "nb": "Forkjørsveg", "en": "Priority road", "th": "ถนนสายหลัก (มีสิทธิ์ผ่านก่อน)" },
+    "name": {
+      "nb": "Forkjørsveg",
+      "en": "Priority road",
+      "th": "ถนนสายหลัก (มีสิทธิ์ผ่านก่อน)"
+    },
     "meaning": {
       "nb": "Du kjører på forkjørsveg. Trafikk fra sideveger og kryssende veger har vikeplikt for deg.",
       "en": "You are on a priority road. Traffic from side roads and crossing roads must give way to you.",
       "th": "คุณกำลังขับบนถนนสายหลัก รถที่มาจากถนนซอยและถนนที่ตัดผ่านต้องให้ทางแก่คุณ"
     },
-    "file": "206.svg",
-    "credit": { "page": "https://commons.wikimedia.org/wiki/File:NO_road_sign_206.svg", "original": "https://upload.wikimedia.org/wikipedia/commons/8/85/NO_road_sign_206.svg", "author": "Peter J. Acklam (etter Statens vegvesen)", "license": "Public domain (PD-Statens vegvesen)" },
-    "glossaryTerms": ["forkjorsveg", "vikeplikt"],
+    "file": "206.png",
+    "credit": {
+      "page": "https://www.vegvesen.no/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/filer-og-fargekoder-for-trafikkskilt/",
+      "original": "https://www.vegvesen.no/globalassets/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/vikeplikt-jpg.zip",
+      "author": "Statens vegvesen",
+      "license": "NLOD 2.0 (Norsk lisens for offentlige data)"
+    },
+    "glossaryTerms": [
+      "forkjorsveg",
+      "vikeplikt"
+    ],
     "source": "Skiltforskriften § 6, skilt 206",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,
@@ -54,15 +89,27 @@
   {
     "nr": "208",
     "group": "vikepliktskilt",
-    "name": { "nb": "Slutt på forkjørsveg", "en": "End of priority road", "th": "สิ้นสุดถนนสายหลัก" },
+    "name": {
+      "nb": "Slutt på forkjørsveg",
+      "en": "End of priority road",
+      "th": "สิ้นสุดถนนสายหลัก"
+    },
     "meaning": {
       "nb": "Forkjørsvegen slutter. Etter skiltet gjelder vanlige regler (høyreregelen) hvis ikke andre skilt eller lys sier noe annet.",
       "en": "The priority road ends. After the sign, the normal rules (the right-hand rule) apply unless other signs or lights say otherwise.",
       "th": "ถนนสายหลักสิ้นสุด หลังป้ายนี้ใช้กฎปกติ (กฎให้ทางรถทางขวา) เว้นแต่มีป้ายหรือสัญญาณไฟอื่นกำหนดไว้"
     },
-    "file": "208.svg",
-    "credit": { "page": "https://commons.wikimedia.org/wiki/File:NO_road_sign_208.svg", "original": "https://upload.wikimedia.org/wikipedia/commons/e/e3/NO_road_sign_208.svg", "author": "Peter J. Acklam (etter Statens vegvesen)", "license": "Public domain (PD-Statens vegvesen)" },
-    "glossaryTerms": ["forkjorsveg", "hoyreregelen"],
+    "file": "208.png",
+    "credit": {
+      "page": "https://www.vegvesen.no/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/filer-og-fargekoder-for-trafikkskilt/",
+      "original": "https://www.vegvesen.no/globalassets/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/vikeplikt-jpg.zip",
+      "author": "Statens vegvesen",
+      "license": "NLOD 2.0 (Norsk lisens for offentlige data)"
+    },
+    "glossaryTerms": [
+      "forkjorsveg",
+      "hoyreregelen"
+    ],
     "source": "Skiltforskriften § 6, skilt 208",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,
@@ -72,15 +119,27 @@
   {
     "nr": "210",
     "group": "vikepliktskilt",
-    "name": { "nb": "Forkjørskryss", "en": "Junction with priority", "th": "ทางแยกที่คุณมีสิทธิ์ผ่านก่อน" },
+    "name": {
+      "nb": "Forkjørskryss",
+      "en": "Junction with priority",
+      "th": "ทางแยกที่คุณมีสิทธิ์ผ่านก่อน"
+    },
     "meaning": {
       "nb": "Varsler om et farlig kryss der trafikk fra sidevegen eller den kryssende vegen har vikeplikt (skilt 202 eller 204). Du har forkjørsrett i dette krysset.",
       "en": "Warns of a dangerous junction where traffic from the side road or crossing road must give way (sign 202 or 204). You have priority in this junction.",
       "th": "เตือนว่ามีทางแยกอันตราย ซึ่งรถจากถนนซอยหรือถนนที่ตัดผ่านต้องให้ทาง (ป้าย 202 หรือ 204) คุณมีสิทธิ์ผ่านก่อนที่ทางแยกนี้"
     },
-    "file": "210.svg",
-    "credit": { "page": "https://commons.wikimedia.org/wiki/File:NO_road_sign_210.svg", "original": "https://upload.wikimedia.org/wikipedia/commons/f/f1/NO_road_sign_210.svg", "author": "Peter J. Acklam (etter Statens vegvesen)", "license": "Public domain (PD-Statens vegvesen)" },
-    "glossaryTerms": ["vegkryss", "vikeplikt"],
+    "file": "210.png",
+    "credit": {
+      "page": "https://www.vegvesen.no/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/filer-og-fargekoder-for-trafikkskilt/",
+      "original": "https://www.vegvesen.no/globalassets/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/vikeplikt-jpg.zip",
+      "author": "Statens vegvesen",
+      "license": "NLOD 2.0 (Norsk lisens for offentlige data)"
+    },
+    "glossaryTerms": [
+      "vegkryss",
+      "vikeplikt"
+    ],
     "source": "Skiltforskriften § 6, skilt 210",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,
@@ -89,15 +148,26 @@
   {
     "nr": "212",
     "group": "vikepliktskilt",
-    "name": { "nb": "Vikeplikt overfor møtende kjørende", "en": "Give way to oncoming traffic", "th": "ให้ทางแก่รถที่สวนมา" },
+    "name": {
+      "nb": "Vikeplikt overfor møtende kjørende",
+      "en": "Give way to oncoming traffic",
+      "th": "ให้ทางแก่รถที่สวนมา"
+    },
     "meaning": {
       "nb": "Du må ikke kjøre inn på den smale strekningen hvis det hindrer møtende kjørende. Vent til vegen er fri.",
       "en": "You must not enter the narrow section if this would block oncoming traffic. Wait until the road is clear.",
       "th": "ห้ามขับเข้าช่วงถนนแคบหากจะกีดขวางรถที่สวนมา ให้รอจนกว่าถนนจะว่าง"
     },
-    "file": "212.svg",
-    "credit": { "page": "https://commons.wikimedia.org/wiki/File:NO_road_sign_212.svg", "original": "https://upload.wikimedia.org/wikipedia/commons/5/5a/NO_road_sign_212.svg", "author": "Peter J. Acklam (etter Statens vegvesen)", "license": "Public domain (PD-Statens vegvesen)" },
-    "glossaryTerms": ["motende"],
+    "file": "212.png",
+    "credit": {
+      "page": "https://www.vegvesen.no/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/filer-og-fargekoder-for-trafikkskilt/",
+      "original": "https://www.vegvesen.no/globalassets/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/vikeplikt-jpg.zip",
+      "author": "Statens vegvesen",
+      "license": "NLOD 2.0 (Norsk lisens for offentlige data)"
+    },
+    "glossaryTerms": [
+      "motende"
+    ],
     "source": "Skiltforskriften § 6, skilt 212",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,
@@ -106,15 +176,27 @@
   {
     "nr": "124",
     "group": "fareskilt",
-    "name": { "nb": "Farlig vegkryss", "en": "Dangerous junction", "th": "ทางแยกอันตราย" },
+    "name": {
+      "nb": "Farlig vegkryss",
+      "en": "Dangerous junction",
+      "th": "ทางแยกอันตราย"
+    },
     "meaning": {
       "nb": "Varsler om et farlig kryss der vanlig vikeplikt gjelder: du har vikeplikt for kjørende fra høyre (høyreregelen).",
       "en": "Warns of a dangerous junction where the normal rule applies: you must give way to traffic from the right (right-hand rule).",
       "th": "เตือนว่ามีทางแยกอันตรายที่ใช้กฎให้ทางตามปกติ คือคุณต้องให้ทางแก่รถที่มาจากทางขวา (กฎให้ทางรถทางขวา)"
     },
-    "file": "124.svg",
-    "credit": { "page": "https://commons.wikimedia.org/wiki/File:NO_road_sign_124.svg", "original": "https://upload.wikimedia.org/wikipedia/commons/3/32/NO_road_sign_124.svg", "author": "Peter J. Acklam (etter Statens vegvesen)", "license": "Public domain (PD-Statens vegvesen)" },
-    "glossaryTerms": ["hoyreregelen", "vegkryss"],
+    "file": "124.png",
+    "credit": {
+      "page": "https://www.vegvesen.no/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/filer-og-fargekoder-for-trafikkskilt/",
+      "original": "https://www.vegvesen.no/globalassets/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/fareskilt-jpg.zip",
+      "author": "Statens vegvesen",
+      "license": "NLOD 2.0 (Norsk lisens for offentlige data)"
+    },
+    "glossaryTerms": [
+      "hoyreregelen",
+      "vegkryss"
+    ],
     "source": "Skiltforskriften § 4, skilt 124",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,
@@ -123,14 +205,23 @@
   {
     "nr": "126",
     "group": "fareskilt",
-    "name": { "nb": "Rundkjøring", "en": "Roundabout ahead", "th": "วงเวียนข้างหน้า" },
+    "name": {
+      "nb": "Rundkjøring",
+      "en": "Roundabout ahead",
+      "th": "วงเวียนข้างหน้า"
+    },
     "meaning": {
       "nb": "Varsler om rundkjøring foran deg.",
       "en": "Warns of a roundabout ahead.",
       "th": "เตือนว่ามีวงเวียนอยู่ข้างหน้า"
     },
-    "file": "126.svg",
-    "credit": { "page": "https://commons.wikimedia.org/wiki/File:NO_road_sign_126.svg", "original": "https://upload.wikimedia.org/wikipedia/commons/c/cd/NO_road_sign_126.svg", "author": "Peter J. Acklam (etter Statens vegvesen)", "license": "Public domain (PD-Statens vegvesen)" },
+    "file": "126.png",
+    "credit": {
+      "page": "https://www.vegvesen.no/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/filer-og-fargekoder-for-trafikkskilt/",
+      "original": "https://www.vegvesen.no/globalassets/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/fareskilt-jpg.zip",
+      "author": "Statens vegvesen",
+      "license": "NLOD 2.0 (Norsk lisens for offentlige data)"
+    },
     "glossaryTerms": [],
     "source": "Skiltforskriften § 4, skilt 126",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
@@ -141,15 +232,26 @@
   {
     "nr": "132",
     "group": "fareskilt",
-    "name": { "nb": "Trafikklyssignal", "en": "Traffic lights ahead", "th": "สัญญาณไฟจราจรข้างหน้า" },
+    "name": {
+      "nb": "Trafikklyssignal",
+      "en": "Traffic lights ahead",
+      "th": "สัญญาณไฟจราจรข้างหน้า"
+    },
     "meaning": {
       "nb": "Varsler om trafikklys foran deg.",
       "en": "Warns of traffic lights ahead.",
       "th": "เตือนว่ามีสัญญาณไฟจราจรอยู่ข้างหน้า"
     },
-    "file": "132.svg",
-    "credit": { "page": "https://commons.wikimedia.org/wiki/File:NO_road_sign_132.svg", "original": "https://upload.wikimedia.org/wikipedia/commons/a/ad/NO_road_sign_132.svg", "author": "Peter J. Acklam (etter Statens vegvesen)", "license": "Public domain (PD-Statens vegvesen)" },
-    "glossaryTerms": ["trafikklys"],
+    "file": "132.png",
+    "credit": {
+      "page": "https://www.vegvesen.no/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/filer-og-fargekoder-for-trafikkskilt/",
+      "original": "https://www.vegvesen.no/globalassets/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/fareskilt-jpg.zip",
+      "author": "Statens vegvesen",
+      "license": "NLOD 2.0 (Norsk lisens for offentlige data)"
+    },
+    "glossaryTerms": [
+      "trafikklys"
+    ],
     "source": "Skiltforskriften § 4, skilt 132",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,
@@ -159,15 +261,26 @@
   {
     "nr": "139",
     "group": "fareskilt",
-    "name": { "nb": "Sporvogn", "en": "Trams", "th": "รถราง" },
+    "name": {
+      "nb": "Sporvogn",
+      "en": "Trams",
+      "th": "รถราง"
+    },
     "meaning": {
       "nb": "Varsler om at trikk (sporvogn) krysser eller kjører i vegen. Trikken har fri veg.",
       "en": "Warns that trams cross or run in the road. The tram has right of way.",
       "th": "เตือนว่ามีรถรางวิ่งตัดผ่านหรือวิ่งบนถนน รถรางมีสิทธิ์ผ่านก่อน"
     },
-    "file": "139.svg",
-    "credit": { "page": "https://commons.wikimedia.org/wiki/File:NO_road_sign_139.svg", "original": "https://upload.wikimedia.org/wikipedia/commons/a/a4/NO_road_sign_139.svg", "author": "Peter J. Acklam (etter Statens vegvesen)", "license": "Public domain (PD-Statens vegvesen)" },
-    "glossaryTerms": ["trikk"],
+    "file": "139.png",
+    "credit": {
+      "page": "https://www.vegvesen.no/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/filer-og-fargekoder-for-trafikkskilt/",
+      "original": "https://www.vegvesen.no/globalassets/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/fareskilt-jpg.zip",
+      "author": "Statens vegvesen",
+      "license": "NLOD 2.0 (Norsk lisens for offentlige data)"
+    },
+    "glossaryTerms": [
+      "trikk"
+    ],
     "source": "Skiltforskriften § 4, skilt 139; trafikkreglene § 10 nr. 2",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,
@@ -177,14 +290,23 @@
   {
     "nr": "406",
     "group": "pabudsskilt",
-    "name": { "nb": "Påbudt rundkjøring", "en": "Roundabout (mandatory direction)", "th": "บังคับวงเวียน" },
+    "name": {
+      "nb": "Påbudt rundkjøring",
+      "en": "Roundabout (mandatory direction)",
+      "th": "บังคับวงเวียน"
+    },
     "meaning": {
       "nb": "Du skal kjøre rundt i pilenes retning (mot klokka).",
       "en": "You must drive round in the direction of the arrows (anticlockwise).",
       "th": "คุณต้องขับวนไปตามทิศทางของลูกศร (ทวนเข็มนาฬิกา)"
     },
-    "file": "406.svg",
-    "credit": { "page": "https://commons.wikimedia.org/wiki/File:NO_road_sign_406.svg", "original": "https://upload.wikimedia.org/wikipedia/commons/8/88/NO_road_sign_406.svg", "author": "Peter J. Acklam (etter Statens vegvesen)", "license": "Public domain (PD-Statens vegvesen)" },
+    "file": "406.png",
+    "credit": {
+      "page": "https://www.vegvesen.no/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/filer-og-fargekoder-for-trafikkskilt/",
+      "original": "https://www.vegvesen.no/globalassets/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/pabudsskilt-jpg.zip",
+      "author": "Statens vegvesen",
+      "license": "NLOD 2.0 (Norsk lisens for offentlige data)"
+    },
     "glossaryTerms": [],
     "source": "Skiltforskriften § 10, skilt 406",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
@@ -195,15 +317,27 @@
   {
     "nr": "516",
     "group": "opplysningsskilt",
-    "name": { "nb": "Gangfelt", "en": "Pedestrian crossing", "th": "ทางม้าลาย" },
+    "name": {
+      "nb": "Gangfelt",
+      "en": "Pedestrian crossing",
+      "th": "ทางม้าลาย"
+    },
     "meaning": {
       "nb": "Her er det et gangfelt. Trafikkreglenes regler om gangfelt gjelder.",
       "en": "There is a pedestrian crossing here. The traffic rules for pedestrian crossings apply.",
       "th": "ที่นี่มีทางม้าลาย ใช้กฎจราจรเกี่ยวกับทางม้าลาย"
     },
-    "file": "516.svg",
-    "credit": { "page": "https://commons.wikimedia.org/wiki/File:NO_road_sign_516.H.svg", "original": "https://upload.wikimedia.org/wikipedia/commons/6/66/NO_road_sign_516.H.svg", "author": "Peter J. Acklam (etter Statens vegvesen)", "license": "Public domain (PD-Statens vegvesen)" },
-    "glossaryTerms": ["gangfelt"],
+    "file": "516.png",
+    "credit": {
+      "page": "https://www.vegvesen.no/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/filer-og-fargekoder-for-trafikkskilt/",
+      "original": "https://www.vegvesen.no/globalassets/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/opplysningsskilt-jpg.zip",
+      "author": "Statens vegvesen",
+      "license": "NLOD 2.0 (Norsk lisens for offentlige data)",
+      "variant": "H"
+    },
+    "glossaryTerms": [
+      "gangfelt"
+    ],
     "source": "Skiltforskriften § 12, skilt 516",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,

@@ -12,7 +12,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "validate-content": "tsx scripts/validate-content.ts",
-    "fetch-signs": "node scripts/fetch-signs.mjs",
+    "import-signs": "node scripts/import-signs.mjs && node scripts/write-licenses.mjs",
     "check": "npm run validate-content && npm run typecheck && npm test"
   },
   "dependencies": {
@@ -32,6 +32,7 @@
     "@vite-pwa/assets-generator": "^2.0.0",
     "@vitejs/plugin-react": "^6.3.0",
     "fake-indexeddb": "^6.2.8",
+    "sharp": "^0.35.5",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vite": "^8.3.8",

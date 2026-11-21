@@ -93,11 +93,13 @@ export const Sign = z.strictObject({
   /** Hva skiltet betyr for deg som fører. */
   meaning: L3,
   /** Fil i public/signs/. */
-  file: z.string().regex(/^[\w.-]+\.svg$/),
+  file: z.string().regex(/^[\w.-]+\.(svg|png)$/),
   credit: z.strictObject({
     page: z.url(),
-    /** Direkte lenke til originalfilen (brukes av npm run fetch-signs). */
+    /** Zip-filen hos Statens vegvesen som skiltet hentes fra (brukes av npm run import-signs). */
     original: z.url(),
+    /** Variant i zip-filen, f.eks. «H» for 516_H.jpg. Standard er «0». */
+    variant: z.string().optional(),
     author: z.string().min(1),
     license: z.string().min(1),
   }),

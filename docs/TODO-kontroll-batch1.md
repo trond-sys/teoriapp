@@ -140,7 +140,7 @@ Fil: `src/content/signs.json`. For skiltene under er bare tittelen lest. Finn de
 | 139 Sporvogn (fareskilt) | «Varsler om at trikk (sporvogn) krysser eller kjører i vegen. Trikken har fri veg.» |
 | 406 Påbudt rundkjøring | «Du skal kjøre rundt i pilenes retning (mot klokka).» |
 
-Kontroller også at de offisielle navnene stemmer for alle 12 skiltene i `signs.json` (202, 204, 206, 208, 210, 212, 124, 126, 132, 139, 406 og 516). Navnene på 210 «Forkjørskryss» og 212 «Vikeplikt overfor møtende kjørende» er lest ordrett. Skilt 516 er filen «516.H» på Commons, og det er ikke kjent hva H og V betyr. Finn ut hvilken variant som er riktig å vise.
+Kontroller også at de offisielle navnene stemmer for alle 12 skiltene i `signs.json` (202, 204, 206, 208, 210, 212, 124, 126, 132, 139, 406 og 516). Navnene på 210 «Forkjørskryss» og 212 «Vikeplikt overfor møtende kjørende» er lest ordrett. Skiltbildene kommer fra Statens vegvesens skiltfiler (zip per skiltgruppe). For skilt 516 brukes filen `516_H.jpg`, men det finnes også `516_V.jpg`, og det er ikke kjent hva H og V betyr. Finn ut hvilken variant som er riktig å vise.
 
 ---
 

@@ -9,7 +9,7 @@ import type { QuizItem } from './quizItem';
 
 export function SignImage({ nr, size = 160 }: { nr: string; size?: number }) {
   const s = SIGN_BY_NR.get(nr);
-  // Plassholder med skiltnummeret når SVG-filen ikke er lastet ned ennå (npm run fetch-signs).
+  // Plassholder med skiltnummeret når bildefilen ikke er hentet ennå (npm run import-signs).
   const [missing, setMissing] = useState(false);
   if (!s) return null;
   if (missing)

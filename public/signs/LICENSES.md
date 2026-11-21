@@ -1,20 +1,25 @@
 # Skiltgrafikk – kilde og lisens
 
-Alle skilt er SVG-filer fra Wikimedia Commons, lastet ned uendret med `npm run fetch-signs`.
-Lisensen er kontrollert på filsiden for hver fil (21.11.2026). Skiltnummer følger skiltforskriften.
-Tabellen lages av `node scripts/write-licenses.mjs` ut fra src/content/signs.json.
+Skiltbildene kommer fra Statens vegvesens offisielle skiltfiler:
+https://www.vegvesen.no/fag/veg-og-gate/trafikkskilt-og-vegoppmerking/filer-og-fargekoder-for-trafikkskilt/
 
-| Fil | Skilt | Commons-side | Forfatter | Lisens |
+Inneholder data under Norsk lisens for offentlige data (NLOD) 2.0, tilgjengeliggjort av Statens vegvesen.
+Lisens: https://data.norge.no/nlod/no/2.0 (datasett: https://data.norge.no/en/datasets/62cd16c5-91ad-3083-8f56-cef0d7bd18de).
+
+Filene er konvertert fra CMYK-JPG til sRGB-PNG (maks 480 px, hvit kant fjernet) med `npm run import-signs`.
+Skiltnummer følger skiltforskriften. Tabellen lages av `node scripts/write-licenses.mjs` ut fra src/content/signs.json.
+
+| Fil | Skilt | Zip-fil hos vegvesen.no | Kilde | Lisens |
 |---|---|---|---|---|
-| 202.svg | 202 Vikeplikt | https://commons.wikimedia.org/wiki/File:NO_road_sign_202.svg | Peter J. Acklam (etter Statens vegvesen) | Public domain (PD-Statens vegvesen) |
-| 204.svg | 204 Stopp | https://commons.wikimedia.org/wiki/File:NO_road_sign_204.svg | Peter J. Acklam (etter Statens vegvesen) | Public domain (PD-Statens vegvesen) |
-| 206.svg | 206 Forkjørsveg | https://commons.wikimedia.org/wiki/File:NO_road_sign_206.svg | Peter J. Acklam (etter Statens vegvesen) | Public domain (PD-Statens vegvesen) |
-| 208.svg | 208 Slutt på forkjørsveg | https://commons.wikimedia.org/wiki/File:NO_road_sign_208.svg | Peter J. Acklam (etter Statens vegvesen) | Public domain (PD-Statens vegvesen) |
-| 210.svg | 210 Forkjørskryss | https://commons.wikimedia.org/wiki/File:NO_road_sign_210.svg | Peter J. Acklam (etter Statens vegvesen) | Public domain (PD-Statens vegvesen) |
-| 212.svg | 212 Vikeplikt overfor møtende kjørende | https://commons.wikimedia.org/wiki/File:NO_road_sign_212.svg | Peter J. Acklam (etter Statens vegvesen) | Public domain (PD-Statens vegvesen) |
-| 124.svg | 124 Farlig vegkryss | https://commons.wikimedia.org/wiki/File:NO_road_sign_124.svg | Peter J. Acklam (etter Statens vegvesen) | Public domain (PD-Statens vegvesen) |
-| 126.svg | 126 Rundkjøring | https://commons.wikimedia.org/wiki/File:NO_road_sign_126.svg | Peter J. Acklam (etter Statens vegvesen) | Public domain (PD-Statens vegvesen) |
-| 132.svg | 132 Trafikklyssignal | https://commons.wikimedia.org/wiki/File:NO_road_sign_132.svg | Peter J. Acklam (etter Statens vegvesen) | Public domain (PD-Statens vegvesen) |
-| 139.svg | 139 Sporvogn | https://commons.wikimedia.org/wiki/File:NO_road_sign_139.svg | Peter J. Acklam (etter Statens vegvesen) | Public domain (PD-Statens vegvesen) |
-| 406.svg | 406 Påbudt rundkjøring | https://commons.wikimedia.org/wiki/File:NO_road_sign_406.svg | Peter J. Acklam (etter Statens vegvesen) | Public domain (PD-Statens vegvesen) |
-| 516.svg | 516 Gangfelt | https://commons.wikimedia.org/wiki/File:NO_road_sign_516.H.svg | Peter J. Acklam (etter Statens vegvesen) | Public domain (PD-Statens vegvesen) |
+| 202.png | 202 Vikeplikt | vikeplikt-jpg.zip | Statens vegvesen | NLOD 2.0 (Norsk lisens for offentlige data) |
+| 204.png | 204 Stopp | vikeplikt-jpg.zip | Statens vegvesen | NLOD 2.0 (Norsk lisens for offentlige data) |
+| 206.png | 206 Forkjørsveg | vikeplikt-jpg.zip | Statens vegvesen | NLOD 2.0 (Norsk lisens for offentlige data) |
+| 208.png | 208 Slutt på forkjørsveg | vikeplikt-jpg.zip | Statens vegvesen | NLOD 2.0 (Norsk lisens for offentlige data) |
+| 210.png | 210 Forkjørskryss | vikeplikt-jpg.zip | Statens vegvesen | NLOD 2.0 (Norsk lisens for offentlige data) |
+| 212.png | 212 Vikeplikt overfor møtende kjørende | vikeplikt-jpg.zip | Statens vegvesen | NLOD 2.0 (Norsk lisens for offentlige data) |
+| 124.png | 124 Farlig vegkryss | fareskilt-jpg.zip | Statens vegvesen | NLOD 2.0 (Norsk lisens for offentlige data) |
+| 126.png | 126 Rundkjøring | fareskilt-jpg.zip | Statens vegvesen | NLOD 2.0 (Norsk lisens for offentlige data) |
+| 132.png | 132 Trafikklyssignal | fareskilt-jpg.zip | Statens vegvesen | NLOD 2.0 (Norsk lisens for offentlige data) |
+| 139.png | 139 Sporvogn | fareskilt-jpg.zip | Statens vegvesen | NLOD 2.0 (Norsk lisens for offentlige data) |
+| 406.png | 406 Påbudt rundkjøring | pabudsskilt-jpg.zip | Statens vegvesen | NLOD 2.0 (Norsk lisens for offentlige data) |
+| 516.png | 516 Gangfelt | opplysningsskilt-jpg.zip (variant H) | Statens vegvesen | NLOD 2.0 (Norsk lisens for offentlige data) |

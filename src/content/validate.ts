@@ -122,8 +122,8 @@ export function validateContent(raw: RawContent, sceneCheck?: SceneCheck): Valid
   }
   for (const s of signs) {
     checkTerms(`skilt ${s.nr}`, s.glossaryTerms);
-    // Manglende SVG er en advarsel: appen viser skiltnummeret som plassholder til filen er hentet (npm run fetch-signs).
-    if (!raw.signFiles.includes(s.file)) warnings.push(`skilt ${s.nr}: filen public/signs/${s.file} mangler – kjør npm run fetch-signs`);
+    // Manglende bildefil er en advarsel: appen viser skiltnummeret som plassholder til filen er hentet (npm run import-signs).
+    if (!raw.signFiles.includes(s.file)) warnings.push(`skilt ${s.nr}: filen public/signs/${s.file} mangler – kjør npm run import-signs`);
     if (!raw.licensesMd.includes(s.file)) errors.push(`skilt ${s.nr}: ${s.file} mangler i public/signs/LICENSES.md`);
   }
   for (const s of scenes) {

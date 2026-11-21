@@ -6,7 +6,7 @@ import type { Sign, SignGroup } from '../../content/schema';
 import { recordAttempt } from '../../db/db';
 import { ThaiScope, useSettings, useThaiScope } from '../../i18n/LangProvider';
 import { ui } from '../../i18n/strings';
-import { T, TLine, U } from '../../i18n/T';
+import { T, TLine, U, useLayers } from '../../i18n/T';
 import { Icon } from '../../components/Icon';
 import { UnverifiedBadge } from '../../components/UnverifiedBadge';
 import { QuestionRunner } from '../quiz/QuestionRunner';
@@ -68,9 +68,11 @@ function FlashCard({ sign, onAnswer }: { sign: Sign; onAnswer: (knew: boolean) =
       {flipped ? (
         <>
           <T as="h2" text={sign.name} report={{ itemId: signItemId(sign.nr), field: 'name' }} />
-          <p lang="nb" className="road-nb">
-            {sign.name.nb}
-          </p>
+          {mainLang !== 'nb' && (
+            <p lang="nb" className="road-nb">
+              {sign.name.nb}
+            </p>
+          )}
           <T text={sign.meaning} terms={sign.glossaryTerms} report={{ itemId: signItemId(sign.nr), field: 'meaning' }} />
           <div className="row-wrap">
             <button type="button" className="btn" onClick={() => answer(false)}>
@@ -107,6 +109,7 @@ function FlashCards() {
 export function SignsPage() {
   const { mode } = useParams();
   const nav = useNavigate();
+  const { main } = useLayers();
   const entries = useMemo(() => {
     if (SIGNS.length < 4) return [];
     const deck = shuffle(SIGNS);
@@ -177,9 +180,11 @@ export function SignsPage() {
                 <ThaiScope scopeKey={s.nr}>
                   <TLine text={s.name} />
                 </ThaiScope>
-                <span lang="nb" className="road-nb small">
-                  {s.name.nb}
-                </span>
+                {main !== 'nb' && (
+                  <span lang="nb" className="road-nb small">
+                    {s.name.nb}
+                  </span>
+                )}
               </li>
             ))}
           </ul>

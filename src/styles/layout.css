@@ -139,6 +139,20 @@ a {
 .nav-label {
   display: flex;
   flex-direction: column;
+  overflow-wrap: normal;
+  word-break: normal;
+  max-width: 100%;
+}
+/* Bunnmenyen: tannhjulet vises uten tekst, så de andre etikettene får plass uten å deles. */
+@media (max-width: 899px), (max-width: 1199px) and (orientation: portrait) {
+  .nav-settings .nav-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
 }
 .main {
   padding-bottom: calc(76px + env(safe-area-inset-bottom));

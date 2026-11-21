@@ -13,7 +13,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'prompt',
-      includeAssets: ['favicon.svg', 'signs/*.svg'],
+      includeAssets: ['favicon.svg', 'signs/*.png'],
       manifest: {
         name: 'Teori B',
         short_name: 'Teori B',
