@@ -1,0 +1,153 @@
+[
+  {
+    "id": "vikeplikt-011",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-lysregulering",
+    "trinn": 3,
+    "type": "mc-single",
+    "difficulty": 2,
+    "prompt": {
+      "nb": "I et kryss er det både trafikklys og vikepliktskilt. Lyset er grønt for deg, og du skal rett fram. Hva gjelder?",
+      "en": "At a junction there are both traffic lights and a give way sign. The light is green for you, and you are going straight ahead. What applies?",
+      "th": "ที่ทางแยกแห่งหนึ่งมีทั้งสัญญาณไฟจราจรและป้ายให้ทาง ไฟเป็นสีเขียวสำหรับคุณ และคุณจะตรงไป อะไรใช้ในกรณีนี้?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Vikepliktskiltet – du må vike for kryssende trafikk", "en": "The give way sign – you must give way to crossing traffic", "th": "ป้ายให้ทาง คุณต้องให้ทางแก่รถที่ตัดผ่าน" },
+        "whyWrong": {
+          "nb": "Når trafikklyset er i bruk, gjelder det foran vikepliktskiltet.",
+          "en": "When the traffic light is in use, it applies before the give way sign.",
+          "th": "เมื่อสัญญาณไฟจราจรทำงาน สัญญาณไฟมีผลเหนือป้ายให้ทาง"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Trafikklyset – du kan kjøre når vegen er fri", "en": "The traffic light – you may go when the road is clear", "th": "สัญญาณไฟจราจร คุณไปได้เมื่อถนนว่าง" }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Høyreregelen", "en": "The right-hand rule", "th": "กฎให้ทางรถทางขวา" },
+        "whyWrong": {
+          "nb": "Både lys og skilt gjelder foran høyreregelen. Her bestemmer lyset.",
+          "en": "Both lights and signs apply before the right-hand rule. Here the light decides.",
+          "th": "ทั้งสัญญาณไฟและป้ายมีผลเหนือกฎให้ทางรถทางขวา ในกรณีนี้สัญญาณไฟเป็นตัวกำหนด"
+        }
+      }
+    ],
+    "correct": "b",
+    "explanation": {
+      "nb": "Trafikklys gjelder foran vikepliktskilt. Grønt lys betyr at du kan kjøre hvis vegen er fri. Både lys og skilt gjelder foran de vanlige trafikkreglene, som høyreregelen.",
+      "en": "Traffic lights apply before give way signs. A green light means you may go if the road is clear. Both lights and signs apply before the normal traffic rules, such as the right-hand rule.",
+      "th": "สัญญาณไฟจราจรมีผลเหนือป้ายให้ทาง ไฟเขียวหมายความว่าคุณไปได้ถ้าถนนว่าง ทั้งสัญญาณไฟและป้ายมีผลเหนือกฎจราจรทั่วไป เช่น กฎให้ทางรถทางขวา"
+    },
+    "glossaryTerms": ["trafikklys", "vikeplikt", "hoyreregelen"],
+    "source": "Trafikkreglene § 3 nr. 1 første og annet ledd; skiltforskriften § 24 (grønt lys)",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
+    "verified": false,
+    "todo": "§ 3 nr. 1 er lest ordrett. Betydningen av grønt lys (skiltforskriften § 24) er bare lest som sammendrag.",
+    "thReview": "pending"
+  },
+  {
+    "id": "vikeplikt-012",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-lysregulering",
+    "trinn": 3,
+    "type": "mc-single",
+    "difficulty": 2,
+    "prompt": {
+      "nb": "En politibetjent står i krysset og holder den ene armen rett opp. Hva betyr det?",
+      "en": "A police officer is standing in the junction holding one arm straight up. What does that mean?",
+      "th": "ตำรวจยืนอยู่กลางทางแยกและยกแขนข้างหนึ่งขึ้นตรง หมายความว่าอย่างไร?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Bare trafikk forfra og bakfra skal stanse", "en": "Only traffic from the front and back must stop", "th": "เฉพาะรถที่มาจากด้านหน้าและด้านหลังต้องหยุด" },
+        "whyWrong": {
+          "nb": "Det gjelder når armen er strukket ut til siden. Arm rett opp betyr at alle skal stanse.",
+          "en": "That applies when the arm is stretched out to the side. An arm straight up means everyone must stop.",
+          "th": "นั่นคือเมื่อกางแขนออกด้านข้าง ยกแขนขึ้นตรงหมายความว่าทุกคนต้องหยุด"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Du kan kjøre, men sakte", "en": "You may go, but slowly", "th": "คุณไปได้ แต่ต้องช้า ๆ" },
+        "whyWrong": {
+          "nb": "Arm rett opp er et tegn til å stanse, ikke til å kjøre sakte.",
+          "en": "An arm straight up is a signal to stop, not to drive slowly.",
+          "th": "การยกแขนขึ้นตรงเป็นสัญญาณให้หยุด ไม่ใช่ให้ขับช้า ๆ"
+        }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Trafikk fra høyre kan kjøre", "en": "Traffic from the right may go", "th": "รถที่มาจากทางขวาไปได้" }
+      },
+      {
+        "id": "d",
+        "text": { "nb": "Alle trafikanter skal stanse", "en": "All road users must stop", "th": "ผู้ใช้ถนนทุกคนต้องหยุด" }
+      }
+    ],
+    "correct": "d",
+    "explanation": {
+      "nb": "Arm rett opp betyr at alle trafikanter skal stanse. Kan du ikke stanse uten fare, kan du fortsette. Er du allerede inne i krysset, skal du kjøre ut av det. Politiets tegn gjelder foran andre anvisninger.",
+      "en": "An arm straight up means all road users must stop. If you cannot stop safely, you may continue. If you are already in the junction, drive out of it. Police signals apply before other directions.",
+      "th": "การยกแขนขึ้นตรงหมายความว่าผู้ใช้ถนนทุกคนต้องหยุด ถ้าคุณหยุดอย่างปลอดภัยไม่ได้ คุณไปต่อได้ ถ้าคุณอยู่ในทางแยกแล้ว ให้ขับออกไปจากทางแยก สัญญาณของตำรวจมีผลเหนือคำสั่งอื่น ๆ"
+    },
+    "glossaryTerms": ["vegkryss"],
+    "source": "Skiltforskriften § 25 (anvisning fra politi); trafikkreglene § 3 nr. 2",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
+    "verified": false,
+    "todo": "Skiltforskriften § 25 er bare lest som sammendrag, ikke ordrett. Kontroller ordlyden om arm rettet oppad og unntakene (kan ikke stanse uten fare / allerede i krysset).",
+    "thReview": "pending"
+  },
+  {
+    "id": "vikeplikt-013",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-lysregulering",
+    "trinn": 3,
+    "type": "mc-single",
+    "difficulty": 2,
+    "prompt": {
+      "nb": "Lyset er grønt for deg, men en politibetjent i krysset gir deg tegn om å stanse. Hva gjør du?",
+      "en": "The light is green for you, but a police officer in the junction signals you to stop. What do you do?",
+      "th": "ไฟเป็นสีเขียวสำหรับคุณ แต่ตำรวจที่อยู่ในทางแยกให้สัญญาณให้คุณหยุด คุณจะทำอย่างไร?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Kjører, fordi lyset er grønt", "en": "Drive on, because the light is green", "th": "ขับไป เพราะไฟเป็นสีเขียว" },
+        "whyWrong": {
+          "nb": "Politiets tegn gjelder foran trafikklyset.",
+          "en": "The police officer's signals apply before the traffic light.",
+          "th": "สัญญาณของตำรวจมีผลเหนือสัญญาณไฟจราจร"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Stanser – politiets tegn gjelder foran trafikklyset", "en": "Stop – the police officer's signals apply before the traffic light", "th": "หยุด สัญญาณของตำรวจมีผลเหนือสัญญาณไฟจราจร" }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Kjører sakte forbi politibetjenten", "en": "Drive slowly past the police officer", "th": "ขับผ่านตำรวจไปช้า ๆ" },
+        "whyWrong": {
+          "nb": "Når politiet gir tegn om å stanse, skal du stanse.",
+          "en": "When the police signal you to stop, you must stop.",
+          "th": "เมื่อตำรวจให้สัญญาณให้หยุด คุณต้องหยุด"
+        }
+      }
+    ],
+    "correct": "b",
+    "explanation": {
+      "nb": "Anvisning fra politiet gjelder foran anvisning gitt på annen måte – også foran trafikklys og skilt. Følg alltid politiets tegn.",
+      "en": "Directions from the police apply before directions given in any other way – also before traffic lights and signs. Always follow the police officer's signals.",
+      "th": "คำสั่งของตำรวจมีผลเหนือคำสั่งที่ให้ด้วยวิธีอื่น รวมถึงสัญญาณไฟจราจรและป้าย ให้ทำตามสัญญาณของตำรวจเสมอ"
+    },
+    "glossaryTerms": ["trafikklys"],
+    "source": "Trafikkreglene § 3 nr. 2",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
+    "verified": false,
+    "todo": "§ 3 nr. 2 sier at politiets anvisning gjelder foran «anvisning gitt på annen måte». At dette også omfatter trafikklys, er min tolkning – kontroller.",
+    "thReview": "pending"
+  }
+]

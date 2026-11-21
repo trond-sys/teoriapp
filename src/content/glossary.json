@@ -1,1 +1,298 @@
-[]
+[
+  {
+    "id": "vikeplikt",
+    "nb": "vikeplikt",
+    "en": "duty to give way",
+    "th": "หน้าที่ให้ทาง",
+    "def": {
+      "nb": "Du må slippe den andre fram først. Du skal vise det tydelig ved å sette ned farten i god tid eller stanse.",
+      "en": "You must let the other road user go first. Show it clearly by slowing down in good time or stopping.",
+      "th": "คุณต้องให้ผู้ใช้ถนนอีกฝ่ายไปก่อน และต้องแสดงให้ชัดเจนโดยลดความเร็วแต่เนิ่น ๆ หรือหยุดรถ"
+    },
+    "onRoad": true,
+    "source": "Trafikkreglene § 7 nr. 1",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "hoyreregelen",
+    "nb": "høyreregelen",
+    "en": "right-hand rule",
+    "th": "กฎให้ทางรถทางขวา",
+    "def": {
+      "nb": "Når ingen skilt eller lys sier noe annet, har du vikeplikt for kjøretøy som kommer fra høyre.",
+      "en": "When no signs or lights say otherwise, you must give way to vehicles coming from your right.",
+      "th": "เมื่อไม่มีป้ายหรือสัญญาณไฟกำหนดเป็นอย่างอื่น คุณต้องให้ทางแก่รถที่มาจากทางขวาของคุณ"
+    },
+    "source": "Trafikkreglene § 7 nr. 2",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "forkjorsveg",
+    "nb": "forkjørsveg",
+    "en": "priority road",
+    "th": "ถนนสายหลักที่มีสิทธิ์ผ่านก่อน",
+    "def": {
+      "nb": "Veg med skilt 206. Trafikk fra sideveger og kryssende veger har vikeplikt for deg.",
+      "en": "A road with sign 206. Traffic from side roads and crossing roads must give way to you.",
+      "th": "ถนนที่มีป้ายหมายเลข 206 รถที่มาจากถนนซอยหรือถนนที่ตัดผ่านต้องให้ทางแก่คุณ"
+    },
+    "onRoad": true,
+    "source": "Skiltforskriften § 6, skilt 206",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "vegkryss",
+    "nb": "kryss",
+    "en": "junction",
+    "th": "ทางแยก",
+    "def": {
+      "nb": "Sted der to eller flere veger møtes (vegkryss).",
+      "en": "A place where two or more roads meet (also called an intersection).",
+      "th": "จุดที่ถนนสองสายหรือมากกว่ามาบรรจบกัน"
+    },
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "avkjorsel",
+    "nb": "avkjørsel",
+    "en": "driveway",
+    "th": "ทางเข้าออก",
+    "def": {
+      "nb": "Utkjøring fra parkeringsplass, eiendom, bensinstasjon, gårdsveg eller liknende. Den som kjører ut, har vikeplikt for all annen trafikk.",
+      "en": "An exit from a parking area, property, petrol station, farm road or similar. The driver coming out must give way to all other traffic.",
+      "th": "ทางออกจากที่จอดรถ บ้าน ปั๊มน้ำมัน ทางเข้าฟาร์ม หรือที่คล้ายกัน ผู้ที่ขับออกมาต้องให้ทางแก่ผู้ใช้ถนนอื่นทั้งหมด"
+    },
+    "source": "Trafikkreglene § 7 nr. 4",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "parkeringsplass",
+    "nb": "parkeringsplass",
+    "en": "parking area",
+    "th": "ที่จอดรถ",
+    "def": {
+      "nb": "Område der man parkerer. Når du kjører ut på vegen herfra, har du vikeplikt.",
+      "en": "An area for parking. When you drive out onto the road from here, you must give way.",
+      "th": "พื้นที่สำหรับจอดรถ เมื่อคุณขับออกจากที่นี่ไปยังถนน คุณต้องให้ทาง"
+    },
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "holdeplass",
+    "nb": "holdeplass",
+    "en": "bus stop",
+    "th": "ป้ายรถโดยสาร",
+    "def": {
+      "nb": "Stoppested for buss eller trikk.",
+      "en": "A stopping place for buses or trams.",
+      "th": "จุดจอดของรถบัสหรือรถราง"
+    },
+    "onRoad": true,
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "gangfelt",
+    "nb": "gangfelt",
+    "en": "pedestrian crossing",
+    "th": "ทางม้าลาย",
+    "def": {
+      "nb": "Merket sted der gående krysser vegen (skilt 516 eller hvite striper). Uten lys eller politi har du vikeplikt for gående som er i gangfeltet eller på veg ut i det.",
+      "en": "A marked place where pedestrians cross the road (sign 516 or white stripes). Without lights or police, you must give way to pedestrians who are on the crossing or about to step onto it.",
+      "th": "จุดที่มีเครื่องหมายให้คนเดินข้ามถนน (ป้าย 516 หรือแถบสีขาว) ถ้าไม่มีสัญญาณไฟหรือตำรวจ คุณต้องให้ทางแก่คนเดินเท้าที่อยู่บนทางม้าลายหรือกำลังจะก้าวลงไป"
+    },
+    "onRoad": true,
+    "source": "Trafikkreglene § 9 nr. 2",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "fotgjenger",
+    "nb": "fotgjenger",
+    "en": "pedestrian",
+    "th": "คนเดินเท้า",
+    "def": {
+      "nb": "En som går. I trafikkreglene kalles de «gående».",
+      "en": "A person on foot. The traffic rules call them “gående” (people walking).",
+      "th": "คนที่เดินเท้า ในกฎจราจรเรียกว่า «gående»"
+    },
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "utrykningskjoretoy",
+    "nb": "utrykningskjøretøy",
+    "en": "emergency vehicle",
+    "th": "รถฉุกเฉิน",
+    "def": {
+      "nb": "Ambulanse, brannbil, politibil og liknende. Med blått blinklys skal alle gi fri veg.",
+      "en": "Ambulance, fire engine, police car and similar. When the blue lights are flashing, everyone must give way.",
+      "th": "รถพยาบาล รถดับเพลิง รถตำรวจ และรถที่คล้ายกัน เมื่อเปิดไฟกะพริบสีน้ำเงิน ทุกคนต้องเปิดทางให้"
+    },
+    "source": "Trafikkreglene § 10 nr. 1",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "blalys",
+    "nb": "blått blinklys",
+    "en": "flashing blue light",
+    "th": "ไฟกะพริบสีน้ำเงิน",
+    "def": {
+      "nb": "Varsellys på utrykningskjøretøy. Når det blinker, skal du gi fri veg og stanse om nødvendig.",
+      "en": "Warning light on emergency vehicles. When it flashes, you must give way and stop if necessary.",
+      "th": "ไฟเตือนบนรถฉุกเฉิน เมื่อไฟกะพริบ คุณต้องเปิดทางให้และหยุดรถถ้าจำเป็น"
+    },
+    "source": "Trafikkreglene § 10 nr. 1",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "fri-veg",
+    "nb": "fri veg",
+    "en": "clear the way",
+    "th": "เปิดทางให้",
+    "def": {
+      "nb": "Mer enn vanlig vikeplikt: du skal gjøre plass slik at den andre kan kjøre uhindret, og stanse om nødvendig.",
+      "en": "More than the ordinary duty to give way: you must make room so the other can pass without hindrance, and stop if necessary.",
+      "th": "มากกว่าหน้าที่ให้ทางตามปกติ คุณต้องหลีกทางให้อีกฝ่ายผ่านไปได้โดยไม่ติดขัด และหยุดรถถ้าจำเป็น"
+    },
+    "source": "Trafikkreglene § 10",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "trikk",
+    "nb": "trikk",
+    "en": "tram",
+    "th": "รถราง",
+    "def": {
+      "nb": "Sporvogn som går på skinner i gata. Andre trafikanter skal gi fri veg for trikken.",
+      "en": "A streetcar running on rails in the street (“sporvogn” in the law). Other road users must give way to the tram.",
+      "th": "รถที่วิ่งบนรางในถนน (ในกฎหมายเรียกว่า «sporvogn») ผู้ใช้ถนนอื่นต้องเปิดทางให้รถราง"
+    },
+    "source": "Trafikkreglene § 10 nr. 2",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "planovergang",
+    "nb": "planovergang",
+    "en": "level crossing",
+    "th": "ทางรถไฟตัดผ่านถนน",
+    "def": {
+      "nb": "Sted der vegen krysser jernbane eller trikkespor i samme høyde. Toget har alltid fri veg.",
+      "en": "A place where the road crosses a railway or tram line at the same level. The train always has right of way.",
+      "th": "จุดที่ถนนตัดผ่านทางรถไฟหรือรางรถรางในระดับเดียวกัน รถไฟมีสิทธิ์ผ่านก่อนเสมอ"
+    },
+    "onRoad": true,
+    "source": "Trafikkreglene § 10 nr. 2",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "trafikklys",
+    "nb": "trafikklys",
+    "en": "traffic light",
+    "th": "สัญญาณไฟจราจร",
+    "def": {
+      "nb": "Lyssignal som regulerer trafikken. Trafikklys gjelder foran vikepliktskilt.",
+      "en": "A light signal that controls traffic. Traffic lights apply before give way signs.",
+      "th": "สัญญาณไฟที่ควบคุมการจราจร สัญญาณไฟจราจรมีผลเหนือป้ายให้ทาง"
+    },
+    "source": "Trafikkreglene § 3 nr. 1",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "stopplinje",
+    "nb": "stopplinje",
+    "en": "stop line",
+    "th": "เส้นหยุด",
+    "def": {
+      "nb": "Hvit tverrgående linje i vegen. Den viser hvor du skal stanse når skilt eller trafikklys krever det.",
+      "en": "A white line across the lane. It shows where you must stop when a sign or traffic light requires it.",
+      "th": "เส้นสีขาวขวางช่องทาง แสดงจุดที่คุณต้องหยุดเมื่อป้ายหรือสัญญาณไฟจราจรกำหนดให้หยุด"
+    },
+    "onRoad": true,
+    "source": "Skiltforskriften § 22 B, oppmerking 1020",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "motende",
+    "nb": "møtende",
+    "en": "oncoming",
+    "th": "ที่สวนทางมา",
+    "def": {
+      "nb": "Trafikk som kommer imot deg fra motsatt retning.",
+      "en": "Traffic coming towards you from the opposite direction.",
+      "th": "รถที่วิ่งสวนมาจากทิศทางตรงกันข้าม"
+    },
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "venstresving",
+    "nb": "venstresving",
+    "en": "left turn",
+    "th": "การเลี้ยวซ้าย",
+    "def": {
+      "nb": "Når du svinger til venstre, krysser du kjørebanen til møtende trafikk. Da har du vikeplikt for møtende.",
+      "en": "When you turn left, you cross the lane of oncoming traffic. So you must give way to oncoming traffic.",
+      "th": "เมื่อคุณเลี้ยวซ้าย คุณจะตัดผ่านช่องทางของรถที่สวนมา ดังนั้นคุณต้องให้ทางแก่รถที่สวนมา"
+    },
+    "source": "Trafikkreglene § 7 nr. 2",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "rygging",
+    "nb": "rygging",
+    "en": "reversing",
+    "th": "การถอยรถ",
+    "def": {
+      "nb": "Å kjøre bakover. Den som rygger, har vikeplikt for all annen trafikk.",
+      "en": "Driving backwards. The driver who reverses must give way to all other traffic.",
+      "th": "การขับรถถอยหลัง ผู้ที่ถอยรถต้องให้ทางแก่ผู้ใช้ถนนอื่นทั้งหมด"
+    },
+    "source": "Trafikkreglene § 11 nr. 1",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "vending",
+    "nb": "vending",
+    "en": "turning around",
+    "th": "การกลับรถ",
+    "def": {
+      "nb": "Å snu bilen for å kjøre tilbake samme veg. Den som vender, har vikeplikt for all annen trafikk.",
+      "en": "Turning the car to drive back the way you came. The driver who turns around must give way to all other traffic.",
+      "th": "การกลับรถเพื่อขับย้อนกลับทางเดิม ผู้ที่กลับรถต้องให้ทางแก่ผู้ใช้ถนนอื่นทั้งหมด"
+    },
+    "source": "Trafikkreglene § 11 nr. 1",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "motorveg",
+    "nb": "motorveg",
+    "en": "motorway",
+    "th": "ทางหลวงพิเศษ (มอเตอร์เวย์)",
+    "def": {
+      "nb": "Veg med atskilte kjørebaner og planskilte kryss. Rygging og vending er forbudt her.",
+      "en": "A road with separated carriageways and no level junctions. Reversing and turning around are forbidden here.",
+      "th": "ถนนที่มีช่องทางแยกกันและไม่มีทางแยกระดับเดียวกัน ห้ามถอยรถและกลับรถ"
+    },
+    "onRoad": true,
+    "source": "Trafikkreglene § 11 nr. 2",
+    "verified": false,
+    "thReview": "pending"
+  }
+]

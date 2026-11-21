@@ -1,0 +1,157 @@
+[
+  {
+    "id": "vikeplikt-014",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-tr-10",
+    "trinn": 3,
+    "type": "mc-single",
+    "difficulty": 1,
+    "prompt": {
+      "nb": "Et utrykningskjøretøy med blått blinklys nærmer seg bakfra. Sirenen er ikke på. Hva gjør du?",
+      "en": "An emergency vehicle with a flashing blue light is approaching from behind. The siren is not on. What do you do?",
+      "th": "รถฉุกเฉินที่เปิดไฟกะพริบสีน้ำเงินกำลังเข้ามาจากด้านหลัง ไม่ได้เปิดไซเรน คุณจะทำอย่างไร?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Gir fri veg, og stanser om nødvendig", "en": "Clear the way, and stop if necessary", "th": "เปิดทางให้ และหยุดรถถ้าจำเป็น" }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Øker farten så du ikke er i vegen", "en": "Speed up so you are not in the way", "th": "เร่งความเร็วเพื่อไม่ให้ขวางทาง" },
+        "whyWrong": {
+          "nb": "Å øke farten kan skape fare. Gi fri veg på en rolig og forutsigbar måte.",
+          "en": "Speeding up can be dangerous. Clear the way calmly and predictably.",
+          "th": "การเร่งความเร็วอาจเป็นอันตราย ให้เปิดทางอย่างใจเย็นและคาดเดาได้"
+        }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Gir bare fri veg hvis sirenen også er på", "en": "Clear the way only if the siren is also on", "th": "เปิดทางให้เฉพาะเมื่อเปิดไซเรนด้วย" },
+        "whyWrong": {
+          "nb": "Plikten gjelder når føreren varsler med blinkende blått lys. Sirene er ikke et krav.",
+          "en": "The duty applies when the driver uses a flashing blue light. A siren is not required.",
+          "th": "หน้าที่นี้ใช้เมื่อคนขับเปิดไฟกะพริบสีน้ำเงิน ไม่จำเป็นต้องมีไซเรน"
+        }
+      },
+      {
+        "id": "d",
+        "text": { "nb": "Fortsetter som før – utrykningskjøretøyet kjører forbi når det kan", "en": "Carry on as before – the emergency vehicle will overtake when it can", "th": "ขับต่อไปตามปกติ รถฉุกเฉินจะแซงเมื่อทำได้" },
+        "whyWrong": {
+          "nb": "Du har plikt til å gi fri veg. Det er ikke nok å la utrykningskjøretøyet finne sin egen veg forbi.",
+          "en": "You have a duty to clear the way. It is not enough to let the emergency vehicle find its own way past.",
+          "th": "คุณมีหน้าที่ต้องเปิดทางให้ การปล่อยให้รถฉุกเฉินหาทางแซงเองไม่เพียงพอ"
+        }
+      }
+    ],
+    "correct": "a",
+    "explanation": {
+      "nb": "Du skal gi fri veg for utrykningskjøretøy når føreren varsler med blinkende blått lys, og om nødvendig stanse. Gjør det rolig og forutsigbart, og sjekk speil og blindsone.",
+      "en": "You must clear the way for an emergency vehicle when the driver uses a flashing blue light, and stop if necessary. Do it calmly and predictably, and check your mirrors and blind spot.",
+      "th": "คุณต้องเปิดทางให้รถฉุกเฉินเมื่อคนขับเปิดไฟกะพริบสีน้ำเงิน และหยุดรถถ้าจำเป็น ทำอย่างใจเย็นและคาดเดาได้ และตรวจดูกระจกและจุดบอด"
+    },
+    "glossaryTerms": ["utrykningskjoretoy", "blalys", "fri-veg"],
+    "source": "Trafikkreglene § 10 nr. 1",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "vikeplikt-015",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-tr-10",
+    "trinn": 3,
+    "type": "mc-single",
+    "difficulty": 2,
+    "prompt": {
+      "nb": "Du skal rett fram i et kryss uten skilt eller lys. En trikk kommer fra venstre. Hvem kjører først?",
+      "en": "You are going straight ahead at a junction with no signs or lights. A tram is coming from the left. Who goes first?",
+      "th": "คุณจะตรงไปที่ทางแยกที่ไม่มีป้ายหรือสัญญาณไฟ รถรางกำลังมาจากทางซ้าย ใครไปก่อน?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Du, fordi trikken kommer fra venstre", "en": "You, because the tram comes from the left", "th": "คุณ เพราะรถรางมาจากทางซ้าย" },
+        "whyWrong": {
+          "nb": "Høyreregelen gjelder ikke overfor trikk. Trafikanter skal gi fri veg for trikken.",
+          "en": "The right-hand rule does not apply to trams. Road users must give way to the tram.",
+          "th": "กฎให้ทางรถทางขวาไม่ใช้กับรถราง ผู้ใช้ถนนต้องเปิดทางให้รถราง"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Trikken", "en": "The tram", "th": "รถราง" }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Den som kommer først til krysset", "en": "Whoever reaches the junction first", "th": "คนที่มาถึงทางแยกก่อน" },
+        "whyWrong": {
+          "nb": "Det er ikke hvem som er først som avgjør. Du skal gi fri veg for trikken.",
+          "en": "It does not matter who is first. You must give way to the tram.",
+          "th": "ไม่ได้ขึ้นอยู่กับว่าใครมาก่อน คุณต้องเปิดทางให้รถราง"
+        }
+      }
+    ],
+    "correct": "b",
+    "explanation": {
+      "nb": "Trafikanter skal gi fri veg for trikk (sporvogn) og om nødvendig stanse. Det gjelder uansett om trikken kommer fra høyre eller venstre. En trikk er tung og kan ikke svinge unna.",
+      "en": "Road users must give way to trams and stop if necessary. This applies whether the tram comes from the right or the left. A tram is heavy and cannot steer out of the way.",
+      "th": "ผู้ใช้ถนนต้องเปิดทางให้รถรางและหยุดถ้าจำเป็น ไม่ว่ารถรางจะมาจากทางขวาหรือทางซ้าย รถรางมีน้ำหนักมากและหักหลบไม่ได้"
+    },
+    "glossaryTerms": ["trikk", "fri-veg", "hoyreregelen"],
+    "source": "Trafikkreglene § 10 nr. 2",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
+    "verified": false,
+    "todo": "Kontroller om trikk kan ha vikeplikt etter skilt i enkelte kryss (oppgaven sier «uten skilt»).",
+    "thReview": "pending"
+  },
+  {
+    "id": "vikeplikt-016",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-tr-10",
+    "alsoRefs": ["fp-planovergang"],
+    "trinn": 3,
+    "type": "mc-single",
+    "difficulty": 1,
+    "prompt": {
+      "nb": "Du nærmer deg en planovergang uten bom. Lyset blinker ikke, men du ser et tog komme. Hva gjør du?",
+      "en": "You are approaching a level crossing without barriers. The light is not flashing, but you see a train coming. What do you do?",
+      "th": "คุณกำลังเข้าใกล้ทางรถไฟตัดผ่านถนนที่ไม่มีไม้กั้น ไฟไม่ได้กะพริบ แต่คุณเห็นรถไฟกำลังมา คุณจะทำอย่างไร?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Kjører over, fordi lyset ikke blinker", "en": "Drive across, because the light is not flashing", "th": "ขับข้ามไป เพราะไฟไม่ได้กะพริบ" },
+        "whyWrong": {
+          "nb": "Du skal alltid gi fri veg for tog, også når lyset ikke virker.",
+          "en": "You must always give way to trains, even when the light is not working.",
+          "th": "คุณต้องเปิดทางให้รถไฟเสมอ แม้ไฟจะไม่ทำงาน"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Stanser og lar toget passere", "en": "Stop and let the train pass", "th": "หยุดรถและให้รถไฟผ่านไป" }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Kjører over hvis du rekker det før toget", "en": "Drive across if you can make it before the train", "th": "ขับข้ามไปถ้าคุณข้ามได้ทันก่อนรถไฟ" },
+        "whyWrong": {
+          "nb": "Tog kommer raskere enn man tror og kan ikke stanse. Du skal gi fri veg.",
+          "en": "Trains come faster than you think and cannot stop. You must give way.",
+          "th": "รถไฟมาเร็วกว่าที่คิดและหยุดไม่ได้ คุณต้องเปิดทางให้"
+        }
+      }
+    ],
+    "correct": "b",
+    "explanation": {
+      "nb": "Trafikanter skal gi fri veg og om nødvendig stanse for tog. Før du kjører over en planovergang, skal du se etter om tog eller trikk nærmer seg – også når det ikke er bom eller lys.",
+      "en": "Road users must give way to trains and stop if necessary. Before crossing a level crossing, look out for approaching trains or trams – also when there are no barriers or lights.",
+      "th": "ผู้ใช้ถนนต้องเปิดทางให้รถไฟและหยุดถ้าจำเป็น ก่อนข้ามทางรถไฟ ให้มองดูว่ามีรถไฟหรือรถรางกำลังมาหรือไม่ แม้จะไม่มีไม้กั้นหรือสัญญาณไฟ"
+    },
+    "glossaryTerms": ["planovergang", "fri-veg"],
+    "source": "Trafikkreglene § 10 nr. 2",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
+    "verified": false,
+    "thReview": "pending"
+  }
+]

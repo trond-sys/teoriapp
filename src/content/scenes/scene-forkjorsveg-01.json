@@ -1,0 +1,33 @@
+{
+  "id": "scene-forkjorsveg-01",
+  "topic": "vikeplikt",
+  "temalisteRef": "vp-hoyreregel",
+  "alsoRefs": ["so-skilt"],
+  "trinn": 3,
+  "difficulty": 2,
+  "junction": {
+    "kind": "cross",
+    "arms": { "N": { "control": "yield" }, "E": { "control": "priority" }, "S": { "control": "yield" }, "W": { "control": "priority" } }
+  },
+  "actors": [
+    { "id": "A", "kind": "car", "color": "red", "from": "S", "to": "N" },
+    { "id": "B", "kind": "car", "color": "blue", "from": "W", "to": "E" },
+    { "id": "C", "kind": "car", "color": "green", "from": "E", "to": "S" }
+  ],
+  "prompt": {
+    "nb": "Vegen fra vest til øst er forkjørsveg. A har vikepliktskilt. B skal rett fram, og C skal til venstre. I hvilken rekkefølge kjører de?",
+    "en": "The road from west to east is a priority road. A has a give way sign. B is going straight ahead, and C is turning left. In what order do they go?",
+    "th": "ถนนจากทิศตะวันตกไปตะวันออกเป็นถนนสายหลัก A มีป้ายให้ทาง B จะตรงไป และ C จะเลี้ยวซ้าย รถจะไปตามลำดับใด?"
+  },
+  "explanation": {
+    "nb": "B kjører først: B er på forkjørsvegen og skal rett fram. C er også på forkjørsvegen, men svinger til venstre og må vike for den møtende bilen B. A har vikepliktskilt og må vike for begge, selv om B kommer fra venstre. Skilt gjelder foran høyreregelen.",
+    "en": "B goes first: B is on the priority road and going straight. C is also on the priority road but is turning left, so it must give way to the oncoming car B. A has a give way sign and must give way to both, even though B comes from the left. Signs apply before the right-hand rule.",
+    "th": "B ไปก่อน เพราะ B อยู่บนถนนสายหลักและตรงไป C ก็อยู่บนถนนสายหลักเช่นกัน แต่เลี้ยวซ้าย จึงต้องให้ทางรถ B ที่สวนมา A มีป้ายให้ทางและต้องให้ทางทั้งสองคัน แม้ว่า B จะมาจากทางซ้าย ป้ายจราจรมีผลเหนือกฎให้ทางรถทางขวา"
+  },
+  "expectedOrder": [["B"], ["C"], ["A"]],
+  "glossaryTerms": ["forkjorsveg", "vikeplikt", "venstresving", "hoyreregelen"],
+  "source": "Trafikkreglene § 3 nr. 1 og § 7 nr. 2; skiltforskriften § 6, skilt 202 og 206",
+  "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
+  "verified": false,
+  "thReview": "pending"
+}

@@ -1,0 +1,99 @@
+[
+  {
+    "id": "vikeplikt-017",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-rygging-vending",
+    "trinn": 3,
+    "type": "mc-single",
+    "difficulty": 1,
+    "prompt": {
+      "nb": "Du rygger ut fra en parkeringsplass. Hvem har vikeplikt?",
+      "en": "You are reversing out of a parking space. Who must give way?",
+      "th": "คุณกำลังถอยรถออกจากที่จอดรถ ใครต้องให้ทาง?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Gående har vikeplikt for deg, fordi du er i et kjøretøy", "en": "Pedestrians must give way to you, because you are in a vehicle", "th": "คนเดินเท้าต้องให้ทางแก่คุณ เพราะคุณอยู่ในรถ" },
+        "whyWrong": {
+          "nb": "Den som rygger, har vikeplikt for alle – også for gående.",
+          "en": "The driver who reverses must give way to everyone – including pedestrians.",
+          "th": "ผู้ที่ถอยรถต้องให้ทางแก่ทุกคน รวมถึงคนเดินเท้า"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Du har bare vikeplikt for biler som kommer fra høyre", "en": "You must give way only to cars coming from the right", "th": "คุณต้องให้ทางเฉพาะรถที่มาจากทางขวา" },
+        "whyWrong": {
+          "nb": "Den som rygger, har vikeplikt for annen trafikk fra alle retninger.",
+          "en": "The driver who reverses must give way to other traffic from all directions.",
+          "th": "ผู้ที่ถอยรถต้องให้ทางแก่ผู้ใช้ถนนอื่นจากทุกทิศทาง"
+        }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Du har vikeplikt for all annen trafikk, også gående", "en": "You must give way to all other traffic, including pedestrians", "th": "คุณต้องให้ทางแก่ผู้ใช้ถนนอื่นทั้งหมด รวมถึงคนเดินเท้า" }
+      }
+    ],
+    "correct": "c",
+    "explanation": {
+      "nb": "Den som rygger eller vender, har vikeplikt for annen trafikant. Er utsikten dårlig, må du få noen til å passe på, eller selv forsikre deg om at det ikke kan oppstå fare.",
+      "en": "A driver who reverses or turns around must give way to other road users. If you cannot see well, get someone to watch for you, or make sure yourself that no danger can arise.",
+      "th": "ผู้ที่ถอยรถหรือกลับรถต้องให้ทางแก่ผู้ใช้ถนนอื่น ถ้ามองเห็นไม่ชัด ต้องให้คนอื่นช่วยดู หรือตรวจดูด้วยตัวเองให้แน่ใจว่าจะไม่เกิดอันตราย"
+    },
+    "glossaryTerms": ["rygging", "parkeringsplass", "vikeplikt"],
+    "source": "Trafikkreglene § 11 nr. 1",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "vikeplikt-018",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-rygging-vending",
+    "alsoRefs": ["lr-forbud-offentlig-veg"],
+    "trinn": 3,
+    "type": "mc-single",
+    "difficulty": 1,
+    "prompt": {
+      "nb": "Du har kjørt forbi avkjøringen du skulle ta på motorvegen. Hva gjør du?",
+      "en": "You have missed the exit you wanted on the motorway. What do you do?",
+      "th": "คุณขับเลยทางออกที่ต้องการบนทางหลวงพิเศษ (มอเตอร์เวย์) ไปแล้ว คุณจะทำอย่างไร?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Rygger tilbake langs vegskulderen", "en": "Reverse back along the hard shoulder", "th": "ถอยรถกลับไปตามไหล่ทาง" },
+        "whyWrong": {
+          "nb": "Rygging er forbudt på motorveg, også på inn- og utkjøringsvegene.",
+          "en": "Reversing is forbidden on motorways, also on the slip roads.",
+          "th": "ห้ามถอยรถบนทางหลวงพิเศษ รวมถึงทางเข้าและทางออกด้วย"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Snur i en åpning i midtdeleren", "en": "Turn around through a gap in the central barrier", "th": "กลับรถตรงช่องเปิดของเกาะกลาง" },
+        "whyWrong": {
+          "nb": "Vending er forbudt på motorveg.",
+          "en": "Turning around is forbidden on motorways.",
+          "th": "ห้ามกลับรถบนทางหลวงพิเศษ"
+        }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Kjører videre til neste avkjøring", "en": "Drive on to the next exit", "th": "ขับต่อไปจนถึงทางออกถัดไป" }
+      }
+    ],
+    "correct": "c",
+    "explanation": {
+      "nb": "Rygging og vending er forbudt på motorveg og motortrafikkveg, og på inn- og utkjøringsveger til dem. Kjør videre til neste avkjøring.",
+      "en": "Reversing and turning around are forbidden on motorways and expressways, and on their entry and exit roads. Drive on to the next exit.",
+      "th": "ห้ามถอยรถและกลับรถบนทางหลวงพิเศษและทางด่วน รวมถึงทางเข้าและทางออกของถนนเหล่านี้ ให้ขับต่อไปจนถึงทางออกถัดไป"
+    },
+    "glossaryTerms": ["motorveg", "rygging", "vending"],
+    "source": "Trafikkreglene § 11 nr. 2",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
+    "verified": false,
+    "thReview": "pending"
+  }
+]

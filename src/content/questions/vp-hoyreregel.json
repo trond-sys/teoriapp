@@ -1,0 +1,461 @@
+[
+  {
+    "id": "vikeplikt-001",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-hoyreregel",
+    "trinn": 3,
+    "type": "mc-image",
+    "difficulty": 1,
+    "media": { "scene": "scene-hoyreregel-01" },
+    "prompt": {
+      "nb": "Du kjører bil A rett fram i et kryss uten skilt eller trafikklys. Bil B kommer fra høyre og skal også rett fram. Hvem skal kjøre først?",
+      "en": "You are driving car A straight ahead at a junction with no signs or traffic lights. Car B comes from the right and is also going straight ahead. Who should go first?",
+      "th": "คุณขับรถ A ตรงไปที่ทางแยกที่ไม่มีป้ายหรือสัญญาณไฟจราจร รถ B มาจากทางขวาและจะตรงไปเช่นกัน ใครควรไปก่อน?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Bil B, fordi den kommer fra høyre", "en": "Car B, because it comes from the right", "th": "รถ B เพราะมาจากทางขวา" }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Bil A, fordi du skal rett fram", "en": "Car A, because you are going straight ahead", "th": "รถ A เพราะคุณจะตรงไป" },
+        "whyWrong": {
+          "nb": "Det spiller ingen rolle at du skal rett fram. Høyreregelen gjelder uansett hvor du skal.",
+          "en": "It does not matter that you are going straight ahead. The right-hand rule applies wherever you are going.",
+          "th": "การที่คุณจะตรงไปไม่มีผล กฎให้ทางรถทางขวาใช้ไม่ว่าคุณจะไปทางไหน"
+        }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Den som kom først til krysset", "en": "Whoever reached the junction first", "th": "คนที่มาถึงทางแยกก่อน" },
+        "whyWrong": {
+          "nb": "I Norge gjelder ikke «først til mølla» i kryss. Uten skilt og lys gjelder høyreregelen.",
+          "en": "In Norway it is not “first come, first served” at junctions. Without signs or lights, the right-hand rule applies.",
+          "th": "ในนอร์เวย์ไม่ใช่ใครมาก่อนได้ไปก่อนที่ทางแยก ถ้าไม่มีป้ายหรือสัญญาณไฟ ให้ใช้กฎให้ทางรถทางขวา"
+        }
+      }
+    ],
+    "correct": "a",
+    "explanation": {
+      "nb": "Uten skilt, trafikklys eller politi gjelder høyreregelen: du har vikeplikt for kjøretøy som kommer fra høyre. B kommer fra høyre for deg, så B kjører først.",
+      "en": "Without signs, traffic lights or police, the right-hand rule applies: you must give way to vehicles coming from your right. B comes from your right, so B goes first.",
+      "th": "เมื่อไม่มีป้าย สัญญาณไฟจราจร หรือตำรวจ ให้ใช้กฎให้ทางรถทางขวา คือคุณต้องให้ทางแก่รถที่มาจากทางขวาของคุณ B มาจากทางขวาของคุณ ดังนั้น B ไปก่อน"
+    },
+    "thaiContrast": {
+      "nb": "I Thailand kjører du på venstre side av vegen. I Norge kjører du på høyre side. I kryss uten skilt må du alltid se etter trafikk fra høyre og slippe den fram.",
+      "en": "In Thailand you drive on the left side of the road. In Norway you drive on the right. At junctions without signs, always look for traffic from the right and let it go first.",
+      "th": "ในประเทศไทยคุณขับชิดซ้าย ในนอร์เวย์ขับชิดขวา ที่ทางแยกที่ไม่มีป้าย ต้องมองหารถที่มาจากทางขวาเสมอและให้รถคันนั้นไปก่อน"
+    },
+    "glossaryTerms": ["hoyreregelen", "vikeplikt", "vegkryss"],
+    "source": "Trafikkreglene § 7 nr. 2",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "vikeplikt-002",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-hoyreregel",
+    "trinn": 3,
+    "type": "mc-single",
+    "difficulty": 2,
+    "prompt": {
+      "nb": "Du skal svinge til venstre i et kryss uten skilt. En møtende bil skal rett fram. Hvem har vikeplikt?",
+      "en": "You are turning left at a junction with no signs. An oncoming car is going straight ahead. Who must give way?",
+      "th": "คุณจะเลี้ยวซ้ายที่ทางแยกที่ไม่มีป้าย รถที่สวนมาจะตรงไป ใครต้องให้ทาง?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Den møtende bilen, fordi du var først i krysset", "en": "The oncoming car, because you were in the junction first", "th": "รถที่สวนมา เพราะคุณเข้าทางแยกก่อน" },
+        "whyWrong": {
+          "nb": "Det hjelper ikke å være først. Når du svinger til venstre, må du vike for møtende trafikk.",
+          "en": "Being first does not help. When you turn left, you must give way to oncoming traffic.",
+          "th": "การมาก่อนไม่ได้ช่วย เมื่อคุณเลี้ยวซ้าย คุณต้องให้ทางแก่รถที่สวนมา"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Ingen – dere kan kjøre samtidig", "en": "Nobody – you can both go at the same time", "th": "ไม่มีใคร คุณไปพร้อมกันได้" },
+        "whyWrong": {
+          "nb": "Banene deres krysser hverandre. Da må én vike, og det er den som svinger til venstre.",
+          "en": "Your paths cross. Then one of you must give way, and that is the driver turning left.",
+          "th": "เส้นทางของคุณตัดกัน จึงต้องมีคนหนึ่งให้ทาง และคนนั้นคือผู้ที่เลี้ยวซ้าย"
+        }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Du, fordi du svinger til venstre", "en": "You, because you are turning left", "th": "คุณ เพราะคุณเลี้ยวซ้าย" }
+      }
+    ],
+    "correct": "c",
+    "explanation": {
+      "nb": "Når du svinger til venstre, krysser du banen til møtende trafikk. Trafikkreglene sier at du da har vikeplikt, fordi den møtende bilen kommer på din høyre side mens du svinger.",
+      "en": "When you turn left, you cross the path of oncoming traffic. The traffic rules say you must then give way, because the oncoming car will be on your right as you turn.",
+      "th": "เมื่อคุณเลี้ยวซ้าย คุณจะตัดผ่านเส้นทางของรถที่สวนมา กฎจราจรกำหนดว่าคุณต้องให้ทาง เพราะรถที่สวนมาจะอยู่ทางขวาของคุณขณะที่คุณเลี้ยว"
+    },
+    "thaiContrast": {
+      "nb": "I Thailand (venstrekjøring) er det høyresving som krysser møtende trafikk. I Norge er det motsatt: venstresving krysser møtende, og da må du vike.",
+      "en": "In Thailand (left-hand traffic) it is the right turn that crosses oncoming traffic. In Norway it is the opposite: the left turn crosses oncoming traffic, so you must give way.",
+      "th": "ในประเทศไทย (ขับชิดซ้าย) การเลี้ยวขวาจะตัดผ่านรถที่สวนมา ในนอร์เวย์กลับกัน การเลี้ยวซ้ายจะตัดผ่านรถที่สวนมา คุณจึงต้องให้ทาง"
+    },
+    "glossaryTerms": ["venstresving", "motende", "vikeplikt"],
+    "source": "Trafikkreglene § 7 nr. 2 annet punktum",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "vikeplikt-003",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-hoyreregel",
+    "trinn": 3,
+    "type": "mc-image",
+    "difficulty": 2,
+    "media": { "scene": "scene-avkjorsel-01" },
+    "prompt": {
+      "nb": "Bil A kjører ut fra en parkeringsplass. Syklisten C kommer fra venstre, og bil B kommer fra høyre. Hvem må bil A vike for?",
+      "en": "Car A is driving out of a parking area. Cyclist C comes from the left, and car B comes from the right. Who must car A give way to?",
+      "th": "รถ A กำลังขับออกจากที่จอดรถ คนขี่จักรยาน C มาจากทางซ้าย และรถ B มาจากทางขวา รถ A ต้องให้ทางแก่ใคร?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Bare bil B, som kommer fra høyre", "en": "Only car B, which comes from the right", "th": "เฉพาะรถ B ที่มาจากทางขวา" },
+        "whyWrong": {
+          "nb": "Høyreregelen gjelder ikke for den som kjører ut fra en parkeringsplass. Da har du vikeplikt for alle.",
+          "en": "The right-hand rule does not apply when you drive out of a parking area. Then you must give way to everyone.",
+          "th": "กฎให้ทางรถทางขวาไม่ใช้กับผู้ที่ขับออกจากที่จอดรถ คุณต้องให้ทางแก่ทุกคน"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Både bil B og syklisten C", "en": "Both car B and cyclist C", "th": "ทั้งรถ B และคนขี่จักรยาน C" }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Ingen, fordi A allerede har begynt å kjøre ut", "en": "Nobody, because A has already started to drive out", "th": "ไม่มีใคร เพราะ A เริ่มขับออกมาแล้ว" },
+        "whyWrong": {
+          "nb": "Vikeplikten gjelder til du er helt ute på vegen. Du må ikke hindre B eller C.",
+          "en": "The duty to give way applies until you are fully out on the road. You must not get in the way of B or C.",
+          "th": "หน้าที่ให้ทางยังมีผลจนกว่าคุณจะออกมาบนถนนเรียบร้อยแล้ว คุณต้องไม่กีดขวาง B หรือ C"
+        }
+      }
+    ],
+    "correct": "b",
+    "explanation": {
+      "nb": "Den som kjører ut fra parkeringsplass, eiendom, bensinstasjon eller liknende, har vikeplikt for all annen trafikk – også for trafikk fra venstre og for syklister. Dette kalles avkjørselsregelen.",
+      "en": "A driver coming out of a parking area, property, petrol station or similar must give way to all other traffic – also traffic from the left and cyclists. This is the rule for driveways.",
+      "th": "ผู้ที่ขับออกจากที่จอดรถ บ้าน ปั๊มน้ำมัน หรือที่คล้ายกัน ต้องให้ทางแก่ผู้ใช้ถนนอื่นทั้งหมด รวมถึงรถที่มาจากทางซ้ายและคนขี่จักรยาน นี่คือกฎสำหรับทางเข้าออก"
+    },
+    "glossaryTerms": ["avkjorsel", "parkeringsplass", "vikeplikt"],
+    "source": "Trafikkreglene § 7 nr. 4",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "vikeplikt-004",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-hoyreregel",
+    "trinn": 3,
+    "type": "mc-single",
+    "difficulty": 2,
+    "prompt": {
+      "nb": "Du kjører på en vanlig veg uten skilt. En bil skal kjøre ut fra en gårdsveg (avkjørsel) på høyre side. Hvem har vikeplikt?",
+      "en": "You are driving on an ordinary road with no signs. A car is about to come out of a farm road (driveway) on the right. Who must give way?",
+      "th": "คุณขับอยู่บนถนนธรรมดาที่ไม่มีป้าย รถคันหนึ่งกำลังจะขับออกมาจากทางเข้าฟาร์ม (ทางเข้าออก) ทางขวา ใครต้องให้ทาง?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Du, fordi bilen kommer fra høyre", "en": "You, because the car comes from the right", "th": "คุณ เพราะรถมาจากทางขวา" },
+        "whyWrong": {
+          "nb": "Høyreregelen gjelder ikke for den som kommer fra en avkjørsel. Den bilen har vikeplikt for deg.",
+          "en": "The right-hand rule does not apply to a car coming out of a driveway. That car must give way to you.",
+          "th": "กฎให้ทางรถทางขวาไม่ใช้กับรถที่ออกมาจากทางเข้าออก รถคันนั้นต้องให้ทางแก่คุณ"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Bilen fra gårdsvegen", "en": "The car from the farm road", "th": "รถที่ออกมาจากทางเข้าฟาร์ม" }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Den som har lavest fart", "en": "Whoever is going slowest", "th": "คนที่ขับช้ากว่า" },
+        "whyWrong": {
+          "nb": "Farten avgjør ikke vikeplikten. Avkjørselsregelen gjør det.",
+          "en": "Speed does not decide who must give way. The driveway rule does.",
+          "th": "ความเร็วไม่ได้เป็นตัวกำหนดว่าใครต้องให้ทาง กฎสำหรับทางเข้าออกเป็นตัวกำหนด"
+        }
+      }
+    ],
+    "correct": "b",
+    "explanation": {
+      "nb": "Den som kommer fra gårdsveg, eiendom eller annen veg som ikke er åpen for alminnelig ferdsel, har vikeplikt for annen trafikk. Høyreregelen gjelder ikke her. Vær likevel oppmerksom – det er ikke sikkert at den andre ser deg.",
+      "en": "A driver coming from a farm road, property or other road not open to general traffic must give way to other traffic. The right-hand rule does not apply here. Still pay attention – the other driver may not see you.",
+      "th": "ผู้ที่ออกมาจากทางเข้าฟาร์ม บ้าน หรือถนนที่ไม่ได้เปิดให้รถทั่วไปใช้ ต้องให้ทางแก่ผู้ใช้ถนนอื่น กฎให้ทางรถทางขวาไม่ใช้ที่นี่ แต่ให้ระวังไว้ เพราะอีกฝ่ายอาจมองไม่เห็นคุณ"
+    },
+    "glossaryTerms": ["avkjorsel", "hoyreregelen", "vikeplikt"],
+    "source": "Trafikkreglene § 7 nr. 4",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "vikeplikt-005",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-hoyreregel",
+    "trinn": 3,
+    "type": "mc-single",
+    "difficulty": 2,
+    "prompt": {
+      "nb": "Fartsgrensen er 50 km/t. En buss står på holdeplassen og blinker for å kjøre ut foran deg. Hva gjør du?",
+      "en": "The speed limit is 50 km/h. A bus at a bus stop is signalling to pull out in front of you. What do you do?",
+      "th": "จำกัดความเร็ว 50 กม./ชม. รถบัสที่จอดอยู่ที่ป้ายรถโดยสารเปิดไฟเลี้ยวเพื่อจะออกมาข้างหน้าคุณ คุณจะทำอย่างไร?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Kjører raskt forbi før bussen kommer ut", "en": "Drive past quickly before the bus pulls out", "th": "ขับผ่านไปเร็ว ๆ ก่อนที่รถบัสจะออกมา" },
+        "whyWrong": {
+          "nb": "Du har vikeplikt for bussen. Å øke farten forbi kan skape fare.",
+          "en": "You must give way to the bus. Speeding up to get past can be dangerous.",
+          "th": "คุณต้องให้ทางรถบัส การเร่งความเร็วเพื่อผ่านไปอาจเป็นอันตราย"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Fortsetter som før – bussen har vikeplikt fordi den står stille", "en": "Carry on as before – the bus must give way because it is standing still", "th": "ขับต่อไปตามปกติ รถบัสต้องให้ทางเพราะจอดอยู่" },
+        "whyWrong": {
+          "nb": "Ved 60 km/t eller lavere er det du som har vikeplikt når bussen gir tegn.",
+          "en": "At 60 km/h or less, you are the one who must give way when the bus signals.",
+          "th": "ที่ความเร็วจำกัด 60 กม./ชม. หรือต่ำกว่า คุณเป็นฝ่ายที่ต้องให้ทางเมื่อรถบัสให้สัญญาณ"
+        }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Lar bussen kjøre ut – du har vikeplikt", "en": "Let the bus pull out – you must give way", "th": "ให้รถบัสออกไป คุณต้องให้ทาง" }
+      }
+    ],
+    "correct": "c",
+    "explanation": {
+      "nb": "På veg med fartsgrense 60 km/t eller lavere har du vikeplikt for buss som gir tegn om at den skal kjøre ut fra holdeplass. Bussføreren skal likevel unngå fare.",
+      "en": "On roads with a speed limit of 60 km/h or less, you must give way to a bus that signals it is leaving a bus stop. The bus driver must still avoid causing danger.",
+      "th": "บนถนนที่จำกัดความเร็ว 60 กม./ชม. หรือต่ำกว่า คุณต้องให้ทางแก่รถบัสที่ให้สัญญาณว่าจะออกจากป้ายรถโดยสาร แต่คนขับรถบัสก็ต้องหลีกเลี่ยงการก่อให้เกิดอันตรายเช่นกัน"
+    },
+    "glossaryTerms": ["holdeplass", "vikeplikt"],
+    "source": "Trafikkreglene § 7 nr. 5",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "vikeplikt-006",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-hoyreregel",
+    "trinn": 3,
+    "type": "mc-single",
+    "difficulty": 3,
+    "prompt": {
+      "nb": "Fartsgrensen er 80 km/t. En buss på holdeplassen blinker for å kjøre ut. Har du vikeplikt for bussen?",
+      "en": "The speed limit is 80 km/h. A bus at a bus stop is signalling to pull out. Must you give way to the bus?",
+      "th": "จำกัดความเร็ว 80 กม./ชม. รถบัสที่ป้ายรถโดยสารเปิดไฟเลี้ยวเพื่อจะออกมา คุณต้องให้ทางรถบัสหรือไม่?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Ja, du har alltid vikeplikt for buss som kjører ut fra holdeplass", "en": "Yes, you must always give way to a bus leaving a bus stop", "th": "ใช่ คุณต้องให้ทางรถบัสที่ออกจากป้ายรถโดยสารเสมอ" },
+        "whyWrong": {
+          "nb": "Vikeplikten for buss gjelder bare der fartsgrensen er 60 km/t eller lavere.",
+          "en": "The duty to give way to buses only applies where the speed limit is 60 km/h or less.",
+          "th": "หน้าที่ให้ทางรถบัสใช้เฉพาะถนนที่จำกัดความเร็ว 60 กม./ชม. หรือต่ำกว่า"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Nei, men du skal kjøre hensynsfullt og være klar til å bremse", "en": "No, but you must drive with care and be ready to brake", "th": "ไม่ต้อง แต่คุณต้องขับอย่างระมัดระวังและพร้อมจะเบรก" }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Nei, så du bør kjøre forbi så fort som mulig", "en": "No, so you should drive past as fast as possible", "th": "ไม่ต้อง ดังนั้นคุณควรขับผ่านไปให้เร็วที่สุด" },
+        "whyWrong": {
+          "nb": "Selv om du ikke har vikeplikt, skal du alltid være hensynsfull og aktpågivende.",
+          "en": "Even if you do not have to give way, you must always be considerate and alert.",
+          "th": "แม้คุณจะไม่ต้องให้ทาง คุณก็ต้องมีน้ำใจและระมัดระวังเสมอ"
+        }
+      }
+    ],
+    "correct": "b",
+    "explanation": {
+      "nb": "Vikeplikten for buss gjelder bare på veg med fartsgrense 60 km/t eller lavere. Ved 80 km/t er det bussen som har vikeplikt når den kjører ut fra vegkanten. Alle skal likevel være hensynsfulle og aktpågivende.",
+      "en": "The duty to give way to buses only applies on roads with a speed limit of 60 km/h or less. At 80 km/h it is the bus that must give way when it pulls out from the roadside. Everyone must still be considerate and alert.",
+      "th": "หน้าที่ให้ทางรถบัสใช้เฉพาะบนถนนที่จำกัดความเร็ว 60 กม./ชม. หรือต่ำกว่า ที่ 80 กม./ชม. รถบัสเป็นฝ่ายที่ต้องให้ทางเมื่อออกจากขอบถนน แต่ทุกคนก็ยังต้องมีน้ำใจและระมัดระวัง"
+    },
+    "glossaryTerms": ["holdeplass", "vikeplikt"],
+    "source": "Trafikkreglene § 7 nr. 5 og § 8 nr. 1; vegtrafikkloven § 3",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "vikeplikt-007",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-hoyreregel",
+    "alsoRefs": ["so-skilt"],
+    "trinn": 3,
+    "type": "mc-image",
+    "difficulty": 1,
+    "media": { "sign": "202" },
+    "prompt": {
+      "nb": "Du kommer til et kryss med dette skiltet. Hva gjelder for deg?",
+      "en": "You come to a junction with this sign. What applies to you?",
+      "th": "คุณมาถึงทางแยกที่มีป้ายนี้ อะไรใช้กับคุณ?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Du må alltid stanse helt, også når vegen er fri", "en": "You must always stop completely, even when the road is clear", "th": "คุณต้องหยุดรถให้สนิทเสมอ แม้ถนนจะว่าง" },
+        "whyWrong": {
+          "nb": "Det er skilt 204 «Stopp» som krever full stans. Ved vikepliktskilt kan du kjøre uten å stanse hvis vegen er fri.",
+          "en": "It is sign 204 “Stop” that requires a full stop. At a give way sign you can drive on without stopping if the road is clear.",
+          "th": "ป้าย 204 «หยุด» คือป้ายที่บังคับให้หยุดสนิท ที่ป้ายให้ทาง คุณขับต่อได้โดยไม่ต้องหยุดถ้าถนนว่าง"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Du har vikeplikt bare for trafikk fra høyre", "en": "You must give way only to traffic from the right", "th": "คุณต้องให้ทางเฉพาะรถที่มาจากทางขวา" },
+        "whyWrong": {
+          "nb": "Skiltet gir vikeplikt for trafikk fra begge retninger, ikke bare fra høyre.",
+          "en": "The sign means giving way to traffic from both directions, not just from the right.",
+          "th": "ป้ายนี้หมายถึงให้ทางแก่รถจากทั้งสองทิศทาง ไม่ใช่เฉพาะทางขวา"
+        }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Du har vikeplikt for trafikk fra begge retninger på vegen du skal inn på", "en": "You must give way to traffic from both directions on the road you are entering", "th": "คุณต้องให้ทางแก่รถจากทั้งสองทิศทางบนถนนที่คุณจะเข้าไป" }
+      },
+      {
+        "id": "d",
+        "text": { "nb": "Du har forkjørsrett i krysset", "en": "You have priority at the junction", "th": "คุณมีสิทธิ์ผ่านก่อนที่ทางแยก" },
+        "whyWrong": {
+          "nb": "Det er motsatt: skiltet betyr at du må vike.",
+          "en": "It is the opposite: the sign means you must give way.",
+          "th": "ตรงกันข้าม ป้ายนี้หมายความว่าคุณต้องให้ทาง"
+        }
+      }
+    ],
+    "correct": "c",
+    "explanation": {
+      "nb": "Skilt 202 «Vikeplikt» betyr at du har vikeplikt for kjørende trafikk i begge retninger på vegen du skal inn på eller krysse. Du trenger ikke stanse hvis vegen er fri, men sett ned farten i god tid, så det er tydelig at du viker.",
+      "en": "Sign 202 “Give way” means you must give way to traffic in both directions on the road you are entering or crossing. You do not need to stop if the road is clear, but slow down in good time so it is clear that you are giving way.",
+      "th": "ป้าย 202 «ให้ทาง» หมายความว่าคุณต้องให้ทางแก่รถที่วิ่งทั้งสองทิศทางบนถนนที่คุณจะเข้าไปหรือข้าม คุณไม่จำเป็นต้องหยุดถ้าถนนว่าง แต่ต้องลดความเร็วแต่เนิ่น ๆ เพื่อให้เห็นชัดว่าคุณกำลังให้ทาง"
+    },
+    "glossaryTerms": ["vikeplikt", "vegkryss"],
+    "source": "Skiltforskriften § 6, skilt 202; trafikkreglene § 7 nr. 1",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "vikeplikt-008",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-hoyreregel",
+    "alsoRefs": ["so-skilt"],
+    "trinn": 3,
+    "type": "mc-image",
+    "difficulty": 2,
+    "media": { "sign": "206" },
+    "prompt": {
+      "nb": "Du kjører på en veg med dette skiltet. I neste kryss kommer en bil fra en sideveg til høyre. Hvem har vikeplikt?",
+      "en": "You are driving on a road with this sign. At the next junction a car comes from a side road on the right. Who must give way?",
+      "th": "คุณขับอยู่บนถนนที่มีป้ายนี้ ที่ทางแยกถัดไปมีรถมาจากถนนซอยทางขวา ใครต้องให้ทาง?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Du, fordi bilen kommer fra høyre", "en": "You, because the car comes from the right", "th": "คุณ เพราะรถมาจากทางขวา" },
+        "whyWrong": {
+          "nb": "Skilt gjelder foran høyreregelen. På forkjørsveg har trafikk fra sideveger vikeplikt.",
+          "en": "Signs apply before the right-hand rule. On a priority road, traffic from side roads must give way.",
+          "th": "ป้ายจราจรมีผลเหนือกฎให้ทางรถทางขวา บนถนนสายหลัก รถจากถนนซอยต้องให้ทาง"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Den som kommer først til krysset", "en": "Whoever reaches the junction first", "th": "คนที่มาถึงทางแยกก่อน" },
+        "whyWrong": {
+          "nb": "Det er skiltet som avgjør, ikke hvem som kommer først.",
+          "en": "The sign decides, not who arrives first.",
+          "th": "ป้ายเป็นตัวกำหนด ไม่ใช่ว่าใครมาถึงก่อน"
+        }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Bilen fra sidevegen", "en": "The car from the side road", "th": "รถที่มาจากถนนซอย" }
+      }
+    ],
+    "correct": "c",
+    "explanation": {
+      "nb": "Skiltet er 206 «Forkjørsveg». Trafikk fra sideveger og kryssende veger har vikeplikt for deg. Skilt gjelder foran de vanlige trafikkreglene, så høyreregelen gjelder ikke her. Følg likevel med – ikke alle overholder vikeplikten.",
+      "en": "The sign is 206 “Priority road”. Traffic from side roads and crossing roads must give way to you. Signs apply before the normal traffic rules, so the right-hand rule does not apply here. Still pay attention – not everyone gives way as they should.",
+      "th": "ป้ายนี้คือ 206 «ถนนสายหลัก» รถจากถนนซอยและถนนที่ตัดผ่านต้องให้ทางแก่คุณ ป้ายจราจรมีผลเหนือกฎจราจรทั่วไป กฎให้ทางรถทางขวาจึงไม่ใช้ที่นี่ แต่ให้ระวังไว้ เพราะไม่ใช่ทุกคนจะให้ทางตามกฎ"
+    },
+    "glossaryTerms": ["forkjorsveg", "hoyreregelen", "vikeplikt"],
+    "source": "Skiltforskriften § 6, skilt 206; trafikkreglene § 3 nr. 1",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "vikeplikt-009",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-hoyreregel",
+    "alsoRefs": ["so-skilt"],
+    "trinn": 3,
+    "type": "mc-image",
+    "difficulty": 2,
+    "media": { "sign": "124" },
+    "prompt": {
+      "nb": "Du ser dette skiltet før et kryss. Hva gjelder i krysset?",
+      "en": "You see this sign before a junction. What applies at the junction?",
+      "th": "คุณเห็นป้ายนี้ก่อนถึงทางแยก อะไรใช้ที่ทางแยกนั้น?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Du har forkjørsrett", "en": "You have priority", "th": "คุณมีสิทธิ์ผ่านก่อน" },
+        "whyWrong": {
+          "nb": "Det er skilt 210 «Forkjørskryss» som betyr at du har forkjørsrett. Dette skiltet (124) varsler om vanlig vikeplikt for trafikk fra høyre.",
+          "en": "It is sign 210 “Junction with priority” that means you have priority. This sign (124) warns that the normal rule applies: give way to traffic from the right.",
+          "th": "ป้าย 210 «ทางแยกที่คุณมีสิทธิ์ผ่านก่อน» คือป้ายที่หมายถึงคุณมีสิทธิ์ผ่านก่อน ป้ายนี้ (124) เตือนว่าใช้กฎปกติ คือให้ทางแก่รถที่มาจากทางขวา"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Vanlig høyreregel: du har vikeplikt for trafikk fra høyre", "en": "The normal right-hand rule: you must give way to traffic from the right", "th": "กฎให้ทางรถทางขวาตามปกติ คือคุณต้องให้ทางแก่รถที่มาจากทางขวา" }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Alle må stanse helt før krysset", "en": "Everyone must stop completely before the junction", "th": "ทุกคนต้องหยุดรถให้สนิทก่อนถึงทางแยก" },
+        "whyWrong": {
+          "nb": "Skiltet krever ikke stans. Det varsler om et farlig kryss der høyreregelen gjelder.",
+          "en": "The sign does not require you to stop. It warns of a dangerous junction where the right-hand rule applies.",
+          "th": "ป้ายนี้ไม่ได้บังคับให้หยุด แต่เตือนว่ามีทางแยกอันตรายที่ใช้กฎให้ทางรถทางขวา"
+        }
+      }
+    ],
+    "correct": "b",
+    "explanation": {
+      "nb": "Skilt 124 «Farlig vegkryss» varsler om et kryss der vanlig vikeplikt gjelder: du har vikeplikt for kjørende fra høyre. Sett ned farten og se godt til høyre.",
+      "en": "Sign 124 “Dangerous junction” warns of a junction where the normal rule applies: you must give way to traffic from the right. Slow down and look carefully to the right.",
+      "th": "ป้าย 124 «ทางแยกอันตราย» เตือนว่ามีทางแยกที่ใช้กฎให้ทางตามปกติ คือคุณต้องให้ทางแก่รถที่มาจากทางขวา ให้ลดความเร็วและมองทางขวาให้ดี"
+    },
+    "glossaryTerms": ["hoyreregelen", "vikeplikt", "vegkryss"],
+    "source": "Skiltforskriften § 4, skilt 124; trafikkreglene § 7 nr. 2",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
+    "verified": false,
+    "thReview": "pending"
+  }
+]

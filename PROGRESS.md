@@ -1,13 +1,38 @@
 # PROGRESS
 
-Denne filen viser status for prosjektet, slik at en ny økt kan fortsette uten å lese hele historikken. Planen ligger i `docs/PLAN-fase0.md`.
+Denne filen viser status for prosjektet, slik at en ny økt kan fortsette uten å lese hele historikken. Planen for Fase 0 ligger i `docs/PLAN-fase0.md`. Planen for Fase 1 ble godkjent av Trond 21.11.2026 (se «Avvik fra PLAN-fase0» under).
 
 ## Status per fase
 - [x] Fase 0 – plan (`docs/PLAN-fase0.md`), **godkjent 21.11.2026** (svarene står i §8a)
-- [ ] Fase 1 – MVP
+- [ ] Fase 1 – MVP: **all kode er ferdig. Innholdsbatch 1 (vikeplikt) er laget og venter på Tronds kontroll.** Det lages ikke mer innhold før batch 1 er kontrollert.
 - [ ] Fase 2 – Eksamensklar
 - [ ] Fase 3 – Øvelseskjøring og oppkjøring
 - [ ] Fase 4 – Kvalitet
+
+## Slik kjører du appen
+```
+npm install
+npm run dev               # http://localhost:5173
+npm run check             # validate-content + typecheck + tester (kjøres før hver commit)
+npm run build             # produksjonsbygg med service worker (dist/)
+npm run fetch-signs       # laster ned manglende skilt-SVG-er fra Wikimedia (langsomt, stopper ved 429)
+node scripts/write-licenses.mjs   # skriver public/signs/LICENSES.md fra signs.json
+```
+Git: repoet har lokal `user.email` = GitHub noreply for `trond-sys`. **Ikke bruk BT Flyt-adressen her.** Ingenting er pushet. `.github/workflows/pages.yml` publiserer til GitHub Pages når repoet er pushet til `trond-sys/teoriapp` (offentlig) og Pages er satt til «GitHub Actions».
+
+## Hva Fase 1 inneholder (kode)
+| Del | Filer | Tester |
+|---|---|---|
+| Temaliste og konfig | `src/config/temaliste.ts`, `exam.ts`, `readiness.ts` | – |
+| Innholdsskjema og validering | `src/content/schema.ts`, `validate.ts`, `scripts/validate-content.ts` | `validate.test.ts` |
+| Vikeplikt-motor | `src/domain/yield/` (geometri, regler med hjemmel, rekkefølge, retting) | `engine.test.ts` (38 tester) |
+| SRS, Dagens økt, mestring | `src/domain/srs.ts`, `session.ts`, `mastery.ts` | `domain.test.ts` |
+| Lagring | `src/db/db.ts` (Dexie), `export.ts` (JSON-eksport) | `db.test.ts` |
+| Språk og stillas | `src/i18n/` (`LangProvider`, `<T>`, `tts.ts`, `strings.ts`), `src/content/ui/strings.json` | – |
+| Scenemotor | `src/scene/` (`SceneView` tegner kryss fra JSON) | via motor + validering |
+| Moduler | `src/features/` (today, practice, quiz, yield, signs, glossary, progress, settings, review) | – |
+
+Testet i nettleser (21.11.2026): liggende nettbrett 1707 × 1067, stående 1067 × 1707 og telefon 375 × 812. Ingen vannrett rulling på noen side. Dra-og-slipp i vikeplikt-krysset er testet med simulerte berøringshendelser. **Ikke testet på ekte Xiaomi Pad 5 eller iPhone ennå.**
 
 ## Innhold per tema
 Mål = MVP (Fase 1) / totalt (Fase 2).
@@ -49,31 +74,52 @@ Mål = MVP (Fase 1) / totalt (Fase 2).
 | so-fletting | 0 | 0 | 0 | 2 / 5 |
 | so-skilt | 0 | 0 | 0 | 6 / 20 |
 | so-oppmerking | 0 | 0 | 0 | 4 / 12 |
-| vp-hoyreregel | 0 | 0 | 0 | 10 / 22 |
-| vp-lysregulering | 0 | 0 | 0 | 3 / 8 |
-| vp-rygging-vending | 0 | 0 | 0 | 2 / 5 |
-| vp-samhandling | 0 | 0 | 0 | 2 / 7 |
-| vp-stoppeplikt | 0 | 0 | 0 | 1 / 4 |
-| vp-tr-10 | 0 | 0 | 0 | 3 / 8 |
-| **Sum** | 0 | 0 | 0 | 122 / 368 |
+| vp-hoyreregel | 9 | 0 | 0 | 10 / 22 |
+| vp-lysregulering | 3 | 0 | 0 | 3 / 8 |
+| vp-rygging-vending | 2 | 0 | 0 | 2 / 5 |
+| vp-samhandling | 2 | 0 | 0 | 2 / 7 |
+| vp-stoppeplikt | 1 | 0 | 0 | 1 / 4 |
+| vp-tr-10 | 3 | 0 | 0 | 3 / 8 |
+| **Sum** | 20 | 0 | 0 | 122 / 368 |
 
-Innhold utenom oppgavebanken: 0 av ~70 kjerneskilt, 0 av 12 vikeplikt-scener, 0 leksjoner og 0 ordlisteoppslag.
+Innhold utenom oppgavebanken: 12 av ~70 kjerneskilt, 4 av 12 vikeplikt-scener, 0 leksjoner og 21 ordlisteoppslag.
 
-## Beslutninger fra Fase 0
-- Navn: «Teori B». Hosting: GitHub Pages (repoet kan være offentlig). Ingen nynorsk.
-- Skilt fra Wikimedia Commons, med lisens per fil.
-- Uverifiserte elementer vises med et merke. Thai kontrolleres via kona sin rapportknapp.
-- **Enheter:**
-  - Hovedenheten er en Xiaomi Pad 5 (21051182G) med Android 11 og omtrent 1067 × 1707 CSS-px. Layouten designes først for liggende format (omtrent 1707 × 1067) og skal også fungere stående og ned til 375 px.
-  - Oppsettet første gang appen åpnes: hun installerer appen fra Chrome (ikke fra MIUI-nettleseren) og installerer Google Speech Services med thai-stemme. Deretter kontrollerer appen at `speechSynthesis.getVoices()` finner `th-TH`, `nb-NO` og `en`.
-  - iPhonen er omtrent 3 år gammel (trolig iOS 17 eller nyere).
+## Batch 1 – vikeplikt (venter på Tronds kontroll)
+- **Oppgaver:** `src/content/questions/vp-*.json` (vikeplikt-001 til -020). Alle har `source`, `verified: false` og `thReview: "pending"`.
+- **Scener:** `src/content/scenes/` – `scene-hoyreregel-01`, `scene-hoyreregel-02`, `scene-forkjorsveg-01`, `scene-avkjorsel-01`. `expectedOrder` er kryssjekket mot motoren.
+- **Skilt:** `src/content/signs.json` – 202, 204, 206, 208, 210, 212, 124, 126, 132, 139, 406, 516. Alle er public domain (PD-Statens vegvesen) fra Wikimedia Commons.
+- **Ordliste:** `src/content/glossary.json` (21 begreper).
+- **Kilder:** trafikkreglene (FOR-1986-03-21-747, sist endret FOR-2022-06-17-1049) og skiltforskriften (FOR-2005-10-07-1219) er lest på Lovdata 21.11.2026. Paragrafene §§ 3, 7, 8, 9, 10 og 11 i trafikkreglene og skilt 124, 202, 204, 206, 210, 212 og 516 i skiltforskriften er lest ordrett. Skiltforskriften §§ 23–25 (lys og politi) er bare lest som sammendrag.
 
 ## Uverifiserte elementer og åpne spørsmål
-- Vtl § 21 («Alminnelige plikter»): ordlyden er ikke kontrollert ordrett på Lovdata.
-- «Forbud på offentlig veg»: tolkningen brukes, men er ikke bekreftet. Elementene får `verified: false`.
-- Koblingen fra temalisten til læreplanens trinn (T1–T4) er ikke kontrollert mot læreplanen.
-- Lyd: Fase 1 bruker opplesning fra enheten. Forhåndslagde lydfiler som pakkes med appen vurderes i planen for Fase 3, først for kommandoparløren og ordlisten.
+Alt innhold er `verified: false` til Trond har kontrollert det. Dette er det jeg er mest usikker på:
+- **vikeplikt-011:** Betydningen av grønt lys (skiltforskriften § 24) er bare lest som sammendrag. § 3 nr. 1 (lys foran skilt) er lest ordrett.
+- **vikeplikt-012:** Politiets tegn «arm rett opp» og unntakene. Skiltforskriften § 25 er bare lest som sammendrag.
+- **vikeplikt-013:** Politi foran trafikklys. § 3 nr. 2 sier «foran anvisning gitt på annen måte». At trafikklys er omfattet, er min tolkning.
+- **vikeplikt-015 og motorregelen `sporvogn`:** Kan trikk ha vikeplikt etter skilt i enkelte kryss? Motoren gir trikken alltid fri veg, også overfor gående. Derfor er det ikke laget scener med skilt mot trikk.
+- **vikeplikt-020 og skilt 204:** At stoppskilt også gir vikeplikt, bygger på teksten til skilt 206. Selve teksten til 204 er bare lest om stans.
+- **Skilt 126, 132, 139, 208 og 406:** Bare tittelen er lest. Forklaringene er skrevet ut fra trafikkreglene.
+- **Motorregelen `rundkjoring`:** Trafikkreglene har ingen egen regel for rundkjøring. Motoren antar vikepliktskilt ved alle innkjøringer, og at to som kjører inn fra ulike armer ikke er i konflikt. Det er ikke laget rundkjøringsscener i batch 1.
+- **Motorregelen `venstresving`:** To møtende som begge svinger til venstre, regnes som «foran hverandre» uten konflikt.
+- Alle motorregler står med hjemmel i `src/domain/yield/rules.ts` og listes på `/review`.
+- Fra Fase 0 (uendret): vtl § 21 er ikke kontrollert ordrett. Tolkningen av «Forbud på offentlig veg» er ikke bekreftet. Koblingen fra temalisten til trinn T1–T4 er ikke kontrollert mot læreplanen.
+- **Thai:** All thai-tekst er mitt utkast. Kona flagger feil med «Rapporter oversettelse». Rapportene eksporteres fra Innstillinger eller `/review`.
+
+## Kjente begrensninger
+- **Skiltfiler:** Wikimedia svarte med 429 (for mange forespørsler) da skiltene skulle lastes ned. Bare **202 og 210** er hentet. Disse mangler: **204, 206, 208, 212, 124, 126, 132, 139, 406 og 516**. Til filene er hentet, viser appen skiltnummeret som plassholder, og `validate-content` gir en advarsel (ikke feil). `npm run fetch-signs` henter manglende filer langsomt og stopper ved 429. Commit filene for seg når de er hentet.
+- Vikeplikt-motoren støtter ikke kø (to kjøretøy fra samme arm), trafikklys eller politi i scener, gang- og sykkelveg som egen armtype, og buss fra holdeplass. Dette dekkes foreløpig av flervalg.
+- Leksjoner (4.1) er ikke laget. Visningen bygges sammen med første leksjonsbatch.
+- Import av eksportfil kommer i Fase 4. Eksport finnes i Innstillinger og på Fremgang.
+
+## Avvik fra PLAN-fase0 (godkjent med Fase 1-planen)
+- Fase 1-økten lager bare batch 1. Resten av MVP-innholdet kommer i egne økter per tema.
+- Vikeplikt-krysset retter etter vikeplikt-grafen. De som kan kjøre samtidig, godtas i begge rekkefølger. `validate-content` kryssjekker `expectedOrder` mot motoren.
+- Fonter kommer fra `@fontsource` (bare latin og thai), ikke fra `public/fonts/`.
+- `/review` og JSON-eksport kom allerede i Fase 1.
+- Skiltskjemaet har `credit.original` (direkte fil-URL), og `LICENSES.md` genereres fra `signs.json`.
 
 ## Neste steg
-1. Plan for Fase 1 i en ny økt: først stillaset (Vite, PWA, Dexie, Zod og validate-content), deretter språk og T-komponenten, og til slutt spørsmålsmotor og SRS.
-2. Første innholdsbatch: 20 vikepliktoppgaver. Stopp etter den for grundig kontroll.
+1. **Trond kontrollerer batch 1.** Sjekk særlig TODO-punktene over. Sett `verified: true` (og eventuelt `thReview`) i JSON-filene for det som er riktig, eller gi tilbakemelding om systematiske feil, så justeres arbeidsmåten før mer innhold lages.
+2. Hent eventuelle manglende skilt med `npm run fetch-signs`.
+3. Test på Xiaomi Pad 5 (Chrome, installert som app) og iPhone (Safari, Legg til på Hjem-skjerm). Krever at appen er publisert, se «Git» over.
+4. Deretter, i nye økter: én innholdsbatch per tema. Foreslått rekkefølge er resten av `vp-hoyreregel`, deretter `so-skilt` med ~58 skilt, `fp-veggrep` (vinter), `fa-trafikkuhell` (tunnel), `fp-sikt-lys` og så resten. De 8 siste vikeplikt-scenene kan komme med trikk, utrykning, gangfelt og rundkjøring.

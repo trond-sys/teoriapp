@@ -1,0 +1,36 @@
+{
+  "id": "scene-hoyreregel-01",
+  "topic": "vikeplikt",
+  "temalisteRef": "vp-hoyreregel",
+  "trinn": 3,
+  "difficulty": 1,
+  "junction": {
+    "kind": "cross",
+    "arms": { "N": { "control": "none" }, "E": { "control": "none" }, "S": { "control": "none" }, "W": { "control": "none" } }
+  },
+  "actors": [
+    { "id": "A", "kind": "car", "color": "red", "from": "S", "to": "N" },
+    { "id": "B", "kind": "car", "color": "blue", "from": "E", "to": "W" }
+  ],
+  "prompt": {
+    "nb": "Det er ingen skilt eller trafikklys i krysset. Begge bilene skal rett fram. I hvilken rekkefølge kjører de?",
+    "en": "There are no signs or traffic lights at the junction. Both cars are going straight ahead. In what order do they go?",
+    "th": "ทางแยกนี้ไม่มีป้ายหรือสัญญาณไฟจราจร รถทั้งสองคันจะตรงไป รถจะไปตามลำดับใด?"
+  },
+  "explanation": {
+    "nb": "Uten skilt eller lys gjelder høyreregelen. B kommer fra høyre for A, så A har vikeplikt. B kjører først.",
+    "en": "Without signs or lights, the right-hand rule applies. B comes from the right of A, so A must give way. B goes first.",
+    "th": "เมื่อไม่มีป้ายหรือสัญญาณไฟ ให้ใช้กฎให้ทางรถทางขวา B มาจากทางขวาของ A ดังนั้น A ต้องให้ทาง B ไปก่อน"
+  },
+  "thaiContrast": {
+    "nb": "I Thailand kjører du på venstre side av vegen. I Norge kjører du på høyre side. I kryss uten skilt må du alltid se etter trafikk fra høyre og slippe den fram.",
+    "en": "In Thailand you drive on the left side of the road. In Norway you drive on the right. At junctions without signs, always look for traffic from the right and let it go first.",
+    "th": "ในประเทศไทยคุณขับชิดซ้าย ในนอร์เวย์ขับชิดขวา ที่ทางแยกที่ไม่มีป้าย ต้องมองหารถที่มาจากทางขวาเสมอและให้รถคันนั้นไปก่อน"
+  },
+  "expectedOrder": [["B"], ["A"]],
+  "glossaryTerms": ["hoyreregelen", "vikeplikt", "vegkryss"],
+  "source": "Trafikkreglene § 7 nr. 2",
+  "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
+  "verified": false,
+  "thReview": "pending"
+}

@@ -1,0 +1,109 @@
+[
+  {
+    "id": "vikeplikt-010",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-samhandling",
+    "alsoRefs": ["ft-samhandling"],
+    "trinn": 3,
+    "type": "mc-single",
+    "difficulty": 1,
+    "prompt": {
+      "nb": "Du nærmer deg et gangfelt uten trafikklys. En fotgjenger står på fortauskanten og er tydelig på veg ut i gangfeltet. Hva gjør du?",
+      "en": "You are approaching a pedestrian crossing without traffic lights. A pedestrian is standing at the kerb and is clearly about to step onto the crossing. What do you do?",
+      "th": "คุณกำลังเข้าใกล้ทางม้าลายที่ไม่มีสัญญาณไฟจราจร คนเดินเท้าคนหนึ่งยืนอยู่ที่ขอบทางเท้าและกำลังจะก้าวลงทางม้าลายอย่างชัดเจน คุณจะทำอย่างไร?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Kjører videre – fotgjengeren må vente til vegen er fri", "en": "Drive on – the pedestrian must wait until the road is clear", "th": "ขับต่อไป คนเดินเท้าต้องรอจนกว่าถนนจะว่าง" },
+        "whyWrong": {
+          "nb": "Ved gangfelt uten lys er det du som har vikeplikt for den gående.",
+          "en": "At a crossing without lights, you are the one who must give way to the pedestrian.",
+          "th": "ที่ทางม้าลายที่ไม่มีสัญญาณไฟ คุณเป็นฝ่ายที่ต้องให้ทางแก่คนเดินเท้า"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Stanser og lar fotgjengeren gå over", "en": "Stop and let the pedestrian cross", "th": "หยุดรถและให้คนเดินเท้าข้ามไป" }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Bruker lydhornet for å varsle at du kommer", "en": "Sound the horn to warn that you are coming", "th": "บีบแตรเพื่อเตือนว่าคุณกำลังมา" },
+        "whyWrong": {
+          "nb": "Lydhornet gir deg ikke rett til å kjøre. Du har vikeplikt.",
+          "en": "Using the horn does not give you the right to go. You must give way.",
+          "th": "การบีบแตรไม่ได้ทำให้คุณมีสิทธิ์ไปก่อน คุณต้องให้ทาง"
+        }
+      },
+      {
+        "id": "d",
+        "text": { "nb": "Kjører videre hvis fotgjengeren ikke har satt foten i gangfeltet ennå", "en": "Drive on if the pedestrian has not yet stepped onto the crossing", "th": "ขับต่อไปถ้าคนเดินเท้ายังไม่ได้ก้าวลงทางม้าลาย" },
+        "whyWrong": {
+          "nb": "Vikeplikten gjelder også for gående som er på veg ut i gangfeltet, ikke bare for dem som allerede går i det.",
+          "en": "You must also give way to pedestrians who are about to step onto the crossing, not only to those already on it.",
+          "th": "คุณต้องให้ทางแก่คนเดินเท้าที่กำลังจะก้าวลงทางม้าลายด้วย ไม่ใช่เฉพาะคนที่อยู่บนทางม้าลายแล้ว"
+        }
+      }
+    ],
+    "correct": "b",
+    "explanation": {
+      "nb": "Ved gangfelt uten trafikklys eller politi har du vikeplikt for gående som er i gangfeltet eller er på veg ut i det. Sett ned farten i god tid når du nærmer deg et gangfelt, og vær klar til å stanse.",
+      "en": "At a pedestrian crossing without traffic lights or police, you must give way to pedestrians who are on the crossing or about to step onto it. Slow down in good time when you approach a crossing, and be ready to stop.",
+      "th": "ที่ทางม้าลายที่ไม่มีสัญญาณไฟจราจรหรือตำรวจ คุณต้องให้ทางแก่คนเดินเท้าที่อยู่บนทางม้าลายหรือกำลังจะก้าวลงไป ให้ลดความเร็วแต่เนิ่น ๆ เมื่อเข้าใกล้ทางม้าลาย และพร้อมที่จะหยุด"
+    },
+    "glossaryTerms": ["gangfelt", "fotgjenger", "vikeplikt"],
+    "source": "Trafikkreglene § 9 nr. 2",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "vikeplikt-019",
+    "topic": "vikeplikt",
+    "temalisteRef": "vp-samhandling",
+    "alsoRefs": ["ft-samhandling"],
+    "trinn": 3,
+    "type": "mc-single",
+    "difficulty": 2,
+    "prompt": {
+      "nb": "Vegen er smal. Det står en parkert bil i din kjørebane, og en bil kommer imot deg. Hvem har vikeplikt?",
+      "en": "The road is narrow. A parked car is standing in your lane, and a car is coming towards you. Who must give way?",
+      "th": "ถนนแคบ มีรถจอดอยู่ในช่องทางของคุณ และมีรถอีกคันวิ่งสวนมา ใครต้องให้ทาง?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Den møtende bilen, fordi du var først ved den parkerte bilen", "en": "The oncoming car, because you reached the parked car first", "th": "รถที่สวนมา เพราะคุณมาถึงรถที่จอดอยู่ก่อน" },
+        "whyWrong": {
+          "nb": "Det er ikke hvem som er først som avgjør. Den som har hindringen på sin side, har vikeplikt.",
+          "en": "It does not matter who is first. The driver with the obstruction on their side must give way.",
+          "th": "ไม่ได้ขึ้นอยู่กับว่าใครมาก่อน ผู้ที่มีสิ่งกีดขวางอยู่ฝั่งของตนต้องให้ทาง"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Du, fordi hindringen står på din side av vegen", "en": "You, because the obstruction is on your side of the road", "th": "คุณ เพราะสิ่งกีดขวางอยู่ฝั่งถนนของคุณ" }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Den som kjører den største bilen", "en": "Whoever is driving the biggest vehicle", "th": "คนที่ขับรถคันใหญ่กว่า" },
+        "whyWrong": {
+          "nb": "Størrelsen på bilen avgjør ikke vikeplikten.",
+          "en": "The size of the vehicle does not decide who must give way.",
+          "th": "ขนาดของรถไม่ได้เป็นตัวกำหนดว่าใครต้องให้ทาง"
+        }
+      }
+    ],
+    "correct": "b",
+    "explanation": {
+      "nb": "Er en del av vegen sperret, har den vikeplikt som har sperringen på sin side. Vent bak den parkerte bilen til den møtende har passert. Møtende skal også vike til høyre og kjøre sakte om nødvendig.",
+      "en": "If part of the road is blocked, the driver who has the obstruction on their side must give way. Wait behind the parked car until the oncoming car has passed. Oncoming drivers must also keep to the right and slow down if necessary.",
+      "th": "ถ้าถนนบางส่วนถูกกีดขวาง ผู้ที่มีสิ่งกีดขวางอยู่ฝั่งของตนต้องให้ทาง ให้รอหลังรถที่จอดอยู่จนกว่ารถที่สวนมาจะผ่านไป ผู้ที่สวนมาก็ต้องชิดขวาและขับช้าลงถ้าจำเป็น"
+    },
+    "glossaryTerms": ["motende", "vikeplikt"],
+    "source": "Trafikkreglene § 7 nr. 6",
+    "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
+    "verified": false,
+    "thReview": "pending"
+  }
+]
