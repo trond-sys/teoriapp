@@ -14,7 +14,12 @@ const SAMPLE: Record<Lang, string> = {
 export function VoiceStatus() {
   const voices = useVoices();
   const { settings } = useSettings();
-  if (!ttsSupported()) return <p className="muted">Web Speech API mangler i denne nettleseren.</p>;
+  if (!ttsSupported())
+    return (
+      <p className="muted">
+        <U k="settings.noTts" />
+      </p>
+    );
   return (
     <div className="voice-list">
       {(['th', 'en', 'nb'] as Lang[]).map((l) => {

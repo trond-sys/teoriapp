@@ -1,4 +1,5 @@
 // Ett flervalg: spørsmål, media (scene eller skilt), svaralternativer og tilbakemelding.
+import { useState } from 'react';
 import { SCENE_BY_ID, SIGN_BY_NR, signUrl } from '../../content/index';
 import { SceneView } from '../../scene/SceneView';
 import { SpeakButton, T, TLine, TranslateAllButton, U, useLayers } from '../../i18n/T';
@@ -8,8 +9,16 @@ import type { QuizItem } from './quizItem';
 
 export function SignImage({ nr, size = 160 }: { nr: string; size?: number }) {
   const s = SIGN_BY_NR.get(nr);
+  // Plassholder med skiltnummeret når SVG-filen ikke er lastet ned ennå (npm run fetch-signs).
+  const [missing, setMissing] = useState(false);
   if (!s) return null;
-  return <img className="sign-img" src={signUrl(s.file)} alt="" width={size} height={size} draggable={false} />;
+  if (missing)
+    return (
+      <span className="sign-placeholder" style={{ width: size, height: size }} role="img">
+        <U k="signs.nr" vars={{ a: nr }} />
+      </span>
+    );
+  return <img className="sign-img" src={signUrl(s.file)} alt="" width={size} height={size} draggable={false} onError={() => setMissing(true)} />;
 }
 
 function Media({ item }: { item: QuizItem }) {

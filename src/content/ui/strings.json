@@ -1,177 +1,797 @@
 {
-  "app.name": { "nb": "Teori B", "en": "Teori B", "th": "Teori B" },
-
-  "nav.today": { "nb": "I dag", "en": "Today", "th": "วันนี้" },
-  "nav.practice": { "nb": "Øv", "en": "Practice", "th": "ฝึก" },
-  "nav.signs": { "nb": "Skilt", "en": "Signs", "th": "ป้าย" },
-  "nav.glossary": { "nb": "Ordliste", "en": "Glossary", "th": "อภิธานศัพท์" },
-  "nav.progress": { "nb": "Fremgang", "en": "Progress", "th": "ความก้าวหน้า" },
-  "nav.settings": { "nb": "Innstillinger", "en": "Settings", "th": "การตั้งค่า" },
-
-  "common.next": { "nb": "Neste", "en": "Next", "th": "ถัดไป" },
-  "common.back": { "nb": "Tilbake", "en": "Back", "th": "ย้อนกลับ" },
-  "common.close": { "nb": "Lukk", "en": "Close", "th": "ปิด" },
-  "common.start": { "nb": "Start", "en": "Start", "th": "เริ่ม" },
-  "common.done": { "nb": "Ferdig", "en": "Done", "th": "เสร็จแล้ว" },
-  "common.skip": { "nb": "Hopp over", "en": "Skip", "th": "ข้าม" },
-  "common.cancel": { "nb": "Avbryt", "en": "Cancel", "th": "ยกเลิก" },
-  "common.loading": { "nb": "Laster …", "en": "Loading …", "th": "กำลังโหลด …" },
-  "common.of": { "nb": "{a} av {b}", "en": "{a} of {b}", "th": "{a} จาก {b}" },
-
-  "thai.show": { "nb": "ไทย", "en": "ไทย", "th": "ไทย" },
-  "thai.showLabel": { "nb": "Vis på thai", "en": "Show in Thai", "th": "แสดงเป็นภาษาไทย" },
-  "thai.translateAll": { "nb": "Oversett til thai", "en": "Translate to Thai", "th": "แปลเป็นภาษาไทย" },
-  "thai.hideAll": { "nb": "Skjul thai", "en": "Hide Thai", "th": "ซ่อนภาษาไทย" },
-
-  "speak.play": { "nb": "Les opp", "en": "Read aloud", "th": "อ่านออกเสียง" },
-  "speak.stop": { "nb": "Stopp opplesning", "en": "Stop reading", "th": "หยุดอ่าน" },
-
-  "report.button": { "nb": "Rapporter oversettelse", "en": "Report translation", "th": "แจ้งปัญหาคำแปล" },
-  "report.title": { "nb": "Er thai-teksten feil eller uklar?", "en": "Is the Thai text wrong or unclear?", "th": "ข้อความภาษาไทยผิดหรือไม่ชัดเจนหรือไม่?" },
-  "report.current": { "nb": "Teksten nå", "en": "Current text", "th": "ข้อความปัจจุบัน" },
-  "report.suggestion": { "nb": "Bedre formulering (valgfritt)", "en": "Better wording (optional)", "th": "ข้อความที่ดีกว่า (ไม่บังคับ)" },
-  "report.comment": { "nb": "Kommentar (valgfritt)", "en": "Comment (optional)", "th": "ความคิดเห็น (ไม่บังคับ)" },
-  "report.send": { "nb": "Lagre rapport", "en": "Save report", "th": "บันทึกรายงาน" },
-  "report.thanks": { "nb": "Takk! Rapporten er lagret.", "en": "Thank you! The report is saved.", "th": "ขอบคุณ! บันทึกรายงานแล้ว" },
-
-  "badge.unverified": { "nb": "ikke kontrollert", "en": "not checked yet", "th": "ยังไม่ได้ตรวจสอบ" },
-  "badge.unverifiedHelp": { "nb": "Regelen i denne oppgaven er ikke kontrollert mot lovteksten ennå.", "en": "The rule in this item has not yet been checked against the law.", "th": "กฎในข้อนี้ยังไม่ได้ตรวจสอบกับตัวบทกฎหมาย" },
-
-  "quiz.correct": { "nb": "Riktig!", "en": "Correct!", "th": "ถูกต้อง!" },
-  "quiz.wrong": { "nb": "Ikke riktig", "en": "Not correct", "th": "ไม่ถูกต้อง" },
-  "quiz.rightAnswer": { "nb": "Riktig svar", "en": "Correct answer", "th": "คำตอบที่ถูกต้อง" },
-  "quiz.why": { "nb": "Forklaring", "en": "Explanation", "th": "คำอธิบาย" },
-  "quiz.whyWrong": { "nb": "Hvorfor svaret ditt er feil", "en": "Why your answer is wrong", "th": "ทำไมคำตอบของคุณจึงผิด" },
-  "quiz.thaiContrast": { "nb": "Thailand og Norge", "en": "Thailand and Norway", "th": "ไทยกับนอร์เวย์" },
-  "quiz.source": { "nb": "Kilde", "en": "Source", "th": "แหล่งที่มา" },
-  "quiz.words": { "nb": "Ord", "en": "Words", "th": "คำศัพท์" },
-  "quiz.roadText": { "nb": "På norsk på vegen", "en": "In Norwegian on the road", "th": "ภาษานอร์เวย์ที่เห็นบนถนน" },
-  "quiz.repeatLater": { "nb": "Denne kommer igjen litt senere i økta.", "en": "This one will come back later in the session.", "th": "ข้อนี้จะกลับมาอีกครั้งในภายหลัง" },
-  "quiz.finished": { "nb": "Økta er ferdig", "en": "Session complete", "th": "จบการฝึกแล้ว" },
-  "quiz.score": { "nb": "{a} av {b} riktige", "en": "{a} of {b} correct", "th": "ถูก {a} จาก {b} ข้อ" },
-  "quiz.noItems": { "nb": "Det finnes ingen oppgaver her ennå.", "en": "There are no questions here yet.", "th": "ยังไม่มีคำถามในส่วนนี้" },
-  "quiz.chooseAnswer": { "nb": "Velg ett svar", "en": "Choose one answer", "th": "เลือกคำตอบหนึ่งข้อ" },
-
-  "today.title": { "nb": "Dagens økt", "en": "Today's session", "th": "บทเรียนวันนี้" },
-  "today.intro": { "nb": "10–15 minutter med repetisjon, nytt stoff og ett vikepliktkryss.", "en": "10–15 minutes of review, new material and one give-way junction.", "th": "10–15 นาที ทบทวน เรียนเรื่องใหม่ และฝึกทางแยกให้ทางหนึ่งข้อ" },
-  "today.plan": { "nb": "{a} til repetisjon · {b} nye", "en": "{a} to review · {b} new", "th": "ทบทวน {a} ข้อ · ใหม่ {b} ข้อ" },
-  "today.doneToday": { "nb": "Du har allerede øvd i dag: {a} svar.", "en": "You have already practised today: {a} answers.", "th": "วันนี้คุณฝึกไปแล้ว {a} ข้อ" },
-  "today.suggestLessThai": { "nb": "Du svarer godt uten thai. Vil du prøve nivået «Eksamen» (uten thai)?", "en": "You answer well without Thai. Do you want to try the “Exam” level (no Thai)?", "th": "คุณตอบได้ดีโดยไม่ใช้ภาษาไทย ลองระดับ “สอบ” (ไม่มีภาษาไทย) ไหม?" },
-  "today.tryExamLevel": { "nb": "Prøv uten thai", "en": "Try without Thai", "th": "ลองโดยไม่มีภาษาไทย" },
-
-  "practice.title": { "nb": "Øv", "en": "Practice", "th": "ฝึก" },
-  "practice.byTopic": { "nb": "Øv på et tema", "en": "Practise a topic", "th": "ฝึกตามหัวข้อ" },
-  "practice.yield": { "nb": "Vikeplikt-krysset", "en": "The give-way junction", "th": "ทางแยกให้ทาง" },
-  "practice.yieldIntro": { "nb": "Sett trafikantene i riktig rekkefølge.", "en": "Put the road users in the right order.", "th": "เรียงลำดับผู้ใช้ถนนให้ถูกต้อง" },
-  "practice.questions": { "nb": "{a} oppgaver", "en": "{a} questions", "th": "{a} ข้อ" },
-
-  "yield.instruction": { "nb": "I hvilken rekkefølge kjører de? Trykk på trafikantene i rekkefølge, eller dra dem til plassene under.", "en": "In what order do they go? Tap the road users in order, or drag them to the slots below.", "th": "พวกเขาไปตามลำดับใด? แตะผู้ใช้ถนนตามลำดับ หรือลากไปวางในช่องด้านล่าง" },
-  "yield.slot": { "nb": "Kjører som nr. {a}", "en": "Goes number {a}", "th": "ไปเป็นลำดับที่ {a}" },
-  "yield.reset": { "nb": "Start på nytt", "en": "Start again", "th": "เริ่มใหม่" },
-  "yield.check": { "nb": "Sjekk svaret", "en": "Check answer", "th": "ตรวจคำตอบ" },
-  "yield.correctOrder": { "nb": "Riktig rekkefølge", "en": "Correct order", "th": "ลำดับที่ถูกต้อง" },
-  "yield.together": { "nb": "samtidig", "en": "at the same time", "th": "พร้อมกัน" },
-  "yield.simultaneous": { "nb": "{a} og {b} kunne også ha kjørt samtidig.", "en": "{a} and {b} could also have gone at the same time.", "th": "{a} และ {b} สามารถไปพร้อมกันได้ด้วย" },
-  "yield.whoYields": { "nb": "Hvem viker for hvem", "en": "Who gives way to whom", "th": "ใครให้ทางใคร" },
-  "yield.mistake": { "nb": "{a} kan ikke kjøre før {b}.", "en": "{a} cannot go before {b}.", "th": "{a} ไปก่อน {b} ไม่ได้" },
-
-  "actor.car": { "nb": "bil", "en": "car", "th": "รถยนต์" },
-  "actor.bus": { "nb": "buss", "en": "bus", "th": "รถบัส" },
-  "actor.truck": { "nb": "lastebil", "en": "lorry", "th": "รถบรรทุก" },
-  "actor.bicycle": { "nb": "syklist", "en": "cyclist", "th": "คนขี่จักรยาน" },
-  "actor.tram": { "nb": "trikk", "en": "tram", "th": "รถราง" },
-  "actor.emergency": { "nb": "utrykningskjøretøy", "en": "emergency vehicle", "th": "รถฉุกเฉิน" },
-  "actor.pedestrian": { "nb": "fotgjenger", "en": "pedestrian", "th": "คนเดินเท้า" },
-
-  "signs.title": { "nb": "Skilt", "en": "Signs", "th": "ป้ายจราจร" },
-  "signs.flashcards": { "nb": "Skiltkort", "en": "Sign cards", "th": "บัตรป้ายจราจร" },
-  "signs.quizMeaning": { "nb": "Hva betyr skiltet?", "en": "What does the sign mean?", "th": "ป้ายนี้หมายความว่าอะไร?" },
-  "signs.quizFind": { "nb": "Finn skiltet", "en": "Find the sign", "th": "หาป้าย" },
-  "signs.sort": { "nb": "Sorter i skiltgrupper", "en": "Sort into sign groups", "th": "จัดกลุ่มป้าย" },
-  "signs.flip": { "nb": "Snu kortet", "en": "Turn the card", "th": "พลิกบัตร" },
-  "signs.nr": { "nb": "Skilt nr. {a}", "en": "Sign no. {a}", "th": "ป้ายหมายเลข {a}" },
-  "signs.findPrompt": { "nb": "Hvilket skilt er dette: «{a}»?", "en": "Which sign is this: “{a}”?", "th": "ป้ายใดคือ “{a}”?" },
-  "signs.sortPrompt": { "nb": "Hvilken skiltgruppe hører skiltet til?", "en": "Which sign group does this sign belong to?", "th": "ป้ายนี้อยู่ในกลุ่มใด?" },
-  "signs.knew": { "nb": "Jeg kunne det", "en": "I knew it", "th": "ฉันรู้แล้ว" },
-  "signs.didntKnow": { "nb": "Ikke ennå", "en": "Not yet", "th": "ยังไม่รู้" },
-  "signs.all": { "nb": "Alle skilt", "en": "All signs", "th": "ป้ายทั้งหมด" },
-  "signs.tooFew": { "nb": "Det trengs flere skilt for denne øvelsen.", "en": "More signs are needed for this exercise.", "th": "ต้องมีป้ายมากกว่านี้สำหรับแบบฝึกหัดนี้" },
-  "signs.group.fareskilt": { "nb": "Fareskilt", "en": "Warning signs", "th": "ป้ายเตือน" },
-  "signs.group.vikepliktskilt": { "nb": "Vikepliktskilt", "en": "Priority signs", "th": "ป้ายบังคับให้ทาง" },
-  "signs.group.forbudsskilt": { "nb": "Forbudsskilt", "en": "Prohibitory signs", "th": "ป้ายห้าม" },
-  "signs.group.pabudsskilt": { "nb": "Påbudsskilt", "en": "Mandatory signs", "th": "ป้ายบังคับ" },
-  "signs.group.opplysningsskilt": { "nb": "Opplysningsskilt", "en": "Information signs", "th": "ป้ายแนะนำ" },
-  "signs.group.serviceskilt": { "nb": "Serviceskilt", "en": "Service signs", "th": "ป้ายบริการ" },
-  "signs.group.underskilt": { "nb": "Underskilt", "en": "Supplementary plates", "th": "ป้ายประกอบ" },
-  "signs.group.vegoppmerking": { "nb": "Vegoppmerking", "en": "Road markings", "th": "เครื่องหมายบนพื้นถนน" },
-
-  "glossary.title": { "nb": "Ordliste", "en": "Glossary", "th": "อภิธานศัพท์" },
-  "glossary.search": { "nb": "Søk etter ord", "en": "Search for a word", "th": "ค้นหาคำ" },
-  "glossary.flashcards": { "nb": "Øv på ordene", "en": "Practise the words", "th": "ฝึกคำศัพท์" },
-  "glossary.list": { "nb": "Liste", "en": "List", "th": "รายการ" },
-  "glossary.empty": { "nb": "Ingen ord funnet.", "en": "No words found.", "th": "ไม่พบคำ" },
-  "glossary.onRoad": { "nb": "Står på skilt eller på vegen", "en": "Seen on signs or on the road", "th": "เห็นบนป้ายหรือบนถนน" },
-  "glossary.direction": { "nb": "Retning", "en": "Direction", "th": "ทิศทาง" },
-
-  "progress.title": { "nb": "Fremgang per tema", "en": "Progress by topic", "th": "ความก้าวหน้าตามหัวข้อ" },
-  "progress.intro": { "nb": "Temaene fra temalisten til teoriprøven. Tallet er mestring uten thai.", "en": "The topics from the theory test topic list. The number is mastery without Thai.", "th": "หัวข้อจากรายการหัวข้อสอบทฤษฎี ตัวเลขคือความชำนาญโดยไม่ใช้ภาษาไทย" },
-  "progress.practiced": { "nb": "{a} av {b} øvd", "en": "{a} of {b} practised", "th": "ฝึกแล้ว {a} จาก {b}" },
-  "progress.withThai": { "nb": "med thai: {a}", "en": "with Thai: {a}", "th": "ใช้ภาษาไทย: {a}" },
-  "progress.noItems": { "nb": "ingen oppgaver ennå", "en": "no questions yet", "th": "ยังไม่มีคำถาม" },
-  "progress.total": { "nb": "Svar totalt: {a} · riktige uten thai: {b}", "en": "Answers in total: {a} · correct without Thai: {b}", "th": "ตอบทั้งหมด: {a} · ถูกโดยไม่ใช้ภาษาไทย: {b}" },
-
-  "settings.title": { "nb": "Innstillinger", "en": "Settings", "th": "การตั้งค่า" },
-  "settings.scaffold": { "nb": "Språknivå", "en": "Language level", "th": "ระดับภาษา" },
-  "scaffold.forsta": { "nb": "Forstå", "en": "Understand", "th": "เข้าใจ" },
-  "scaffold.forsta.desc": { "nb": "Thai er hovedtekst. Prøvespråket står under.", "en": "Thai is the main text. The test language is shown below.", "th": "ภาษาไทยเป็นข้อความหลัก ภาษาที่ใช้สอบแสดงอยู่ด้านล่าง" },
-  "scaffold.bro": { "nb": "Bro", "en": "Bridge", "th": "สะพาน" },
-  "scaffold.bro.desc": { "nb": "Prøvespråket er hovedtekst. Trykk «ไทย» for thai.", "en": "The test language is the main text. Tap “ไทย” for Thai.", "th": "ภาษาที่ใช้สอบเป็นข้อความหลัก แตะ “ไทย” เพื่อดูภาษาไทย" },
-  "scaffold.eksamen": { "nb": "Eksamen", "en": "Exam", "th": "สอบ" },
-  "scaffold.eksamen.desc": { "nb": "Bare prøvespråket, som på den ekte prøven.", "en": "Only the test language, as in the real test.", "th": "ใช้เฉพาะภาษาที่ใช้สอบ เหมือนการสอบจริง" },
-  "settings.examLang": { "nb": "Prøvespråk", "en": "Test language", "th": "ภาษาที่ใช้สอบ" },
-  "lang.en": { "nb": "Engelsk", "en": "English", "th": "ภาษาอังกฤษ" },
-  "lang.nb": { "nb": "Norsk", "en": "Norwegian", "th": "ภาษานอร์เวย์" },
-  "lang.th": { "nb": "Thai", "en": "Thai", "th": "ภาษาไทย" },
-  "settings.ttsRate": { "nb": "Lesehastighet", "en": "Reading speed", "th": "ความเร็วในการอ่าน" },
-  "settings.rateSlow": { "nb": "Langsom (0,8×)", "en": "Slow (0.8×)", "th": "ช้า (0.8×)" },
-  "settings.rateNormal": { "nb": "Normal (1×)", "en": "Normal (1×)", "th": "ปกติ (1×)" },
-  "settings.voices": { "nb": "Stemmer for opplesning", "en": "Voices for reading aloud", "th": "เสียงสำหรับอ่านออกเสียง" },
-  "settings.voiceOk": { "nb": "finnes", "en": "available", "th": "มี" },
-  "settings.voiceMissing": { "nb": "mangler", "en": "missing", "th": "ไม่มี" },
-  "settings.voiceTest": { "nb": "Test", "en": "Test", "th": "ทดสอบ" },
-  "settings.voiceHelp": { "nb": "Mangler thai-stemmen? Installer «Speech Services by Google» fra Play Butikk. Velg den under Innstillinger → Tilleggsinnstillinger → Språk og inndata → Tekst-til-tale, og last ned thai. Start appen på nytt etterpå.", "en": "Missing the Thai voice? Install “Speech Services by Google” from the Play Store. Choose it under Settings → Additional settings → Languages & input → Text-to-speech, and download Thai. Restart the app afterwards.", "th": "ไม่มีเสียงภาษาไทยใช่ไหม? ติดตั้ง “Speech Services by Google” จาก Play Store เลือกที่ การตั้งค่า → การตั้งค่าเพิ่มเติม → ภาษาและการป้อนข้อมูล → แปลงข้อความเป็นเสียง แล้วดาวน์โหลดภาษาไทย จากนั้นเปิดแอปใหม่" },
-  "settings.data": { "nb": "Data", "en": "Data", "th": "ข้อมูล" },
-  "settings.export": { "nb": "Eksporter fremgang (JSON)", "en": "Export progress (JSON)", "th": "ส่งออกความก้าวหน้า (JSON)" },
-  "settings.exportHint": { "nb": "Lagre en kopi av fremgangen din. Gjør dette av og til, særlig på iPhone.", "en": "Save a copy of your progress. Do this now and then, especially on iPhone.", "th": "บันทึกสำเนาความก้าวหน้าของคุณ ทำเป็นครั้งคราว โดยเฉพาะบน iPhone" },
-  "settings.exportThai": { "nb": "Eksporter thai-rapporter ({a})", "en": "Export Thai reports ({a})", "th": "ส่งออกรายงานภาษาไทย ({a})" },
-  "settings.storage": { "nb": "Varig lagring: {a}", "en": "Persistent storage: {a}", "th": "การจัดเก็บถาวร: {a}" },
-  "settings.yes": { "nb": "ja", "en": "yes", "th": "ใช่" },
-  "settings.no": { "nb": "nei", "en": "no", "th": "ไม่" },
-  "settings.setupAgain": { "nb": "Vis oppsettet igjen", "en": "Show the setup again", "th": "แสดงการตั้งค่าเริ่มต้นอีกครั้ง" },
-  "settings.review": { "nb": "Redaktørside (for Trond)", "en": "Editor page (for Trond)", "th": "หน้าบรรณาธิการ (สำหรับ Trond)" },
-  "settings.version": { "nb": "Versjon {a}", "en": "Version {a}", "th": "เวอร์ชัน {a}" },
-  "settings.update": { "nb": "En ny versjon er klar.", "en": "A new version is ready.", "th": "มีเวอร์ชันใหม่พร้อมแล้ว" },
-  "settings.updateNow": { "nb": "Oppdater", "en": "Update", "th": "อัปเดต" },
-
-  "setup.welcomeTitle": { "nb": "Velkommen til Teori B", "en": "Welcome to Teori B", "th": "ยินดีต้อนรับสู่ Teori B" },
-  "setup.welcomeText": { "nb": "Her øver du til teoriprøven for førerkort klasse B i Norge. Prøven kan tas på engelsk eller norsk. Thai hjelper deg å forstå reglene underveis.", "en": "Here you practise for the theory test for a category B driving licence in Norway. The test can be taken in English or Norwegian. Thai helps you understand the rules along the way.", "th": "ที่นี่คุณจะฝึกสำหรับการสอบทฤษฎีใบขับขี่ประเภท B ในนอร์เวย์ สอบได้เป็นภาษาอังกฤษหรือภาษานอร์เวย์ ภาษาไทยช่วยให้คุณเข้าใจกฎระหว่างเรียน" },
-  "setup.langTitle": { "nb": "Hvilket språk vil du ta prøven på?", "en": "Which language will you take the test in?", "th": "คุณจะสอบเป็นภาษาอะไร?" },
-  "setup.langText": { "nb": "Du kan endre dette senere i Innstillinger.", "en": "You can change this later in Settings.", "th": "คุณเปลี่ยนได้ภายหลังในการตั้งค่า" },
-  "setup.installTitle": { "nb": "Installer appen", "en": "Install the app", "th": "ติดตั้งแอป" },
-  "setup.installAndroid": { "nb": "På nettbrettet: åpne appen i Chrome (ikke i Mi-nettleseren). Trykk menyen ⋮ og velg «Installer app» eller «Legg til på startskjermen». Da virker appen uten nett, og fremgangen lagres trygt.", "en": "On the tablet: open the app in Chrome (not in the Mi browser). Tap the ⋮ menu and choose “Install app” or “Add to Home screen”. Then the app works offline and your progress is stored safely.", "th": "บนแท็บเล็ต: เปิดแอปใน Chrome (ไม่ใช่เบราว์เซอร์ Mi) แตะเมนู ⋮ แล้วเลือก “ติดตั้งแอป” หรือ “เพิ่มลงในหน้าจอหลัก” แอปจะใช้งานได้โดยไม่ต้องใช้อินเทอร์เน็ต และความก้าวหน้าจะถูกเก็บไว้อย่างปลอดภัย" },
-  "setup.installIos": { "nb": "På iPhone: åpne appen i Safari. Trykk Del-knappen og velg «Legg til på Hjem-skjerm». Ellers kan iPhone slette fremgangen etter en uke uten bruk.", "en": "On iPhone: open the app in Safari. Tap the Share button and choose “Add to Home Screen”. Otherwise the iPhone may delete your progress after a week without use.", "th": "บน iPhone: เปิดแอปใน Safari แตะปุ่มแชร์ แล้วเลือก “เพิ่มไปยังหน้าจอโฮม” มิฉะนั้น iPhone อาจลบความก้าวหน้าของคุณหากไม่ได้ใช้งานหนึ่งสัปดาห์" },
-  "setup.installed": { "nb": "Appen er installert.", "en": "The app is installed.", "th": "ติดตั้งแอปแล้ว" },
-  "setup.voicesTitle": { "nb": "Opplesning", "en": "Reading aloud", "th": "การอ่านออกเสียง" },
-  "setup.voicesText": { "nb": "Appen kan lese tekst høyt. Trykk «Test» for hvert språk.", "en": "The app can read text aloud. Tap “Test” for each language.", "th": "แอปสามารถอ่านข้อความออกเสียงได้ แตะ “ทดสอบ” สำหรับแต่ละภาษา" },
-  "setup.finish": { "nb": "Kom i gang", "en": "Get started", "th": "เริ่มต้นใช้งาน" },
-
-  "review.title": { "nb": "Redaktørside", "en": "Editor page", "th": "หน้าบรรณาธิการ" },
-  "review.unverified": { "nb": "Uverifiserte elementer ({a})", "en": "Unverified items ({a})", "th": "รายการที่ยังไม่ได้ตรวจสอบ ({a})" },
-  "review.reports": { "nb": "Thai-rapporter ({a})", "en": "Thai reports ({a})", "th": "รายงานภาษาไทย ({a})" },
-  "review.coverage": { "nb": "Dekning mot temalisten", "en": "Coverage of the topic list", "th": "ความครอบคลุมของรายการหัวข้อ" },
-  "review.colRef": { "nb": "Tema", "en": "Topic", "th": "หัวข้อ" },
-  "review.colMade": { "nb": "Laget", "en": "Made", "th": "สร้างแล้ว" },
-  "review.colVerified": { "nb": "Verifisert", "en": "Verified", "th": "ตรวจแล้ว" },
-  "review.colGoal": { "nb": "Mål", "en": "Goal", "th": "เป้าหมาย" },
-  "review.none": { "nb": "Ingen.", "en": "None.", "th": "ไม่มี" }
+  "app.name": {
+    "nb": "Teori B",
+    "en": "Teori B",
+    "th": "Teori B"
+  },
+  "nav.today": {
+    "nb": "I dag",
+    "en": "Today",
+    "th": "วันนี้"
+  },
+  "nav.practice": {
+    "nb": "Øv",
+    "en": "Practice",
+    "th": "ฝึก"
+  },
+  "nav.signs": {
+    "nb": "Skilt",
+    "en": "Signs",
+    "th": "ป้าย"
+  },
+  "nav.glossary": {
+    "nb": "Ordliste",
+    "en": "Glossary",
+    "th": "อภิธานศัพท์"
+  },
+  "nav.progress": {
+    "nb": "Fremgang",
+    "en": "Progress",
+    "th": "ความก้าวหน้า"
+  },
+  "nav.settings": {
+    "nb": "Innstillinger",
+    "en": "Settings",
+    "th": "การตั้งค่า"
+  },
+  "common.next": {
+    "nb": "Neste",
+    "en": "Next",
+    "th": "ถัดไป"
+  },
+  "common.back": {
+    "nb": "Tilbake",
+    "en": "Back",
+    "th": "ย้อนกลับ"
+  },
+  "common.close": {
+    "nb": "Lukk",
+    "en": "Close",
+    "th": "ปิด"
+  },
+  "common.start": {
+    "nb": "Start",
+    "en": "Start",
+    "th": "เริ่ม"
+  },
+  "common.done": {
+    "nb": "Ferdig",
+    "en": "Done",
+    "th": "เสร็จแล้ว"
+  },
+  "common.skip": {
+    "nb": "Hopp over",
+    "en": "Skip",
+    "th": "ข้าม"
+  },
+  "common.cancel": {
+    "nb": "Avbryt",
+    "en": "Cancel",
+    "th": "ยกเลิก"
+  },
+  "common.loading": {
+    "nb": "Laster …",
+    "en": "Loading …",
+    "th": "กำลังโหลด …"
+  },
+  "common.of": {
+    "nb": "{a} av {b}",
+    "en": "{a} of {b}",
+    "th": "{a} จาก {b}"
+  },
+  "thai.show": {
+    "nb": "ไทย",
+    "en": "ไทย",
+    "th": "ไทย"
+  },
+  "thai.showLabel": {
+    "nb": "Vis på thai",
+    "en": "Show in Thai",
+    "th": "แสดงเป็นภาษาไทย"
+  },
+  "thai.translateAll": {
+    "nb": "Oversett til thai",
+    "en": "Translate to Thai",
+    "th": "แปลเป็นภาษาไทย"
+  },
+  "thai.hideAll": {
+    "nb": "Skjul thai",
+    "en": "Hide Thai",
+    "th": "ซ่อนภาษาไทย"
+  },
+  "speak.play": {
+    "nb": "Les opp",
+    "en": "Read aloud",
+    "th": "อ่านออกเสียง"
+  },
+  "speak.stop": {
+    "nb": "Stopp opplesning",
+    "en": "Stop reading",
+    "th": "หยุดอ่าน"
+  },
+  "report.button": {
+    "nb": "Rapporter oversettelse",
+    "en": "Report translation",
+    "th": "แจ้งปัญหาคำแปล"
+  },
+  "report.title": {
+    "nb": "Er thai-teksten feil eller uklar?",
+    "en": "Is the Thai text wrong or unclear?",
+    "th": "ข้อความภาษาไทยผิดหรือไม่ชัดเจนหรือไม่?"
+  },
+  "report.current": {
+    "nb": "Teksten nå",
+    "en": "Current text",
+    "th": "ข้อความปัจจุบัน"
+  },
+  "report.suggestion": {
+    "nb": "Bedre formulering (valgfritt)",
+    "en": "Better wording (optional)",
+    "th": "ข้อความที่ดีกว่า (ไม่บังคับ)"
+  },
+  "report.comment": {
+    "nb": "Kommentar (valgfritt)",
+    "en": "Comment (optional)",
+    "th": "ความคิดเห็น (ไม่บังคับ)"
+  },
+  "report.send": {
+    "nb": "Lagre rapport",
+    "en": "Save report",
+    "th": "บันทึกรายงาน"
+  },
+  "report.thanks": {
+    "nb": "Takk! Rapporten er lagret.",
+    "en": "Thank you! The report is saved.",
+    "th": "ขอบคุณ! บันทึกรายงานแล้ว"
+  },
+  "badge.unverified": {
+    "nb": "ikke kontrollert",
+    "en": "not checked yet",
+    "th": "ยังไม่ได้ตรวจสอบ"
+  },
+  "badge.unverifiedHelp": {
+    "nb": "Regelen i denne oppgaven er ikke kontrollert mot lovteksten ennå.",
+    "en": "The rule in this item has not yet been checked against the law.",
+    "th": "กฎในข้อนี้ยังไม่ได้ตรวจสอบกับตัวบทกฎหมาย"
+  },
+  "quiz.correct": {
+    "nb": "Riktig!",
+    "en": "Correct!",
+    "th": "ถูกต้อง!"
+  },
+  "quiz.wrong": {
+    "nb": "Ikke riktig",
+    "en": "Not correct",
+    "th": "ไม่ถูกต้อง"
+  },
+  "quiz.rightAnswer": {
+    "nb": "Riktig svar",
+    "en": "Correct answer",
+    "th": "คำตอบที่ถูกต้อง"
+  },
+  "quiz.why": {
+    "nb": "Forklaring",
+    "en": "Explanation",
+    "th": "คำอธิบาย"
+  },
+  "quiz.whyWrong": {
+    "nb": "Hvorfor svaret ditt er feil",
+    "en": "Why your answer is wrong",
+    "th": "ทำไมคำตอบของคุณจึงผิด"
+  },
+  "quiz.thaiContrast": {
+    "nb": "Thailand og Norge",
+    "en": "Thailand and Norway",
+    "th": "ไทยกับนอร์เวย์"
+  },
+  "quiz.source": {
+    "nb": "Kilde",
+    "en": "Source",
+    "th": "แหล่งที่มา"
+  },
+  "quiz.words": {
+    "nb": "Ord",
+    "en": "Words",
+    "th": "คำศัพท์"
+  },
+  "quiz.roadText": {
+    "nb": "På norsk på vegen",
+    "en": "In Norwegian on the road",
+    "th": "ภาษานอร์เวย์ที่เห็นบนถนน"
+  },
+  "quiz.repeatLater": {
+    "nb": "Denne kommer igjen litt senere i økta.",
+    "en": "This one will come back later in the session.",
+    "th": "ข้อนี้จะกลับมาอีกครั้งในภายหลัง"
+  },
+  "quiz.finished": {
+    "nb": "Økta er ferdig",
+    "en": "Session complete",
+    "th": "จบการฝึกแล้ว"
+  },
+  "quiz.score": {
+    "nb": "{a} av {b} riktige",
+    "en": "{a} of {b} correct",
+    "th": "ถูก {a} จาก {b} ข้อ"
+  },
+  "quiz.noItems": {
+    "nb": "Det finnes ingen oppgaver her ennå.",
+    "en": "There are no questions here yet.",
+    "th": "ยังไม่มีคำถามในส่วนนี้"
+  },
+  "quiz.chooseAnswer": {
+    "nb": "Velg ett svar",
+    "en": "Choose one answer",
+    "th": "เลือกคำตอบหนึ่งข้อ"
+  },
+  "today.title": {
+    "nb": "Dagens økt",
+    "en": "Today's session",
+    "th": "บทเรียนวันนี้"
+  },
+  "today.intro": {
+    "nb": "10–15 minutter med repetisjon, nytt stoff og ett vikepliktkryss.",
+    "en": "10–15 minutes of review, new material and one give-way junction.",
+    "th": "10–15 นาที ทบทวน เรียนเรื่องใหม่ และฝึกทางแยกให้ทางหนึ่งข้อ"
+  },
+  "today.plan": {
+    "nb": "{a} til repetisjon · {b} nye",
+    "en": "{a} to review · {b} new",
+    "th": "ทบทวน {a} ข้อ · ใหม่ {b} ข้อ"
+  },
+  "today.doneToday": {
+    "nb": "Du har allerede øvd i dag: {a} svar.",
+    "en": "You have already practised today: {a} answers.",
+    "th": "วันนี้คุณฝึกไปแล้ว {a} ข้อ"
+  },
+  "today.suggestLessThai": {
+    "nb": "Du svarer godt uten thai. Vil du prøve nivået «Eksamen» (uten thai)?",
+    "en": "You answer well without Thai. Do you want to try the “Exam” level (no Thai)?",
+    "th": "คุณตอบได้ดีโดยไม่ใช้ภาษาไทย ลองระดับ “สอบ” (ไม่มีภาษาไทย) ไหม?"
+  },
+  "today.tryExamLevel": {
+    "nb": "Prøv uten thai",
+    "en": "Try without Thai",
+    "th": "ลองโดยไม่มีภาษาไทย"
+  },
+  "practice.title": {
+    "nb": "Øv",
+    "en": "Practice",
+    "th": "ฝึก"
+  },
+  "practice.byTopic": {
+    "nb": "Øv på et tema",
+    "en": "Practise a topic",
+    "th": "ฝึกตามหัวข้อ"
+  },
+  "practice.yield": {
+    "nb": "Vikeplikt-krysset",
+    "en": "The give-way junction",
+    "th": "ทางแยกให้ทาง"
+  },
+  "practice.yieldIntro": {
+    "nb": "Sett trafikantene i riktig rekkefølge.",
+    "en": "Put the road users in the right order.",
+    "th": "เรียงลำดับผู้ใช้ถนนให้ถูกต้อง"
+  },
+  "practice.questions": {
+    "nb": "{a} oppgaver",
+    "en": "{a} questions",
+    "th": "{a} ข้อ"
+  },
+  "yield.instruction": {
+    "nb": "I hvilken rekkefølge kjører de? Trykk på trafikantene i rekkefølge, eller dra dem til plassene under.",
+    "en": "In what order do they go? Tap the road users in order, or drag them to the slots below.",
+    "th": "พวกเขาไปตามลำดับใด? แตะผู้ใช้ถนนตามลำดับ หรือลากไปวางในช่องด้านล่าง"
+  },
+  "yield.slot": {
+    "nb": "Kjører som nr. {a}",
+    "en": "Goes number {a}",
+    "th": "ไปเป็นลำดับที่ {a}"
+  },
+  "yield.reset": {
+    "nb": "Start på nytt",
+    "en": "Start again",
+    "th": "เริ่มใหม่"
+  },
+  "yield.check": {
+    "nb": "Sjekk svaret",
+    "en": "Check answer",
+    "th": "ตรวจคำตอบ"
+  },
+  "yield.correctOrder": {
+    "nb": "Riktig rekkefølge",
+    "en": "Correct order",
+    "th": "ลำดับที่ถูกต้อง"
+  },
+  "yield.together": {
+    "nb": "samtidig",
+    "en": "at the same time",
+    "th": "พร้อมกัน"
+  },
+  "yield.simultaneous": {
+    "nb": "{a} og {b} kunne også ha kjørt samtidig.",
+    "en": "{a} and {b} could also have gone at the same time.",
+    "th": "{a} และ {b} สามารถไปพร้อมกันได้ด้วย"
+  },
+  "yield.whoYields": {
+    "nb": "Hvem viker for hvem",
+    "en": "Who gives way to whom",
+    "th": "ใครให้ทางใคร"
+  },
+  "yield.mistake": {
+    "nb": "{a} kan ikke kjøre før {b}.",
+    "en": "{a} cannot go before {b}.",
+    "th": "{a} ไปก่อน {b} ไม่ได้"
+  },
+  "actor.car": {
+    "nb": "bil",
+    "en": "car",
+    "th": "รถยนต์"
+  },
+  "actor.bus": {
+    "nb": "buss",
+    "en": "bus",
+    "th": "รถบัส"
+  },
+  "actor.truck": {
+    "nb": "lastebil",
+    "en": "lorry",
+    "th": "รถบรรทุก"
+  },
+  "actor.bicycle": {
+    "nb": "syklist",
+    "en": "cyclist",
+    "th": "คนขี่จักรยาน"
+  },
+  "actor.tram": {
+    "nb": "trikk",
+    "en": "tram",
+    "th": "รถราง"
+  },
+  "actor.emergency": {
+    "nb": "utrykningskjøretøy",
+    "en": "emergency vehicle",
+    "th": "รถฉุกเฉิน"
+  },
+  "actor.pedestrian": {
+    "nb": "fotgjenger",
+    "en": "pedestrian",
+    "th": "คนเดินเท้า"
+  },
+  "signs.title": {
+    "nb": "Skilt",
+    "en": "Signs",
+    "th": "ป้ายจราจร"
+  },
+  "signs.flashcards": {
+    "nb": "Skiltkort",
+    "en": "Sign cards",
+    "th": "บัตรป้ายจราจร"
+  },
+  "signs.quizMeaning": {
+    "nb": "Hva betyr skiltet?",
+    "en": "What does the sign mean?",
+    "th": "ป้ายนี้หมายความว่าอะไร?"
+  },
+  "signs.quizFind": {
+    "nb": "Finn skiltet",
+    "en": "Find the sign",
+    "th": "หาป้าย"
+  },
+  "signs.sort": {
+    "nb": "Sorter i skiltgrupper",
+    "en": "Sort into sign groups",
+    "th": "จัดกลุ่มป้าย"
+  },
+  "signs.flip": {
+    "nb": "Snu kortet",
+    "en": "Turn the card",
+    "th": "พลิกบัตร"
+  },
+  "signs.nr": {
+    "nb": "Skilt nr. {a}",
+    "en": "Sign no. {a}",
+    "th": "ป้ายหมายเลข {a}"
+  },
+  "signs.findPrompt": {
+    "nb": "Hvilket skilt er dette: «{a}»?",
+    "en": "Which sign is this: “{a}”?",
+    "th": "ป้ายใดคือ “{a}”?"
+  },
+  "signs.sortPrompt": {
+    "nb": "Hvilken skiltgruppe hører skiltet til?",
+    "en": "Which sign group does this sign belong to?",
+    "th": "ป้ายนี้อยู่ในกลุ่มใด?"
+  },
+  "signs.knew": {
+    "nb": "Jeg kunne det",
+    "en": "I knew it",
+    "th": "ฉันรู้แล้ว"
+  },
+  "signs.didntKnow": {
+    "nb": "Ikke ennå",
+    "en": "Not yet",
+    "th": "ยังไม่รู้"
+  },
+  "signs.all": {
+    "nb": "Alle skilt",
+    "en": "All signs",
+    "th": "ป้ายทั้งหมด"
+  },
+  "signs.tooFew": {
+    "nb": "Det trengs flere skilt for denne øvelsen.",
+    "en": "More signs are needed for this exercise.",
+    "th": "ต้องมีป้ายมากกว่านี้สำหรับแบบฝึกหัดนี้"
+  },
+  "signs.group.fareskilt": {
+    "nb": "Fareskilt",
+    "en": "Warning signs",
+    "th": "ป้ายเตือน"
+  },
+  "signs.group.vikepliktskilt": {
+    "nb": "Vikepliktskilt",
+    "en": "Priority signs",
+    "th": "ป้ายบังคับให้ทาง"
+  },
+  "signs.group.forbudsskilt": {
+    "nb": "Forbudsskilt",
+    "en": "Prohibitory signs",
+    "th": "ป้ายห้าม"
+  },
+  "signs.group.pabudsskilt": {
+    "nb": "Påbudsskilt",
+    "en": "Mandatory signs",
+    "th": "ป้ายบังคับ"
+  },
+  "signs.group.opplysningsskilt": {
+    "nb": "Opplysningsskilt",
+    "en": "Information signs",
+    "th": "ป้ายแนะนำ"
+  },
+  "signs.group.serviceskilt": {
+    "nb": "Serviceskilt",
+    "en": "Service signs",
+    "th": "ป้ายบริการ"
+  },
+  "signs.group.underskilt": {
+    "nb": "Underskilt",
+    "en": "Supplementary plates",
+    "th": "ป้ายประกอบ"
+  },
+  "signs.group.vegoppmerking": {
+    "nb": "Vegoppmerking",
+    "en": "Road markings",
+    "th": "เครื่องหมายบนพื้นถนน"
+  },
+  "glossary.title": {
+    "nb": "Ordliste",
+    "en": "Glossary",
+    "th": "อภิธานศัพท์"
+  },
+  "glossary.search": {
+    "nb": "Søk etter ord",
+    "en": "Search for a word",
+    "th": "ค้นหาคำ"
+  },
+  "glossary.flashcards": {
+    "nb": "Øv på ordene",
+    "en": "Practise the words",
+    "th": "ฝึกคำศัพท์"
+  },
+  "glossary.list": {
+    "nb": "Liste",
+    "en": "List",
+    "th": "รายการ"
+  },
+  "glossary.empty": {
+    "nb": "Ingen ord funnet.",
+    "en": "No words found.",
+    "th": "ไม่พบคำ"
+  },
+  "glossary.onRoad": {
+    "nb": "Står på skilt eller på vegen",
+    "en": "Seen on signs or on the road",
+    "th": "เห็นบนป้ายหรือบนถนน"
+  },
+  "glossary.direction": {
+    "nb": "Retning",
+    "en": "Direction",
+    "th": "ทิศทาง"
+  },
+  "progress.title": {
+    "nb": "Fremgang per tema",
+    "en": "Progress by topic",
+    "th": "ความก้าวหน้าตามหัวข้อ"
+  },
+  "progress.intro": {
+    "nb": "Temaene fra temalisten til teoriprøven. Tallet er mestring uten thai.",
+    "en": "The topics from the theory test topic list. The number is mastery without Thai.",
+    "th": "หัวข้อจากรายการหัวข้อสอบทฤษฎี ตัวเลขคือความชำนาญโดยไม่ใช้ภาษาไทย"
+  },
+  "progress.practiced": {
+    "nb": "{a} av {b} øvd",
+    "en": "{a} of {b} practised",
+    "th": "ฝึกแล้ว {a} จาก {b}"
+  },
+  "progress.withThai": {
+    "nb": "med thai: {a}",
+    "en": "with Thai: {a}",
+    "th": "ใช้ภาษาไทย: {a}"
+  },
+  "progress.noItems": {
+    "nb": "ingen oppgaver ennå",
+    "en": "no questions yet",
+    "th": "ยังไม่มีคำถาม"
+  },
+  "progress.total": {
+    "nb": "Svar totalt: {a} · riktige uten thai: {b}",
+    "en": "Answers in total: {a} · correct without Thai: {b}",
+    "th": "ตอบทั้งหมด: {a} · ถูกโดยไม่ใช้ภาษาไทย: {b}"
+  },
+  "settings.title": {
+    "nb": "Innstillinger",
+    "en": "Settings",
+    "th": "การตั้งค่า"
+  },
+  "settings.scaffold": {
+    "nb": "Språknivå",
+    "en": "Language level",
+    "th": "ระดับภาษา"
+  },
+  "scaffold.forsta": {
+    "nb": "Forstå",
+    "en": "Understand",
+    "th": "เข้าใจ"
+  },
+  "scaffold.forsta.desc": {
+    "nb": "Thai er hovedtekst. Prøvespråket står under.",
+    "en": "Thai is the main text. The test language is shown below.",
+    "th": "ภาษาไทยเป็นข้อความหลัก ภาษาที่ใช้สอบแสดงอยู่ด้านล่าง"
+  },
+  "scaffold.bro": {
+    "nb": "Bro",
+    "en": "Bridge",
+    "th": "สะพาน"
+  },
+  "scaffold.bro.desc": {
+    "nb": "Prøvespråket er hovedtekst. Trykk «ไทย» for thai.",
+    "en": "The test language is the main text. Tap “ไทย” for Thai.",
+    "th": "ภาษาที่ใช้สอบเป็นข้อความหลัก แตะ “ไทย” เพื่อดูภาษาไทย"
+  },
+  "scaffold.eksamen": {
+    "nb": "Eksamen",
+    "en": "Exam",
+    "th": "สอบ"
+  },
+  "scaffold.eksamen.desc": {
+    "nb": "Bare prøvespråket, som på den ekte prøven.",
+    "en": "Only the test language, as in the real test.",
+    "th": "ใช้เฉพาะภาษาที่ใช้สอบ เหมือนการสอบจริง"
+  },
+  "settings.examLang": {
+    "nb": "Prøvespråk",
+    "en": "Test language",
+    "th": "ภาษาที่ใช้สอบ"
+  },
+  "lang.en": {
+    "nb": "Engelsk",
+    "en": "English",
+    "th": "ภาษาอังกฤษ"
+  },
+  "lang.nb": {
+    "nb": "Norsk",
+    "en": "Norwegian",
+    "th": "ภาษานอร์เวย์"
+  },
+  "lang.th": {
+    "nb": "Thai",
+    "en": "Thai",
+    "th": "ภาษาไทย"
+  },
+  "settings.ttsRate": {
+    "nb": "Lesehastighet",
+    "en": "Reading speed",
+    "th": "ความเร็วในการอ่าน"
+  },
+  "settings.rateSlow": {
+    "nb": "Langsom (0,8×)",
+    "en": "Slow (0.8×)",
+    "th": "ช้า (0.8×)"
+  },
+  "settings.rateNormal": {
+    "nb": "Normal (1×)",
+    "en": "Normal (1×)",
+    "th": "ปกติ (1×)"
+  },
+  "settings.voices": {
+    "nb": "Stemmer for opplesning",
+    "en": "Voices for reading aloud",
+    "th": "เสียงสำหรับอ่านออกเสียง"
+  },
+  "settings.voiceOk": {
+    "nb": "finnes",
+    "en": "available",
+    "th": "มี"
+  },
+  "settings.voiceMissing": {
+    "nb": "mangler",
+    "en": "missing",
+    "th": "ไม่มี"
+  },
+  "settings.voiceTest": {
+    "nb": "Test",
+    "en": "Test",
+    "th": "ทดสอบ"
+  },
+  "settings.voiceHelp": {
+    "nb": "Mangler thai-stemmen? Installer «Speech Services by Google» fra Play Butikk. Velg den under Innstillinger → Tilleggsinnstillinger → Språk og inndata → Tekst-til-tale, og last ned thai. Start appen på nytt etterpå.",
+    "en": "Missing the Thai voice? Install “Speech Services by Google” from the Play Store. Choose it under Settings → Additional settings → Languages & input → Text-to-speech, and download Thai. Restart the app afterwards.",
+    "th": "ไม่มีเสียงภาษาไทยใช่ไหม? ติดตั้ง “Speech Services by Google” จาก Play Store เลือกที่ การตั้งค่า → การตั้งค่าเพิ่มเติม → ภาษาและการป้อนข้อมูล → แปลงข้อความเป็นเสียง แล้วดาวน์โหลดภาษาไทย จากนั้นเปิดแอปใหม่"
+  },
+  "settings.data": {
+    "nb": "Data",
+    "en": "Data",
+    "th": "ข้อมูล"
+  },
+  "settings.export": {
+    "nb": "Eksporter fremgang (JSON)",
+    "en": "Export progress (JSON)",
+    "th": "ส่งออกความก้าวหน้า (JSON)"
+  },
+  "settings.exportHint": {
+    "nb": "Lagre en kopi av fremgangen din. Gjør dette av og til, særlig på iPhone.",
+    "en": "Save a copy of your progress. Do this now and then, especially on iPhone.",
+    "th": "บันทึกสำเนาความก้าวหน้าของคุณ ทำเป็นครั้งคราว โดยเฉพาะบน iPhone"
+  },
+  "settings.exportThai": {
+    "nb": "Eksporter thai-rapporter ({a})",
+    "en": "Export Thai reports ({a})",
+    "th": "ส่งออกรายงานภาษาไทย ({a})"
+  },
+  "settings.storage": {
+    "nb": "Varig lagring: {a}",
+    "en": "Persistent storage: {a}",
+    "th": "การจัดเก็บถาวร: {a}"
+  },
+  "settings.yes": {
+    "nb": "ja",
+    "en": "yes",
+    "th": "ใช่"
+  },
+  "settings.no": {
+    "nb": "nei",
+    "en": "no",
+    "th": "ไม่"
+  },
+  "settings.setupAgain": {
+    "nb": "Vis oppsettet igjen",
+    "en": "Show the setup again",
+    "th": "แสดงการตั้งค่าเริ่มต้นอีกครั้ง"
+  },
+  "settings.review": {
+    "nb": "Redaktørside (for Trond)",
+    "en": "Editor page (for Trond)",
+    "th": "หน้าบรรณาธิการ (สำหรับ Trond)"
+  },
+  "settings.version": {
+    "nb": "Versjon {a}",
+    "en": "Version {a}",
+    "th": "เวอร์ชัน {a}"
+  },
+  "settings.update": {
+    "nb": "En ny versjon er klar.",
+    "en": "A new version is ready.",
+    "th": "มีเวอร์ชันใหม่พร้อมแล้ว"
+  },
+  "settings.updateNow": {
+    "nb": "Oppdater",
+    "en": "Update",
+    "th": "อัปเดต"
+  },
+  "setup.welcomeTitle": {
+    "nb": "Velkommen til Teori B",
+    "en": "Welcome to Teori B",
+    "th": "ยินดีต้อนรับสู่ Teori B"
+  },
+  "setup.welcomeText": {
+    "nb": "Her øver du til teoriprøven for førerkort klasse B i Norge. Prøven kan tas på engelsk eller norsk. Thai hjelper deg å forstå reglene underveis.",
+    "en": "Here you practise for the theory test for a category B driving licence in Norway. The test can be taken in English or Norwegian. Thai helps you understand the rules along the way.",
+    "th": "ที่นี่คุณจะฝึกสำหรับการสอบทฤษฎีใบขับขี่ประเภท B ในนอร์เวย์ สอบได้เป็นภาษาอังกฤษหรือภาษานอร์เวย์ ภาษาไทยช่วยให้คุณเข้าใจกฎระหว่างเรียน"
+  },
+  "setup.langTitle": {
+    "nb": "Hvilket språk vil du ta prøven på?",
+    "en": "Which language will you take the test in?",
+    "th": "คุณจะสอบเป็นภาษาอะไร?"
+  },
+  "setup.langText": {
+    "nb": "Du kan endre dette senere i Innstillinger.",
+    "en": "You can change this later in Settings.",
+    "th": "คุณเปลี่ยนได้ภายหลังในการตั้งค่า"
+  },
+  "setup.installTitle": {
+    "nb": "Installer appen",
+    "en": "Install the app",
+    "th": "ติดตั้งแอป"
+  },
+  "setup.installAndroid": {
+    "nb": "På nettbrettet: åpne appen i Chrome (ikke i Mi-nettleseren). Trykk menyen ⋮ og velg «Installer app» eller «Legg til på startskjermen». Da virker appen uten nett, og fremgangen lagres trygt.",
+    "en": "On the tablet: open the app in Chrome (not in the Mi browser). Tap the ⋮ menu and choose “Install app” or “Add to Home screen”. Then the app works offline and your progress is stored safely.",
+    "th": "บนแท็บเล็ต: เปิดแอปใน Chrome (ไม่ใช่เบราว์เซอร์ Mi) แตะเมนู ⋮ แล้วเลือก “ติดตั้งแอป” หรือ “เพิ่มลงในหน้าจอหลัก” แอปจะใช้งานได้โดยไม่ต้องใช้อินเทอร์เน็ต และความก้าวหน้าจะถูกเก็บไว้อย่างปลอดภัย"
+  },
+  "setup.installIos": {
+    "nb": "På iPhone: åpne appen i Safari. Trykk Del-knappen og velg «Legg til på Hjem-skjerm». Ellers kan iPhone slette fremgangen etter en uke uten bruk.",
+    "en": "On iPhone: open the app in Safari. Tap the Share button and choose “Add to Home Screen”. Otherwise the iPhone may delete your progress after a week without use.",
+    "th": "บน iPhone: เปิดแอปใน Safari แตะปุ่มแชร์ แล้วเลือก “เพิ่มไปยังหน้าจอโฮม” มิฉะนั้น iPhone อาจลบความก้าวหน้าของคุณหากไม่ได้ใช้งานหนึ่งสัปดาห์"
+  },
+  "setup.installed": {
+    "nb": "Appen er installert.",
+    "en": "The app is installed.",
+    "th": "ติดตั้งแอปแล้ว"
+  },
+  "setup.voicesTitle": {
+    "nb": "Opplesning",
+    "en": "Reading aloud",
+    "th": "การอ่านออกเสียง"
+  },
+  "setup.voicesText": {
+    "nb": "Appen kan lese tekst høyt. Trykk «Test» for hvert språk.",
+    "en": "The app can read text aloud. Tap “Test” for each language.",
+    "th": "แอปสามารถอ่านข้อความออกเสียงได้ แตะ “ทดสอบ” สำหรับแต่ละภาษา"
+  },
+  "setup.finish": {
+    "nb": "Kom i gang",
+    "en": "Get started",
+    "th": "เริ่มต้นใช้งาน"
+  },
+  "review.title": {
+    "nb": "Redaktørside",
+    "en": "Editor page",
+    "th": "หน้าบรรณาธิการ"
+  },
+  "review.unverified": {
+    "nb": "Uverifiserte elementer ({a})",
+    "en": "Unverified items ({a})",
+    "th": "รายการที่ยังไม่ได้ตรวจสอบ ({a})"
+  },
+  "review.reports": {
+    "nb": "Thai-rapporter ({a})",
+    "en": "Thai reports ({a})",
+    "th": "รายงานภาษาไทย ({a})"
+  },
+  "review.coverage": {
+    "nb": "Dekning mot temalisten",
+    "en": "Coverage of the topic list",
+    "th": "ความครอบคลุมของรายการหัวข้อ"
+  },
+  "review.colRef": {
+    "nb": "Tema",
+    "en": "Topic",
+    "th": "หัวข้อ"
+  },
+  "review.colMade": {
+    "nb": "Laget",
+    "en": "Made",
+    "th": "สร้างแล้ว"
+  },
+  "review.colVerified": {
+    "nb": "Verifisert",
+    "en": "Verified",
+    "th": "ตรวจแล้ว"
+  },
+  "review.colGoal": {
+    "nb": "Mål",
+    "en": "Goal",
+    "th": "เป้าหมาย"
+  },
+  "review.none": {
+    "nb": "Ingen.",
+    "en": "None.",
+    "th": "ไม่มี"
+  },
+  "settings.noTts": {
+    "nb": "Denne nettleseren kan ikke lese opp tekst.",
+    "en": "This browser cannot read text aloud.",
+    "th": "เบราว์เซอร์นี้อ่านข้อความออกเสียงไม่ได้"
+  }
 }

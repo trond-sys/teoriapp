@@ -1,5 +1,6 @@
 // Felles scenemotor: tegner et kryss ovenfra ut fra en JSON-definert scene (ingen håndtegning per scene).
 // Brukes som bilde i flervalg og som spillbrett i vikeplikt-krysset. Gjenbrukes i «Finn faren» (Fase 3).
+import { useState } from 'react';
 import type { Actor, Arm, Dir, YieldScene } from '../content/schema';
 import { SIGN_BY_NR, signUrl } from '../content/index';
 import { ARM_ANGLE, BASE, C, COLORS, HALF, SIZE, actorPose, onArm, rot, vehiclePath, type Pt } from './layout';
@@ -13,7 +14,7 @@ const poly = (pts: Pt[]) => pts.map((p) => p.join(',')).join(' ');
 function ArmRoad({ d, arm, roundabout }: { d: Dir; arm: Arm; roundabout: boolean }) {
   const a = ARM_ANGLE[d];
   const exit = arm.control === 'exit';
-  const w = exit ? 28 : HALF;
+  const w = exit ? 34 : HALF;
   const inner = roundabout ? 280 : 240;
   const road = poly([rot([C - w, inner - 2], a), rot([C + w, inner - 2], a), rot([C + w, SIZE], a), rot([C - w, SIZE], a)]);
   return (
@@ -67,12 +68,20 @@ function ArmRoad({ d, arm, roundabout }: { d: Dir; arm: Arm; roundabout: boolean
 
 function SignPost({ d, nr }: { d: Dir; nr: string }) {
   const s = SIGN_BY_NR.get(nr);
+  // Mangler SVG-filen (ikke lastet ned ennå), vises skiltnummeret som plassholder.
+  const [missing, setMissing] = useState(false);
   if (!s) return null;
   const [x, y] = onArm(d, BASE.sign);
   return (
     <g>
-      <circle cx={x} cy={y} r={18} fill="#fff" opacity={0.85} />
-      <image href={signUrl(s.file)} x={x - 15} y={y - 15} width={30} height={30} />
+      <circle cx={x} cy={y} r={18} fill="#fff" opacity={0.85} stroke={missing ? '#888' : 'none'} />
+      {missing ? (
+        <text x={x} y={y} textAnchor="middle" dominantBaseline="central" fontSize={11} fontWeight={700} fill="#333">
+          {nr}
+        </text>
+      ) : (
+        <image href={signUrl(s.file)} x={x - 15} y={y - 15} width={30} height={30} onError={() => setMissing(true)} />
+      )}
     </g>
   );
 }

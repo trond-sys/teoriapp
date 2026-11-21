@@ -96,6 +96,8 @@ export const Sign = z.strictObject({
   file: z.string().regex(/^[\w.-]+\.svg$/),
   credit: z.strictObject({
     page: z.url(),
+    /** Direkte lenke til originalfilen (brukes av npm run fetch-signs). */
+    original: z.url(),
     author: z.string().min(1),
     license: z.string().min(1),
   }),

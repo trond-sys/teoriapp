@@ -1087,3 +1087,18 @@ h2.t-main,
   text-align: center;
   color: var(--text-2);
 }
+
+.sign-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
+  max-width: 100%;
+  border: 2px dashed var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-weight: 600;
+  font-size: var(--fs-1);
+}

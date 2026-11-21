@@ -90,4 +90,23 @@ describe('validateContent', () => {
     const r = validateContent(raw([question({ temalisteRef: 'vp-tr-10' })]));
     expect(r.errors.join('\n')).toMatch(/ligger i vp-hoyreregel/);
   });
+
+  it('manglende skiltfil er en advarsel, manglende lisenslinje er en feil', () => {
+    const sign = {
+      nr: '202',
+      group: 'vikepliktskilt',
+      name: l3('Vikeplikt'),
+      meaning: l3('Vik'),
+      file: '202.svg',
+      credit: { page: 'https://commons.wikimedia.org/x', original: 'https://upload.wikimedia.org/x.svg', author: 'A', license: 'PD' },
+      source: 'Skiltforskriften § 6',
+      verified: false,
+      thReview: 'pending',
+    };
+    const r = validateContent(raw([question()], { signs: { file: 'signs.json', data: [sign] }, signFiles: [], licensesMd: '| 202.svg |' }));
+    expect(r.errors).toEqual([]);
+    expect(r.warnings.join('\n')).toMatch(/202\.svg mangler/);
+    const r2 = validateContent(raw([question()], { signs: { file: 'signs.json', data: [sign] }, signFiles: ['202.svg'], licensesMd: '' }));
+    expect(r2.errors.join('\n')).toMatch(/LICENSES/);
+  });
 });

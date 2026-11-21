@@ -62,7 +62,7 @@ export const RULES: Record<RuleId, Rule> = {
   },
   rundkjoring: {
     id: 'rundkjoring',
-    source: 'Skilt 202 Vikeplikt ved innkjøringene (skiltforskriften); trafikkreglene har ingen egen regel om rundkjøring',
+    source: 'Skilt 202 Vikeplikt ved innkjøringene (skiltforskriften § 6) og trafikkreglene § 3 nr. 1; trafikkreglene har ingen egen regel om rundkjøring',
     sourceUrl: LOVDATA_TR,
     verified: false,
     todo: 'Motoren antar at alle innkjøringer til rundkjøringen har vikepliktskilt, og at to som kjører inn fra ulike armer ikke er i konflikt.',
@@ -85,10 +85,10 @@ export const RULES: Record<RuleId, Rule> = {
   },
   skilt: {
     id: 'skilt',
-    source: 'Skilt 202 Vikeplikt, 204 Stopp og 206 Forkjørsveg (skiltforskriften); trafikkreglene § 3',
+    source: 'Trafikkreglene § 3 nr. 1 (skilt går foran trafikkreglene); skiltforskriften § 6, skilt 202 Vikeplikt, 204 Stopp og 206 Forkjørsveg',
     sourceUrl: LOVDATA_TR,
     verified: false,
-    todo: 'Kontroller hjemmelen for at skilt går foran høyreregelen (skiltforskriften / trafikkreglene § 3 nr. 1).',
+    todo: 'Skilt 204 Stopp: teksten om stans er lest ordrett, men ikke en egen setning om vikeplikt. Motoren gir 204 samme vikeplikt som 202 (jf. skilt 206: sideveg er «pålagt vikeplikt» med 202 eller 204).',
     why: {
       nb: '{a} har vikepliktskilt eller stoppskilt og må vike for {b}.',
       en: '{a} has a give way sign or stop sign and must give way to {b}.',

@@ -12,6 +12,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "validate-content": "tsx scripts/validate-content.ts",
+    "fetch-signs": "node scripts/fetch-signs.mjs",
     "check": "npm run validate-content && npm run typecheck && npm test"
   },
   "dependencies": {
