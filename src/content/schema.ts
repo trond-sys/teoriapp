@@ -31,6 +31,8 @@ export const Option = z.strictObject({
   whyWrong: L3.optional(),
 });
 
+export type Option = z.infer<typeof Option>;
+
 export const Media = z.strictObject({
   /** ID til en vikeplikt-scene i scenes/. Vises som bilde. */
   scene: z.string().optional(),
