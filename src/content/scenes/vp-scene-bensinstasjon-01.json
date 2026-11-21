@@ -1,0 +1,53 @@
+{
+  "id": "vp-scene-bensinstasjon-01",
+  "topic": "vikeplikt",
+  "subtopic": "avkjorsel",
+  "temalisteRef": "vp-hoyreregel",
+  "tier": "kjerne",
+  "difficulty": 1,
+  "layout": {
+    "type": "x-kryss",
+    "arms": ["N", "E", "S", "W"],
+    "signs": [],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    { "id": "A", "kind": "bil", "from": "S", "intent": "rett-fram", "position": "fra-parkering", "color": "red" },
+    { "id": "B", "kind": "bil", "from": "W", "intent": "rett-fram", "color": "blue" }
+  ],
+  "question": {
+    "type": "ja-nei",
+    "prompt": {
+      "nb": "A kjører ut fra en bensinstasjon og skal rett over vegen. B kommer fra venstre for A. Har A vikeplikt for B?",
+      "en": "A is driving out of a petrol station and going straight across the road. B is coming from A's left. Must A give way to B?",
+      "th": "A กำลังขับออกจากปั๊มน้ำมันและจะขับตรงข้ามถนน B มาจากทางซ้ายของ A A ต้องให้ทาง B หรือไม่?"
+    }
+  },
+  "answer": {
+    "yes": true,
+    "order": [["B"], ["A"]],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": ["B"],
+        "explanation": {
+          "nb": "Ja. Den som kommer fra en bensinstasjon, har vikeplikt for all annen trafikk – også for trafikk fra venstre. Det hjelper ikke at B kommer fra venstre: høyreregelen gjelder ikke for den som kjører ut fra et slikt område.",
+          "en": "Yes. A driver coming from a petrol station must give way to all other traffic – also traffic from the left. It does not matter that B comes from the left: the right-hand rule does not apply when you drive out of such an area.",
+          "th": "ใช่ ผู้ที่ขับออกจากปั๊มน้ำมันต้องให้ทางแก่ผู้ใช้ถนนอื่นทั้งหมด รวมถึงรถที่มาจากทางซ้าย การที่ B มาจากทางซ้ายไม่มีผล กฎให้ทางรถทางขวาไม่ใช้กับผู้ที่ขับออกจากพื้นที่แบบนี้"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 7 nr. 4 første ledd første punktum",
+          "quote": "Kjørende som kommer fra parkeringsplass, holdeplass, torg, eiendom, bensinstasjon, gågate, gatetun eller liknende område har vikeplikt for annen trafikant.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": ["avkjorsel", "vikeplikt", "hoyreregelen"],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Bensinstasjonen tegnes med samme utkjøring som parkeringsplass (posisjon «fra-parkering»). Første scene med spørsmålstypen ja-nei."
+}

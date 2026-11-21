@@ -1,0 +1,52 @@
+{
+  "id": "vp-scene-gardsveg-01",
+  "topic": "vikeplikt",
+  "subtopic": "avkjorsel",
+  "temalisteRef": "vp-hoyreregel",
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": {
+    "type": "t-kryss",
+    "arms": ["E", "S", "W"],
+    "signs": [],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    { "id": "A", "kind": "bil", "from": "S", "intent": "hoyre", "position": "fra-gardsveg", "color": "red" },
+    { "id": "B", "kind": "bil", "from": "W", "intent": "rett-fram", "color": "blue" }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "A kjører ut fra en gårdsveg og skal til høyre. B kjører rett fram på vegen. A kommer fra høyre for B. Hvem kjører først?",
+      "en": "A is driving out of a farm road and turning right. B is driving straight ahead on the road. A is coming from B's right. Who goes first?",
+      "th": "A กำลังขับออกจากทางเข้าฟาร์มและจะเลี้ยวขวา B ขับตรงไปบนถนน A มาจากทางขวาของ B ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [["B"], ["A"]],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": ["B"],
+        "explanation": {
+          "nb": "A kommer fra en gårdsveg, som ikke er åpen for alminnelig ferdsel. Da har A vikeplikt for annen trafikk, også for B. Høyreregelen gjelder ikke her, selv om A kommer fra høyre for B.",
+          "en": "A is coming from a farm road, which is not open to general traffic. So A must give way to other traffic, including B. The right-hand rule does not apply here, even though A comes from B's right.",
+          "th": "A มาจากทางเข้าฟาร์ม ซึ่งไม่ใช่ถนนที่เปิดให้รถทั่วไปใช้ ดังนั้น A ต้องให้ทางแก่ผู้ใช้ถนนอื่น รวมถึง B กฎให้ทางรถทางขวาไม่ใช้ที่นี่ แม้ว่า A จะมาจากทางขวาของ B"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 7 nr. 4 første ledd annet punktum",
+          "quote": "Det samme gjelder den som kommer fra gårdsveg eller annen veg som ikke er åpen for alminnelig ferdsel,",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": ["avkjorsel", "vikeplikt", "hoyreregelen"],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Sitatet er første del av annet punktum i § 7 nr. 4 første ledd. «Det samme» viser til første punktum: «… har vikeplikt for annen trafikant.» Begge deler er lest ordrett på Lovdata 21.11.2026."
+}

@@ -142,6 +142,8 @@ export const Arm = z.strictObject({
   crosswalk: z.boolean().default(false),
   /** Trikkespor i denne armen. */
   tram: z.boolean().default(false),
+  /** Utseende for avkjørsel (control: exit): parkeringsplass (standard) eller gårdsveg. */
+  look: z.enum(['parkering', 'gardsveg']).optional(),
 });
 export type Arm = z.infer<typeof Arm>;
 

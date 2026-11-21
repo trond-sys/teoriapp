@@ -37,7 +37,13 @@ export const ACTOR_UI_KEY = {
 export function scenarioToDrawing(s: Scenario): { id: string; junction: Junction; actors: Actor[] } {
   const arms: Junction['arms'] = {};
   for (const d of s.layout.arms) {
-    const arm: Arm = { control: armLook(s, d), crosswalk: s.layout.crosswalks.includes(d), tram: s.layout.tram.includes(d) };
+    const gardsveg = s.actors.some((a) => a.from === d && a.position === 'fra-gardsveg');
+    const arm: Arm = {
+      control: armLook(s, d),
+      crosswalk: s.layout.crosswalks.includes(d),
+      tram: s.layout.tram.includes(d),
+      ...(gardsveg ? { look: 'gardsveg' as const } : {}),
+    };
     arms[d] = arm;
   }
   return {

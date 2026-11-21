@@ -38,7 +38,15 @@ function ArmRoad({ d, arm, roundabout }: { d: Dir; arm: Arm; roundabout: boolean
   return (
     <g>
       <polygon points={road} fill={exit ? 'var(--scene-gravel, #a9a49a)' : 'var(--road)'} />
-      {exit && (
+      {exit && arm.look === 'gardsveg' && (
+        // Gårdsveg: smal grusveg med gress på sidene, uten fortau eller parkeringsplass.
+        <>
+          {[C - w - 3, C + w + 3].map((x) => (
+            <line key={x} x1={rot([x, inner], a)[0]} y1={rot([x, inner], a)[1]} x2={rot([x, SIZE], a)[0]} y2={rot([x, SIZE], a)[1]} stroke="#8c8678" strokeWidth={3} strokeDasharray="2 6" />
+          ))}
+        </>
+      )}
+      {exit && arm.look !== 'gardsveg' && (
         <>
           {/* Fortau/kantstein som avkjørselen krysser, og en parkeringsplass. */}
           <polygon points={poly([rot([C - 60, 240], a), rot([C + 60, 240], a), rot([C + 60, 252], a), rot([C - 60, 252], a)])} fill="#cfcac0" />

@@ -5,7 +5,7 @@ Denne filen viser status for prosjektet, slik at en ny økt kan fortsette uten �
 ## Status per fase
 - [x] Fase 0 – plan (`docs/PLAN-fase0.md`), **godkjent 21.11.2026** (svarene står i §8a)
 - [ ] Fase 1 – MVP: **all kode er ferdig. Innholdsbatch 1 (vikeplikt) er laget og kontrollert av en egen søkeøkt** (funn i `docs/TODO-kontroll-batch1.md`).
-- [ ] **Endring 01 – håndlagde scenarier** (`docs/endringer/ENDRING-01-handlagde-scenarier.md`): steg 1–5 er ferdige, og steg 6 (kjernekatalogen) er i gang: batch «høyreregel» er laget (9 av 41 kjernescener). **Neste batch er «avkjørsel» i en ny økt, etter at Trond har kontrollert høyreregel-batchen.** Ingen scener er verifisert ennå, så eleven ser ikke vikeplikt-krysset før Trond har kontrollert dem på `/review`.
+- [ ] **Endring 01 – håndlagde scenarier** (`docs/endringer/ENDRING-01-handlagde-scenarier.md`): steg 1–5 er ferdige, og steg 6 (kjernekatalogen) er i gang: batchene «høyreregel» og «avkjørsel» er laget (11 av 41 kjernescener). **Neste batch er «fra-sykkelveg», etter at Trond har kontrollert de to batchene.** Ingen scener er verifisert ennå, så eleven ser ikke vikeplikt-krysset før Trond har kontrollert dem på `/review`.
 - [ ] Fase 2 – Eksamensklar
 - [ ] Fase 3 – Øvelseskjøring og oppkjøring
 - [ ] Fase 4 – Kvalitet
@@ -139,9 +139,16 @@ Målet er at fasiten er data, ikke beregning: ingen kode i `src/` skal avgjøre 
     - `vp-scene-hoyreregel-04`: syklist fra høyre på kjørebanen.
     - Alle har `verified: false`. Revisjonen er enig.
     - TODO til Trond: at høyreregelen gjelder i T-kryss, er en slutning (ingen kilde nevner T-kryss), og at sykkel er «kjøretøy», er en slutning av vtl. § 2.
-  - **Status per undertema:** høyreregel 4/4, avkjørsel 2/4, venstresving 2/3, skilt 1/6. Resten har 0.
+  - **Batch «avkjørsel» (22.11.2026), ferdig 4 av 4:**
+    - `vp-scene-gardsveg-01`: A fra gårdsveg på Bs høyre side svinger til høyre, og A viker likevel.
+    - `vp-scene-bensinstasjon-01`: første scene med spørsmålstypen `ja-nei`. A fra bensinstasjon skal rett over, B kommer fra venstre. Fasit: ja, A har vikeplikt.
+    - Begge har `verified: false`. Revisjonen er enig.
+    - Gårdsveg tegnes nå som en smal grusveg uten parkeringsplass (`Arm.look`).
+    - Ja/nei-skjermen er prøvd i nettleseren med både riktig og feil svar.
+    - Vegskulder (§ 7 nr. 4 første ledd, siste del) har ingen scene. Layoutene er bare kryss, og vegskulder krever en rett vegstrekning.
+  - **Status per undertema:** høyreregel 4/4, avkjørsel 4/4, venstresving 2/3, skilt 1/6. Resten har 0.
   - **Foreslått rekkefølge videre:**
-    - Først avkjørsel og fra-sykkelveg (§ 7 nr. 4 er lest ordrett), deretter bussholdeplass og rygging-vending.
+    - Først fra-sykkelveg (§ 7 nr. 4 annet ledd er lest ordrett), deretter bussholdeplass og rygging-vending.
     - Så svinging mot gående og syklende, og skilt.
     - Lysregulering og politi kommer etter at skiltforskriften §§ 24–25 er lest ordrett på Lovdata.
     - fri-veg kommer etter at B1/B2 er avklart, og rundkjøring etter B5.
