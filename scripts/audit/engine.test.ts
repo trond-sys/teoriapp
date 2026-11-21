@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { Actor, Arm, ArmControl, Dir, Junction } from '../../content/schema';
+import type { Actor, Arm, ArmControl, Dir, Junction } from '../../src/content/schema';
 import { analyze, grade, type SceneInput } from './engine';
 import { maneuver, pathsConflict, relPos, rightOf, rotateDir } from './geometry';
 

@@ -1,6 +1,8 @@
+// REVISJONSVERKTØY (Endring 01, steg 5). Den gamle regelmotoren brukes bare av scripts/audit-scenes.ts for å
+// lage docs/scene-audit.md. Den avgjør ikke noe i appen. Slettes når alle kjernescener er verifisert.
 // Geometri for kryss: retninger, manøvrer og hvilke kjørebaner som krysser hverandre.
 // Høyretrafikk. «from: S» betyr at kjøretøyet kommer inn fra sørarmen og kjører nordover inn i krysset.
-import type { Dir } from '../../content/schema';
+import type { Dir } from '../../src/content/schema';
 
 export type Maneuver = 'left' | 'straight' | 'right';
 /** Hvor B kommer fra, sett fra A: fra høyre, fra venstre eller møtende. */

@@ -13,6 +13,7 @@
     "test:watch": "vitest",
     "validate-content": "tsx scripts/validate-content.ts",
     "validate-scenes": "tsx scripts/validate-scenes.ts",
+    "audit-scenes": "tsx scripts/audit-scenes.ts",
     "import-signs": "node scripts/import-signs.mjs && node scripts/write-licenses.mjs",
     "check": "npm run validate-content && npm run typecheck && npm test"
   },

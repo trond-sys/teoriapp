@@ -1,5 +1,7 @@
+// REVISJONSVERKTØY (Endring 01, steg 5). Den gamle regelmotoren brukes bare av scripts/audit-scenes.ts for å
+// lage docs/scene-audit.md. Den avgjør ikke noe i appen. Slettes når alle kjernescener er verifisert.
 // Vikeplikt-motoren: fra kryss + trafikanter til hvem som viker for hvem, og i hvilken rekkefølge de kan kjøre.
-import type { Actor, ArmControl, Junction } from '../../content/schema';
+import type { Actor, ArmControl, Junction } from '../../src/content/schema';
 import { crossesCrosswalk, maneuver, pathsConflict, relPos } from './geometry';
 import type { RuleId } from './rules';
 

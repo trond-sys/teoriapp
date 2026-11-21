@@ -5,7 +5,7 @@ Denne filen viser status for prosjektet, slik at en ny økt kan fortsette uten �
 ## Status per fase
 - [x] Fase 0 – plan (`docs/PLAN-fase0.md`), **godkjent 21.11.2026** (svarene står i §8a)
 - [ ] Fase 1 – MVP: **all kode er ferdig. Innholdsbatch 1 (vikeplikt) er laget og kontrollert av en egen søkeøkt** (funn i `docs/TODO-kontroll-batch1.md`).
-- [ ] **Endring 01 – håndlagde scenarier** (`docs/endringer/ENDRING-01-handlagde-scenarier.md`): steg 1–4 er ferdige (formatet ble godkjent 22.11.2026). **Neste er steg 5 (revisjonsrapport).** Ingen scener er verifisert ennå, så eleven ser ikke vikeplikt-krysset før Trond har kontrollert dem på `/review`.
+- [ ] **Endring 01 – håndlagde scenarier** (`docs/endringer/ENDRING-01-handlagde-scenarier.md`): steg 1–5 er ferdige (formatet ble godkjent 22.11.2026). **Neste er steg 6 (kjernekatalogen) eller 7 (knapp for verifisering på `/review`).** Ingen scener er verifisert ennå, så eleven ser ikke vikeplikt-krysset før Trond har kontrollert dem på `/review`.
 - [ ] Fase 2 – Eksamensklar
 - [ ] Fase 3 – Øvelseskjøring og oppkjøring
 - [ ] Fase 4 – Kvalitet
@@ -18,6 +18,7 @@ npm run check             # validate-content + typecheck + tester (kjøres før 
 npm run build             # produksjonsbygg med service worker (dist/)
 npm run import-signs      # henter manglende skilt fra Statens vegvesens zip-filer og skriver LICENSES.md
 npm run validate-scenes   # struktur og geometriske advarsler for de håndlagde scenariene (også en del av validate-content)
+npm run audit-scenes      # revisjon: den gamle motoren mot hver scene → docs/scene-audit.md (hjelpemiddel, ikke dommer)
 ```
 Git: repoet har lokal `user.email` = GitHub noreply for `trond-sys`. **Ikke bruk BT Flyt-adressen her.** Ingenting er pushet. `.github/workflows/pages.yml` publiserer til GitHub Pages når repoet er pushet til `trond-sys/teoriapp` (offentlig) og Pages er satt til «GitHub Actions».
 
@@ -122,12 +123,14 @@ Målet er at fasiten er data, ikke beregning: ingen kode i `src/` skal avgjøre 
   - SceneView tegner bare intensjonspiler. Kjørebanene (`vehiclePath`) er fjernet.
   - Uverifiserte scener vises ikke for eleven (`STUDENT_SCENARIOS`). Bare verifiserte kjernescener er med i «Dagens økt» og i mestringen.
   - Det gamle formatet (`YieldScene`, `scenes-legacy/`, `sceneCheck`) er fjernet. `decide()` brukes ikke lenger av noe i `src/`. Bare `/review` importerer fortsatt `RULES`, og det fjernes i steg 5.
+- **Steg 5, revisjon (22.11.2026):**
+  - Den gamle motoren ligger i `scripts/audit/` (`engine.ts`, `rules.ts`, `geometry.ts` og 38 tester).
+  - `npm run audit-scenes` kjører motoren mot hver scene og skriver `docs/scene-audit.md`.
+  - Resultat 22.11.2026: 6 scener, **0 uenige**. Det er ventet, siden ingen av scenene treffer motorens kjente svakheter (trikk, utrykning, rundkjøring, lys, politi). Rapporten lister svakhetene.
+  - Jeg testet med en bevisst feil fasit: revisjonen viste da hvilke vikeplikter rekkefølgen bryter, og hvilke steg som mangler.
+  - **Ingen fil i `src/` importerer motoren lenger.** `src/domain/yield/` er fjernet, også `RULES` på `/review`.
 
 **Gjenstår:**
-- **5. Revisjon:**
-  - `decide()`, `rules.ts` og `engine.ts` flyttes til `scripts/audit-scenes.ts`.
-  - Skriptet lager rapporten `docs/scene-audit.md`.
-  - Ingen fil i `src/` importerer motoren lenger.
 - **6. Kjernekatalogen** (~40 scener, §6) lages i batcher per undertema.
 - **7. `/review` får knapp for å verifisere** (`verifiedBy` og `verifiedAt`), med eksport.
 - **8. Oppdatering** av `docs/PROMPT.md` §4.3 og §6, og denne filen.
@@ -165,7 +168,10 @@ Alt innhold er `verified: false` til Trond har kontrollert det. Dette er det jeg
 - **Skiltkilde byttet fra Wikimedia Commons til Statens vegvesen (21.11.2026).** Wikimedia stengte for nedlasting (429), og Trond ba meg finne en annen løsning. Vegvesenets filer er den offisielle kilden (Commons-filene er laget fra dem), med åpen lisens NLOD 2.0. Alle skilt hentes med `npm run import-signs`. Skjemaet har `credit.original` (zip-URL) og `credit.variant`, og `LICENSES.md` genereres fra `signs.json`.
 
 ## Neste steg
-1. **Endring 01, steg 5:** revisjonsrapport (`npm run audit-scenes` → `docs/scene-audit.md`), og fjerning av motoren fra `src/`. Trond kontrollerer scenene på `/review` og markerer dem som verifisert (knappen kommer i steg 7).
+1. **Endring 01:**
+   - Trond kontrollerer de 6 scenene på `/review`, med `docs/scene-audit.md` som hjelpemiddel.
+   - Deretter kommer steg 7 (knapp for verifisering) og steg 6 (kjernekatalogen i batcher).
+   - Kjør `npm run audit-scenes` på nytt når scener legges til eller endres.
 2. **Trond kontrollerer batch 1.** Funnene står i `docs/TODO-kontroll-batch1.md`. Sett `verified: true` (og eventuelt `thReview`) i JSON-filene for det som er riktig.
 3. Test på Xiaomi Pad 5 (Chrome, installert som app) og iPhone (Safari, Legg til på Hjem-skjerm). Krever at appen er publisert, se «Git» over.
 4. Deretter, i nye økter: én innholdsbatch per tema. Foreslått rekkefølge er resten av `vp-hoyreregel`, deretter `so-skilt` med ~58 skilt, `fp-veggrep` (vinter), `fa-trafikkuhell` (tunnel), `fp-sikt-lys` og så resten. De 8 siste vikeplikt-scenene kan komme med trikk, utrykning, gangfelt og rundkjøring.

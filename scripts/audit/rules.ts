@@ -1,7 +1,9 @@
+// REVISJONSVERKTØY (Endring 01, steg 5). Den gamle regelmotoren brukes bare av scripts/audit-scenes.ts for å
+// lage docs/scene-audit.md. Den avgjør ikke noe i appen. Slettes når alle kjernescener er verifisert.
 // Vikepliktsreglene motoren bruker, med hjemmel. Forrangen er rekkefølgen i RULE_ORDER.
 // Hjemlene er lest på Lovdata 21.11.2026 (forskrift om kjørende og gående trafikk, FOR-1986-03-21-747,
 // sist endret FOR-2022-06-17-1049). Regler merket verified: false må kontrolleres av Trond.
-import type { L3 } from '../../content/schema';
+import type { L3 } from '../../src/content/schema';
 
 export type RuleId =
   | 'utrykning'

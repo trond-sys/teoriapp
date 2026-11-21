@@ -6,7 +6,6 @@ import { ScenarioPreview } from './ScenarioPreview';
 import { TEMALISTE } from '../../config/temaliste';
 import { db } from '../../db/db';
 import { exportThaiReports } from '../../db/export';
-import { RULES } from '../../domain/yield/rules';
 import { U } from '../../i18n/T';
 
 export function ReviewPage() {
@@ -15,9 +14,6 @@ export function ReviewPage() {
     ...QUESTIONS.filter((q) => !q.verified).map((q) => ({ id: q.id, what: q.prompt.nb, source: q.source, todo: q.todo })),
     ...SCENARIOS.filter((s) => !s.verified).map((s) => ({ id: s.id, what: s.question.prompt.nb, source: s.answer.steps.map((st) => st.source.ref).join('; '), todo: s.todo })),
     ...SIGNS.filter((s) => !s.verified).map((s) => ({ id: `skilt ${s.nr}`, what: s.name.nb, source: s.source, todo: s.todo })),
-    ...Object.values(RULES)
-      .filter((r) => !r.verified)
-      .map((r) => ({ id: `motorregel ${r.id}`, what: r.why.nb, source: r.source, todo: r.todo })),
   ];
   return (
     <div className="page stack" lang="nb">
