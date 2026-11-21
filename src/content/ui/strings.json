@@ -793,5 +793,15 @@
     "nb": "Denne nettleseren kan ikke lese opp tekst.",
     "en": "This browser cannot read text aloud.",
     "th": "เบราว์เซอร์นี้อ่านข้อความออกเสียงไม่ได้"
+  },
+  "yield.yes": {
+    "nb": "Ja",
+    "en": "Yes",
+    "th": "ใช่"
+  },
+  "yield.no": {
+    "nb": "Nei",
+    "en": "No",
+    "th": "ไม่ใช่"
   }
 }

@@ -1159,3 +1159,10 @@ h2.t-main,
   background: var(--warn-soft);
   color: var(--warn);
 }
+
+.option--yesno {
+  flex: 1 1 160px;
+  justify-content: center;
+  font-weight: 600;
+  font-size: var(--fs-4);
+}

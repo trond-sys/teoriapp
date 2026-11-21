@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { QUESTIONS, SCENES } from '../../content/index';
+import { QUESTIONS, STUDENT_SCENARIOS } from '../../content/index';
 import { TEMA_GRUPPER, TEMALISTE, type TemaGruppe } from '../../config/temaliste';
 import { useLayers, U } from '../../i18n/T';
 import { Icon } from '../../components/Icon';
@@ -13,7 +13,7 @@ export function PracticePage() {
       <h1>
         <U k="practice.title" sub />
       </h1>
-      {SCENES.length > 0 && (
+      {STUDENT_SCENARIOS.length > 0 && (
         <Link to="/practice/yield" className="card link-card">
           <Icon name="today" size={32} />
           <div>

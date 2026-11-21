@@ -2,7 +2,7 @@
 import { z } from 'zod';
 import { TEMALISTE } from '../config/temaliste';
 import { validateScenario } from '../domain/scenes/validate';
-import { GlossaryTerm, Question, Scenario, Sign, UiStrings, YieldScene } from './schema';
+import { GlossaryTerm, Question, Scenario, Sign, UiStrings } from './schema';
 
 export interface RawFile {
   file: string;
@@ -11,8 +11,6 @@ export interface RawFile {
 
 export interface RawContent {
   questions: RawFile[];
-  /** Gammelt sceneformat (motoren). Fjernes i steg 4 av Endring 01. */
-  scenes: RawFile[];
   /** Håndlagde scenarier (Endring 01), én fil per scene i src/content/scenes/. */
   scenarios?: RawFile[];
   signs: RawFile;
@@ -26,7 +24,6 @@ export interface RawContent {
 
 export interface Content {
   questions: Question[];
-  scenes: YieldScene[];
   scenarios: Scenario[];
   signs: Sign[];
   glossary: GlossaryTerm[];
@@ -50,9 +47,6 @@ export interface ValidationResult {
   unverified: { id: string; todo?: string }[];
 }
 
-/** Ekstra kontroller som krever motoren (vikeplikt). Kobles inn av kalleren. */
-export type SceneCheck = (scene: YieldScene) => string[];
-
 function fmtZod(file: string, where: string, err: z.ZodError): string[] {
   return err.issues.map((i) => `${file}: ${where}${i.path.length ? ' → ' + i.path.join('.') : ''}: ${i.message}`);
 }
@@ -74,7 +68,7 @@ function parseArray<T>(raw: RawFile, schema: z.ZodType<T>, errors: string[], idO
 const idOf = (x: unknown, i: number) =>
   x && typeof x === 'object' && 'id' in x ? String((x as { id: unknown }).id) : x && typeof x === 'object' && 'nr' in x ? `skilt ${(x as { nr: unknown }).nr}` : `#${i}`;
 
-export function validateContent(raw: RawContent, sceneCheck?: SceneCheck): ValidationResult {
+export function validateContent(raw: RawContent): ValidationResult {
   const errors: string[] = [];
   const warnings: string[] = [];
 
@@ -85,12 +79,6 @@ export function validateContent(raw: RawContent, sceneCheck?: SceneCheck): Valid
       if (q.temalisteRef !== expected) errors.push(`${f.file}: ${q.id} har temalisteRef ${q.temalisteRef}, men ligger i ${expected}.json`);
     }
     return qs;
-  });
-  const scenes = raw.scenes.flatMap((f) => {
-    const ss = parseArray(f, YieldScene, errors, idOf);
-    const expected = f.file.replace(/^.*[\\/]/, '').replace(/\.json$/, '');
-    for (const s of ss) if (s.id !== expected) errors.push(`${f.file}: scene-ID ${s.id} må være lik filnavnet`);
-    return ss;
   });
   const scenarios = (raw.scenarios ?? []).flatMap((f) => {
     const ss = parseArray({ ...f, data: [f.data] }, Scenario, errors, idOf);
@@ -113,13 +101,12 @@ export function validateContent(raw: RawContent, sceneCheck?: SceneCheck): Valid
     else seen.set(id, where);
   };
   questions.forEach((q) => claim(q.id, 'oppgave'));
-  scenes.forEach((s) => claim(s.id, 'scene'));
   scenarios.forEach((s) => claim(s.id, 'scenario'));
   signs.forEach((s) => claim(`sign-${s.nr}`, 'skilt'));
   glossary.forEach((g) => claim(`term-${g.id}`, 'ordliste'));
 
   const termIds = new Set(glossary.map((g) => g.id));
-  const sceneIds = new Set(scenes.map((s) => s.id));
+  const sceneIds = new Set(scenarios.map((s) => s.id));
   const signNrs = new Set(signs.map((s) => s.nr));
   const checkTerms = (owner: string, terms: string[]) => {
     for (const t of terms) if (!termIds.has(t)) errors.push(`${owner}: ordet «${t}» finnes ikke i ordlisten`);
@@ -142,23 +129,6 @@ export function validateContent(raw: RawContent, sceneCheck?: SceneCheck): Valid
   for (const sc of scenarios)
     for (const issue of validateScenario(sc, scenarioCtx))
       (issue.level === 'error' ? errors : warnings).push(`${issue.id}: ${issue.message}`);
-  for (const s of scenes) {
-    checkTerms(s.id, s.glossaryTerms);
-    const ids = s.actors.map((a) => a.id);
-    if (new Set(ids).size !== ids.length) errors.push(`${s.id}: to aktører har samme bokstav`);
-    const flat = s.expectedOrder.flat();
-    if (flat.length !== ids.length || !ids.every((id) => flat.includes(id)))
-      errors.push(`${s.id}: expectedOrder må inneholde hver aktør nøyaktig én gang`);
-    for (const a of s.actors) {
-      if (!s.junction.arms[a.from]) errors.push(`${s.id}: ${a.id} kommer fra armen ${a.from}, som ikke finnes`);
-      if (a.kind !== 'pedestrian') {
-        if (!a.to) errors.push(`${s.id}: ${a.id} mangler «to»`);
-        else if (!s.junction.arms[a.to]) errors.push(`${s.id}: ${a.id} skal til armen ${a.to}, som ikke finnes`);
-        else if (a.to === a.from) errors.push(`${s.id}: ${a.id} kan ikke snu i krysset`);
-      } else if (!s.junction.arms[a.from]?.crosswalk) errors.push(`${s.id}: gående ${a.id} står ved armen ${a.from} uten gangfelt`);
-    }
-    if (sceneCheck) errors.push(...sceneCheck(s).map((e) => `${s.id}: ${e}`));
-  }
 
   // UI-tekst: nøkler som brukes i koden sjekkes av TypeScript (se src/i18n/strings.ts).
 
@@ -176,10 +146,9 @@ export function validateContent(raw: RawContent, sceneCheck?: SceneCheck): Valid
   });
   const unverified = [
     ...questions.filter((q) => !q.verified).map((q) => ({ id: q.id, todo: q.todo })),
-    ...scenes.filter((s) => !s.verified).map((s) => ({ id: s.id, todo: s.todo })),
     ...signs.filter((s) => !s.verified).map((s) => ({ id: `skilt ${s.nr}`, todo: s.todo })),
     ...scenarios.filter((s) => !s.verified).map((s) => ({ id: s.id, todo: s.todo })),
   ];
 
-  return { errors, warnings, content: { questions, scenes, scenarios, signs, glossary, ui }, coverage, unverified };
+  return { errors, warnings, content: { questions, scenarios, signs, glossary, ui }, coverage, unverified };
 }

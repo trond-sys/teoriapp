@@ -122,7 +122,8 @@ export const GlossaryTerm = z.strictObject({
 });
 export type GlossaryTerm = z.infer<typeof GlossaryTerm>;
 
-// ---------- Vikeplikt-scener ----------
+// ---------- Tegnemodell for kryss ----------
+// Brukes av SceneView (via src/scene/fromScenario.ts) og av den gamle motoren til den flyttes til scripts/ (Endring 01, steg 5).
 
 export const Dir = z.enum(['N', 'E', 'S', 'W']);
 export type Dir = z.infer<typeof Dir>;
@@ -170,26 +171,6 @@ export const Junction = z.strictObject({
   arms: z.partialRecord(Dir, Arm),
 });
 export type Junction = z.infer<typeof Junction>;
-
-export const YieldScene = z.strictObject({
-  id: z.string().regex(/^scene-[a-z0-9-]+-\d{2}$/),
-  topic: z.string().min(1),
-  temalisteRef: TemaRef,
-  alsoRefs: z.array(TemaRef).default([]),
-  trinn: Trinn,
-  difficulty: z.number().int().min(1).max(3),
-  junction: Junction,
-  actors: z.array(Actor).min(1).max(5),
-  prompt: L3,
-  explanation: L3,
-  thaiContrast: L3.optional(),
-  /** Håndskrevet fasit i grupper; de i samme gruppe kan kjøre samtidig. Kryssjekkes mot motoren. */
-  expectedOrder: z.array(z.array(z.string()).min(1)).min(1),
-  roadTextNb: z.array(z.string()).default([]),
-  glossaryTerms: z.array(z.string()).default([]),
-  ...metaShape,
-});
-export type YieldScene = z.infer<typeof YieldScene>;
 
 // ---------- Håndlagde scenarier (Endring 01) ----------
 // Fasiten er data, ikke beregning. Hver scene lagres med fasit og hjemmel per steg, kontrollert av et menneske.

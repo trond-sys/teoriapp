@@ -1,7 +1,7 @@
 // Styrer en økt (Dagens økt eller øving på tema): viser elementene etter tur, lagrer svar og SRS,
 // og legger feilsvar inn igjen litt senere i samme økt.
 import { useRef, useState, type ReactNode } from 'react';
-import type { YieldScene } from '../../content/schema';
+import type { Scenario } from '../../content/schema';
 import { recordAttempt } from '../../db/db';
 import type { Mode } from '../../domain/types';
 import { ThaiScope, useSettings, useThaiScope } from '../../i18n/LangProvider';
@@ -11,10 +11,10 @@ import { YieldBoard } from '../yield/YieldBoard';
 import { Feedback, QuestionCard } from './QuestionCard';
 import type { QuizItem } from './quizItem';
 
-export type Entry = { type: 'quiz'; item: QuizItem } | { type: 'scene'; scene: YieldScene };
+export type Entry = { type: 'quiz'; item: QuizItem } | { type: 'scene'; scene: Scenario };
 
 const entryId = (e: Entry) => (e.type === 'quiz' ? e.item.itemId : e.scene.id);
-const entryRef = (e: Entry) => (e.type === 'quiz' ? e.item.temalisteRef : e.scene.temalisteRef);
+const entryRef = (e: Entry) => (e.type === 'quiz' ? e.item.temalisteRef : (e.scene.temalisteRef ?? ''));
 
 /** Hvor mange plasser senere et feilsvar kommer igjen. */
 const REQUEUE_GAP = 3;

@@ -1,6 +1,7 @@
 // Ett flervalg: spørsmål, media (scene eller skilt), svaralternativer og tilbakemelding.
 import { useState } from 'react';
-import { SCENE_BY_ID, SIGN_BY_NR, signUrl } from '../../content/index';
+import { SCENARIO_BY_ID, SIGN_BY_NR, signUrl } from '../../content/index';
+import { scenarioToDrawing } from '../../scene/fromScenario';
 import { SceneView } from '../../scene/SceneView';
 import { SpeakButton, T, TLine, TranslateAllButton, U, useLayers } from '../../i18n/T';
 import { Icon } from '../../components/Icon';
@@ -22,8 +23,9 @@ export function SignImage({ nr, size = 160 }: { nr: string; size?: number }) {
 }
 
 function Media({ item }: { item: QuizItem }) {
-  const scene = item.media?.scene ? SCENE_BY_ID.get(item.media.scene) : undefined;
-  if (scene) return <SceneView scene={scene} />;
+  // Scenen vises som bilde selv om den er uverifisert: oppgavens egen «verified» styrer merket.
+  const scene = item.media?.scene ? SCENARIO_BY_ID.get(item.media.scene) : undefined;
+  if (scene) return <SceneView scene={scenarioToDrawing(scene)} signs={scene.layout.signs} />;
   if (item.media?.sign) return <SignImage nr={item.media.sign} size={200} />;
   return null;
 }

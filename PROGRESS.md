@@ -5,7 +5,7 @@ Denne filen viser status for prosjektet, slik at en ny økt kan fortsette uten �
 ## Status per fase
 - [x] Fase 0 – plan (`docs/PLAN-fase0.md`), **godkjent 21.11.2026** (svarene står i §8a)
 - [ ] Fase 1 – MVP: **all kode er ferdig. Innholdsbatch 1 (vikeplikt) er laget og kontrollert av en egen søkeøkt** (funn i `docs/TODO-kontroll-batch1.md`).
-- [ ] **Endring 01 – håndlagde scenarier** (`docs/endringer/ENDRING-01-handlagde-scenarier.md`): steg 1–3 er ferdige. **Venter på at Trond godkjenner formatet** (de tre eksempelscenene på `/review`) før steg 4–8.
+- [ ] **Endring 01 – håndlagde scenarier** (`docs/endringer/ENDRING-01-handlagde-scenarier.md`): steg 1–4 er ferdige (formatet ble godkjent 22.11.2026). **Neste er steg 5 (revisjonsrapport).** Ingen scener er verifisert ennå, så eleven ser ikke vikeplikt-krysset før Trond har kontrollert dem på `/review`.
 - [ ] Fase 2 – Eksamensklar
 - [ ] Fase 3 – Øvelseskjøring og oppkjøring
 - [ ] Fase 4 – Kvalitet
@@ -87,7 +87,7 @@ Innhold utenom oppgavebanken: 12 av ~70 kjerneskilt, 4 av 12 vikeplikt-scener, 0
 
 ## Batch 1 – vikeplikt (venter på Tronds kontroll)
 - **Oppgaver:** `src/content/questions/vp-*.json` (vikeplikt-001 til -020). Alle har `source`, `verified: false` og `thReview: "pending"`.
-- **Scener (gammelt format):** `src/content/scenes-legacy/` – `scene-hoyreregel-01`, `scene-hoyreregel-02`, `scene-forkjorsveg-01`, `scene-avkjorsel-01`. De rettes fortsatt av motoren og konverteres i steg 4 av Endring 01.
+- **Scener:** de 4 scenene fra batch 1 er konvertert til det håndlagde formatet i Endring 01 (se under).
 - **Skilt:** `src/content/signs.json` – 202, 204, 206, 208, 210, 212, 124, 126, 132, 139, 406, 516. Bildene kommer fra Statens vegvesens offisielle skiltfiler (NLOD 2.0) og ligger som PNG i `public/signs/`.
 - **Ordliste:** `src/content/glossary.json` (21 begreper).
 - **Kilder:** trafikkreglene (FOR-1986-03-21-747, sist endret FOR-2022-06-17-1049) og skiltforskriften (FOR-2005-10-07-1219) er lest på Lovdata 21.11.2026. Paragrafene §§ 3, 7, 8, 9, 10 og 11 i trafikkreglene og skilt 124, 202, 204, 206, 210, 212 og 516 i skiltforskriften er lest ordrett. Skiltforskriften §§ 23–25 (lys og politi) er bare lest som sammendrag.
@@ -109,16 +109,21 @@ Målet er at fasiten er data, ikke beregning: ingen kode i `src/` skal avgjøre 
   - `vp-scene-hoyreregel-01`
   - `vp-scene-parkering-01`, med vikepliktskilt på B (funn B4)
   - `vp-scene-venstre-venstre-01`, med `order: [["A","B"]]` (funn B6)
-  - De vises med intensjonspiler på `/review` (`ScenarioPreview`, via den midlertidige adapteren `src/scene/fromScenario.ts`).
-  - For eleven er appen uendret.
+  - De vises med intensjonspiler på `/review` (`ScenarioPreview`), med knappen «Prøv i krysset».
+- **Steg 4, konvertering (22.11.2026):**
+  - De 4 gamle scenene er skrevet om, med fasit ut fra funnene (ikke fra motoren). Alle er `verified: false`.
+    - `scene-hoyreregel-01` var identisk med `vp-scene-hoyreregel-01` og er slått sammen med den.
+    - `scene-hoyreregel-02` er blitt `vp-scene-venstresving-01`.
+    - `scene-forkjorsveg-01` er blitt `vp-scene-forkjorsveg-01`, med skilt 202 og 206 tegnet eksplisitt.
+    - `scene-avkjorsel-01` er blitt `vp-scene-parkering-02`.
+  - Flervalgsoppgavene vikeplikt-001 og -003 peker nå på de nye scenene.
+  - YieldBoard retter mot `answer` med `src/domain/scenes/grade.ts`. Funksjonen sammenligner bare med de lagrede gruppene og har 4 tester. Forklaringen viser hjemmel og sitat per steg.
+  - `ja-nei` og `velg` har eget skjermbilde, men er ikke prøvd i nettleseren, fordi ingen scener bruker dem ennå.
+  - SceneView tegner bare intensjonspiler. Kjørebanene (`vehiclePath`) er fjernet.
+  - Uverifiserte scener vises ikke for eleven (`STUDENT_SCENARIOS`). Bare verifiserte kjernescener er med i «Dagens økt» og i mestringen.
+  - Det gamle formatet (`YieldScene`, `scenes-legacy/`, `sceneCheck`) er fjernet. `decide()` brukes ikke lenger av noe i `src/`. Bare `/review` importerer fortsatt `RULES`, og det fjernes i steg 5.
 
-**Gjenstår (etter Tronds godkjenning av formatet):**
-- **4. Konvertering:**
-  - De 4 gamle scenene i `scenes-legacy/` skrives om, med fasit ut fra funnene.
-  - YieldBoard retter etter `answer`.
-  - SceneView tegner bare intensjonspiler.
-  - Uverifiserte scener skjules for eleven.
-  - Skjermbilder for `ja-nei` og `velg` lages.
+**Gjenstår:**
 - **5. Revisjon:**
   - `decide()`, `rules.ts` og `engine.ts` flyttes til `scripts/audit-scenes.ts`.
   - Skriptet lager rapporten `docs/scene-audit.md`.
@@ -148,19 +153,19 @@ Alt innhold er `verified: false` til Trond har kontrollert det. Dette er det jeg
 
 ## Kjente begrensninger
 - **Skiltbilder:** Skiltene er PNG (maks 480 px), konvertert fra vegvesenets CMYK-JPG, fordi vegvesenet bare tilbyr EPS og JPG og maskinen ikke har verktøy for EPS → SVG. Utenfor runde og trekantede skilt er hjørnene hvite, ikke gjennomsiktige. Mangler en bildefil, viser appen skiltnummeret som plassholder, og `validate-content` gir en advarsel.
-- Vikeplikt-motoren støtter ikke kø (to kjøretøy fra samme arm), trafikklys eller politi i scener, gang- og sykkelveg som egen armtype, og buss fra holdeplass. Dette dekkes foreløpig av flervalg.
+- Scenene kan ikke vise kø (to kjøretøy fra samme arm). Tegningen av trafikklys og politi i scenene er ikke laget ennå (feltene finnes i skjemaet).
 - Leksjoner (4.1) er ikke laget. Visningen bygges sammen med første leksjonsbatch.
 - Import av eksportfil kommer i Fase 4. Eksport finnes i Innstillinger og på Fremgang.
 
 ## Avvik fra PLAN-fase0 (godkjent med Fase 1-planen)
 - Fase 1-økten lager bare batch 1. Resten av MVP-innholdet kommer i egne økter per tema.
-- Vikeplikt-krysset retter etter vikeplikt-grafen. De som kan kjøre samtidig, godtas i begge rekkefølger. `validate-content` kryssjekker `expectedOrder` mot motoren.
+- Vikeplikt-krysset retter mot fasiten som er lagret i scenen (Endring 01), ikke mot en regelmotor. De som kan kjøre samtidig, godtas i begge rekkefølger.
 - Fonter kommer fra `@fontsource` (bare latin og thai), ikke fra `public/fonts/`.
 - `/review` og JSON-eksport kom allerede i Fase 1.
 - **Skiltkilde byttet fra Wikimedia Commons til Statens vegvesen (21.11.2026).** Wikimedia stengte for nedlasting (429), og Trond ba meg finne en annen løsning. Vegvesenets filer er den offisielle kilden (Commons-filene er laget fra dem), med åpen lisens NLOD 2.0. Alle skilt hentes med `npm run import-signs`. Skjemaet har `credit.original` (zip-URL) og `credit.variant`, og `LICENSES.md` genereres fra `signs.json`.
 
 ## Neste steg
-1. **Trond godkjenner formatet for håndlagde scenarier** (Endring 01, de tre scenene på `/review`). Deretter tas steg 4–8 i Endring 01.
+1. **Endring 01, steg 5:** revisjonsrapport (`npm run audit-scenes` → `docs/scene-audit.md`), og fjerning av motoren fra `src/`. Trond kontrollerer scenene på `/review` og markerer dem som verifisert (knappen kommer i steg 7).
 2. **Trond kontrollerer batch 1.** Funnene står i `docs/TODO-kontroll-batch1.md`. Sett `verified: true` (og eventuelt `thReview`) i JSON-filene for det som er riktig.
 3. Test på Xiaomi Pad 5 (Chrome, installert som app) og iPhone (Safari, Legg til på Hjem-skjerm). Krever at appen er publisert, se «Git» over.
 4. Deretter, i nye økter: én innholdsbatch per tema. Foreslått rekkefølge er resten av `vp-hoyreregel`, deretter `so-skilt` med ~58 skilt, `fp-veggrep` (vinter), `fa-trafikkuhell` (tunnel), `fp-sikt-lys` og så resten. De 8 siste vikeplikt-scenene kan komme med trikk, utrykning, gangfelt og rundkjøring.

@@ -1,7 +1,7 @@
 // Skjult redaktørside (/review) for Trond: uverifiserte elementer, thai-rapporter og dekning mot temalisten.
 // Siden er bare for redaktøren og vises på norsk med engelsk for UI-overskrifter.
 import { useLiveQuery } from 'dexie-react-hooks';
-import { QUESTIONS, SCENARIOS, SCENES, SIGNS } from '../../content/index';
+import { QUESTIONS, SCENARIOS, SIGNS } from '../../content/index';
 import { ScenarioPreview } from './ScenarioPreview';
 import { TEMALISTE } from '../../config/temaliste';
 import { db } from '../../db/db';
@@ -13,7 +13,7 @@ export function ReviewPage() {
   const reports = useLiveQuery(() => db.thReports.orderBy('id').toArray(), [], []);
   const unverified = [
     ...QUESTIONS.filter((q) => !q.verified).map((q) => ({ id: q.id, what: q.prompt.nb, source: q.source, todo: q.todo })),
-    ...SCENES.filter((s) => !s.verified).map((s) => ({ id: s.id, what: s.prompt.nb, source: s.source, todo: s.todo })),
+    ...SCENARIOS.filter((s) => !s.verified).map((s) => ({ id: s.id, what: s.question.prompt.nb, source: s.answer.steps.map((st) => st.source.ref).join('; '), todo: s.todo })),
     ...SIGNS.filter((s) => !s.verified).map((s) => ({ id: `skilt ${s.nr}`, what: s.name.nb, source: s.source, todo: s.todo })),
     ...Object.values(RULES)
       .filter((r) => !r.verified)
@@ -130,7 +130,7 @@ export function ReviewPage() {
           </tbody>
         </table>
         <p className="muted small">
-          Skilt: {SIGNS.length} · Scener: {SCENES.length}
+          Skilt: {SIGNS.length} · Scener: {SCENARIOS.length} (verifisert: {SCENARIOS.filter((s) => s.verified).length})
         </p>
       </section>
     </div>

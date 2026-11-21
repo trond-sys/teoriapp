@@ -29,7 +29,7 @@ function question(over: Record<string, unknown> = {}) {
 function raw(questions: unknown[], extra: Partial<RawContent> = {}): RawContent {
   return {
     questions: [{ file: 'src/content/questions/vp-hoyreregel.json', data: questions }],
-    scenes: [],
+    scenarios: [],
     signs: { file: 'signs.json', data: [] },
     glossary: {
       file: 'glossary.json',

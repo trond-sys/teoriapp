@@ -1,9 +1,9 @@
 // Felles scenemotor: tegner et kryss ovenfra ut fra en JSON-definert scene (ingen håndtegning per scene).
 // Brukes som bilde i flervalg og som spillbrett i vikeplikt-krysset. Gjenbrukes i «Finn faren» (Fase 3).
 import { useState } from 'react';
-import type { Actor, Arm, Dir, YieldScene } from '../content/schema';
+import type { Actor, Arm, Dir, Junction } from '../content/schema';
 import { SIGN_BY_NR, signUrl } from '../content/index';
-import { ARM_ANGLE, BASE, C, COLORS, HALF, SIZE, actorPose, onArm, rot, vehiclePath, type Pt } from './layout';
+import { ARM_ANGLE, BASE, C, COLORS, HALF, SIZE, actorPose, onArm, rot, type Pt } from './layout';
 import { leftOf, rightOf } from '../domain/scenes/geometry';
 
 /** Hvor langt fram kjøretøyets front er i lokale koordinater (kjøretøyet peker oppover). */
@@ -164,7 +164,8 @@ function VehicleShape({ a }: { a: Actor }) {
 }
 
 export interface SceneViewProps {
-  scene: Pick<YieldScene, 'junction' | 'actors'> & { id?: string };
+  /** Tegnemodellen. Lag den med scenarioToDrawing() i src/scene/fromScenario.ts. */
+  scene: { junction: Junction; actors: Actor[]; id?: string };
   /** Etikett for skjermlesere. */
   label?: string;
   /** Trykk på en trafikant (vikeplikt-krysset). */
@@ -174,13 +175,11 @@ export interface SceneViewProps {
   /** Trafikanter som tones ned. */
   dimmed?: string[];
   highlight?: string[];
-  /** «path» tegner kjørebanen (gammelt format), «intent» bare en pil for hvor trafikanten skal. */
-  arrows?: 'path' | 'intent';
   /** Skilt som skal tegnes. Når den er satt, brukes den i stedet for skilt utledet av armtypen. */
   signs?: { arm: Dir; nr: string }[];
 }
 
-export function SceneView({ scene, label, onActorClick, badges = {}, dimmed = [], highlight = [], arrows = 'path', signs }: SceneViewProps) {
+export function SceneView({ scene, label, onActorClick, badges = {}, dimmed = [], highlight = [], signs }: SceneViewProps) {
   const j = scene.junction;
   const roundabout = j.kind === 'roundabout';
   const idSafe = (scene.id ?? 'scene').replace(/[^a-z0-9-]/gi, '');
@@ -214,25 +213,6 @@ export function SceneView({ scene, label, onActorClick, badges = {}, dimmed = []
           })}
       {roundabout && !signs && <SignPost d="S" nr="406" />}
 
-      {/* Planlagte baner */}
-      {!roundabout &&
-        arrows === 'path' &&
-        scene.actors
-          .filter((a) => a.kind !== 'pedestrian' && a.to)
-          .map((a) => (
-            <path
-              key={'p' + a.id}
-              d={vehiclePath(a.from, a.to!)}
-              fill="none"
-              stroke={COLORS[a.color] ?? COLORS.blue}
-              strokeWidth={4}
-              strokeDasharray="8 6"
-              strokeLinecap="round"
-              opacity={dimmed.includes(a.id) ? 0.2 : 0.9}
-              markerEnd={`url(#arr-${idSafe}-${a.color})`}
-            />
-          ))}
-
       {scene.actors.map((a) => {
         const pose = actorPose(a, j.kind);
         const clickable = !!onActorClick;
@@ -250,7 +230,7 @@ export function SceneView({ scene, label, onActorClick, badges = {}, dimmed = []
           >
             <g transform={`translate(${pose.at[0]} ${pose.at[1]}) rotate(${pose.angle})`}>
               <VehicleShape a={a} />
-              {arrows === 'intent' && <IntentArrow a={a} marker={`arr-${idSafe}-${a.color}`} />}
+              <IntentArrow a={a} marker={`arr-${idSafe}-${a.color}`} />
             </g>
             {clickable && <circle cx={pose.at[0]} cy={pose.at[1]} r={34} fill="transparent" />}
             <g transform={`translate(${lx} ${ly})`}>

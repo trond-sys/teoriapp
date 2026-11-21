@@ -1,5 +1,5 @@
 // Gjør om øvbare elementer (itemId) til det runneren viser.
-import { QUESTION_BY_ID, SCENE_BY_ID, SIGNS, SIGN_BY_NR } from '../../content/index';
+import { QUESTION_BY_ID, SCENARIO_BY_ID, SIGNS, SIGN_BY_NR } from '../../content/index';
 import type { PoolItem } from '../../domain/types';
 import type { Entry } from './QuestionRunner';
 import { fromQuestion, signMeaningItem } from './quizItem';
@@ -10,7 +10,7 @@ export function toEntry(p: Pick<PoolItem, 'itemId' | 'kind'>, rnd: () => number 
     return q ? { type: 'quiz', item: fromQuestion(q) } : null;
   }
   if (p.kind === 'scene') {
-    const s = SCENE_BY_ID.get(p.itemId);
+    const s = SCENARIO_BY_ID.get(p.itemId);
     return s ? { type: 'scene', scene: s } : null;
   }
   if (p.kind === 'sign') {

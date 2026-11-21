@@ -6,7 +6,7 @@
     "trinn": 3,
     "type": "mc-image",
     "difficulty": 1,
-    "media": { "scene": "scene-hoyreregel-01" },
+    "media": { "scene": "vp-scene-hoyreregel-01" },
     "prompt": {
       "nb": "Du kjører bil A rett fram i et kryss uten skilt eller trafikklys. Bil B kommer fra høyre og skal også rett fram. Hvem skal kjøre først?",
       "en": "You are driving car A straight ahead at a junction with no signs or traffic lights. Car B comes from the right and is also going straight ahead. Who should go first?",
@@ -113,7 +113,7 @@
     "trinn": 3,
     "type": "mc-image",
     "difficulty": 2,
-    "media": { "scene": "scene-avkjorsel-01" },
+    "media": { "scene": "vp-scene-parkering-02" },
     "prompt": {
       "nb": "Bil A kjører ut fra en parkeringsplass. Syklisten C kommer fra venstre, og bil B kommer fra høyre. Hvem må bil A vike for?",
       "en": "Car A is driving out of a parking area. Cyclist C comes from the left, and car B comes from the right. Who must car A give way to?",

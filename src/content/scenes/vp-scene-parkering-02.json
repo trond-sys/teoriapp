@@ -1,0 +1,53 @@
+{
+  "id": "vp-scene-parkering-02",
+  "topic": "vikeplikt",
+  "subtopic": "avkjorsel",
+  "temalisteRef": "vp-hoyreregel",
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": {
+    "type": "t-kryss",
+    "arms": ["E", "S", "W"],
+    "signs": [],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    { "id": "A", "kind": "bil", "from": "S", "intent": "venstre", "position": "fra-parkering", "color": "red" },
+    { "id": "B", "kind": "bil", "from": "E", "intent": "rett-fram", "color": "blue" },
+    { "id": "C", "kind": "syklist", "from": "W", "intent": "rett-fram", "color": "green" }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "A kjører ut fra en parkeringsplass og skal til venstre. B og syklisten C kjører på vegen. I hvilken rekkefølge kjører de?",
+      "en": "A is driving out of a parking area and turning left. B and cyclist C are on the road. In what order do they go?",
+      "th": "A กำลังขับออกจากที่จอดรถและจะเลี้ยวซ้าย B และคนขี่จักรยาน C อยู่บนถนน พวกเขาจะไปตามลำดับใด?"
+    }
+  },
+  "answer": {
+    "order": [["B", "C"], ["A"]],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": ["B", "C"],
+        "explanation": {
+          "nb": "A kommer fra en parkeringsplass og har vikeplikt for all annen trafikk – både for B fra høyre og for syklisten C fra venstre. B og C møtes rett fram og kommer ikke i vegen for hverandre, så de kan kjøre samtidig.",
+          "en": "A is coming from a parking area and must give way to all other traffic – both B from the right and cyclist C from the left. B and C meet going straight and are not in each other's way, so they can go at the same time.",
+          "th": "A มาจากที่จอดรถและต้องให้ทางแก่ผู้ใช้ถนนอื่นทั้งหมด ทั้ง B ที่มาจากทางขวาและคนขี่จักรยาน C ที่มาจากทางซ้าย B และ C ขับตรงสวนกันและไม่ขวางทางกัน จึงไปพร้อมกันได้"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 7 nr. 4 første ledd",
+          "quote": "Kjørende som kommer fra parkeringsplass, holdeplass, torg, eiendom, bensinstasjon, gågate, gatetun eller liknende område har vikeplikt for annen trafikant.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": ["avkjorsel", "parkeringsplass", "vikeplikt"],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Konvertert fra scene-avkjorsel-01. Funn B4 bekrefter at den som kommer fra parkeringsplass, har vikeplikt for all annen trafikk."
+}

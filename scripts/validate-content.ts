@@ -1,11 +1,10 @@
 // npm run validate-content
 // Feiler (exit 1) hvis innhold mangler et språk, har ugyldig fasit, mangler source/tema,
 // har doble ID-er, ukjente ordlisteord, skilt eller scener – eller en scene der fasiten
-// ikke stemmer med vikeplikt-motoren. Skriver ut dekning per temalisteRef til slutt.
+// struktur- eller lenkefeil i de håndlagde scenariene. Skriver ut dekning per temalisteRef til slutt.
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { validateContent, type RawFile } from '../src/content/validate';
-import { sceneEngineCheck } from '../src/domain/yield/sceneCheck';
 
 const root = join(import.meta.dirname, '..');
 const contentDir = join(root, 'src', 'content');
@@ -30,7 +29,6 @@ function readDir(dir: string): RawFile[] {
 
 const raw = {
   questions: readDir(join(contentDir, 'questions')),
-  scenes: readDir(join(contentDir, 'scenes-legacy')).map((f) => ({ ...f, data: [f.data] })),
   scenarios: readDir(join(contentDir, 'scenes')),
   signs: readJson(join(contentDir, 'signs.json')),
   glossary: readJson(join(contentDir, 'glossary.json')),
@@ -39,11 +37,11 @@ const raw = {
   licensesMd: existsSync(join(signsDir, 'LICENSES.md')) ? readFileSync(join(signsDir, 'LICENSES.md'), 'utf8') : '',
 };
 
-const res = validateContent(raw, sceneEngineCheck);
+const res = validateContent(raw);
 const c = res.content;
 
 console.log(
-  `Innhold: ${c.questions.length} oppgaver, ${c.scenes.length} gamle scener, ${c.scenarios.length} håndlagde scenarier, ${c.signs.length} skilt, ` +
+  `Innhold: ${c.questions.length} oppgaver, ${c.scenarios.length} scener, ${c.signs.length} skilt, ` +
     `${c.glossary.length} ordlisteord, ${Object.keys(c.ui).length} UI-tekster.\n`,
 );
 

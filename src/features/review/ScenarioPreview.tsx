@@ -2,6 +2,7 @@
 // spørsmål og fasit på alle tre språk, hjemmel per steg og advarsler fra validatoren.
 // Siden er for Trond, så teksten er på norsk.
 import { useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { GLOSSARY, SIGNS } from '../../content/index';
 import type { L3, Scenario } from '../../content/schema';
 import { validateScenario } from '../../domain/scenes/validate';
@@ -32,7 +33,7 @@ export function ScenarioPreview({ s }: { s: Scenario }) {
   return (
     <article className="card scenario-preview">
       <div className="scenario-preview-media">
-        <SceneView scene={drawing} arrows="intent" signs={s.layout.signs} label={s.question.prompt.nb} />
+        <SceneView scene={drawing} signs={s.layout.signs} label={s.question.prompt.nb} />
       </div>
       <div className="stack scenario-preview-body">
         <header>
@@ -43,6 +44,9 @@ export function ScenarioPreview({ s }: { s: Scenario }) {
             {s.tier} · {s.subtopic} · {s.temalisteRef ?? 'ingen temalisteRef'} · vanskelighet {s.difficulty} ·{' '}
             <strong>{s.verified ? `verifisert av ${s.verifiedBy ?? '?'} ${s.verifiedAt ?? ''}` : 'ikke verifisert'}</strong>
           </p>
+          <Link to={`/practice/yield/${s.id}`} className="btn btn--small">
+            Prøv i krysset
+          </Link>
         </header>
 
         {issues.length > 0 && (

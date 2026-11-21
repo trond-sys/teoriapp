@@ -1,0 +1,73 @@
+{
+  "id": "vp-scene-forkjorsveg-01",
+  "topic": "vikeplikt",
+  "subtopic": "skilt",
+  "temalisteRef": "vp-hoyreregel",
+  "alsoRefs": ["so-skilt"],
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": {
+    "type": "x-kryss",
+    "arms": ["N", "E", "S", "W"],
+    "signs": [
+      { "arm": "N", "nr": "202" },
+      { "arm": "S", "nr": "202" },
+      { "arm": "E", "nr": "206" },
+      { "arm": "W", "nr": "206" }
+    ],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    { "id": "A", "kind": "bil", "from": "S", "intent": "rett-fram", "color": "red" },
+    { "id": "B", "kind": "bil", "from": "W", "intent": "rett-fram", "color": "blue" },
+    { "id": "C", "kind": "bil", "from": "E", "intent": "venstre", "color": "green" }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "Vegen fra vest til øst er forkjørsveg. A har vikepliktskilt. B skal rett fram, og C skal til venstre. I hvilken rekkefølge kjører de?",
+      "en": "The road from west to east is a priority road. A has a give way sign. B is going straight ahead, and C is turning left. In what order do they go?",
+      "th": "ถนนจากทิศตะวันตกไปตะวันออกเป็นถนนสายหลัก A มีป้ายให้ทาง B จะตรงไป และ C จะเลี้ยวซ้าย รถจะไปตามลำดับใด?"
+    }
+  },
+  "answer": {
+    "order": [["B"], ["C"], ["A"]],
+    "steps": [
+      {
+        "who": "C",
+        "yieldsTo": ["B"],
+        "explanation": {
+          "nb": "B og C er begge på forkjørsvegen. C skal svinge til venstre og får den møtende bilen B på sin høyre side. Da har C vikeplikt for B.",
+          "en": "B and C are both on the priority road. C is turning left and will have the oncoming car B on its right. So C must give way to B.",
+          "th": "B และ C อยู่บนถนนสายหลักทั้งคู่ C จะเลี้ยวซ้ายและรถ B ที่สวนมาจะอยู่ทางขวาของ C ดังนั้น C ต้องให้ทาง B"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 7 nr. 2 annet punktum",
+          "quote": "Det samme gjelder når kjørende som vil svinge til venstre, vil få kjøretøy på sin høyre side.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      },
+      {
+        "who": "A",
+        "yieldsTo": ["B", "C"],
+        "explanation": {
+          "nb": "A har vikepliktskilt og må vike for trafikken på forkjørsvegen i begge retninger – både for B fra venstre og for C fra høyre. Skiltet gjelder foran høyreregelen.",
+          "en": "A has a give way sign and must give way to traffic on the priority road in both directions – both B from the left and C from the right. The sign applies before the right-hand rule.",
+          "th": "A มีป้ายให้ทางและต้องให้ทางแก่รถบนถนนสายหลักทั้งสองทิศทาง ทั้ง B ที่มาจากทางซ้ายและ C ที่มาจากทางขวา ป้ายจราจรมีผลเหนือกฎให้ทางรถทางขวา"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 6, skilt 202 Vikeplikt (og trafikkreglene § 3 nr. 1: skilt gjelder foran trafikkreglene)",
+          "quote": "Skiltet angir at kjørende har vikeplikt for kjørende trafikk i begge retninger på kryssende veg.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": ["forkjorsveg", "vikeplikt", "venstresving", "hoyreregelen"],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Konvertert fra scene-forkjorsveg-01. Skilt 206 er nå tegnet eksplisitt på armene E og W (forkjørsvegen), og 202 på N og S."
+}

@@ -1,6 +1,5 @@
-// Midlertidig adapter (Endring 01, steg 3): tegner et håndlagd scenario med den eksisterende tegnemotoren.
+// Oversetter et håndlagd scenario (Endring 01) til tegnemodellen SceneView bruker.
 // Den oversetter bare utseende (armtype, skilt, kjøretøytype). Den avgjør ikke vikeplikt.
-// Fjernes når SceneView leser Scenario direkte (steg 4).
 import type { Actor, Arm, ArmControl, Dir, Junction, Scenario, ScenarioKind } from '../content/schema';
 import { exitArm } from '../domain/scenes/geometry';
 
@@ -23,6 +22,17 @@ function armLook(s: Scenario, d: Dir): ArmControl {
   if (nrs.includes('206')) return 'priority';
   return 'none';
 }
+
+/** UI-tekst for trafikanttypen (actor.* i strings.json). */
+export const ACTOR_UI_KEY = {
+  bil: 'actor.car',
+  buss: 'actor.bus',
+  lastebil: 'actor.truck',
+  trikk: 'actor.tram',
+  utrykning: 'actor.emergency',
+  gaende: 'actor.pedestrian',
+  syklist: 'actor.bicycle',
+} as const satisfies Record<ScenarioKind, string>;
 
 export function scenarioToDrawing(s: Scenario): { id: string; junction: Junction; actors: Actor[] } {
   const arms: Junction['arms'] = {};
