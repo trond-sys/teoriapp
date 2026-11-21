@@ -4,7 +4,8 @@ Denne filen viser status for prosjektet, slik at en ny økt kan fortsette uten �
 
 ## Status per fase
 - [x] Fase 0 – plan (`docs/PLAN-fase0.md`), **godkjent 21.11.2026** (svarene står i §8a)
-- [ ] Fase 1 – MVP: **all kode er ferdig. Innholdsbatch 1 (vikeplikt) er laget og venter på Tronds kontroll.** Det lages ikke mer innhold før batch 1 er kontrollert.
+- [ ] Fase 1 – MVP: **all kode er ferdig. Innholdsbatch 1 (vikeplikt) er laget og kontrollert av en egen søkeøkt** (funn i `docs/TODO-kontroll-batch1.md`).
+- [ ] **Endring 01 – håndlagde scenarier** (`docs/endringer/ENDRING-01-handlagde-scenarier.md`): steg 1–3 er ferdige. **Venter på at Trond godkjenner formatet** (de tre eksempelscenene på `/review`) før steg 4–8.
 - [ ] Fase 2 – Eksamensklar
 - [ ] Fase 3 – Øvelseskjøring og oppkjøring
 - [ ] Fase 4 – Kvalitet
@@ -16,6 +17,7 @@ npm run dev               # http://localhost:5173
 npm run check             # validate-content + typecheck + tester (kjøres før hver commit)
 npm run build             # produksjonsbygg med service worker (dist/)
 npm run import-signs      # henter manglende skilt fra Statens vegvesens zip-filer og skriver LICENSES.md
+npm run validate-scenes   # struktur og geometriske advarsler for de håndlagde scenariene (også en del av validate-content)
 ```
 Git: repoet har lokal `user.email` = GitHub noreply for `trond-sys`. **Ikke bruk BT Flyt-adressen her.** Ingenting er pushet. `.github/workflows/pages.yml` publiserer til GitHub Pages når repoet er pushet til `trond-sys/teoriapp` (offentlig) og Pages er satt til «GitHub Actions».
 
@@ -85,10 +87,50 @@ Innhold utenom oppgavebanken: 12 av ~70 kjerneskilt, 4 av 12 vikeplikt-scener, 0
 
 ## Batch 1 – vikeplikt (venter på Tronds kontroll)
 - **Oppgaver:** `src/content/questions/vp-*.json` (vikeplikt-001 til -020). Alle har `source`, `verified: false` og `thReview: "pending"`.
-- **Scener:** `src/content/scenes/` – `scene-hoyreregel-01`, `scene-hoyreregel-02`, `scene-forkjorsveg-01`, `scene-avkjorsel-01`. `expectedOrder` er kryssjekket mot motoren.
+- **Scener (gammelt format):** `src/content/scenes-legacy/` – `scene-hoyreregel-01`, `scene-hoyreregel-02`, `scene-forkjorsveg-01`, `scene-avkjorsel-01`. De rettes fortsatt av motoren og konverteres i steg 4 av Endring 01.
 - **Skilt:** `src/content/signs.json` – 202, 204, 206, 208, 210, 212, 124, 126, 132, 139, 406, 516. Bildene kommer fra Statens vegvesens offisielle skiltfiler (NLOD 2.0) og ligger som PNG i `public/signs/`.
 - **Ordliste:** `src/content/glossary.json` (21 begreper).
 - **Kilder:** trafikkreglene (FOR-1986-03-21-747, sist endret FOR-2022-06-17-1049) og skiltforskriften (FOR-2005-10-07-1219) er lest på Lovdata 21.11.2026. Paragrafene §§ 3, 7, 8, 9, 10 og 11 i trafikkreglene og skilt 124, 202, 204, 206, 210, 212 og 516 i skiltforskriften er lest ordrett. Skiltforskriften §§ 23–25 (lys og politi) er bare lest som sammendrag.
+
+## Endring 01 – håndlagde scenarier
+Målet er at fasiten er data, ikke beregning: ingen kode i `src/` skal avgjøre vikeplikt når appen kjører.
+
+**Ferdig (steg 1–3, 22.11.2026):**
+- **Steg 1, kartlegging:**
+  - Motoren brukes av `YieldBoard` (retting), `sceneCheck` (validate-content), `/review` (`RULES`) og `SceneView` (kjørebaner).
+  - Den brukes av 4 scener. Flervalgsoppgavene vikeplikt-001 og -003 viser en scene som bilde, men bruker ikke motoren.
+- **Steg 2, skjema og validator:**
+  - Zod-skjema `Scenario` i `src/content/schema.ts`.
+  - Validator i `src/domain/scenes/validate.ts` (struktur = feil, geometri = advarsler).
+  - Ren geometri uten trafikkregler i `src/domain/scenes/geometry.ts`. To møtende venstresvingere regnes som ikke kryssende (§ 6 nr. 4).
+  - `npm run validate-scenes`, også kalt fra `validate-content`.
+  - 19 tester i `validate.test.ts`.
+- **Steg 3, tre eksempelscener** i `src/content/scenes/`, alle `verified: false`:
+  - `vp-scene-hoyreregel-01`
+  - `vp-scene-parkering-01`, med vikepliktskilt på B (funn B4)
+  - `vp-scene-venstre-venstre-01`, med `order: [["A","B"]]` (funn B6)
+  - De vises med intensjonspiler på `/review` (`ScenarioPreview`, via den midlertidige adapteren `src/scene/fromScenario.ts`).
+  - For eleven er appen uendret.
+
+**Gjenstår (etter Tronds godkjenning av formatet):**
+- **4. Konvertering:**
+  - De 4 gamle scenene i `scenes-legacy/` skrives om, med fasit ut fra funnene.
+  - YieldBoard retter etter `answer`.
+  - SceneView tegner bare intensjonspiler.
+  - Uverifiserte scener skjules for eleven.
+  - Skjermbilder for `ja-nei` og `velg` lages.
+- **5. Revisjon:**
+  - `decide()`, `rules.ts` og `engine.ts` flyttes til `scripts/audit-scenes.ts`.
+  - Skriptet lager rapporten `docs/scene-audit.md`.
+  - Ingen fil i `src/` importerer motoren lenger.
+- **6. Kjernekatalogen** (~40 scener, §6) lages i batcher per undertema.
+- **7. `/review` får knapp for å verifisere** (`verifiedBy` og `verifiedAt`), med eksport.
+- **8. Oppdatering** av `docs/PROMPT.md` §4.3 og §6, og denne filen.
+- **Når alle kjernescener er verifisert**, slettes `decide()`, `rules.ts` og revisjonsskriptet.
+
+**Åpent:**
+- Sitatet fra § 6 nr. 4 (venstre-venstre) er hentet fra funnene (Lovdata-søketreff), ikke lest i denne økten.
+- Funnene foreslår også rettelser i flervalg og skilt: `source` for A1–A4, og teksten for skilt 139 og 126. Det er ikke gjort ennå. Venter på Tronds ja.
 
 ## Uverifiserte elementer og åpne spørsmål
 Alt innhold er `verified: false` til Trond har kontrollert det. Dette er det jeg er mest usikker på:
@@ -118,6 +160,7 @@ Alt innhold er `verified: false` til Trond har kontrollert det. Dette er det jeg
 - **Skiltkilde byttet fra Wikimedia Commons til Statens vegvesen (21.11.2026).** Wikimedia stengte for nedlasting (429), og Trond ba meg finne en annen løsning. Vegvesenets filer er den offisielle kilden (Commons-filene er laget fra dem), med åpen lisens NLOD 2.0. Alle skilt hentes med `npm run import-signs`. Skjemaet har `credit.original` (zip-URL) og `credit.variant`, og `LICENSES.md` genereres fra `signs.json`.
 
 ## Neste steg
-1. **Trond kontrollerer batch 1.** Sjekk særlig TODO-punktene over. De er samlet med spørsmål og kilder i `docs/TODO-kontroll-batch1.md`, som er laget for et dypere søk i en egen økt. Sett `verified: true` (og eventuelt `thReview`) i JSON-filene for det som er riktig, eller gi tilbakemelding om systematiske feil, så justeres arbeidsmåten før mer innhold lages.
-2. Test på Xiaomi Pad 5 (Chrome, installert som app) og iPhone (Safari, Legg til på Hjem-skjerm). Krever at appen er publisert, se «Git» over.
-3. Deretter, i nye økter: én innholdsbatch per tema. Foreslått rekkefølge er resten av `vp-hoyreregel`, deretter `so-skilt` med ~58 skilt, `fp-veggrep` (vinter), `fa-trafikkuhell` (tunnel), `fp-sikt-lys` og så resten. De 8 siste vikeplikt-scenene kan komme med trikk, utrykning, gangfelt og rundkjøring.
+1. **Trond godkjenner formatet for håndlagde scenarier** (Endring 01, de tre scenene på `/review`). Deretter tas steg 4–8 i Endring 01.
+2. **Trond kontrollerer batch 1.** Funnene står i `docs/TODO-kontroll-batch1.md`. Sett `verified: true` (og eventuelt `thReview`) i JSON-filene for det som er riktig.
+3. Test på Xiaomi Pad 5 (Chrome, installert som app) og iPhone (Safari, Legg til på Hjem-skjerm). Krever at appen er publisert, se «Git» over.
+4. Deretter, i nye økter: én innholdsbatch per tema. Foreslått rekkefølge er resten av `vp-hoyreregel`, deretter `so-skilt` med ~58 skilt, `fp-veggrep` (vinter), `fa-trafikkuhell` (tunnel), `fp-sikt-lys` og så resten. De 8 siste vikeplikt-scenene kan komme med trikk, utrykning, gangfelt og rundkjøring.

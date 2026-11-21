@@ -1,0 +1,67 @@
+{
+  "id": "vp-scene-parkering-01",
+  "topic": "vikeplikt",
+  "subtopic": "avkjorsel",
+  "temalisteRef": "vp-hoyreregel",
+  "alsoRefs": ["so-skilt"],
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": {
+    "type": "x-kryss",
+    "arms": ["N", "E", "S", "W"],
+    "signs": [{ "arm": "N", "nr": "202" }],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    { "id": "A", "kind": "bil", "from": "S", "intent": "venstre", "position": "fra-parkering", "color": "red" },
+    { "id": "B", "kind": "bil", "from": "N", "intent": "hoyre", "color": "blue" }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "A kjører ut fra en parkeringsplass og skal til venstre. B kommer fra sidevegen rett overfor, der det står vikepliktskilt, og skal til høyre. Begge skal inn på samme veg. Hvem kjører først?",
+      "en": "A is driving out of a parking area and turning left. B comes from the side road straight opposite, which has a give way sign, and is turning right. Both are going onto the same road. Who goes first?",
+      "th": "A กำลังขับออกจากที่จอดรถและจะเลี้ยวซ้าย B มาจากถนนซอยฝั่งตรงข้ามที่มีป้ายให้ทาง และจะเลี้ยวขวา ทั้งสองคันจะเข้าถนนสายเดียวกัน ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [["B"], ["A"]],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": ["B"],
+        "explanation": {
+          "nb": "A kommer fra en parkeringsplass og har vikeplikt for all annen trafikk – også for B, selv om B har vikepliktskilt.",
+          "en": "A is coming from a parking area and must give way to all other traffic – including B, even though B has a give way sign.",
+          "th": "A มาจากที่จอดรถและต้องให้ทางแก่ผู้ใช้ถนนอื่นทั้งหมด รวมถึง B แม้ว่า B จะมีป้ายให้ทางก็ตาม"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 7 nr. 4 første ledd",
+          "quote": "Kjørende som kommer fra parkeringsplass, holdeplass, torg, eiendom, bensinstasjon, gågate, gatetun eller liknende område har vikeplikt for annen trafikant.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      },
+      {
+        "who": "B",
+        "yieldsTo": [],
+        "explanation": {
+          "nb": "Bs vikepliktskilt gjelder trafikk på den kryssende vegen (fra øst og vest). A kommer ikke derfra, men fra parkeringsplassen rett overfor. Skiltet gir derfor ikke B vikeplikt for A.",
+          "en": "B's give way sign applies to traffic on the crossing road (from east and west). A is not coming from there, but from the parking area straight opposite. So the sign does not make B give way to A.",
+          "th": "ป้ายให้ทางของ B ใช้กับรถบนถนนที่ตัดผ่าน (จากทิศตะวันออกและตะวันตก) A ไม่ได้มาจากถนนนั้น แต่มาจากที่จอดรถฝั่งตรงข้าม ป้ายจึงไม่ได้ทำให้ B ต้องให้ทาง A"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 6, skilt 202 Vikeplikt",
+          "quote": "Skiltet angir at kjørende har vikeplikt for kjørende trafikk i begge retninger på kryssende veg.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": ["avkjorsel", "parkeringsplass", "vikeplikt"],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Steg 2 er en slutning: skilt 202 gjelder «kryssende veg», og en utkjøring fra parkeringsplass er ikke kryssende veg for B. Funn B4 bekrefter at A har vikeplikt for alle."
+}

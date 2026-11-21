@@ -1,0 +1,56 @@
+{
+  "id": "vp-scene-hoyreregel-01",
+  "topic": "vikeplikt",
+  "subtopic": "hoyreregel",
+  "temalisteRef": "vp-hoyreregel",
+  "tier": "kjerne",
+  "difficulty": 1,
+  "layout": {
+    "type": "x-kryss",
+    "arms": ["N", "E", "S", "W"],
+    "signs": [],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    { "id": "A", "kind": "bil", "from": "S", "intent": "rett-fram", "color": "red" },
+    { "id": "B", "kind": "bil", "from": "E", "intent": "rett-fram", "color": "blue" }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "Det er ingen skilt eller trafikklys i krysset. Begge bilene skal rett fram. Hvem kjører først?",
+      "en": "There are no signs or traffic lights at the junction. Both cars are going straight ahead. Who goes first?",
+      "th": "ทางแยกนี้ไม่มีป้ายหรือสัญญาณไฟจราจร รถทั้งสองคันจะตรงไป ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [["B"], ["A"]],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": ["B"],
+        "explanation": {
+          "nb": "B kommer fra høyre for A. Uten skilt eller lys gjelder høyreregelen, så A har vikeplikt for B.",
+          "en": "B comes from the right of A. Without signs or lights, the right-hand rule applies, so A must give way to B.",
+          "th": "B มาจากทางขวาของ A เมื่อไม่มีป้ายหรือสัญญาณไฟ ให้ใช้กฎให้ทางรถทางขวา ดังนั้น A ต้องให้ทาง B"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 7 nr. 2 første punktum",
+          "quote": "Kjørende har vikeplikt for kjøretøy som kommer fra høyre.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "thaiContrast": {
+    "nb": "I Thailand kjører du på venstre side av vegen. I Norge kjører du på høyre side. I kryss uten skilt må du alltid se etter trafikk fra høyre og slippe den fram.",
+    "en": "In Thailand you drive on the left side of the road. In Norway you drive on the right. At junctions without signs, always look for traffic from the right and let it go first.",
+    "th": "ในประเทศไทยคุณขับชิดซ้าย ในนอร์เวย์ขับชิดขวา ที่ทางแยกที่ไม่มีป้าย ต้องมองหารถที่มาจากทางขวาเสมอและให้รถคันนั้นไปก่อน"
+  },
+  "glossaryTerms": ["hoyreregelen", "vikeplikt", "vegkryss"],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending"
+}

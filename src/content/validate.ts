@@ -1,7 +1,8 @@
 // Ren valideringslogikk for innholdet. Brukes av scripts/validate-content.ts og av tester.
 import { z } from 'zod';
 import { TEMALISTE } from '../config/temaliste';
-import { GlossaryTerm, Question, Sign, UiStrings, YieldScene } from './schema';
+import { validateScenario } from '../domain/scenes/validate';
+import { GlossaryTerm, Question, Scenario, Sign, UiStrings, YieldScene } from './schema';
 
 export interface RawFile {
   file: string;
@@ -10,7 +11,10 @@ export interface RawFile {
 
 export interface RawContent {
   questions: RawFile[];
+  /** Gammelt sceneformat (motoren). Fjernes i steg 4 av Endring 01. */
   scenes: RawFile[];
+  /** Håndlagde scenarier (Endring 01), én fil per scene i src/content/scenes/. */
+  scenarios?: RawFile[];
   signs: RawFile;
   glossary: RawFile;
   ui: RawFile;
@@ -23,6 +27,7 @@ export interface RawContent {
 export interface Content {
   questions: Question[];
   scenes: YieldScene[];
+  scenarios: Scenario[];
   signs: Sign[];
   glossary: GlossaryTerm[];
   ui: UiStrings;
@@ -87,6 +92,12 @@ export function validateContent(raw: RawContent, sceneCheck?: SceneCheck): Valid
     for (const s of ss) if (s.id !== expected) errors.push(`${f.file}: scene-ID ${s.id} må være lik filnavnet`);
     return ss;
   });
+  const scenarios = (raw.scenarios ?? []).flatMap((f) => {
+    const ss = parseArray({ ...f, data: [f.data] }, Scenario, errors, idOf);
+    const expected = f.file.replace(/^.*[\\/]/, '').replace(/\.json$/, '');
+    for (const sc of ss) if (sc.id !== expected) errors.push(`${f.file}: scene-ID ${sc.id} må være lik filnavnet`);
+    return ss;
+  });
   const signs = parseArray(raw.signs, Sign, errors, idOf);
   const glossary = parseArray(raw.glossary, GlossaryTerm, errors, idOf);
 
@@ -103,6 +114,7 @@ export function validateContent(raw: RawContent, sceneCheck?: SceneCheck): Valid
   };
   questions.forEach((q) => claim(q.id, 'oppgave'));
   scenes.forEach((s) => claim(s.id, 'scene'));
+  scenarios.forEach((s) => claim(s.id, 'scenario'));
   signs.forEach((s) => claim(`sign-${s.nr}`, 'skilt'));
   glossary.forEach((g) => claim(`term-${g.id}`, 'ordliste'));
 
@@ -126,6 +138,10 @@ export function validateContent(raw: RawContent, sceneCheck?: SceneCheck): Valid
     if (!raw.signFiles.includes(s.file)) warnings.push(`skilt ${s.nr}: filen public/signs/${s.file} mangler – kjør npm run import-signs`);
     if (!raw.licensesMd.includes(s.file)) errors.push(`skilt ${s.nr}: ${s.file} mangler i public/signs/LICENSES.md`);
   }
+  const scenarioCtx = { signNrs, termIds };
+  for (const sc of scenarios)
+    for (const issue of validateScenario(sc, scenarioCtx))
+      (issue.level === 'error' ? errors : warnings).push(`${issue.id}: ${issue.message}`);
   for (const s of scenes) {
     checkTerms(s.id, s.glossaryTerms);
     const ids = s.actors.map((a) => a.id);
@@ -162,7 +178,8 @@ export function validateContent(raw: RawContent, sceneCheck?: SceneCheck): Valid
     ...questions.filter((q) => !q.verified).map((q) => ({ id: q.id, todo: q.todo })),
     ...scenes.filter((s) => !s.verified).map((s) => ({ id: s.id, todo: s.todo })),
     ...signs.filter((s) => !s.verified).map((s) => ({ id: `skilt ${s.nr}`, todo: s.todo })),
+    ...scenarios.filter((s) => !s.verified).map((s) => ({ id: s.id, todo: s.todo })),
   ];
 
-  return { errors, warnings, content: { questions, scenes, signs, glossary, ui }, coverage, unverified };
+  return { errors, warnings, content: { questions, scenes, scenarios, signs, glossary, ui }, coverage, unverified };
 }

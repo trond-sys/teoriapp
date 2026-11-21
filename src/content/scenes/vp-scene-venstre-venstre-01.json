@@ -1,0 +1,57 @@
+{
+  "id": "vp-scene-venstre-venstre-01",
+  "topic": "vikeplikt",
+  "subtopic": "venstresving",
+  "temalisteRef": "vp-hoyreregel",
+  "alsoRefs": ["vp-samhandling"],
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": {
+    "type": "x-kryss",
+    "arms": ["N", "E", "S", "W"],
+    "signs": [],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    { "id": "A", "kind": "bil", "from": "S", "intent": "venstre", "color": "red" },
+    { "id": "B", "kind": "bil", "from": "N", "intent": "venstre", "color": "blue" }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "A og B møtes i et kryss uten skilt eller lys. Begge skal svinge til venstre. Hvem kjører først?",
+      "en": "A and B meet at a junction with no signs or lights. Both are turning left. Who goes first?",
+      "th": "A และ B สวนกันที่ทางแยกที่ไม่มีป้ายหรือสัญญาณไฟ ทั้งสองคันจะเลี้ยวซ้าย ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [["A", "B"]],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [],
+        "explanation": {
+          "nb": "A og B kommer fra motsatte retninger og skal begge til venstre. Trafikkreglene sier at de kan svinge til venstre for hverandre. Ingen av dem må vente på den andre, så de kan kjøre samtidig. Følg likevel med på den andre og tilpass farten.",
+          "en": "A and B come from opposite directions and are both turning left. The traffic rules say they may turn left of each other. Neither has to wait for the other, so they can go at the same time. Still keep an eye on the other car and adjust your speed.",
+          "th": "A และ B มาจากทิศทางตรงกันข้ามและจะเลี้ยวซ้ายทั้งคู่ กฎจราจรระบุว่าสามารถเลี้ยวซ้ายผ่านกันได้ ไม่มีใครต้องรออีกฝ่าย จึงไปพร้อมกันได้ แต่ยังต้องระวังรถอีกคันและปรับความเร็ว"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 6 nr. 4",
+          "quote": "Kjøretøyer som kommer fra motsatte retninger, kan svinges til venstre for hverandre."
+        }
+      }
+    ]
+  },
+  "thaiContrast": {
+    "nb": "I Thailand kjører du på venstre side, og det er høyresvingen som krysser møtende trafikk. I Norge er alt speilvendt: det er venstresvingen som krysser møtende.",
+    "en": "In Thailand you drive on the left, and it is the right turn that crosses oncoming traffic. In Norway everything is mirrored: it is the left turn that crosses oncoming traffic.",
+    "th": "ในประเทศไทยคุณขับชิดซ้าย และการเลี้ยวขวาคือการตัดผ่านรถที่สวนมา ในนอร์เวย์ทุกอย่างกลับด้าน การเลี้ยวซ้ายคือการตัดผ่านรถที่สวนมา"
+  },
+  "glossaryTerms": ["venstresving", "motende"],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Sitatet fra § 6 nr. 4 er hentet fra funnene (Lovdata-søketreff), ikke lest i Claude Code-økten. Hvordan bilene passerer hverandre er bevisst ikke tegnet (bare intensjonspiler, jf. funn B6). «Ingen må vente» er en slutning av «kan svinges til venstre for hverandre»."
+}

@@ -191,6 +191,128 @@ export const YieldScene = z.strictObject({
 });
 export type YieldScene = z.infer<typeof YieldScene>;
 
+// ---------- Håndlagde scenarier (Endring 01) ----------
+// Fasiten er data, ikke beregning. Hver scene lagres med fasit og hjemmel per steg, kontrollert av et menneske.
+// Koden sjekker bare at scenen henger sammen (src/domain/scenes/validate.ts). Se docs/endringer/ENDRING-01-handlagde-scenarier.md.
+
+export const ScenarioKind = z.enum(['bil', 'buss', 'lastebil', 'trikk', 'utrykning', 'gaende', 'syklist']);
+export type ScenarioKind = z.infer<typeof ScenarioKind>;
+
+/** Hvor trafikanten skal. Tegnes som en pil, ikke som en kjørebane (prinsipp 4). «krysser» er for gående. */
+export const Intent = z.enum(['rett-fram', 'hoyre', 'venstre', 'krysser']);
+export type Intent = z.infer<typeof Intent>;
+
+/** Posisjoner angis på trafikanten, ikke ved at koden tolker kartet. */
+export const ActorPosition = z.enum(['fra-parkering', 'fra-gardsveg', 'fra-sykkelveg', 'inne-i-rundkjoring', 'pa-holdeplass']);
+export type ActorPosition = z.infer<typeof ActorPosition>;
+
+export const LightState = z.enum(['rod', 'gul', 'rod-gul', 'gronn', 'gronn-pil-venstre', 'gronn-pil-hoyre', 'gul-blink', 'av']);
+
+/** Undertemaene i kjernekatalogen (Endring 01 §6). Brukes til å telle dekning. */
+export const ScenarioSubtopic = z.enum([
+  'hoyreregel',
+  'avkjorsel',
+  'fra-sykkelveg',
+  'bussholdeplass',
+  'skilt',
+  'lysregulering',
+  'politi',
+  'venstresving',
+  'svinging-gaende',
+  'rygging-vending',
+  'fri-veg',
+  'rundkjoring',
+]);
+export type ScenarioSubtopic = z.infer<typeof ScenarioSubtopic>;
+
+const actorId = z.string().regex(/^[A-Z]$/, 'trafikant-ID må være én stor bokstav');
+
+export const ScenarioActor = z.strictObject({
+  id: actorId,
+  kind: ScenarioKind,
+  /** Armen trafikanten kommer fra. For gående: armen der hen krysser. */
+  from: Dir,
+  intent: Intent,
+  position: ActorPosition.optional(),
+  /** Utrykning med blinkende blått lys. */
+  bluelight: z.boolean().default(false),
+  color: ActorColor.default('blue'),
+});
+export type ScenarioActor = z.infer<typeof ScenarioActor>;
+
+export const ScenarioLayout = z.strictObject({
+  type: z.enum(['x-kryss', 't-kryss', 'rundkjoring']),
+  arms: z.array(Dir).min(3).max(4),
+  /** Skilt som står på en arm og gjelder trafikk som kommer derfra. */
+  signs: z.array(z.strictObject({ arm: Dir, nr: z.string() })).default([]),
+  /** Gangfelt over armen, like ved krysset. */
+  crosswalks: z.array(Dir).default([]),
+  /** Trikkespor i armen. */
+  tram: z.array(Dir).default([]),
+  /** Trafikklys per arm, eller null når krysset ikke er lysregulert. */
+  lights: z.partialRecord(Dir, LightState).nullable().default(null),
+  police: z.strictObject({ gesture: z.enum(['arm-opp', 'arm-ut']), facing: Dir }).nullable().default(null),
+});
+export type ScenarioLayout = z.infer<typeof ScenarioLayout>;
+
+export const StepSource = z.strictObject({
+  /** Hjemmel: «Trafikkreglene § 7 nr. 2» eller en side på vegvesen.no. */
+  ref: z.string().trim().min(3, 'mangler source.ref'),
+  /** Kort, ordrett sitat fra hjemmelen. */
+  quote: z.string().trim().min(10, 'mangler source.quote'),
+  url: z.url().optional(),
+});
+
+export const ScenarioStep = z.strictObject({
+  who: actorId,
+  /** Hvem `who` har vikeplikt for. Tom liste når steget forklarer at ingen viker. */
+  yieldsTo: z.array(actorId),
+  explanation: L3,
+  source: StepSource,
+});
+export type ScenarioStep = z.infer<typeof ScenarioStep>;
+
+export const ScenarioQuestion = z.discriminatedUnion('type', [
+  z.strictObject({ type: z.literal('rekkefolge'), prompt: L3 }),
+  z.strictObject({ type: z.literal('ja-nei'), prompt: L3 }),
+  z.strictObject({ type: z.literal('velg'), prompt: L3, options: z.array(Option).min(2).max(4) }),
+]);
+
+export const ScenarioAnswer = z.strictObject({
+  /** Grupper i rekkefølge. Trafikanter i samme gruppe kan kjøre samtidig. */
+  order: z.array(z.array(actorId).min(1)).min(1).optional(),
+  steps: z.array(ScenarioStep).min(1),
+  /** Fasit for «ja-nei». */
+  yes: z.boolean().optional(),
+  /** Fasit for «velg» (id til et alternativ). */
+  correct: z.string().optional(),
+});
+
+export const Scenario = z.strictObject({
+  id: z.string().regex(/^vp-scene-[a-z0-9-]+-\d{2}$/, 'ID må ha formen vp-scene-<navn>-NN'),
+  topic: z.string().min(1),
+  subtopic: ScenarioSubtopic,
+  /** Påkrevd for kjernescener (sjekkes i validatoren). */
+  temalisteRef: TemaRef.optional(),
+  alsoRefs: z.array(TemaRef).default([]),
+  /** kjerne = prøverelevant og i temalisten. dybde = kanttilfelle, teller ikke mot klarhet og er ikke med i prøveeksamen. */
+  tier: z.enum(['kjerne', 'dybde']),
+  difficulty: z.number().int().min(1).max(3),
+  layout: ScenarioLayout,
+  actors: z.array(ScenarioActor).min(1).max(6),
+  question: ScenarioQuestion,
+  answer: ScenarioAnswer,
+  thaiContrast: L3.optional(),
+  roadTextNb: z.array(z.string()).default([]),
+  glossaryTerms: z.array(z.string()).default([]),
+  verified: z.boolean(),
+  verifiedBy: z.string().nullable().default(null),
+  verifiedAt: z.string().nullable().default(null),
+  thReview: ThReview,
+  todo: z.string().optional(),
+});
+export type Scenario = z.infer<typeof Scenario>;
+
 // ---------- UI-tekst ----------
 export const UiStrings = z.record(z.string(), L3);
 export type UiStrings = z.infer<typeof UiStrings>;

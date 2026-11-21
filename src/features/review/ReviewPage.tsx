@@ -1,7 +1,8 @@
 // Skjult redaktørside (/review) for Trond: uverifiserte elementer, thai-rapporter og dekning mot temalisten.
 // Siden er bare for redaktøren og vises på norsk med engelsk for UI-overskrifter.
 import { useLiveQuery } from 'dexie-react-hooks';
-import { QUESTIONS, SCENES, SIGNS } from '../../content/index';
+import { QUESTIONS, SCENARIOS, SCENES, SIGNS } from '../../content/index';
+import { ScenarioPreview } from './ScenarioPreview';
 import { TEMALISTE } from '../../config/temaliste';
 import { db } from '../../db/db';
 import { exportThaiReports } from '../../db/export';
@@ -23,6 +24,17 @@ export function ReviewPage() {
       <h1>
         <U k="review.title" />
       </h1>
+
+      <section className="stack">
+        <h2>Håndlagde scenarier – Endring 01 ({SCENARIOS.length})</h2>
+        <p className="muted small">
+          Fasit og hjemmel er data i src/content/scenes/. Pilene viser bare hvor hver trafikant skal, ikke kjørebanen. Advarslene kommer fra
+          validatoren (geometri, ingen trafikkregler). Scenene vises ikke for eleven ennå.
+        </p>
+        {SCENARIOS.map((sc) => (
+          <ScenarioPreview key={sc.id} s={sc} />
+        ))}
+      </section>
 
       <section className="card stack">
         <h2>

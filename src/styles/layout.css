@@ -1116,3 +1116,46 @@ h2.t-main,
   font-weight: 600;
   font-size: var(--fs-1);
 }
+
+/* ---------- Forhåndsvisning av scenarier (/review) ---------- */
+.scenario-preview {
+  display: grid;
+  gap: var(--gap);
+}
+@media (min-width: 900px) {
+  .scenario-preview {
+    grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+.scenario-preview-media .scene {
+  max-width: 380px;
+}
+.scenario-preview-body h3 {
+  font-size: var(--fs-3);
+}
+.tri-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.steps {
+  margin: 0;
+  padding-left: 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.issue {
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-1);
+}
+.issue--error {
+  background: var(--bad-soft);
+  color: var(--bad);
+}
+.issue--warn {
+  background: var(--warn-soft);
+  color: var(--warn);
+}

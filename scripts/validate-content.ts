@@ -30,7 +30,8 @@ function readDir(dir: string): RawFile[] {
 
 const raw = {
   questions: readDir(join(contentDir, 'questions')),
-  scenes: readDir(join(contentDir, 'scenes')).map((f) => ({ ...f, data: [f.data] })),
+  scenes: readDir(join(contentDir, 'scenes-legacy')).map((f) => ({ ...f, data: [f.data] })),
+  scenarios: readDir(join(contentDir, 'scenes')),
   signs: readJson(join(contentDir, 'signs.json')),
   glossary: readJson(join(contentDir, 'glossary.json')),
   ui: readJson(join(contentDir, 'ui', 'strings.json')),
@@ -42,7 +43,7 @@ const res = validateContent(raw, sceneEngineCheck);
 const c = res.content;
 
 console.log(
-  `Innhold: ${c.questions.length} oppgaver, ${c.scenes.length} scener, ${c.signs.length} skilt, ` +
+  `Innhold: ${c.questions.length} oppgaver, ${c.scenes.length} gamle scener, ${c.scenarios.length} håndlagde scenarier, ${c.signs.length} skilt, ` +
     `${c.glossary.length} ordlisteord, ${Object.keys(c.ui).length} UI-tekster.\n`,
 );
 

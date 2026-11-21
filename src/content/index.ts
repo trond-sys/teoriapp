@@ -2,12 +2,13 @@
 import { z } from 'zod';
 import { TEMA_BY_ID } from '../config/temaliste';
 import type { PoolItem } from '../domain/types';
-import { GlossaryTerm, Question, Sign, YieldScene } from './schema';
+import { GlossaryTerm, Question, Scenario, Sign, YieldScene } from './schema';
 import signsRaw from './signs.json';
 import glossaryRaw from './glossary.json';
 
 const questionFiles = import.meta.glob<unknown[]>('./questions/*.json', { eager: true, import: 'default' });
-const sceneFiles = import.meta.glob<unknown>('./scenes/*.json', { eager: true, import: 'default' });
+const sceneFiles = import.meta.glob<unknown>('./scenes-legacy/*.json', { eager: true, import: 'default' });
+const scenarioFiles = import.meta.glob<unknown>('./scenes/*.json', { eager: true, import: 'default' });
 
 function parseList<T>(label: string, list: unknown[], schema: z.ZodType<T>): T[] {
   const out: T[] = [];
@@ -21,6 +22,8 @@ function parseList<T>(label: string, list: unknown[], schema: z.ZodType<T>): T[]
 
 export const QUESTIONS: Question[] = Object.entries(questionFiles).flatMap(([f, list]) => parseList(f, list, Question));
 export const SCENES: YieldScene[] = parseList('scenes', Object.values(sceneFiles), YieldScene);
+/** Håndlagde scenarier (Endring 01). Vises foreløpig bare på /review. */
+export const SCENARIOS: Scenario[] = parseList('scenes', Object.values(scenarioFiles), Scenario);
 export const SIGNS: Sign[] = parseList('signs.json', signsRaw as unknown[], Sign);
 export const GLOSSARY: GlossaryTerm[] = parseList('glossary.json', glossaryRaw as unknown[], GlossaryTerm);
 
