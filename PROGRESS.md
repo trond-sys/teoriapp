@@ -119,7 +119,7 @@ Alt innhold er `verified: false` til Trond har kontrollert det. Dette er det jeg
 - Skiltskjemaet har `credit.original` (direkte fil-URL), og `LICENSES.md` genereres fra `signs.json`.
 
 ## Neste steg
-1. **Trond kontrollerer batch 1.** Sjekk særlig TODO-punktene over. Sett `verified: true` (og eventuelt `thReview`) i JSON-filene for det som er riktig, eller gi tilbakemelding om systematiske feil, så justeres arbeidsmåten før mer innhold lages.
+1. **Trond kontrollerer batch 1.** Sjekk særlig TODO-punktene over. De er samlet med spørsmål og kilder i `docs/TODO-kontroll-batch1.md`, som er laget for et dypere søk i en egen økt. Sett `verified: true` (og eventuelt `thReview`) i JSON-filene for det som er riktig, eller gi tilbakemelding om systematiske feil, så justeres arbeidsmåten før mer innhold lages.
 2. Hent eventuelle manglende skilt med `npm run fetch-signs`.
 3. Test på Xiaomi Pad 5 (Chrome, installert som app) og iPhone (Safari, Legg til på Hjem-skjerm). Krever at appen er publisert, se «Git» over.
 4. Deretter, i nye økter: én innholdsbatch per tema. Foreslått rekkefølge er resten av `vp-hoyreregel`, deretter `so-skilt` med ~58 skilt, `fp-veggrep` (vinter), `fa-trafikkuhell` (tunnel), `fp-sikt-lys` og så resten. De 8 siste vikeplikt-scenene kan komme med trikk, utrykning, gangfelt og rundkjøring.
