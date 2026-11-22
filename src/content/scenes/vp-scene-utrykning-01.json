@@ -1,0 +1,83 @@
+{
+  "id": "vp-scene-utrykning-01",
+  "topic": "vikeplikt",
+  "subtopic": "fri-veg",
+  "temalisteRef": "vp-tr-10",
+  "tier": "kjerne",
+  "difficulty": 1,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "S",
+      "intent": "rett-fram",
+      "color": "red"
+    },
+    {
+      "id": "U",
+      "kind": "utrykning",
+      "from": "W",
+      "intent": "rett-fram",
+      "bluelight": true,
+      "color": "white"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "En ambulanse U med blått blinklys kommer fra venstre for A. Begge skal rett fram. Hvem kjører først?",
+      "en": "An ambulance U with flashing blue lights is coming from A's left. Both are going straight ahead. Who goes first?",
+      "th": "รถพยาบาล U ที่เปิดไฟกะพริบสีน้ำเงินมาจากทางซ้ายของ A ทั้งสองคันจะตรงไป ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "U"
+      ],
+      [
+        "A"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [
+          "U"
+        ],
+        "explanation": {
+          "nb": "A skal gi fri veg for utrykningskjøretøy med blått blinklys, og stanse om nødvendig – selv om ambulansen kommer fra venstre.",
+          "en": "A must clear the way for an emergency vehicle with flashing blue lights, and stop if necessary – even though the ambulance comes from the left.",
+          "th": "A ต้องเปิดทางให้รถฉุกเฉินที่เปิดไฟกะพริบสีน้ำเงิน และหยุดถ้าจำเป็น แม้ว่ารถพยาบาลจะมาจากทางซ้าย"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 10 nr. 1",
+          "quote": "Trafikant skal gi fri veg for utrykningskjøretøy når føreren varsler med blinkende blått lys. Om nødvendig skal trafikanten stanse.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "utrykningskjoretoy",
+    "blalys",
+    "fri-veg"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Funn B2: plikten er å gi fri veg og stanse «om nødvendig». Her krysser ambulansen As kjøreretning, så A må vente."
+}

@@ -1,0 +1,105 @@
+{
+  "id": "vp-scene-rundkjoring-02",
+  "topic": "vikeplikt",
+  "subtopic": "rundkjoring",
+  "temalisteRef": "vp-hoyreregel",
+  "alsoRefs": [
+    "fp-feltvalg",
+    "so-skilt"
+  ],
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": {
+    "type": "rundkjoring",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [
+      {
+        "arm": "N",
+        "nr": "202"
+      },
+      {
+        "arm": "E",
+        "nr": "202"
+      },
+      {
+        "arm": "S",
+        "nr": "202"
+      },
+      {
+        "arm": "W",
+        "nr": "202"
+      }
+    ],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "W",
+      "intent": "rett-fram",
+      "position": "inne-i-rundkjoring",
+      "color": "red"
+    },
+    {
+      "id": "B",
+      "kind": "bil",
+      "from": "W",
+      "intent": "rett-fram",
+      "color": "blue"
+    }
+  ],
+  "question": {
+    "type": "ja-nei",
+    "prompt": {
+      "nb": "Du (A) kjører i rundkjøringen. B venter ved innkjøringen, der det står vikepliktskilt. B kommer fra høyre for deg. Har du vikeplikt for B?",
+      "en": "You (A) are driving in the roundabout. B is waiting at the entry, where there is a give way sign. B is on your right. Must you give way to B?",
+      "th": "คุณ (A) ขับอยู่ในวงเวียน B รออยู่ที่ทางเข้าซึ่งมีป้ายให้ทาง B อยู่ทางขวาของคุณ คุณต้องให้ทาง B หรือไม่?"
+    }
+  },
+  "answer": {
+    "yes": false,
+    "order": [
+      [
+        "A"
+      ],
+      [
+        "B"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "B",
+        "yieldsTo": [
+          "A"
+        ],
+        "explanation": {
+          "nb": "Nei. B har vikepliktskilt og må vike for deg som allerede er i rundkjøringen. Høyreregelen gjelder ikke når det står skilt.",
+          "en": "No. B has a give way sign and must give way to you, since you are already in the roundabout. The right-hand rule does not apply when there are signs.",
+          "th": "ไม่ B มีป้ายให้ทางและต้องให้ทางแก่คุณที่อยู่ในวงเวียนแล้ว กฎให้ทางรถทางขวาไม่ใช้เมื่อมีป้าย"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 6, skilt 202 Vikeplikt",
+          "quote": "Skiltet angir at kjørende har vikeplikt for kjørende trafikk i begge retninger på kryssende veg.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "rundkjoring",
+    "vikeplikt",
+    "hoyreregelen"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Trafikkreglene har ingen egen regel om rundkjøring. Vikeplikten kommer fra skilt 202 ved innkjøringen, som skiltnormalen krever ved rundkjøringer (funn B5). Skiltet er derfor tegnet eksplisitt."
+}

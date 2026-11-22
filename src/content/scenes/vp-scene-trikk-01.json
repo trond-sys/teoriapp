@@ -1,0 +1,86 @@
+{
+  "id": "vp-scene-trikk-01",
+  "topic": "vikeplikt",
+  "subtopic": "fri-veg",
+  "temalisteRef": "vp-tr-10",
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [],
+    "lights": null,
+    "police": null,
+    "tram": [
+      "W",
+      "E"
+    ]
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "S",
+      "intent": "rett-fram",
+      "color": "red"
+    },
+    {
+      "id": "T",
+      "kind": "trikk",
+      "from": "W",
+      "intent": "rett-fram",
+      "color": "blue"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "Kryss uten skilt eller lys. En trikk T kommer fra venstre for A. Begge skal rett fram. Hvem kjører først?",
+      "en": "Junction with no signs or lights. A tram T is coming from A's left. Both are going straight ahead. Who goes first?",
+      "th": "ทางแยกที่ไม่มีป้ายหรือสัญญาณไฟ รถราง T มาจากทางซ้ายของ A ทั้งสองจะตรงไป ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "T"
+      ],
+      [
+        "A"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [
+          "T"
+        ],
+        "explanation": {
+          "nb": "Trafikanter skal gi fri veg for trikken. Det gjelder også når trikken kommer fra venstre – høyreregelen gjelder ikke overfor trikk.",
+          "en": "Road users must give way to the tram. This also applies when the tram comes from the left – the right-hand rule does not apply to trams.",
+          "th": "ผู้ใช้ถนนต้องเปิดทางให้รถราง แม้รถรางจะมาจากทางซ้ายก็ตาม กฎให้ทางรถทางขวาไม่ใช้กับรถราง"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 10 nr. 2",
+          "quote": "Trafikant skal gi fri veg og om nødvendig stanse for sporvogn og for jernbanetog.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "trikk",
+    "fri-veg",
+    "hoyreregelen"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Funn B1: trikken må selv følge trafikklys og har vikeplikt i noen tilfeller. Denne scenen har verken lys eller skilt."
+}

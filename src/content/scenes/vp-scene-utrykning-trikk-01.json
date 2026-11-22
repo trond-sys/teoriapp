@@ -1,0 +1,86 @@
+{
+  "id": "vp-scene-utrykning-trikk-01",
+  "topic": "vikeplikt",
+  "subtopic": "fri-veg",
+  "temalisteRef": "vp-tr-10",
+  "tier": "kjerne",
+  "difficulty": 3,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [],
+    "lights": null,
+    "police": null,
+    "tram": [
+      "W",
+      "E"
+    ]
+  },
+  "actors": [
+    {
+      "id": "T",
+      "kind": "trikk",
+      "from": "W",
+      "intent": "rett-fram",
+      "color": "blue"
+    },
+    {
+      "id": "U",
+      "kind": "utrykning",
+      "from": "S",
+      "intent": "rett-fram",
+      "bluelight": true,
+      "color": "white"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "En trikk T og en brannbil U med blått blinklys skal begge rett fram gjennom krysset. Hvem kjører først?",
+      "en": "A tram T and a fire engine U with flashing blue lights are both going straight through the junction. Who goes first?",
+      "th": "รถราง T และรถดับเพลิง U ที่เปิดไฟกะพริบสีน้ำเงินจะตรงผ่านทางแยกทั้งคู่ ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "U"
+      ],
+      [
+        "T"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "T",
+        "yieldsTo": [
+          "U"
+        ],
+        "explanation": {
+          "nb": "Plikten til å gi fri veg for utrykningskjøretøy gjelder også for den som kjører trikk. Trikken må vike for brannbilen.",
+          "en": "The duty to clear the way for emergency vehicles also applies to tram drivers. The tram must give way to the fire engine.",
+          "th": "หน้าที่เปิดทางให้รถฉุกเฉินใช้กับคนขับรถรางด้วย รถรางต้องให้ทางรถดับเพลิง"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 10 nr. 4",
+          "quote": "Nr. 1 og 3 i denne paragraf gjelder også for fører av sporvogn.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "trikk",
+    "utrykningskjoretoy",
+    "blalys"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending"
+}

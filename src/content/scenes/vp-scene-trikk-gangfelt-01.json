@@ -1,0 +1,92 @@
+{
+  "id": "vp-scene-trikk-gangfelt-01",
+  "topic": "vikeplikt",
+  "subtopic": "fri-veg",
+  "temalisteRef": "vp-tr-10",
+  "alsoRefs": [
+    "ft-samhandling"
+  ],
+  "tier": "kjerne",
+  "difficulty": 3,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [],
+    "lights": null,
+    "police": null,
+    "tram": [
+      "W",
+      "E"
+    ],
+    "crosswalks": [
+      "E"
+    ]
+  },
+  "actors": [
+    {
+      "id": "T",
+      "kind": "trikk",
+      "from": "W",
+      "intent": "rett-fram",
+      "color": "blue"
+    },
+    {
+      "id": "P",
+      "kind": "gaende",
+      "from": "E",
+      "intent": "krysser",
+      "color": "yellow"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "Trikken T skal rett fram over gangfeltet. Fotgjengeren P vil gå over i gangfeltet. Det er ingen trafikklys. Hvem går eller kjører først?",
+      "en": "Tram T is going straight ahead across the pedestrian crossing. Pedestrian P wants to cross at the crossing. There are no traffic lights. Who goes first?",
+      "th": "รถราง T จะตรงไปข้ามทางม้าลาย คนเดินเท้า P ต้องการข้ามทางม้าลาย ไม่มีสัญญาณไฟจราจร ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "T"
+      ],
+      [
+        "P"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "P",
+        "yieldsTo": [
+          "T"
+        ],
+        "explanation": {
+          "nb": "Alle trafikanter – også gående – skal gi fri veg for trikken. Gående i gangfelt viker derfor for trikken. Trikken kan ikke svinge unna og bruker lang tid på å stoppe.",
+          "en": "All road users – also pedestrians – must give way to the tram. So pedestrians on a crossing give way to the tram. A tram cannot steer away and takes a long time to stop.",
+          "th": "ผู้ใช้ถนนทุกคน รวมถึงคนเดินเท้า ต้องเปิดทางให้รถราง คนเดินเท้าบนทางม้าลายจึงต้องให้ทางรถราง รถรางหักหลบไม่ได้และใช้เวลานานในการหยุด"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 10 nr. 2",
+          "quote": "Trafikant skal gi fri veg og om nødvendig stanse for sporvogn og for jernbanetog.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "trikk",
+    "gangfelt",
+    "fotgjenger"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Bygger på at «trafikant» i § 10 nr. 2 også omfatter gående, og på håndbok 050 (2007): «Gående i gangfelt har vikeplikt for sporvogn» (funn A5). Unntak: trikk som svinger inn i veg med gangfelt, har vikeplikt for gående når fotgjengersignalet lyser grønt (§ 7 nr. 3 annet ledd)."
+}

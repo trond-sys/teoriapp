@@ -1,0 +1,108 @@
+{
+  "id": "vp-scene-rundkjoring-01",
+  "topic": "vikeplikt",
+  "subtopic": "rundkjoring",
+  "temalisteRef": "vp-hoyreregel",
+  "alsoRefs": [
+    "fp-feltvalg",
+    "so-skilt"
+  ],
+  "tier": "kjerne",
+  "difficulty": 1,
+  "layout": {
+    "type": "rundkjoring",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [
+      {
+        "arm": "N",
+        "nr": "202"
+      },
+      {
+        "arm": "E",
+        "nr": "202"
+      },
+      {
+        "arm": "S",
+        "nr": "202"
+      },
+      {
+        "arm": "W",
+        "nr": "202"
+      }
+    ],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "S",
+      "intent": "rett-fram",
+      "color": "red"
+    },
+    {
+      "id": "B",
+      "kind": "bil",
+      "from": "S",
+      "intent": "rett-fram",
+      "position": "inne-i-rundkjoring",
+      "color": "blue"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "A skal inn i rundkjøringen, der det står vikepliktskilt. B kjører allerede i rundkjøringen og nærmer seg. Hvem kjører først?",
+      "en": "A is about to enter the roundabout, where there is a give way sign. B is already driving in the roundabout and approaching. Who goes first?",
+      "th": "A จะเข้าวงเวียนซึ่งมีป้ายให้ทาง B ขับอยู่ในวงเวียนแล้วและกำลังเข้ามาใกล้ ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "B"
+      ],
+      [
+        "A"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [
+          "B"
+        ],
+        "explanation": {
+          "nb": "Ved innkjøringen står det vikepliktskilt. A må vike for trafikken i rundkjøringen, også for B, og kjøre inn når det er ledig.",
+          "en": "There is a give way sign at the entry. A must give way to traffic in the roundabout, including B, and enter when it is clear.",
+          "th": "ที่ทางเข้ามีป้ายให้ทาง A ต้องให้ทางแก่รถในวงเวียน รวมถึง B และเข้าเมื่อทางว่าง"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 6, skilt 202 Vikeplikt",
+          "quote": "Skiltet angir at kjørende har vikeplikt for kjørende trafikk i begge retninger på kryssende veg.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      }
+    ]
+  },
+  "thaiContrast": {
+    "nb": "I Thailand kjører man med klokka i rundkjøringen (venstrekjøring). I Norge kjører du mot klokka, og trafikken kommer fra venstre når du skal inn.",
+    "en": "In Thailand you drive clockwise in a roundabout (left-hand traffic). In Norway you drive anticlockwise, and traffic comes from your left when you enter.",
+    "th": "ในประเทศไทยขับวนตามเข็มนาฬิกาในวงเวียน (ขับชิดซ้าย) ในนอร์เวย์ขับวนทวนเข็มนาฬิกา และรถจะมาจากทางซ้ายเมื่อคุณจะเข้าวงเวียน"
+  },
+  "glossaryTerms": [
+    "rundkjoring",
+    "vikeplikt"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Trafikkreglene har ingen egen regel om rundkjøring. Vikeplikten kommer fra skilt 202 ved innkjøringen, som skiltnormalen krever ved rundkjøringer (funn B5). Skiltet er derfor tegnet eksplisitt."
+}

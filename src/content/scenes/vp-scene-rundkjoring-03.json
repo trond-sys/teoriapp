@@ -1,0 +1,103 @@
+{
+  "id": "vp-scene-rundkjoring-03",
+  "topic": "vikeplikt",
+  "subtopic": "rundkjoring",
+  "temalisteRef": "vp-hoyreregel",
+  "alsoRefs": [
+    "fp-feltvalg",
+    "ft-samhandling"
+  ],
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": {
+    "type": "rundkjoring",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [
+      {
+        "arm": "N",
+        "nr": "202"
+      },
+      {
+        "arm": "E",
+        "nr": "202"
+      },
+      {
+        "arm": "S",
+        "nr": "202"
+      },
+      {
+        "arm": "W",
+        "nr": "202"
+      }
+    ],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "S",
+      "intent": "hoyre",
+      "color": "red"
+    },
+    {
+      "id": "C",
+      "kind": "syklist",
+      "from": "S",
+      "intent": "rett-fram",
+      "position": "inne-i-rundkjoring",
+      "color": "green"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "A skal inn i rundkjøringen og ta første avkjøring til høyre. Syklisten C sykler i rundkjøringen og nærmer seg. Hvem kjører først?",
+      "en": "A is entering the roundabout to take the first exit on the right. Cyclist C is riding in the roundabout and approaching. Who goes first?",
+      "th": "A จะเข้าวงเวียนและออกทางออกแรกทางขวา คนขี่จักรยาน C ขี่อยู่ในวงเวียนและกำลังเข้ามาใกล้ ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "C"
+      ],
+      [
+        "A"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [
+          "C"
+        ],
+        "explanation": {
+          "nb": "Vikepliktskiltet gjelder for all kjørende trafikk i rundkjøringen – også for syklister. A må vente på C.",
+          "en": "The give way sign applies to all traffic driving in the roundabout – also cyclists. A must wait for C.",
+          "th": "ป้ายให้ทางใช้กับรถทุกคันที่ขับอยู่ในวงเวียน รวมถึงจักรยาน A ต้องรอ C"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 6, skilt 202 Vikeplikt",
+          "quote": "Skiltet angir at kjørende har vikeplikt for kjørende trafikk i begge retninger på kryssende veg.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "rundkjoring",
+    "vikeplikt"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Trafikkreglene har ingen egen regel om rundkjøring. Vikeplikten kommer fra skilt 202 ved innkjøringen, som skiltnormalen krever ved rundkjøringer (funn B5). Skiltet er derfor tegnet eksplisitt. At syklende er «kjørende trafikk» er en slutning (vegvesen.no: «Syklende regnes som kjørende»)."
+}

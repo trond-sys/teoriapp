@@ -1,7 +1,7 @@
 # Revisjon av vikeplikt-scenene
 
 **Laget:** 2026-11-22 med `npm run audit-scenes` (Endring 01, steg 5).
-**Scener:** 34. **Uenige med motoren:** 9.
+**Scener:** 41. **Uenige med motoren:** 9.
 
 Rapporten sammenligner fasiten i hver scene (`src/content/scenes/`) med den gamle regelmotoren (`scripts/audit/engine.ts`).
 Den er et hjelpemiddel når scenene kontrolleres, **ikke en dommer**: fasiten i scenen gjelder alltid.
@@ -38,6 +38,9 @@ Den er et hjelpemiddel når scenene kontrolleres, **ikke en dommer**: fasiten i 
 | `vp-scene-politi-01` | nei |  | A | ja |
 | `vp-scene-politi-02` | nei | B → A | A → B | **nei** |
 | `vp-scene-politi-03` | nei |  | A | ja |
+| `vp-scene-rundkjoring-01` | nei | B → A | B → A | ja |
+| `vp-scene-rundkjoring-02` | nei | A → B | A → B | ja |
+| `vp-scene-rundkjoring-03` | nei | C → A | C → A | ja |
 | `vp-scene-rygging-01` | nei | B → A | feil: A: ugyldig «to» | **nei** |
 | `vp-scene-rygging-02` | nei |  | feil: A: ugyldig «to» | **nei** |
 | `vp-scene-skilt-202-01` | nei | B → A | B → A | ja |
@@ -47,6 +50,10 @@ Den er et hjelpemiddel når scenene kontrolleres, **ikke en dommer**: fasiten i 
 | `vp-scene-skilt-210-01` | nei | A → B | A → B | ja |
 | `vp-scene-sykkelveg-01` | nei | B → A | B → A | ja |
 | `vp-scene-sykkelveg-02` | nei | A → B | A → B | ja |
+| `vp-scene-trikk-01` | nei | T → A | T → A | ja |
+| `vp-scene-trikk-gangfelt-01` | nei | T → P | T → P | ja |
+| `vp-scene-utrykning-01` | nei | U → A | U → A | ja |
+| `vp-scene-utrykning-trikk-01` | nei | U → T | U → T | ja |
 | `vp-scene-venstre-venstre-01` | nei | A + B | A + B | ja |
 | `vp-scene-venstresving-01` | nei | B + C → A | B + C → A | ja |
 | `vp-scene-venstresving-02` | nei | B → A | B → A | ja |
