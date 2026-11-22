@@ -1,0 +1,47 @@
+{
+  "id": "vp-scene-buss-02",
+  "topic": "vikeplikt",
+  "subtopic": "bussholdeplass",
+  "temalisteRef": "vp-hoyreregel",
+  "tier": "kjerne",
+  "difficulty": 3,
+  "layout": { "type": "t-kryss", "arms": ["E", "S", "W"], "signs": [], "lights": null, "police": null },
+  "actors": [
+    { "id": "A", "kind": "bil", "from": "W", "intent": "rett-fram", "color": "red" },
+    { "id": "B", "kind": "buss", "from": "W", "intent": "rett-fram", "position": "pa-holdeplass", "color": "orange" }
+  ],
+  "question": {
+    "type": "ja-nei",
+    "prompt": {
+      "nb": "Fartsgrensen er 80 km/t. Bussen B står på holdeplassen og blinker for å kjøre ut. A kommer bakfra. Har A vikeplikt for bussen?",
+      "en": "The speed limit is 80 km/h. Bus B is at the bus stop and signalling to pull out. A is coming from behind. Must A give way to the bus?",
+      "th": "จำกัดความเร็ว 80 กม./ชม. รถบัส B จอดอยู่ที่ป้ายรถโดยสารและเปิดไฟเลี้ยวเพื่อจะออก A มาจากด้านหลัง A ต้องให้ทางรถบัสหรือไม่?"
+    }
+  },
+  "answer": {
+    "yes": false,
+    "order": [["A"], ["B"]],
+    "steps": [
+      {
+        "who": "B",
+        "yieldsTo": ["A"],
+        "explanation": {
+          "nb": "Nei. Vikeplikten for buss gjelder bare der fartsgrensen er 60 km/t eller lavere. Ved 80 km/t er det bussen som har vikeplikt når den kjører ut fra vegkanten. A skal likevel kjøre hensynsfullt og være klar til å bremse.",
+          "en": "No. The duty to give way to buses only applies where the speed limit is 60 km/h or lower. At 80 km/h it is the bus that must give way when it pulls out from the roadside. A must still drive with care and be ready to brake.",
+          "th": "ไม่ หน้าที่ให้ทางรถบัสใช้เฉพาะถนนที่จำกัดความเร็ว 60 กม./ชม. หรือต่ำกว่า ที่ 80 กม./ชม. รถบัสเป็นฝ่ายที่ต้องให้ทางเมื่อออกจากขอบถนน แต่ A ก็ยังต้องขับอย่างระมัดระวังและพร้อมจะเบรก"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 8 nr. 1 (og § 7 nr. 5, som bare gjelder ved fartsgrense 60 km/t eller lavere)",
+          "quote": "Tilsvarende gjelder den som vil kjøre ut fra vegkant eller på annen måte endre kjøretøyets plass i sideretning.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": ["holdeplass", "vikeplikt"],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "At bussen har vikeplikt ved 80 km/t bygger på § 8 nr. 1 (kjøre ut fra vegkant). Det er en slutning at holdeplass regnes som vegkant her. Vurder om bussholdeplass også faller inn under § 7 nr. 4 første ledd («holdeplass»)."
+}

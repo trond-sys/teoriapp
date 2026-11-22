@@ -1,0 +1,70 @@
+{
+  "id": "vp-scene-rygging-02",
+  "topic": "vikeplikt",
+  "subtopic": "rygging-vending",
+  "temalisteRef": "vp-rygging-vending",
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": { "type": "t-kryss", "arms": ["E", "S", "W"], "signs": [], "lights": null, "police": null },
+  "actors": [
+    { "id": "A", "kind": "bil", "from": "S", "intent": "rygger", "position": "fra-parkering", "color": "red" },
+    { "id": "B", "kind": "bil", "from": "W", "intent": "rett-fram", "color": "blue" }
+  ],
+  "question": {
+    "type": "velg",
+    "prompt": {
+      "nb": "A skal rygge ut fra parkeringsplassen, men ser dårlig bakover. Hva er riktig?",
+      "en": "A is about to reverse out of the parking area but cannot see well behind. What is correct?",
+      "th": "A จะถอยรถออกจากที่จอดรถ แต่มองด้านหลังได้ไม่ชัด ข้อใดถูกต้อง?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": { "nb": "Rygge sakte ut og regne med at andre stopper", "en": "Reverse out slowly and expect others to stop", "th": "ถอยออกช้า ๆ และคิดว่าคนอื่นจะหยุดให้" },
+        "whyWrong": {
+          "nb": "Det er A som har vikeplikt. Andre skal ikke måtte stoppe for A.",
+          "en": "A is the one who must give way. Others should not have to stop for A.",
+          "th": "A เป็นฝ่ายที่ต้องให้ทาง คนอื่นไม่ควรต้องหยุดให้ A"
+        }
+      },
+      {
+        "id": "b",
+        "text": { "nb": "Få noen til å passe på, eller selv forsikre seg om at det ikke kan oppstå fare", "en": "Get someone to watch, or make sure yourself that no danger can arise", "th": "ให้คนอื่นช่วยดู หรือตรวจดูด้วยตัวเองให้แน่ใจว่าจะไม่เกิดอันตราย" }
+      },
+      {
+        "id": "c",
+        "text": { "nb": "Bruke lydhornet og rygge ut", "en": "Sound the horn and reverse out", "th": "บีบแตรแล้วถอยออก" },
+        "whyWrong": {
+          "nb": "Lydhornet gir ikke A rett til å rygge ut. A har fortsatt vikeplikt.",
+          "en": "The horn does not give A the right to reverse out. A still must give way.",
+          "th": "การบีบแตรไม่ได้ทำให้ A มีสิทธิ์ถอยออก A ยังต้องให้ทาง"
+        }
+      }
+    ]
+  },
+  "answer": {
+    "correct": "b",
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": ["B"],
+        "explanation": {
+          "nb": "Den som rygger, har vikeplikt for annen trafikant. Ser du dårlig, må du ikke rygge før noen passer på for deg, eller du selv har sjekket at det ikke kan oppstå fare eller skade.",
+          "en": "A driver who reverses must give way to other road users. If you cannot see well, you must not reverse until someone watches for you, or you have checked yourself that no danger or damage can arise.",
+          "th": "ผู้ที่ถอยรถต้องให้ทางแก่ผู้ใช้ถนนอื่น ถ้ามองเห็นไม่ชัด ห้ามถอยจนกว่าจะมีคนช่วยดู หรือคุณได้ตรวจดูเองแล้วว่าจะไม่เกิดอันตรายหรือความเสียหาย"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 11 nr. 1",
+          "quote": "Er utsikten ikke tilstrekkelig, må det ikke foretas rygging eller vending uten at en annen passer på eller fører ved selvsyn har forvisset seg om at det ikke kan oppstå fare eller skade.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": ["rygging", "parkeringsplass"],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Sitatet er satt sammen av to ordrette deler fra Lovdata. Kontroller at de står rett etter hverandre. Første scene med spørsmålstypen velg."
+}

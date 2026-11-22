@@ -294,5 +294,64 @@
     "source": "Trafikkreglene § 11 nr. 2",
     "verified": false,
     "thReview": "pending"
+  },
+  {
+    "id": "rundkjoring",
+    "nb": "rundkjøring",
+    "en": "roundabout",
+    "th": "วงเวียน",
+    "def": {
+      "nb": "Kryss der trafikken kjører rundt en øy mot klokka. Ved innkjøringen står det normalt vikepliktskilt: du viker for dem som allerede er i rundkjøringen.",
+      "en": "A junction where traffic drives anticlockwise around an island. There is normally a give way sign at the entry: you give way to those already in the roundabout.",
+      "th": "ทางแยกที่รถวิ่งวนรอบเกาะกลางทวนเข็มนาฬิกา ทางเข้ามักมีป้ายให้ทาง คุณต้องให้ทางแก่รถที่อยู่ในวงเวียนแล้ว"
+    },
+    "onRoad": true,
+    "source": "Skiltforskriften § 6 (skilt 202), § 10 (skilt 406)",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "sykkelveg",
+    "nb": "sykkelveg",
+    "en": "cycle path",
+    "th": "ทางจักรยาน",
+    "def": {
+      "nb": "Veg eller sti for syklister. Den som kjører inn på eller krysser vegen fra sykkelveg, har vikeplikt for trafikk på vegen.",
+      "en": "A road or path for cyclists. Anyone entering or crossing the road from a cycle path must give way to traffic on the road.",
+      "th": "ถนนหรือทางสำหรับจักรยาน ผู้ที่ขับเข้าหรือข้ามถนนจากทางจักรยานต้องให้ทางแก่ผู้ใช้ถนน"
+    },
+    "onRoad": true,
+    "source": "Trafikkreglene § 7 nr. 4 annet ledd",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "fortau",
+    "nb": "fortau",
+    "en": "pavement",
+    "th": "ทางเท้า",
+    "def": {
+      "nb": "Den delen av vegen som er for gående, ved siden av kjørebanen. Kjørende som krysser fortau, har vikeplikt for gående.",
+      "en": "The part of the road for pedestrians, next to the carriageway. Drivers crossing the pavement must give way to pedestrians.",
+      "th": "ส่วนของถนนสำหรับคนเดินเท้า อยู่ข้างช่องทางเดินรถ ผู้ขับขี่ที่ขับข้ามทางเท้าต้องให้ทางแก่คนเดินเท้า"
+    },
+    "onRoad": true,
+    "source": "Trafikkreglene § 9 nr. 2",
+    "verified": false,
+    "thReview": "pending"
+  },
+  {
+    "id": "politi",
+    "nb": "politiets tegn",
+    "en": "police signals",
+    "th": "สัญญาณมือของตำรวจ",
+    "def": {
+      "nb": "Tegn som politiet gir med armene for å styre trafikken. De gjelder foran trafikklys, skilt og trafikkreglene.",
+      "en": "Signals the police give with their arms to direct traffic. They apply before traffic lights, signs and the traffic rules.",
+      "th": "สัญญาณที่ตำรวจให้ด้วยแขนเพื่อควบคุมการจราจร มีผลเหนือสัญญาณไฟจราจร ป้าย และกฎจราจร"
+    },
+    "source": "Trafikkreglene § 3 nr. 2; skiltforskriften § 25",
+    "verified": false,
+    "thReview": "pending"
   }
 ]

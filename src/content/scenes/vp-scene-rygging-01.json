@@ -1,0 +1,45 @@
+{
+  "id": "vp-scene-rygging-01",
+  "topic": "vikeplikt",
+  "subtopic": "rygging-vending",
+  "temalisteRef": "vp-rygging-vending",
+  "tier": "kjerne",
+  "difficulty": 1,
+  "layout": { "type": "t-kryss", "arms": ["E", "S", "W"], "signs": [], "lights": null, "police": null },
+  "actors": [
+    { "id": "A", "kind": "bil", "from": "S", "intent": "rygger", "position": "fra-parkering", "color": "red" },
+    { "id": "B", "kind": "bil", "from": "E", "intent": "rett-fram", "color": "blue" }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "A rygger ut fra en parkeringsplass. B kommer kjørende på vegen. Hvem kjører først?",
+      "en": "A is reversing out of a parking area. B is driving along the road. Who goes first?",
+      "th": "A กำลังถอยรถออกจากที่จอดรถ B กำลังขับมาบนถนน ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [["B"], ["A"]],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": ["B"],
+        "explanation": {
+          "nb": "Den som rygger, har vikeplikt for all annen trafikk. A må vente til B har passert, og først rygge når det er trygt.",
+          "en": "A driver who reverses must give way to all other traffic. A must wait until B has passed, and only reverse when it is safe.",
+          "th": "ผู้ที่ถอยรถต้องให้ทางแก่ผู้ใช้ถนนอื่นทั้งหมด A ต้องรอจนกว่า B จะผ่านไป และถอยรถเมื่อปลอดภัยเท่านั้น"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 11 nr. 1",
+          "quote": "Den som rygger eller vender, har vikeplikt for annen trafikant.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": ["rygging", "parkeringsplass", "vikeplikt"],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending"
+}

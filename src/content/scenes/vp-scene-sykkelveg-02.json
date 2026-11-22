@@ -1,0 +1,48 @@
+{
+  "id": "vp-scene-sykkelveg-02",
+  "topic": "vikeplikt",
+  "subtopic": "fra-sykkelveg",
+  "temalisteRef": "vp-hoyreregel",
+  "alsoRefs": ["ft-samhandling"],
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": { "type": "t-kryss", "arms": ["E", "S", "W"], "signs": [], "lights": null, "police": null },
+  "actors": [
+    { "id": "A", "kind": "bil", "from": "W", "intent": "rett-fram", "color": "red" },
+    { "id": "B", "kind": "syklist", "from": "S", "intent": "hoyre", "position": "fra-sykkelveg", "color": "green" }
+  ],
+  "question": {
+    "type": "ja-nei",
+    "prompt": {
+      "nb": "Du kjører bil A på vegen. Syklisten B kommer fra en sykkelveg til høyre for deg og skal inn på vegen. Har du vikeplikt for B?",
+      "en": "You are driving car A on the road. Cyclist B is coming from a cycle path on your right and is about to enter the road. Must you give way to B?",
+      "th": "คุณขับรถ A อยู่บนถนน คนขี่จักรยาน B มาจากทางจักรยานทางขวาของคุณและกำลังจะเข้าถนน คุณต้องให้ทาง B หรือไม่?"
+    }
+  },
+  "answer": {
+    "yes": false,
+    "order": [["A"], ["B"]],
+    "steps": [
+      {
+        "who": "B",
+        "yieldsTo": ["A"],
+        "explanation": {
+          "nb": "Nei. B kommer fra en sykkelveg og skal inn på vegen. Da er det B som har vikeplikt for deg, selv om B kommer fra høyre. Vær likevel oppmerksom – syklister vet ikke alltid at de har vikeplikt.",
+          "en": "No. B is coming from a cycle path onto the road. So B must give way to you, even though B comes from your right. Still pay attention – cyclists do not always know they must give way.",
+          "th": "ไม่ B มาจากทางจักรยานและจะเข้าถนน ดังนั้น B ต้องให้ทางแก่คุณ แม้ว่า B จะมาจากทางขวา แต่ให้ระวังไว้ เพราะคนขี่จักรยานอาจไม่รู้ว่าตนต้องให้ทาง"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 7 nr. 4 annet ledd",
+          "quote": "Kjørende som vil inn på eller krysse veg fra sykkelveg, gangveg, eller fortau, har vikeplikt for trafikant på vegen.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": ["sykkelveg", "vikeplikt"],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Samme slutning som vp-scene-sykkelveg-01 (syklist er «kjørende»)."
+}

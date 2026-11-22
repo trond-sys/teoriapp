@@ -1,0 +1,47 @@
+{
+  "id": "vp-scene-sykkelveg-01",
+  "topic": "vikeplikt",
+  "subtopic": "fra-sykkelveg",
+  "temalisteRef": "vp-hoyreregel",
+  "alsoRefs": ["ft-samhandling"],
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": { "type": "x-kryss", "arms": ["N", "E", "S", "W"], "signs": [], "lights": null, "police": null },
+  "actors": [
+    { "id": "A", "kind": "syklist", "from": "S", "intent": "rett-fram", "position": "fra-sykkelveg", "color": "green" },
+    { "id": "B", "kind": "bil", "from": "W", "intent": "rett-fram", "color": "blue" }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "Syklisten A kommer fra en sykkelveg og skal rett over vegen. Bil B kommer fra venstre for A. Hvem kjører først?",
+      "en": "Cyclist A is coming from a cycle path and going straight across the road. Car B is coming from A's left. Who goes first?",
+      "th": "คนขี่จักรยาน A มาจากทางจักรยานและจะข้ามถนนตรงไป รถ B มาจากทางซ้ายของ A ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [["B"], ["A"]],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": ["B"],
+        "explanation": {
+          "nb": "A kommer fra en sykkelveg og skal krysse vegen. Da har A vikeplikt for trafikk på vegen – også for B, som kommer fra venstre. Høyreregelen gjelder ikke for den som kommer fra sykkelveg.",
+          "en": "A is coming from a cycle path and crossing the road. So A must give way to traffic on the road – also B, who comes from the left. The right-hand rule does not apply to someone coming from a cycle path.",
+          "th": "A มาจากทางจักรยานและจะข้ามถนน ดังนั้น A ต้องให้ทางแก่ผู้ใช้ถนน รวมถึง B ที่มาจากทางซ้าย กฎให้ทางรถทางขวาไม่ใช้กับผู้ที่มาจากทางจักรยาน"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 7 nr. 4 annet ledd",
+          "quote": "Kjørende som vil inn på eller krysse veg fra sykkelveg, gangveg, eller fortau, har vikeplikt for trafikant på vegen.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": ["sykkelveg", "vikeplikt", "hoyreregelen"],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "At syklisten er «kjørende» i § 7 nr. 4 annet ledd er en slutning (vegvesen.no: «Syklende regnes som kjørende», sagt om gangfelt)."
+}

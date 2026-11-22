@@ -1,0 +1,46 @@
+{
+  "id": "vp-scene-buss-01",
+  "topic": "vikeplikt",
+  "subtopic": "bussholdeplass",
+  "temalisteRef": "vp-hoyreregel",
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": { "type": "t-kryss", "arms": ["E", "S", "W"], "signs": [], "lights": null, "police": null },
+  "actors": [
+    { "id": "A", "kind": "bil", "from": "W", "intent": "rett-fram", "color": "red" },
+    { "id": "B", "kind": "buss", "from": "W", "intent": "rett-fram", "position": "pa-holdeplass", "color": "orange" }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "Fartsgrensen er 50 km/t. Bussen B står på holdeplassen og blinker for å kjøre ut. A kommer bakfra. Hvem kjører først?",
+      "en": "The speed limit is 50 km/h. Bus B is at the bus stop and signalling to pull out. A is coming from behind. Who goes first?",
+      "th": "จำกัดความเร็ว 50 กม./ชม. รถบัส B จอดอยู่ที่ป้ายรถโดยสารและเปิดไฟเลี้ยวเพื่อจะออก A มาจากด้านหลัง ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [["B"], ["A"]],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": ["B"],
+        "explanation": {
+          "nb": "Fartsgrensen er 60 km/t eller lavere, og bussføreren gir tegn om at bussen skal kjøre ut. Da har A vikeplikt for bussen. Bussføreren skal likevel unngå fare.",
+          "en": "The speed limit is 60 km/h or lower, and the bus driver is signalling that the bus is pulling out. So A must give way to the bus. The bus driver must still avoid causing danger.",
+          "th": "ความเร็วจำกัด 60 กม./ชม. หรือต่ำกว่า และคนขับรถบัสให้สัญญาณว่าจะออกจากป้าย ดังนั้น A ต้องให้ทางรถบัส แต่คนขับรถบัสก็ต้องหลีกเลี่ยงการก่ออันตรายเช่นกัน"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 7 nr. 5",
+          "quote": "På veg med fartsgrense 60 km i timen eller lavere har kjørende vikeplikt for buss når føreren gir tegn om at bussen skal forlate holdeplass.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": ["holdeplass", "vikeplikt"],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Sitatet er satt sammen av to ordrette deler fra Lovdata («… vikeplikt for buss» og «når føreren gir tegn …»). Kontroller at de står rett etter hverandre. Fartsgrensen står bare i teksten, ikke som skilt i tegningen."
+}
