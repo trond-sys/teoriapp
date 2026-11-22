@@ -1,0 +1,92 @@
+{
+  "id": "vp-scene-skilt-202-01",
+  "topic": "vikeplikt",
+  "subtopic": "skilt",
+  "temalisteRef": "vp-hoyreregel",
+  "alsoRefs": [
+    "so-skilt"
+  ],
+  "tier": "kjerne",
+  "difficulty": 1,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [
+      {
+        "arm": "S",
+        "nr": "202"
+      },
+      {
+        "arm": "N",
+        "nr": "202"
+      }
+    ],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "S",
+      "intent": "rett-fram",
+      "color": "red"
+    },
+    {
+      "id": "B",
+      "kind": "bil",
+      "from": "W",
+      "intent": "rett-fram",
+      "color": "blue"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "A har vikepliktskilt og skal rett fram. B kommer fra venstre for A. Hvem kjører først?",
+      "en": "A has a give way sign and is going straight ahead. B is coming from A's left. Who goes first?",
+      "th": "A มีป้ายให้ทางและจะตรงไป B มาจากทางซ้ายของ A ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "B"
+      ],
+      [
+        "A"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [
+          "B"
+        ],
+        "explanation": {
+          "nb": "A har vikepliktskilt og må vike for trafikken på den kryssende vegen i begge retninger – også for B, som kommer fra venstre.",
+          "en": "A has a give way sign and must give way to traffic on the crossing road in both directions – including B, who comes from the left.",
+          "th": "A มีป้ายให้ทางและต้องให้ทางแก่รถบนถนนที่ตัดผ่านทั้งสองทิศทาง รวมถึง B ที่มาจากทางซ้าย"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 6, skilt 202 Vikeplikt",
+          "quote": "Skiltet angir at kjørende har vikeplikt for kjørende trafikk i begge retninger på kryssende veg.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "vikeplikt",
+    "vegkryss"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending"
+}

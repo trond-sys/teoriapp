@@ -1,0 +1,108 @@
+{
+  "id": "vp-scene-skilt-204-01",
+  "topic": "vikeplikt",
+  "subtopic": "skilt",
+  "temalisteRef": "vp-stoppeplikt",
+  "alsoRefs": [
+    "so-skilt"
+  ],
+  "tier": "kjerne",
+  "difficulty": 1,
+  "layout": {
+    "type": "t-kryss",
+    "arms": [
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [
+      {
+        "arm": "S",
+        "nr": "204"
+      }
+    ],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "S",
+      "intent": "venstre",
+      "color": "red"
+    }
+  ],
+  "question": {
+    "type": "velg",
+    "prompt": {
+      "nb": "A har stoppskilt og skal til venstre. Det kommer ingen. Hva skal A gjøre?",
+      "en": "A has a stop sign and is turning left. Nobody is coming. What must A do?",
+      "th": "A มีป้ายหยุดและจะเลี้ยวซ้าย ไม่มีรถมา A ต้องทำอย่างไร?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "nb": "Sakke farten og kjøre ut, siden vegen er fri",
+          "en": "Slow down and drive out, since the road is clear",
+          "th": "ลดความเร็วแล้วขับออกไป เพราะถนนว่าง"
+        },
+        "whyWrong": {
+          "nb": "Ved stoppskilt skal du alltid stanse helt, også når vegen er fri.",
+          "en": "At a stop sign you must always stop completely, even when the road is clear.",
+          "th": "ที่ป้ายหยุด คุณต้องหยุดรถให้สนิทเสมอ แม้ถนนจะว่าง"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "nb": "Stanse helt ved stopplinjen, og kjøre når vegen er fri",
+          "en": "Stop completely at the stop line, then drive on when the road is clear",
+          "th": "หยุดรถให้สนิทที่เส้นหยุด แล้วขับต่อเมื่อถนนว่าง"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "nb": "Stanse bare hvis det kommer trafikk fra høyre",
+          "en": "Stop only if traffic is coming from the right",
+          "th": "หยุดเฉพาะเมื่อมีรถมาจากทางขวา"
+        },
+        "whyWrong": {
+          "nb": "Stoppskiltet krever full stans uansett, og etterpå vikeplikt for trafikk fra begge retninger.",
+          "en": "The stop sign always requires a full stop, and after that you must give way to traffic from both directions.",
+          "th": "ป้ายหยุดบังคับให้หยุดสนิทเสมอ และหลังจากนั้นต้องให้ทางแก่รถจากทั้งสองทิศทาง"
+        }
+      }
+    ]
+  },
+  "answer": {
+    "correct": "b",
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [],
+        "explanation": {
+          "nb": "Stoppskiltet betyr at A skal stanse helt før krysset – ved stopplinjen, eller så nær den kryssende vegen som mulig hvis det ikke er stopplinje. Deretter har A vikeplikt for trafikk i begge retninger.",
+          "en": "The stop sign means A must stop completely before the junction – at the stop line, or as close to the crossing road as possible if there is no stop line. After that A must give way to traffic in both directions.",
+          "th": "ป้ายหยุดหมายความว่า A ต้องหยุดรถให้สนิทก่อนถึงทางแยก ที่เส้นหยุด หรือใกล้ถนนที่ตัดผ่านมากที่สุดถ้าไม่มีเส้นหยุด หลังจากนั้น A ต้องให้ทางแก่รถทั้งสองทิศทาง"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 6, skilt 204 Stopp",
+          "quote": "Skiltet angir at kjørende skal stanse helt før kjøring inn på kryssende veg eller før kryssing av planovergang, og at den kjørende har vikeplikt for kjørende trafikk i begge retninger på kryssende veg",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "stopplinje",
+    "vikeplikt"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Hele ordlyden for skilt 204 er hentet fra funnene (A4: Lovdata-søketreff og Trafikksikkerhetshåndboken), ikke lest direkte på Lovdata i Claude Code."
+}

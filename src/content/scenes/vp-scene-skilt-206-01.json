@@ -1,0 +1,101 @@
+{
+  "id": "vp-scene-skilt-206-01",
+  "topic": "vikeplikt",
+  "subtopic": "skilt",
+  "temalisteRef": "vp-hoyreregel",
+  "alsoRefs": [
+    "so-skilt"
+  ],
+  "tier": "kjerne",
+  "difficulty": 1,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [
+      {
+        "arm": "W",
+        "nr": "206"
+      },
+      {
+        "arm": "E",
+        "nr": "206"
+      },
+      {
+        "arm": "N",
+        "nr": "202"
+      },
+      {
+        "arm": "S",
+        "nr": "202"
+      }
+    ],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "W",
+      "intent": "rett-fram",
+      "color": "red"
+    },
+    {
+      "id": "B",
+      "kind": "bil",
+      "from": "S",
+      "intent": "rett-fram",
+      "color": "blue"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "A kjører på forkjørsveg. B kommer fra sidevegen til høyre for A og har vikepliktskilt. Hvem kjører først?",
+      "en": "A is driving on a priority road. B comes from the side road on A's right and has a give way sign. Who goes first?",
+      "th": "A ขับอยู่บนถนนสายหลัก B มาจากถนนซอยทางขวาของ A และมีป้ายให้ทาง ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "A"
+      ],
+      [
+        "B"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "B",
+        "yieldsTo": [
+          "A"
+        ],
+        "explanation": {
+          "nb": "A kjører på forkjørsveg. Trafikk fra sideveger er pålagt vikeplikt, så B må vike for A selv om B kommer fra høyre. Skiltene gjelder foran høyreregelen.",
+          "en": "A is driving on a priority road. Traffic from side roads must give way, so B must give way to A even though B comes from the right. The signs apply before the right-hand rule.",
+          "th": "A ขับอยู่บนถนนสายหลัก รถจากถนนซอยต้องให้ทาง ดังนั้น B ต้องให้ทาง A แม้ว่า B จะมาจากทางขวา ป้ายจราจรมีผลเหนือกฎให้ทางรถทางขวา"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 6, skilt 206 Forkjørsveg",
+          "quote": "Skiltet angir at kjørende som kommer fra sideveg eller kryssende veg, er pålagt vikeplikt",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "forkjorsveg",
+    "vikeplikt",
+    "hoyreregelen"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending"
+}

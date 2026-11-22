@@ -1,0 +1,104 @@
+{
+  "id": "vp-scene-skilt-208-01",
+  "topic": "vikeplikt",
+  "subtopic": "skilt",
+  "temalisteRef": "vp-hoyreregel",
+  "alsoRefs": [
+    "so-skilt"
+  ],
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [
+      {
+        "arm": "W",
+        "nr": "208"
+      }
+    ],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "W",
+      "intent": "rett-fram",
+      "color": "red"
+    },
+    {
+      "id": "B",
+      "kind": "bil",
+      "from": "S",
+      "intent": "rett-fram",
+      "color": "blue"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "A har nettopp passert skiltet «Slutt på forkjørsveg». I krysset er det ingen andre skilt. B kommer fra høyre for A. Hvem kjører først?",
+      "en": "A has just passed the sign \"End of priority road\". There are no other signs at the junction. B comes from A's right. Who goes first?",
+      "th": "A เพิ่งผ่านป้าย «สิ้นสุดถนนสายหลัก» ที่ทางแยกไม่มีป้ายอื่น B มาจากทางขวาของ A ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "B"
+      ],
+      [
+        "A"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [],
+        "explanation": {
+          "nb": "Skiltet betyr at forkjørsvegen er slutt. A har ikke lenger forkjørsrett.",
+          "en": "The sign means the priority road has ended. A no longer has priority.",
+          "th": "ป้ายนี้หมายความว่าถนนสายหลักสิ้นสุดแล้ว A ไม่มีสิทธิ์ผ่านก่อนอีกต่อไป"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 6, skilt 208 Slutt på forkjørsveg (tekst fra skiltnormalen N300)",
+          "quote": "Skiltet angir at forkjørsveg er slutt.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      },
+      {
+        "who": "A",
+        "yieldsTo": [
+          "B"
+        ],
+        "explanation": {
+          "nb": "Uten skilt i krysset gjelder høyreregelen. B kommer fra høyre, så A har vikeplikt for B.",
+          "en": "Without signs at the junction, the right-hand rule applies. B comes from the right, so A must give way to B.",
+          "th": "เมื่อไม่มีป้ายที่ทางแยก ให้ใช้กฎให้ทางรถทางขวา B มาจากทางขวา ดังนั้น A ต้องให้ทาง B"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 7 nr. 2 første punktum",
+          "quote": "Kjørende har vikeplikt for kjøretøy som kommer fra høyre.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "forkjorsveg",
+    "hoyreregelen",
+    "vikeplikt"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Teksten til skilt 208 er bare lest via skiltnormalen (funn C), ikke i skiltforskriften på Lovdata. At høyreregelen gjelder etter skiltet, er en slutning når krysset ikke har andre skilt."
+}

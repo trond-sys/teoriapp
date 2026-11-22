@@ -1,0 +1,96 @@
+{
+  "id": "vp-scene-skilt-210-01",
+  "topic": "vikeplikt",
+  "subtopic": "skilt",
+  "temalisteRef": "vp-hoyreregel",
+  "alsoRefs": [
+    "so-skilt"
+  ],
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [
+      {
+        "arm": "W",
+        "nr": "210"
+      },
+      {
+        "arm": "N",
+        "nr": "202"
+      },
+      {
+        "arm": "S",
+        "nr": "202"
+      }
+    ],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "W",
+      "intent": "rett-fram",
+      "color": "red"
+    },
+    {
+      "id": "B",
+      "kind": "bil",
+      "from": "S",
+      "intent": "venstre",
+      "color": "blue"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "A har passert skiltet «Forkjørskryss». B kommer fra høyre for A, har vikepliktskilt og skal til venstre. Hvem kjører først?",
+      "en": "A has passed the sign \"Junction with priority\". B comes from A's right, has a give way sign and is turning left. Who goes first?",
+      "th": "A ผ่านป้าย «ทางแยกที่คุณมีสิทธิ์ผ่านก่อน» แล้ว B มาจากทางขวาของ A มีป้ายให้ทาง และจะเลี้ยวซ้าย ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "A"
+      ],
+      [
+        "B"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "B",
+        "yieldsTo": [
+          "A"
+        ],
+        "explanation": {
+          "nb": "Skiltet foran krysset varsler at sidevegene har vikeplikt. B har vikepliktskilt og må vike for A, selv om B kommer fra høyre.",
+          "en": "The sign before the junction warns that the side roads must give way. B has a give way sign and must give way to A, even though B comes from the right.",
+          "th": "ป้ายก่อนถึงทางแยกเตือนว่าถนนซอยต้องให้ทาง B มีป้ายให้ทางและต้องให้ทาง A แม้ว่า B จะมาจากทางขวา"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 6, skilt 210 Forkjørskryss",
+          "quote": "Skiltet varsler om farlig vegkryss hvor kjørende fra sideveg eller kryssende veg er pålagt vikeplikt med skilt 202 «Vikeplikt» eller 204 «Stopp».",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "vikeplikt",
+    "vegkryss"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending"
+}

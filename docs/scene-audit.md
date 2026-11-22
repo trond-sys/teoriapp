@@ -1,7 +1,7 @@
 # Revisjon av vikeplikt-scenene
 
 **Laget:** 2026-11-22 med `npm run audit-scenes` (Endring 01, steg 5).
-**Scener:** 17. **Uenige med motoren:** 4.
+**Scener:** 23. **Uenige med motoren:** 4.
 
 Rapporten sammenligner fasiten i hver scene (`src/content/scenes/`) med den gamle regelmotoren (`scripts/audit/engine.ts`).
 Den er et hjelpemiddel når scenene kontrolleres, **ikke en dommer**: fasiten i scenen gjelder alltid.
@@ -30,10 +30,16 @@ Den er et hjelpemiddel når scenene kontrolleres, **ikke en dommer**: fasiten i 
 | `vp-scene-parkering-02` | nei | B + C → A | B + C → A | ja |
 | `vp-scene-rygging-01` | nei | B → A | feil: A: ugyldig «to» | **nei** |
 | `vp-scene-rygging-02` | nei |  | feil: A: ugyldig «to» | **nei** |
+| `vp-scene-skilt-202-01` | nei | B → A | B → A | ja |
+| `vp-scene-skilt-204-01` | nei |  | A | ja |
+| `vp-scene-skilt-206-01` | nei | A → B | A → B | ja |
+| `vp-scene-skilt-208-01` | nei | B → A | B → A | ja |
+| `vp-scene-skilt-210-01` | nei | A → B | A → B | ja |
 | `vp-scene-sykkelveg-01` | nei | B → A | B → A | ja |
 | `vp-scene-sykkelveg-02` | nei | A → B | A → B | ja |
 | `vp-scene-venstre-venstre-01` | nei | A + B | A + B | ja |
 | `vp-scene-venstresving-01` | nei | B + C → A | B + C → A | ja |
+| `vp-scene-venstresving-02` | nei | B → A | B → A | ja |
 
 ## Merknader per scene
 
@@ -50,3 +56,9 @@ Den er et hjelpemiddel når scenene kontrolleres, **ikke en dommer**: fasiten i 
 
 ### `vp-scene-rygging-02` – uenig
 - Scenen har rygging. Motoren kjenner ikke rygging.
+
+### `vp-scene-skilt-208-01`
+- Motoren leser bare skilt 202, 204 og 206. Andre skilt i scenen er ikke med.
+
+### `vp-scene-skilt-210-01`
+- Motoren leser bare skilt 202, 204 og 206. Andre skilt i scenen er ikke med.

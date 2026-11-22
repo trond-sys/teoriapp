@@ -1,0 +1,81 @@
+{
+  "id": "vp-scene-venstresving-02",
+  "topic": "vikeplikt",
+  "subtopic": "venstresving",
+  "temalisteRef": "vp-hoyreregel",
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "S",
+      "intent": "venstre",
+      "color": "red"
+    },
+    {
+      "id": "B",
+      "kind": "bil",
+      "from": "N",
+      "intent": "hoyre",
+      "color": "blue"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "Ingen skilt eller lys. A skal til venstre. Den møtende bilen B skal til høyre. Begge skal inn på samme veg. Hvem kjører først?",
+      "en": "No signs or lights. A is turning left. The oncoming car B is turning right. Both are going into the same road. Who goes first?",
+      "th": "ไม่มีป้ายหรือสัญญาณไฟ A จะเลี้ยวซ้าย รถ B ที่สวนมาจะเลี้ยวขวา ทั้งสองคันจะเข้าถนนสายเดียวกัน ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "B"
+      ],
+      [
+        "A"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [
+          "B"
+        ],
+        "explanation": {
+          "nb": "A svinger til venstre og får den møtende bilen B på sin høyre side. Da har A vikeplikt for B – også når B svinger til høyre inn på samme veg.",
+          "en": "A is turning left and will have the oncoming car B on its right. So A must give way to B – also when B is turning right into the same road.",
+          "th": "A เลี้ยวซ้ายและรถ B ที่สวนมาจะอยู่ทางขวาของ A ดังนั้น A ต้องให้ทาง B แม้ B จะเลี้ยวขวาเข้าถนนสายเดียวกัน"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 7 nr. 2 annet punktum",
+          "quote": "Det samme gjelder når kjørende som vil svinge til venstre, vil få kjøretøy på sin høyre side.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "venstresving",
+    "motende",
+    "vikeplikt"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending"
+}
