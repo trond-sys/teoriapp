@@ -88,7 +88,12 @@ Oppgavetyper:
 
 ### 4.3 Interaktive oppgaver
 Bygg en felles motor for scenarioer (SVG + JSON-definert scene), og lag disse typene:
-1. **Vikeplikt-krysset:** ovenfra-visning av kryss. Eleven drar kjøretøy i riktig kjørerekkefølge. Scenarier: høyreregelen, vikepliktskilt, forkjørsvei, rundkjøring, avkjørselsregelen (utkjøring fra parkeringsplass/gårdsvei), trikk, utrykningskjøretøy, fotgjengere i gangfelt.
+1. **Vikeplikt-krysset:** ovenfra-visning av kryss. Eleven drar kjøretøy i riktig kjørerekkefølge (eller svarer ja/nei eller velger et alternativ). Scenarier: høyreregelen, vikepliktskilt, forkjørsvei, rundkjøring, avkjørselsregelen (utkjøring fra parkeringsplass/gårdsvei), trikk, utrykningskjøretøy, fotgjengere i gangfelt.
+   - **Håndlagde scenarier (Endring 01, `docs/endringer/ENDRING-01-handlagde-scenarier.md`):** Fasiten er data, ikke beregning. Hver scene i `src/content/scenes/` lagres med rekkefølge og steg («hvem viker for hvem»), og hvert steg har hjemmel og et kort ordrett sitat. Ingen kode i appen avgjør vikeplikt.
+   - Koden kontrollerer bare at scenen henger sammen (`npm run validate-scenes`: struktur og geometriske advarsler).
+   - Pilene viser hvor trafikanten skal (høyre, rett fram, venstre), ikke kjørebanen gjennom krysset.
+   - Scenene merkes `tier: "kjerne"` (prøverelevant) eller `"dybde"` (kanttilfeller, teller ikke mot klarhet og er ikke med i prøveeksamen).
+   - Kjernekatalogen (41 scener) står i `src/domain/scenes/catalog.ts`.
 2. **Skilt:** flashcards, «hva betyr skiltet?», «finn skiltet som betyr …», sortering i skiltgrupper (fareskilt, vikepliktskilt, forbudsskilt, påbudsskilt, opplysningsskilt, serviceskilt, underskilt), samt vegoppmerking. Bruk skiltnummer fra skiltforskriften.
 3. **Finn faren (hasardoppfatning):** illustrert trafikkscene med klikkbare soner og tidsgrense. Etterpå: gjennomgang av alle farer med forklaring.
 4. **Stopplengde-simulator:** glidebryter for fart + valg av føre (tørr, våt, snø, is). Viser reaksjonslengde, bremselengde og total stopplengde visuelt. Etterfølges av spørsmål.
@@ -153,6 +158,12 @@ Feil regler lærer henne feil ting i trafikken. Derfor:
 - Felt `verified` (regel kontrollert av Trond) og `thReview` (`pending` / `ok` / `flagged`).
 - Thai-tekst produsert av deg er utkast. Lag en «Rapporter oversettelse»-knapp på all thai-tekst, så eleven kan flagge og foreslå bedre formulering. Rapportene lagres lokalt og kan eksporteres som JSON, slik at jeg kan rette innholdsfilene.
 - Lag en skjult **redaktørside** (`/review`) som lister uverifiserte elementer, thai-flagg og temadekning mot temalisten.
+- **Vikeplikt-scener (Endring 01):**
+  - Hvert steg i fasiten har `source.ref` og `source.quote` (ordrett sitat).
+  - **Uverifisert betyr skjult:** scener med `verified: false` vises ikke for eleven, bare på `/review`.
+  - Trond markerer scener som kontrollert på `/review`, eksporterer JSON og kjører `npm run apply-verifications -- fil.json`. Det setter `verified`, `verifiedBy` og `verifiedAt` i filene, og så committer han.
+  - `npm run audit-scenes` sammenligner fasiten med den gamle regelmotoren i `scripts/audit/` og skriver `docs/scene-audit.md`. Det er et hjelpemiddel, ikke en dommer.
+  - Når alle kjernescener er verifisert, slettes motoren og revisjonsskriptet.
 - Skilt: tegn som SVG eller bruk skiltgrafikk fra Wikimedia Commons der lisensen tillater det – dokumenter kilde og lisens per fil i `public/signs/LICENSES.md`.
 - Ingen kopiering fra kommersielle apper eller fra Statens vegvesens prøve.
 

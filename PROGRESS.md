@@ -5,7 +5,7 @@ Denne filen viser status for prosjektet, slik at en ny økt kan fortsette uten �
 ## Status per fase
 - [x] Fase 0 – plan (`docs/PLAN-fase0.md`), **godkjent 21.11.2026** (svarene står i §8a)
 - [ ] Fase 1 – MVP: **all kode er ferdig. Innholdsbatch 1 (vikeplikt) er laget og kontrollert av en egen søkeøkt** (funn i `docs/TODO-kontroll-batch1.md`).
-- [ ] **Endring 01 – håndlagde scenarier** (`docs/endringer/ENDRING-01-handlagde-scenarier.md`): steg 1–5 er ferdige, og steg 6 (kjernekatalogen) er i gang: batchene «høyreregel» og «avkjørsel» er laget (11 av 41 kjernescener). **Neste batch er «fra-sykkelveg», etter at Trond har kontrollert de to batchene.** Ingen scener er verifisert ennå, så eleven ser ikke vikeplikt-krysset før Trond har kontrollert dem på `/review`.
+- [x] **Endring 01 – håndlagde scenarier** (`docs/endringer/ENDRING-01-handlagde-scenarier.md`): steg 1–8 er ferdige (22.11.2026). Alle 41 kjernescener er laget. **Alle har `verified: false` og venter på Tronds kontroll på `/review`.** Til de er verifisert, ser ikke eleven vikeplikt-krysset.
 - [ ] Fase 2 – Eksamensklar
 - [ ] Fase 3 – Øvelseskjøring og oppkjøring
 - [ ] Fase 4 – Kvalitet
@@ -19,6 +19,7 @@ npm run build             # produksjonsbygg med service worker (dist/)
 npm run import-signs      # henter manglende skilt fra Statens vegvesens zip-filer og skriver LICENSES.md
 npm run validate-scenes   # struktur og geometriske advarsler for de håndlagde scenariene (også en del av validate-content)
 npm run audit-scenes      # revisjon: den gamle motoren mot hver scene → docs/scene-audit.md (hjelpemiddel, ikke dommer)
+npm run apply-verifications -- fil.json   # skriver markeringer fra /review inn i scenefilene
 ```
 Git: repoet har lokal `user.email` = GitHub noreply for `trond-sys`. **Ikke bruk BT Flyt-adressen her.** Ingenting er pushet. `.github/workflows/pages.yml` publiserer til GitHub Pages når repoet er pushet til `trond-sys/teoriapp` (offentlig) og Pages er satt til «GitHub Actions».
 
@@ -130,34 +131,43 @@ Målet er at fasiten er data, ikke beregning: ingen kode i `src/` skal avgjøre 
   - Jeg testet med en bevisst feil fasit: revisjonen viste da hvilke vikeplikter rekkefølgen bryter, og hvilke steg som mangler.
   - **Ingen fil i `src/` importerer motoren lenger.** `src/domain/yield/` er fjernet, også `RULES` på `/review`.
 
-**Gjenstår:**
-- **6. Kjernekatalogen** (41 scener, §6) lages i batcher per undertema, én batch per økt.
-  - `npm run validate-scenes` viser dekningen per undertema. Målene står i `src/domain/scenes/catalog.ts`.
-  - **Batch «høyreregel» (22.11.2026), ferdig 4 av 4:**
-    - `vp-scene-hoyreregel-02`: T-kryss, A på den gjennomgående vegen, B fra sidevegen til høyre.
-    - `vp-scene-hoyreregel-03`: kjede av tre biler, C → B → A.
-    - `vp-scene-hoyreregel-04`: syklist fra høyre på kjørebanen.
-    - Alle har `verified: false`. Revisjonen er enig.
-    - TODO til Trond: at høyreregelen gjelder i T-kryss, er en slutning (ingen kilde nevner T-kryss), og at sykkel er «kjøretøy», er en slutning av vtl. § 2.
-  - **Batch «avkjørsel» (22.11.2026), ferdig 4 av 4:**
-    - `vp-scene-gardsveg-01`: A fra gårdsveg på Bs høyre side svinger til høyre, og A viker likevel.
-    - `vp-scene-bensinstasjon-01`: første scene med spørsmålstypen `ja-nei`. A fra bensinstasjon skal rett over, B kommer fra venstre. Fasit: ja, A har vikeplikt.
-    - Begge har `verified: false`. Revisjonen er enig.
-    - Gårdsveg tegnes nå som en smal grusveg uten parkeringsplass (`Arm.look`).
-    - Ja/nei-skjermen er prøvd i nettleseren med både riktig og feil svar.
-    - Vegskulder (§ 7 nr. 4 første ledd, siste del) har ingen scene. Layoutene er bare kryss, og vegskulder krever en rett vegstrekning.
-  - **Status per undertema:** høyreregel 4/4, avkjørsel 4/4, venstresving 2/3, skilt 1/6. Resten har 0.
-  - **Foreslått rekkefølge videre:**
-    - Først fra-sykkelveg (§ 7 nr. 4 annet ledd er lest ordrett), deretter bussholdeplass og rygging-vending.
-    - Så svinging mot gående og syklende, og skilt.
-    - Lysregulering og politi kommer etter at skiltforskriften §§ 24–25 er lest ordrett på Lovdata.
-    - fri-veg kommer etter at B1/B2 er avklart, og rundkjøring etter B5.
-- **7. `/review` får knapp for å verifisere** (`verifiedBy` og `verifiedAt`), med eksport.
-- **8. Oppdatering** av `docs/PROMPT.md` §4.3 og §6, og denne filen.
-- **Når alle kjernescener er verifisert**, slettes `decide()`, `rules.ts` og revisjonsskriptet.
+- **Steg 6, kjernekatalogen (22.11.2026): 41 av 41.** Status kommer fra `npm run validate-scenes`, og målene står i `src/domain/scenes/catalog.ts`.
 
-**Åpent:**
-- Sitatet fra § 6 nr. 4 (venstre-venstre) er hentet fra funnene (Lovdata-søketreff), ikke lest i denne økten.
+  | Undertema | Scener |
+  |---|---|
+  | Høyreregel | `hoyreregel-01..04` |
+  | Avkjørsel | `parkering-01/-02`, `gardsveg-01`, `bensinstasjon-01` (ja-nei) |
+  | Fra sykkelveg | `sykkelveg-01`, `sykkelveg-02` (ja-nei) |
+  | Bussholdeplass | `buss-01` (50 km/t), `buss-02` (80 km/t, ja-nei) |
+  | Skilt | `forkjorsveg-01`, `skilt-202-01`, `skilt-204-01` (velg), `skilt-206-01`, `skilt-208-01`, `skilt-210-01` |
+  | Lysregulering | `lys-01..05` (venstresving på grønt, rødt mot grønt, lys foran skilt, gult blink, grønn pil) |
+  | Politi | `politi-01` (velg), `politi-02`, `politi-03` (velg) |
+  | Venstresving | `venstresving-01`, `venstresving-02`, `venstre-venstre-01` |
+  | Svinging mot gående og syklende | `gangfelt-01`, `hoyresving-syklist-01`, `venstresving-syklist-01` |
+  | Rygging | `rygging-01`, `rygging-02` (velg) |
+  | Fri veg (§ 10) | `utrykning-01`, `trikk-01`, `trikk-gangfelt-01`, `utrykning-trikk-01` |
+  | Rundkjøring | `rundkjoring-01..03` (02 er ja-nei) |
+
+  - **Tegningen** kan nå vise trafikklys, politi, busslomme, gårdsveg, sykkelveg, flere fra samme arm og rygging. Bilene har front- og baklys.
+  - **Revisjonen:** 41 scener, 9 uenige. Alle 9 er scener motoren ikke kan regne på: lys (4), politi (1), samme arm (3) eller rygging (2). Se `docs/scene-audit.md` eller `/review`.
+  - **Ikke dekket:** vegskulder (krever rett vegstrekning), feltskifte inne i rundkjøring (krever tofelts rundkjøring) og tog ved planovergang. Dybdescener (`tier: "dybde"`) er ikke laget.
+- **Steg 7, verifisering (22.11.2026):**
+  - `/review` har knappen «Marker som kontrollert» (navn og dato, lagret lokalt) for hver scene, og knappen «Angre».
+  - «Eksporter markeringer (JSON)» lager en fil. `npm run apply-verifications -- fil.json` skriver `verified`, `verifiedBy` og `verifiedAt` inn i filene.
+  - Revisjonen vises for hver scene (`src/content/audit/scene-audit.json`).
+- **Steg 8 (22.11.2026):** `docs/PROMPT.md` §4.3 punkt 1 og §6 beskriver nå modellen med håndlagde scenarier.
+- **Når alle kjernescener er verifisert:** slett `scripts/audit/`, `scripts/audit-scenes.ts`, `docs/scene-audit.md` og `src/content/audit/`, og noter det her (Endring 01 §4).
+
+**Åpent (står også i `todo` i hver scene):**
+- Skiltforskriften §§ 24–25 (lys og politi) og § 6 nr. 4 (venstre-venstre) er bare lest via funnene (Lovdata-søketreff). Les dem på Lovdata før lys-, politi- og venstre-venstre-scenene verifiseres.
+- Noen sitater er satt sammen av to ordrette deler (§ 7 nr. 3, § 7 nr. 5, § 9 nr. 2, § 11 nr. 1). Kontroller at delene står rett etter hverandre.
+- Slutninger som ikke står ordrett noe sted:
+  - Sykkel er «kjøretøy» og syklist er «kjørende».
+  - Høyreregelen gjelder i T-kryss.
+  - Gult blink betyr at skiltene gjelder.
+  - Grønn pil betyr at møtende har rødt.
+  - Bussen viker ved 80 km/t (§ 8 nr. 1).
+  - Gående i gangfelt viker for trikk.
 - Funnene foreslår også rettelser i flervalg og skilt: `source` for A1–A4, og teksten for skilt 139 og 126. Det er ikke gjort ennå. Venter på Tronds ja.
 
 ## Uverifiserte elementer og åpne spørsmål
@@ -165,18 +175,17 @@ Alt innhold er `verified: false` til Trond har kontrollert det. Dette er det jeg
 - **vikeplikt-011:** Betydningen av grønt lys (skiltforskriften § 24) er bare lest som sammendrag. § 3 nr. 1 (lys foran skilt) er lest ordrett.
 - **vikeplikt-012:** Politiets tegn «arm rett opp» og unntakene. Skiltforskriften § 25 er bare lest som sammendrag.
 - **vikeplikt-013:** Politi foran trafikklys. § 3 nr. 2 sier «foran anvisning gitt på annen måte». At trafikklys er omfattet, er min tolkning.
-- **vikeplikt-015 og motorregelen `sporvogn`:** Kan trikk ha vikeplikt etter skilt i enkelte kryss? Motoren gir trikken alltid fri veg, også overfor gående. Derfor er det ikke laget scener med skilt mot trikk.
+- **vikeplikt-015:** Kan trikk ha vikeplikt etter skilt i enkelte kryss (funn A5/B1)? Det er ikke laget scener med skilt eller lys mot trikk.
 - **vikeplikt-020 og skilt 204:** At stoppskilt også gir vikeplikt, bygger på teksten til skilt 206. Selve teksten til 204 er bare lest om stans.
 - **Skilt 126, 132, 139, 208 og 406:** Bare tittelen er lest. Forklaringene er skrevet ut fra trafikkreglene.
-- **Motorregelen `rundkjoring`:** Trafikkreglene har ingen egen regel for rundkjøring. Motoren antar vikepliktskilt ved alle innkjøringer, og at to som kjører inn fra ulike armer ikke er i konflikt. Det er ikke laget rundkjøringsscener i batch 1.
-- **Motorregelen `venstresving`:** To møtende som begge svinger til venstre, regnes som «foran hverandre» uten konflikt.
-- Alle motorregler står med hjemmel i `src/domain/yield/rules.ts` og listes på `/review`.
+- **Rundkjøring:** Trafikkreglene har ingen egen regel. Scenene tegner skilt 202 ved hver innkjøring (funn B5).
+- **Den gamle motoren** ligger i `scripts/audit/` og brukes bare til revisjonen. Funn B1, B2, B5 og B6 beskriver svakhetene.
 - Fra Fase 0 (uendret): vtl § 21 er ikke kontrollert ordrett. Tolkningen av «Forbud på offentlig veg» er ikke bekreftet. Koblingen fra temalisten til trinn T1–T4 er ikke kontrollert mot læreplanen.
 - **Thai:** All thai-tekst er mitt utkast. Kona flagger feil med «Rapporter oversettelse». Rapportene eksporteres fra Innstillinger eller `/review`.
 
 ## Kjente begrensninger
 - **Skiltbilder:** Skiltene er PNG (maks 480 px), konvertert fra vegvesenets CMYK-JPG, fordi vegvesenet bare tilbyr EPS og JPG og maskinen ikke har verktøy for EPS → SVG. Utenfor runde og trekantede skilt er hjørnene hvite, ikke gjennomsiktige. Mangler en bildefil, viser appen skiltnummeret som plassholder, og `validate-content` gir en advarsel.
-- Scenene kan ikke vise kø (to kjøretøy fra samme arm). Tegningen av trafikklys og politi i scenene er ikke laget ennå (feltene finnes i skjemaet).
+- Scenene viser bare kryss (X, T og rundkjøring). Rette vegstrekninger (vegskulder, forbikjøring) og planovergang med tog kan ikke tegnes ennå.
 - Leksjoner (4.1) er ikke laget. Visningen bygges sammen med første leksjonsbatch.
 - Import av eksportfil kommer i Fase 4. Eksport finnes i Innstillinger og på Fremgang.
 
@@ -188,10 +197,11 @@ Alt innhold er `verified: false` til Trond har kontrollert det. Dette er det jeg
 - **Skiltkilde byttet fra Wikimedia Commons til Statens vegvesen (21.11.2026).** Wikimedia stengte for nedlasting (429), og Trond ba meg finne en annen løsning. Vegvesenets filer er den offisielle kilden (Commons-filene er laget fra dem), med åpen lisens NLOD 2.0. Alle skilt hentes med `npm run import-signs`. Skjemaet har `credit.original` (zip-URL) og `credit.variant`, og `LICENSES.md` genereres fra `signs.json`.
 
 ## Neste steg
-1. **Endring 01:**
-   - Trond kontrollerer de 6 scenene på `/review`, med `docs/scene-audit.md` som hjelpemiddel.
-   - Deretter kommer steg 7 (knapp for verifisering) og steg 6 (kjernekatalogen i batcher).
-   - Kjør `npm run audit-scenes` på nytt når scener legges til eller endres.
+1. **Trond kontrollerer de 41 scenene på `/review`** (`npm run dev` → `#/review`):
+   - Prøv scenen med «Prøv i krysset», og les fasit, hjemmel, TODO og revisjonen.
+   - Trykk «Marker som kontrollert» for det som er riktig, og «Eksporter markeringer».
+   - Kjør `npm run apply-verifications -- fil.json`, `npm run check` og commit.
+   - Rettelser i en scene gjøres i `src/content/scenes/<id>.json`. Kjør `npm run validate-scenes` og `npm run audit-scenes` etterpå.
 2. **Trond kontrollerer batch 1.** Funnene står i `docs/TODO-kontroll-batch1.md`. Sett `verified: true` (og eventuelt `thReview`) i JSON-filene for det som er riktig.
 3. Test på Xiaomi Pad 5 (Chrome, installert som app) og iPhone (Safari, Legg til på Hjem-skjerm). Krever at appen er publisert, se «Git» over.
 4. Deretter, i nye økter: én innholdsbatch per tema. Foreslått rekkefølge er resten av `vp-hoyreregel`, deretter `so-skilt` med ~58 skilt, `fp-veggrep` (vinter), `fa-trafikkuhell` (tunnel), `fp-sikt-lys` og så resten. De 8 siste vikeplikt-scenene kan komme med trikk, utrykning, gangfelt og rundkjøring.
