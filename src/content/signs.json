@@ -36,9 +36,9 @@
       "th": "หยุด"
     },
     "meaning": {
-      "nb": "Du skal stanse helt ved stopplinjen (eller så nær den kryssende vegen som mulig) og har vikeplikt før du kjører videre.",
-      "en": "You must stop completely at the stop line (or as close to the crossing road as possible) and give way before you drive on.",
-      "th": "คุณต้องหยุดรถให้สนิทที่เส้นหยุด (หรือใกล้ถนนที่ตัดผ่านมากที่สุด) และต้องให้ทางก่อนขับต่อไป"
+      "nb": "Du skal stanse helt ved stopplinjen (eller så nær den kryssende vegen som mulig). Deretter har du vikeplikt for trafikk i begge retninger på den kryssende vegen.",
+      "en": "You must stop completely at the stop line (or as close to the crossing road as possible). Then you must give way to traffic in both directions on the crossing road.",
+      "th": "คุณต้องหยุดรถให้สนิทที่เส้นหยุด (หรือใกล้ถนนที่ตัดผ่านมากที่สุด) จากนั้นคุณต้องให้ทางแก่รถที่วิ่งมาทั้งสองทิศทางบนถนนที่ตัดผ่าน"
     },
     "file": "204.png",
     "credit": {
@@ -51,10 +51,10 @@
       "stopplinje",
       "vikeplikt"
     ],
-    "source": "Skiltforskriften § 6, skilt 204 og 206",
+    "source": "Skiltforskriften § 6, skilt 204 Stopp",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,
-    "todo": "Teksten om stans er ordrett fra skilt 204. At skiltet også gir vikeplikt, bygger på skilt 206 («pålagt vikeplikt med 202 eller 204») – kontroller.",
+    "todo": "Kontrollert ordrett på Lovdata 22.11.2026: skilt 204 gir både full stans og «vikeplikt for kjørende trafikk i begge retninger på kryssende veg». Forklaringen er utvidet med «i begge retninger» (thai-teksten er endret og må leses).",
     "thReview": "pending"
   },
   {
@@ -113,7 +113,7 @@
     "source": "Skiltforskriften § 6, skilt 208",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,
-    "todo": "Bare tittelen er lest i skiltforskriften. Forklaringen er skrevet ut fra trafikkreglene § 7 nr. 2.",
+    "todo": "Sjekket på Lovdata 22.11.2026: skiltforskriften har bare tittelen for 208. Skilt 206 sier at forkjørsvegen gjelder «til det blir opphevet med skilt 208». At vanlige regler (høyreregelen) gjelder etterpå, sier også eteo.no: «Når forkjørsveien er slutt, gjelder høyreregelen igjen.»",
     "thReview": "pending"
   },
   {
@@ -226,7 +226,7 @@
     "source": "Skiltforskriften § 4, skilt 126",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,
-    "todo": "Bare tittelen er lest i skiltforskriften.",
+    "todo": "Sjekket på Lovdata 22.11.2026: skiltforskriften har bare tittelen for 126, ingen egen tekst. Forklaringen bygger på tittelen.",
     "thReview": "pending"
   },
   {
@@ -255,7 +255,7 @@
     "source": "Skiltforskriften § 4, skilt 132",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,
-    "todo": "Bare tittelen er lest i skiltforskriften.",
+    "todo": "Sjekket på Lovdata 22.11.2026: skiltforskriften har bare tittelen for 132, ingen egen tekst. Forklaringen bygger på tittelen.",
     "thReview": "pending"
   },
   {
@@ -267,9 +267,9 @@
       "th": "รถราง"
     },
     "meaning": {
-      "nb": "Varsler om at trikk (sporvogn) krysser eller kjører i vegen. Trikken har fri veg.",
-      "en": "Warns that trams cross or run in the road. The tram has right of way.",
-      "th": "เตือนว่ามีรถรางวิ่งตัดผ่านหรือวิ่งบนถนน รถรางมีสิทธิ์ผ่านก่อน"
+      "nb": "Varsler om at trikk (sporvogn) krysser eller kjører i vegen. Som hovedregel har trikken fri veg, men trikken må selv følge trafikklys og skilt.",
+      "en": "Warns that trams cross or run in the road. As a main rule the tram has right of way, but the tram itself must obey traffic lights and signs.",
+      "th": "เตือนว่ามีรถรางวิ่งตัดผ่านหรือวิ่งบนถนน ตามหลักทั่วไปรถรางมีสิทธิ์ผ่านก่อน แต่รถรางเองก็ต้องปฏิบัติตามสัญญาณไฟจราจรและป้าย"
     },
     "file": "139.png",
     "credit": {
@@ -281,10 +281,10 @@
     "glossaryTerms": [
       "trikk"
     ],
-    "source": "Skiltforskriften § 4, skilt 139; trafikkreglene § 10 nr. 2",
+    "source": "Skiltforskriften § 4, skilt 139; trafikkreglene § 10 nr. 2 og § 3 nr. 3",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,
-    "todo": "Bare tittelen er lest i skiltforskriften.",
+    "todo": "Sjekket på Lovdata 22.11.2026: skiltforskriften har bare tittelen for 139, ingen egen tekst. «Fri veg» er trafikkreglene § 10 nr. 2. Tillegget om lys og skilt bygger på § 3 nr. 3 («Denne paragraf gjelder også for fører av sporvogn.») og Statens vegvesen: «trikkeførere må følge trafikklys og skilt» (funn C/A5). Thai-teksten er endret og må leses.",
     "thReview": "pending"
   },
   {
@@ -311,7 +311,7 @@
     "source": "Skiltforskriften § 10, skilt 406",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,
-    "todo": "Bare tittelen er lest i skiltforskriften.",
+    "todo": "Sjekket på Lovdata 22.11.2026: skiltforskriften har bare tittelen for 406, ingen egen tekst. «Mot klokka» følger av symbolet og høyretrafikk.",
     "thReview": "pending"
   },
   {

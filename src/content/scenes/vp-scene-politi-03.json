@@ -119,5 +119,5 @@
   "verifiedBy": null,
   "verifiedAt": null,
   "thReview": "pending",
-  "todo": "At trafikklys er «anvisning gitt på annen måte» er bekreftet i funn A1 (også håndbok 051). Ordlyden i skiltforskriften § 25 er hentet fra funnene (A2: Lovdata-søketreff og lovnorge.no), ikke lest direkte på Lovdata i Claude Code."
+  "todo": "Kontrollert ordrett på Lovdata 22.11.2026: trafikkreglene § 3 nr. 1 kaller trafikklys «anvisning gitt ved trafikklyssignal», og § 3 nr. 2 sier at politiets anvisning «gjelder foran anvisning gitt på annen måte». Skiltforskriften § 25 stemmer."
 }

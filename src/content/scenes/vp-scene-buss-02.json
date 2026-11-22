@@ -26,13 +26,13 @@
         "who": "B",
         "yieldsTo": ["A"],
         "explanation": {
-          "nb": "Nei. Vikeplikten for buss gjelder bare der fartsgrensen er 60 km/t eller lavere. Ved 80 km/t er det bussen som har vikeplikt når den kjører ut fra vegkanten. A skal likevel kjøre hensynsfullt og være klar til å bremse.",
-          "en": "No. The duty to give way to buses only applies where the speed limit is 60 km/h or lower. At 80 km/h it is the bus that must give way when it pulls out from the roadside. A must still drive with care and be ready to brake.",
-          "th": "ไม่ หน้าที่ให้ทางรถบัสใช้เฉพาะถนนที่จำกัดความเร็ว 60 กม./ชม. หรือต่ำกว่า ที่ 80 กม./ชม. รถบัสเป็นฝ่ายที่ต้องให้ทางเมื่อออกจากขอบถนน แต่ A ก็ยังต้องขับอย่างระมัดระวังและพร้อมจะเบรก"
+          "nb": "Nei. Vikeplikten for buss gjelder bare der fartsgrensen er 60 km/t eller lavere. Ved 80 km/t gjelder hovedregelen: den som kjører ut fra en holdeplass, har vikeplikt for annen trafikk. Her er det altså bussen som må vike. A skal likevel kjøre hensynsfullt og være klar til å bremse.",
+          "en": "No. The duty to give way to buses only applies where the speed limit is 60 km/h or lower. At 80 km/h the main rule applies: anyone pulling out from a bus stop must give way to other traffic. So here it is the bus that must give way. A must still drive with care and be ready to brake.",
+          "th": "ไม่ หน้าที่ให้ทางรถบัสใช้เฉพาะถนนที่จำกัดความเร็ว 60 กม./ชม. หรือต่ำกว่า ที่ 80 กม./ชม. ใช้กฎหลัก คือผู้ที่ขับออกจากป้ายรถโดยสารต้องให้ทางแก่ผู้ใช้ถนนอื่น ในกรณีนี้รถบัสจึงเป็นฝ่ายที่ต้องให้ทาง แต่ A ก็ยังต้องขับอย่างระมัดระวังและพร้อมจะเบรก"
         },
         "source": {
-          "ref": "Trafikkreglene § 8 nr. 1 (og § 7 nr. 5, som bare gjelder ved fartsgrense 60 km/t eller lavere)",
-          "quote": "Tilsvarende gjelder den som vil kjøre ut fra vegkant eller på annen måte endre kjøretøyets plass i sideretning.",
+          "ref": "Trafikkreglene § 7 nr. 4 første ledd (og § 7 nr. 5, som bare gjelder ved fartsgrense 60 km/t eller lavere)",
+          "quote": "Kjørende som kommer fra parkeringsplass, holdeplass, torg, eiendom, bensinstasjon, gågate, gatetun eller liknende område har vikeplikt for annen trafikant.",
           "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
         }
       }
@@ -43,5 +43,5 @@
   "verifiedBy": null,
   "verifiedAt": null,
   "thReview": "pending",
-  "todo": "At bussen har vikeplikt ved 80 km/t bygger på § 8 nr. 1 (kjøre ut fra vegkant). Det er en slutning at holdeplass regnes som vegkant her. Vurder om bussholdeplass også faller inn under § 7 nr. 4 første ledd («holdeplass»)."
+  "todo": "Kontrollert på Lovdata 22.11.2026: § 7 nr. 4 første ledd nevner «holdeplass» ordrett, så bussen har vikeplikt etter hovedregelen når § 7 nr. 5 ikke gjelder (fartsgrense over 60 km/t). Hjemmelen er byttet fra § 8 nr. 1 til § 7 nr. 4 (thai-teksten er endret og må leses). Støtte: eteo.no (buss i busslomme i 70-sone har vikeplikt ved utkjøringen)."
 }

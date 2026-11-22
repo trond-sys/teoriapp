@@ -63,5 +63,5 @@
   "verifiedBy": null,
   "verifiedAt": null,
   "thReview": "pending",
-  "todo": "Kjede av høyreregel: C → B → A. At A må vente til B har kjørt (og ikke kan kjøre samtidig med C), følger av at A har vikeplikt for B, som venter på C. Kontroller at dette er slik det læres."
+  "todo": "Kontrollert 22.11.2026: eteo.no har samme kjede med tre biler: «Bil 1 har ingen fra høyre og kjører først. Deretter kjører du, og bil 3 til slutt.» A må vente på B selv om A og C ikke krysser hverandre."
 }

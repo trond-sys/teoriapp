@@ -68,8 +68,8 @@
           "th": "ป้ายนี้หมายความว่าถนนสายหลักสิ้นสุดแล้ว A ไม่มีสิทธิ์ผ่านก่อนอีกต่อไป"
         },
         "source": {
-          "ref": "Skiltforskriften § 6, skilt 208 Slutt på forkjørsveg (tekst fra skiltnormalen N300)",
-          "quote": "Skiltet angir at forkjørsveg er slutt.",
+          "ref": "Skiltforskriften § 6, skilt 206 Forkjørsveg (skilt 208 har bare tittel i forskriften)",
+          "quote": "Skiltet gjelder til det blir opphevet med skilt 208 «Slutt på forkjørsveg» eller skilt 202 «Vikeplikt» eller skilt 204 «Stopp».",
           "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
         }
       },
@@ -100,5 +100,5 @@
   "verifiedBy": null,
   "verifiedAt": null,
   "thReview": "pending",
-  "todo": "Teksten til skilt 208 er bare lest via skiltnormalen (funn C), ikke i skiltforskriften på Lovdata. At høyreregelen gjelder etter skiltet, er en slutning når krysset ikke har andre skilt."
+  "todo": "Kontrollert på Lovdata 22.11.2026: skiltforskriften har bare tittelen for skilt 208. Steg 1 bruker derfor teksten til skilt 206, som sier at forkjørsvegen gjelder til den oppheves med 208. At høyreregelen gjelder etterpå, er en slutning når krysset ikke har andre skilt, men eteo.no sier det samme: «Når forkjørsveien er slutt, gjelder høyreregelen igjen.»"
 }

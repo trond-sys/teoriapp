@@ -96,5 +96,5 @@
   "verifiedBy": null,
   "verifiedAt": null,
   "thReview": "pending",
-  "todo": "Ordlyden for pilsignal er bare lest som sammendrag (funn A3). At grønn pil betyr at møtende har rødt, bygger på håndbok 048 (grønn pil vises bare der det ikke er konflikt), ikke på forskriften. Ordlyden i skiltforskriften § 24 er hentet fra funnene (A3: Lovdata-søketreff og håndbok N303), ikke lest direkte på Lovdata i Claude Code."
+  "todo": "Kontrollert 22.11.2026: signal 1082 er lest ordrett på Lovdata. At grønn pil betyr at møtende har rødt, står i signalnormalen N303 (2014) pkt. 4.3.2: «Grønt pilsignal skal kun vises der den kjørende kan kjøre konfliktfritt i pilens retning, dvs. at den kjørende ikke bringes inn i situasjoner hvor han har vikeplikt for andre trafikanter.» Forumtråd på diskusjon.no med svar fra kjørelærer er enig."
 }

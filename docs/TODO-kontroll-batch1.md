@@ -3,6 +3,8 @@
 **Laget:** 21.11.2026, etter at batch 1 ble committet (`80fc906`).
 **Til:** en Claude-økt som skal finne ordrett hjemmel for reglene under. Les også `PROGRESS.md` og `docs/PROMPT.md` §6 (innholdsregler) før du starter.
 
+> **Oppfølging 22.11.2026:** Lovteksten er nå lest ordrett på Lovdata, og de åpne punktene er sjekket mot Statens vegvesen, fagkilder og forum. A1–A4 og skilt 139 er rettet. Se `docs/KILDEKONTROLL-2026-11-22.md`.
+
 ## Oppdraget
 
 For hvert punkt under:

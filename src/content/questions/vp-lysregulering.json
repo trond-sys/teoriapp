@@ -42,10 +42,10 @@
       "th": "สัญญาณไฟจราจรมีผลเหนือป้ายให้ทาง ไฟเขียวหมายความว่าคุณไปได้ถ้าถนนว่าง ทั้งสัญญาณไฟและป้ายมีผลเหนือกฎจราจรทั่วไป เช่น กฎให้ทางรถทางขวา"
     },
     "glossaryTerms": ["trafikklys", "vikeplikt", "hoyreregelen"],
-    "source": "Trafikkreglene § 3 nr. 1 første og annet ledd; skiltforskriften § 24 (grønt lys)",
+    "source": "Trafikkreglene § 3 nr. 1 første og annet ledd; skiltforskriften § 24, signal 1080 Hovedsignal",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
     "verified": false,
-    "todo": "§ 3 nr. 1 er lest ordrett. Betydningen av grønt lys (skiltforskriften § 24) er bare lest som sammendrag.",
+    "todo": "Kontrollert ordrett på Lovdata 22.11.2026: § 3 nr. 1 og skiltforskriften § 24 («Ved grønt lys kan kjørende passere signal eller stopplinje dersom vegen er fri.»). Forklaringen stemmer.",
     "thReview": "pending"
   },
   {
@@ -95,10 +95,10 @@
       "th": "การยกแขนขึ้นตรงหมายความว่าผู้ใช้ถนนทุกคนต้องหยุด ถ้าคุณหยุดอย่างปลอดภัยไม่ได้ คุณไปต่อได้ ถ้าคุณอยู่ในทางแยกแล้ว ให้ขับออกไปจากทางแยก สัญญาณของตำรวจมีผลเหนือคำสั่งอื่น ๆ"
     },
     "glossaryTerms": ["vegkryss"],
-    "source": "Skiltforskriften § 25 (anvisning fra politi); trafikkreglene § 3 nr. 2",
+    "source": "Skiltforskriften § 25 bokstav b (anvisning gitt av politiet); trafikkreglene § 3 nr. 2",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,
-    "todo": "Skiltforskriften § 25 er bare lest som sammendrag, ikke ordrett. Kontroller ordlyden om arm rettet oppad og unntakene (kan ikke stanse uten fare / allerede i krysset).",
+    "todo": "Kontrollert ordrett på Lovdata 22.11.2026: § 25 bokstav b sier «Er arm rettet oppad, skal enhver trafikant stanse. Kjørende som har nådd så langt fram at kjøretøyet ikke uten fare kan stanses, kan fortsette. Trafikant som er i vegkryss, skal forlate krysset.» Forklaringen stemmer.",
     "thReview": "pending"
   },
   {
@@ -139,15 +139,15 @@
     ],
     "correct": "b",
     "explanation": {
-      "nb": "Anvisning fra politiet gjelder foran anvisning gitt på annen måte – også foran trafikklys og skilt. Følg alltid politiets tegn.",
-      "en": "Directions from the police apply before directions given in any other way – also before traffic lights and signs. Always follow the police officer's signals.",
-      "th": "คำสั่งของตำรวจมีผลเหนือคำสั่งที่ให้ด้วยวิธีอื่น รวมถึงสัญญาณไฟจราจรและป้าย ให้ทำตามสัญญาณของตำรวจเสมอ"
+      "nb": "Trafikklys og skilt er anvisninger. Anvisning fra politiet gjelder foran anvisning gitt på annen måte – altså også foran trafikklys og skilt. Følg alltid politiets tegn.",
+      "en": "Traffic lights and signs are directions. Directions from the police apply before directions given in any other way – so also before traffic lights and signs. Always follow the police officer's signals.",
+      "th": "สัญญาณไฟจราจรและป้ายเป็นคำสั่งรูปแบบหนึ่ง คำสั่งของตำรวจมีผลเหนือคำสั่งที่ให้ด้วยวิธีอื่น จึงมีผลเหนือสัญญาณไฟจราจรและป้ายด้วย ให้ทำตามสัญญาณของตำรวจเสมอ"
     },
     "glossaryTerms": ["trafikklys"],
-    "source": "Trafikkreglene § 3 nr. 2",
+    "source": "Trafikkreglene § 3 nr. 1 og nr. 2",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747",
     "verified": false,
-    "todo": "§ 3 nr. 2 sier at politiets anvisning gjelder foran «anvisning gitt på annen måte». At dette også omfatter trafikklys, er min tolkning – kontroller.",
+    "todo": "Kontrollert ordrett på Lovdata 22.11.2026: § 3 nr. 1 kaller trafikklys «anvisning gitt ved trafikklyssignal», og § 3 nr. 2 sier at politiets anvisning «gjelder foran anvisning gitt på annen måte». Koblingen står ikke i én setning, men følger av de to leddene. Forklaringen fikk en første setning som viser koblingen (thai-teksten er endret og må leses).",
     "thReview": "pending"
   }
 ]

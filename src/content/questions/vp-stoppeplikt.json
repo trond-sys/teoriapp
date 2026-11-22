@@ -39,15 +39,15 @@
     ],
     "correct": "b",
     "explanation": {
-      "nb": "Skilt 204 «Stopp» betyr at du skal stanse helt før du kjører inn på den kryssende vegen. Stans foran stopplinjen. Er det ingen stopplinje, stanser du så nær den kryssende vegen som mulig. Deretter har du vikeplikt.",
-      "en": "Sign 204 “Stop” means you must stop completely before driving onto the crossing road. Stop before the stop line. If there is no stop line, stop as close to the crossing road as possible. Then you must give way.",
-      "th": "ป้าย 204 «หยุด» หมายความว่าคุณต้องหยุดรถให้สนิทก่อนขับเข้าไปในถนนที่ตัดผ่าน ให้หยุดก่อนเส้นหยุด ถ้าไม่มีเส้นหยุด ให้หยุดใกล้ถนนที่ตัดผ่านมากที่สุด จากนั้นคุณต้องให้ทาง"
+      "nb": "Skilt 204 «Stopp» betyr at du skal stanse helt før du kjører inn på den kryssende vegen. Stans foran stopplinjen. Er det ingen stopplinje, stanser du så nær den kryssende vegen som mulig. Deretter har du vikeplikt for kjørende trafikk i begge retninger på den kryssende vegen.",
+      "en": "Sign 204 “Stop” means you must stop completely before driving onto the crossing road. Stop before the stop line. If there is no stop line, stop as close to the crossing road as possible. Then you must give way to traffic in both directions on the crossing road.",
+      "th": "ป้าย 204 «หยุด» หมายความว่าคุณต้องหยุดรถให้สนิทก่อนขับเข้าไปในถนนที่ตัดผ่าน ให้หยุดก่อนเส้นหยุด ถ้าไม่มีเส้นหยุด ให้หยุดใกล้ถนนที่ตัดผ่านมากที่สุด จากนั้นคุณต้องให้ทางแก่รถที่วิ่งมาทั้งสองทิศทางบนถนนที่ตัดผ่าน"
     },
     "glossaryTerms": ["stopplinje", "vikeplikt", "vegkryss"],
-    "source": "Skiltforskriften § 6, skilt 204 og 206",
+    "source": "Skiltforskriften § 6, skilt 204 Stopp",
     "sourceUrl": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219",
     "verified": false,
-    "todo": "Stans ved stopplinje er ordrett fra skilt 204. At skiltet også gir vikeplikt, bygger på skilt 206 – kontroller.",
+    "todo": "Kontrollert ordrett på Lovdata 22.11.2026: teksten til skilt 204 sier både at du skal stanse helt, og at du «har vikeplikt for kjørende trafikk i begge retninger på kryssende veg». Siste setning i forklaringen er utvidet med dette (thai-teksten er endret og må leses).",
     "thReview": "pending"
   }
 ]

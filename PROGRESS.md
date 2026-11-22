@@ -158,27 +158,28 @@ Målet er at fasiten er data, ikke beregning: ingen kode i `src/` skal avgjøre 
 - **Steg 8 (22.11.2026):** `docs/PROMPT.md` §4.3 punkt 1 og §6 beskriver nå modellen med håndlagde scenarier.
 - **Når alle kjernescener er verifisert:** slett `scripts/audit/`, `scripts/audit-scenes.ts`, `docs/scene-audit.md` og `src/content/audit/`, og noter det her (Endring 01 §4).
 
-**Åpent (står også i `todo` i hver scene):**
-- Skiltforskriften §§ 24–25 (lys og politi) og § 6 nr. 4 (venstre-venstre) er bare lest via funnene (Lovdata-søketreff). Les dem på Lovdata før lys-, politi- og venstre-venstre-scenene verifiseres.
-- Noen sitater er satt sammen av to ordrette deler (§ 7 nr. 3, § 7 nr. 5, § 9 nr. 2, § 11 nr. 1). Kontroller at delene står rett etter hverandre.
-- Slutninger som ikke står ordrett noe sted:
-  - Sykkel er «kjøretøy» og syklist er «kjørende».
-  - Høyreregelen gjelder i T-kryss.
-  - Gult blink betyr at skiltene gjelder.
-  - Grønn pil betyr at møtende har rødt.
-  - Bussen viker ved 80 km/t (§ 8 nr. 1).
-  - Gående i gangfelt viker for trikk.
-- Funnene foreslår også rettelser i flervalg og skilt: `source` for A1–A4, og teksten for skilt 139 og 126. Det er ikke gjort ennå. Venter på Tronds ja.
+**Kildekontroll 22.11.2026** (se `docs/KILDEKONTROLL-2026-11-22.md`):
+- Trafikkreglene, skiltforskriften og vegtrafikkloven § 2 er lest ordrett på Lovdata. Alle 50 sitater i innholdet står ordrett.
+- Slutningene som var åpne, er sjekket mot Statens vegvesen, signalnormalen N303, fagkilder og forum, og alle holdt:
+  - sykkel er kjøretøy
+  - høyreregelen gjelder i T-kryss
+  - gult blink betyr at skiltene gjelder
+  - grønn pil betyr at møtende har rødt
+  - gående i gangfelt viker for trikk
+- Ingen fasit er endret. Rettet:
+  - Hjemmelen i buss-02 er nå § 7 nr. 4 («holdeplass»), ikke § 8 nr. 1.
+  - Kilden i skilt-208-01: forskriften har bare tittelen for 208.
+  - Forklaringene i vikeplikt-013, vikeplikt-020, skilt 204, skilt 139 og venstresving-01.
+  - **Thai-teksten er endret i alle disse og må leses på nytt.**
+  - Funnene A1–A4 og skilt 139 er dermed gjort.
+- Fortsatt en tolkning: venstre-venstre-01 (to møtende som svinger til venstre). Lovteksten og forum støtter fasiten, men ingen offisiell kilde viser det med figur.
 
 ## Uverifiserte elementer og åpne spørsmål
 Alt innhold er `verified: false` til Trond har kontrollert det. Dette er det jeg er mest usikker på:
-- **vikeplikt-011:** Betydningen av grønt lys (skiltforskriften § 24) er bare lest som sammendrag. § 3 nr. 1 (lys foran skilt) er lest ordrett.
-- **vikeplikt-012:** Politiets tegn «arm rett opp» og unntakene. Skiltforskriften § 25 er bare lest som sammendrag.
-- **vikeplikt-013:** Politi foran trafikklys. § 3 nr. 2 sier «foran anvisning gitt på annen måte». At trafikklys er omfattet, er min tolkning.
-- **vikeplikt-015:** Kan trikk ha vikeplikt etter skilt i enkelte kryss (funn A5/B1)? Det er ikke laget scener med skilt eller lys mot trikk.
-- **vikeplikt-020 og skilt 204:** At stoppskilt også gir vikeplikt, bygger på teksten til skilt 206. Selve teksten til 204 er bare lest om stans.
-- **Skilt 126, 132, 139, 208 og 406:** Bare tittelen er lest. Forklaringene er skrevet ut fra trafikkreglene.
-- **Rundkjøring:** Trafikkreglene har ingen egen regel. Scenene tegner skilt 202 ved hver innkjøring (funn B5).
+- **vikeplikt-011, -012, -013, -015 og -020 og skilt 204:** Sjekket ordrett på Lovdata 22.11.2026 (se `docs/KILDEKONTROLL-2026-11-22.md`). Det som er sjekket, står i `todo`.
+- **Skilt 126, 132, 139, 208 og 406:** Skiltforskriften har bare tittelen for disse skiltene (sjekket på Lovdata). Forklaringene bygger på trafikkreglene og Statens vegvesen.
+- **Rundkjøring:** Trafikkreglene har ingen egen regel. Scenene tegner skilt 202 ved hver innkjøring (funn B5, bekreftet av Statens vegvesen og Store norske leksikon).
+- **venstre-venstre-01:** Fortsatt en tolkning av § 6 nr. 4 og § 7 nr. 2 (se kildekontrollen).
 - **Den gamle motoren** ligger i `scripts/audit/` og brukes bare til revisjonen. Funn B1, B2, B5 og B6 beskriver svakhetene.
 - Fra Fase 0 (uendret): vtl § 21 er ikke kontrollert ordrett. Tolkningen av «Forbud på offentlig veg» er ikke bekreftet. Koblingen fra temalisten til trinn T1–T4 er ikke kontrollert mot læreplanen.
 - **Thai:** All thai-tekst er mitt utkast. Kona flagger feil med «Rapporter oversettelse». Rapportene eksporteres fra Innstillinger eller `/review`.

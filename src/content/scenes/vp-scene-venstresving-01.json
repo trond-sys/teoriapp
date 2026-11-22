@@ -32,9 +32,9 @@
         "who": "A",
         "yieldsTo": ["B"],
         "explanation": {
-          "nb": "A skal svinge til venstre og får den møtende bilen B på sin høyre side når A svinger. Da har A vikeplikt for B. C svinger til høyre og kommer ikke i vegen for noen, så B og C kan kjøre samtidig. A kjører sist.",
-          "en": "A is turning left and will have the oncoming car B on its right while turning. So A must give way to B. C is turning right and is not in anyone's way, so B and C can go at the same time. A goes last.",
-          "th": "A จะเลี้ยวซ้ายและรถ B ที่สวนมาจะอยู่ทางขวาของ A ขณะเลี้ยว ดังนั้น A ต้องให้ทาง B ส่วน C เลี้ยวขวาและไม่ขวางทางใคร B และ C จึงไปพร้อมกันได้ A ไปเป็นคันสุดท้าย"
+          "nb": "A skal svinge til venstre og får den møtende bilen B på sin høyre side når A svinger. Da har A vikeplikt for B. C kommer fra høyre for A, så A skal heller ikke hindre C. Men C svinger til høyre og kommer ikke i vegen for noen, så B og C kan kjøre samtidig. A kjører sist.",
+          "en": "A is turning left and will have the oncoming car B on its right while turning. So A must give way to B. C comes from A's right, so A must not get in C's way either. But C is turning right and is not in anyone's way, so B and C can go at the same time. A goes last.",
+          "th": "A จะเลี้ยวซ้ายและรถ B ที่สวนมาจะอยู่ทางขวาของ A ขณะเลี้ยว ดังนั้น A ต้องให้ทาง B ส่วน C มาจากทางขวาของ A ดังนั้น A ต้องไม่ขวาง C ด้วย แต่ C เลี้ยวขวาและไม่ขวางทางใคร B และ C จึงไปพร้อมกันได้ A ไปเป็นคันสุดท้าย"
         },
         "source": {
           "ref": "Trafikkreglene § 7 nr. 2 annet punktum",
@@ -54,5 +54,5 @@
   "verifiedBy": null,
   "verifiedAt": null,
   "thReview": "pending",
-  "todo": "Konvertert fra scene-hoyreregel-02. C kommer fra høyre for A, men svinger til høyre og krysser ikke As intensjon. Fasiten sier ingenting om at A viker for C (bare at C står i første gruppe). Kontroller at det er riktig framstilt."
+  "todo": "Kontrollert 22.11.2026: § 7 nr. 2 gir A vikeplikt også for C (fra høyre), men vikeplikt betyr at C ikke må hindres eller forstyrres (§ 7 nr. 1, ordrett). Banene til A og C krysser ikke, og A kjører uansett sist. Forklaringen nevner nå C (thai-teksten er endret og må leses). C står ikke i yieldsTo, fordi validatoren advarer når intensjonene ikke krysser."
 }
