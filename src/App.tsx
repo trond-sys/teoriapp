@@ -1,6 +1,6 @@
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
-import { AppShell } from './components/AppShell';
+import { AppShell, UpdateBanner } from './components/AppShell';
 import { GlossarySheetProvider } from './components/GlossarySheet';
 import { requestPersist } from './db/db';
 import { LangProvider, useSettings } from './i18n/LangProvider';
@@ -21,7 +21,13 @@ function Routed() {
     void requestPersist();
   }, []);
   if (!ready) return null;
-  if (!settings.onboarded) return <SetupWizard />;
+  if (!settings.onboarded)
+    return (
+      <>
+        <UpdateBanner />
+        <SetupWizard />
+      </>
+    );
   return (
     <AppShell>
       <Routes>

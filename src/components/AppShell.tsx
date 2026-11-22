@@ -14,7 +14,9 @@ const TABS: { to: string; icon: IconName; label: UiKey; end?: boolean }[] = [
   { to: '/progress', icon: 'progress', label: 'nav.progress' },
 ];
 
-function UpdateBanner() {
+/** Registrerer service workeren (offline) og viser et banner når en ny versjon er klar.
+ *  Brukes også i oppsettsveiviseren, så appen blir offline-klar fra første besøk. */
+export function UpdateBanner() {
   const {
     needRefresh: [needRefresh],
     updateServiceWorker,
