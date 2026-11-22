@@ -1,0 +1,89 @@
+{
+  "id": "vp-scene-hoyresving-syklist-01",
+  "topic": "vikeplikt",
+  "subtopic": "svinging-gaende",
+  "temalisteRef": "vp-samhandling",
+  "alsoRefs": [
+    "ft-samhandling",
+    "fp-sikkerhetssoner"
+  ],
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "S",
+      "intent": "hoyre",
+      "color": "red"
+    },
+    {
+      "id": "B",
+      "kind": "syklist",
+      "from": "S",
+      "intent": "rett-fram",
+      "color": "green"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "A skal svinge til høyre. Syklisten B sykler på høyre side av A og skal rett fram. Hvem kjører først?",
+      "en": "A is turning right. Cyclist B is riding on A's right side and is going straight ahead. Who goes first?",
+      "th": "A จะเลี้ยวขวา คนขี่จักรยาน B ขี่อยู่ทางขวาของ A และจะตรงไป ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "B"
+      ],
+      [
+        "A"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [
+          "B"
+        ],
+        "explanation": {
+          "nb": "Den som skal svinge, har vikeplikt for syklende som skal rett fram. A må slippe B fram før A svinger. Se i speilet og over skulderen (blindsonen) før du svinger.",
+          "en": "A driver who is turning must give way to cyclists going straight ahead. A must let B go first before turning. Check the mirror and look over your shoulder (blind spot) before you turn.",
+          "th": "ผู้ที่จะเลี้ยวต้องให้ทางแก่คนขี่จักรยานที่จะตรงไป A ต้องให้ B ไปก่อนแล้วจึงเลี้ยว ดูกระจกและหันมองข้ามไหล่ (จุดบอด) ก่อนเลี้ยว"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 7 nr. 3 første ledd",
+          "quote": "Kjørende som vil svinge har vikeplikt for gående, syklende og fører av liten elektrisk motorvogn som skal rett fram på kjørebanen eller vegens skulder.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "thaiContrast": {
+    "nb": "I Thailand er det venstresving som går over syklister og mopeder på innsiden. I Norge er det høyresving – se til høyre og bak før du svinger.",
+    "en": "In Thailand it is the left turn that cuts across cyclists and mopeds on the inside. In Norway it is the right turn – look right and behind before you turn.",
+    "th": "ในประเทศไทย การเลี้ยวซ้ายจะตัดผ่านจักรยานและมอเตอร์ไซค์ที่อยู่ด้านใน ในนอร์เวย์คือการเลี้ยวขวา ให้มองขวาและด้านหลังก่อนเลี้ยว"
+  },
+  "glossaryTerms": [
+    "vikeplikt"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Sitatet fra § 7 nr. 3 er satt sammen av to ordrette deler fra Lovdata. Kontroller at de står rett etter hverandre."
+}

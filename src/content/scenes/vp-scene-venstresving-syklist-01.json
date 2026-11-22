@@ -1,0 +1,85 @@
+{
+  "id": "vp-scene-venstresving-syklist-01",
+  "topic": "vikeplikt",
+  "subtopic": "svinging-gaende",
+  "temalisteRef": "vp-samhandling",
+  "alsoRefs": [
+    "ft-samhandling"
+  ],
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [],
+    "lights": null,
+    "police": null
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "S",
+      "intent": "venstre",
+      "color": "red"
+    },
+    {
+      "id": "B",
+      "kind": "syklist",
+      "from": "N",
+      "intent": "rett-fram",
+      "color": "green"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "A skal svinge til venstre. En syklist B kommer imot og skal rett fram. Hvem kjører først?",
+      "en": "A is turning left. A cyclist B is coming the other way and going straight ahead. Who goes first?",
+      "th": "A จะเลี้ยวซ้าย คนขี่จักรยาน B ขี่สวนมาและจะตรงไป ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "B"
+      ],
+      [
+        "A"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [
+          "B"
+        ],
+        "explanation": {
+          "nb": "A skal svinge og har vikeplikt for syklende som skal rett fram – også når syklisten kommer imot. Syklister er små og kan være vanskelige å se, og farten er lett å undervurdere.",
+          "en": "A is turning and must give way to cyclists going straight ahead – also when the cyclist is oncoming. Cyclists are small and can be hard to see, and their speed is easy to underestimate.",
+          "th": "A จะเลี้ยวและต้องให้ทางแก่คนขี่จักรยานที่จะตรงไป รวมถึงเมื่อจักรยานขี่สวนมา จักรยานมีขนาดเล็ก อาจมองเห็นยาก และประเมินความเร็วได้ยาก"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 7 nr. 3 første ledd",
+          "quote": "Kjørende som vil svinge har vikeplikt for gående, syklende og fører av liten elektrisk motorvogn som skal rett fram på kjørebanen eller vegens skulder.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "venstresving",
+    "motende",
+    "vikeplikt"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Også § 7 nr. 2 annet punktum gir A vikeplikt her (venstresving mot møtende). Sitatet fra § 7 nr. 3 er satt sammen av to ordrette deler."
+}

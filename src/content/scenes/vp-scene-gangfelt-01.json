@@ -1,0 +1,88 @@
+{
+  "id": "vp-scene-gangfelt-01",
+  "topic": "vikeplikt",
+  "subtopic": "svinging-gaende",
+  "temalisteRef": "vp-samhandling",
+  "alsoRefs": [
+    "ft-samhandling"
+  ],
+  "tier": "kjerne",
+  "difficulty": 1,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [],
+    "lights": null,
+    "police": null,
+    "crosswalks": [
+      "E"
+    ]
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "S",
+      "intent": "hoyre",
+      "color": "red"
+    },
+    {
+      "id": "P",
+      "kind": "gaende",
+      "from": "E",
+      "intent": "krysser",
+      "color": "yellow"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "A skal svinge til høyre. Fotgjengeren P går over i gangfeltet på vegen A skal inn på. Det er ingen trafikklys. Hvem går eller kjører først?",
+      "en": "A is turning right. Pedestrian P is crossing at the pedestrian crossing on the road A is turning into. There are no traffic lights. Who goes first?",
+      "th": "A จะเลี้ยวขวา คนเดินเท้า P กำลังข้ามทางม้าลายบนถนนที่ A จะเลี้ยวเข้าไป ไม่มีสัญญาณไฟจราจร ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "P"
+      ],
+      [
+        "A"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [
+          "P"
+        ],
+        "explanation": {
+          "nb": "Ved gangfelt uten trafikklys eller politi har du vikeplikt for gående som er i gangfeltet eller på veg ut i det. A må vente til P har gått over.",
+          "en": "At a pedestrian crossing without traffic lights or police, you must give way to pedestrians who are on the crossing or about to step onto it. A must wait until P has crossed.",
+          "th": "ที่ทางม้าลายที่ไม่มีสัญญาณไฟหรือตำรวจ คุณต้องให้ทางแก่คนเดินเท้าที่อยู่บนทางม้าลายหรือกำลังจะก้าวลงไป A ต้องรอจนกว่า P จะข้ามไปแล้ว"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 9 nr. 2 annet ledd",
+          "quote": "Ved gangfelt hvor trafikken ikke reguleres av politi eller ved trafikklyssignal, har kjørende vikeplikt for gående som befinner seg i gangfeltet eller er på veg ut i det.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "gangfelt",
+    "fotgjenger",
+    "vikeplikt"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Sitatet fra § 9 nr. 2 annet ledd er satt sammen av to ordrette deler fra Lovdata. Kontroller at de står rett etter hverandre."
+}

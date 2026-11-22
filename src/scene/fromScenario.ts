@@ -42,7 +42,7 @@ function offset(s: Scenario, a: Scenario['actors'][number]): { dx?: number; dy?:
   if (same.length < 2) return {};
   if (same.some((x) => x.position === 'pa-holdeplass')) return { dy: 70 }; // bak bussen, i feltet
   const bike = same.find((x) => x.kind === 'syklist');
-  if (bike && same.length === 2) return a === bike ? { dx: 15, dy: -8 } : { dx: -6 };
+  if (bike && same.length === 2) return a === bike ? { dx: 24, dy: -34 } : { dx: -6, dy: 10 }; // syklist ytterst til høyre, litt foran
   return { dy: same.indexOf(a) * 56 }; // kø
 }
 
