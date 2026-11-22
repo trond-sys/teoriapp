@@ -34,21 +34,41 @@ export const ACTOR_UI_KEY = {
   syklist: 'actor.bicycle',
 } as const satisfies Record<ScenarioKind, string>;
 
+/** Plassering når flere trafikanter kommer fra samme arm (bare utseende). */
+function offset(s: Scenario, a: Scenario['actors'][number]): { dx?: number; dy?: number } {
+  if (a.kind === 'gaende' || a.position === 'inne-i-rundkjoring') return {};
+  if (a.position === 'pa-holdeplass') return { dx: 32, dy: 18 }; // i busslomma
+  const same = s.actors.filter((x) => x.from === a.from && x.kind !== 'gaende' && x.position !== 'inne-i-rundkjoring');
+  if (same.length < 2) return {};
+  if (same.some((x) => x.position === 'pa-holdeplass')) return { dy: 70 }; // bak bussen, i feltet
+  const bike = same.find((x) => x.kind === 'syklist');
+  if (bike && same.length === 2) return a === bike ? { dx: 15, dy: -8 } : { dx: -6 };
+  return { dy: same.indexOf(a) * 56 }; // kø
+}
+
 export function scenarioToDrawing(s: Scenario): { id: string; junction: Junction; actors: Actor[] } {
   const arms: Junction['arms'] = {};
   for (const d of s.layout.arms) {
-    const gardsveg = s.actors.some((a) => a.from === d && a.position === 'fra-gardsveg');
+    const from = s.actors.filter((a) => a.from === d);
+    const look = from.some((a) => a.position === 'fra-gardsveg') ? 'gardsveg' : from.some((a) => a.position === 'fra-sykkelveg') ? 'sykkelveg' : undefined;
+    const light = s.layout.lights?.[d];
     const arm: Arm = {
       control: armLook(s, d),
       crosswalk: s.layout.crosswalks.includes(d),
       tram: s.layout.tram.includes(d),
-      ...(gardsveg ? { look: 'gardsveg' as const } : {}),
+      ...(look ? { look } : {}),
+      ...(from.some((a) => a.position === 'pa-holdeplass') ? { busBay: true } : {}),
+      ...(light ? { light } : {}),
     };
     arms[d] = arm;
   }
   return {
     id: s.id,
-    junction: { kind: s.layout.type === 'x-kryss' ? 'cross' : s.layout.type === 't-kryss' ? 't' : 'roundabout', arms },
+    junction: {
+      kind: s.layout.type === 'x-kryss' ? 'cross' : s.layout.type === 't-kryss' ? 't' : 'roundabout',
+      arms,
+      ...(s.layout.police ? { police: s.layout.police } : {}),
+    },
     actors: s.actors.map((a) => ({
       id: a.id,
       kind: KIND[a.kind],
@@ -57,6 +77,8 @@ export function scenarioToDrawing(s: Scenario): { id: string; junction: Junction
       to: exitArm(a.from, a.intent),
       siren: a.bluelight,
       circulating: a.position === 'inne-i-rundkjoring',
+      ...(a.intent === 'rygger' ? { reversing: true } : {}),
+      ...offset(s, a),
     })),
   };
 }

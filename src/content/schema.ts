@@ -142,8 +142,12 @@ export const Arm = z.strictObject({
   crosswalk: z.boolean().default(false),
   /** Trikkespor i denne armen. */
   tram: z.boolean().default(false),
-  /** Utseende for avkjørsel (control: exit): parkeringsplass (standard) eller gårdsveg. */
-  look: z.enum(['parkering', 'gardsveg']).optional(),
+  /** Utseende for avkjørsel (control: exit): parkeringsplass (standard), gårdsveg eller sykkelveg/fortau. */
+  look: z.enum(['parkering', 'gardsveg', 'sykkelveg']).optional(),
+  /** Busslomme (holdeplass) på høyre side av armen. */
+  busBay: z.boolean().optional(),
+  /** Trafikklys for trafikk som kommer inn fra denne armen. */
+  light: z.enum(['rod', 'gul', 'rod-gul', 'gronn', 'gronn-pil-venstre', 'gronn-pil-hoyre', 'gul-blink', 'av']).optional(),
 });
 export type Arm = z.infer<typeof Arm>;
 
@@ -165,12 +169,19 @@ export const Actor = z.strictObject({
   siren: z.boolean().default(false),
   /** Rundkjøring: kjøretøyet er allerede inne i rundkjøringen ved armen `from`. */
   circulating: z.boolean().default(false),
+  /** Forskyvning sideveis (positiv = mot førerens høyre) og bakover (positiv = lenger fra krysset). */
+  dx: z.number().optional(),
+  dy: z.number().optional(),
+  /** Kjøretøyet rygger (tegnes med fronten bort fra krysset og pil bakover). */
+  reversing: z.boolean().optional(),
 });
 export type Actor = z.infer<typeof Actor>;
 
 export const Junction = z.strictObject({
   kind: z.enum(['cross', 't', 'roundabout']),
   arms: z.partialRecord(Dir, Arm),
+  /** Politi midt i krysset: tegn og hvilken arm politiet vender ansiktet mot. */
+  police: z.strictObject({ gesture: z.enum(['arm-opp', 'arm-ut']), facing: Dir }).optional(),
 });
 export type Junction = z.infer<typeof Junction>;
 
@@ -181,8 +192,8 @@ export type Junction = z.infer<typeof Junction>;
 export const ScenarioKind = z.enum(['bil', 'buss', 'lastebil', 'trikk', 'utrykning', 'gaende', 'syklist']);
 export type ScenarioKind = z.infer<typeof ScenarioKind>;
 
-/** Hvor trafikanten skal. Tegnes som en pil, ikke som en kjørebane (prinsipp 4). «krysser» er for gående. */
-export const Intent = z.enum(['rett-fram', 'hoyre', 'venstre', 'krysser']);
+/** Hvor trafikanten skal. Tegnes som en pil, ikke som en kjørebane (prinsipp 4). «krysser» er for gående, «rygger» for kjøretøy som rygger ut. */
+export const Intent = z.enum(['rett-fram', 'hoyre', 'venstre', 'krysser', 'rygger']);
 export type Intent = z.infer<typeof Intent>;
 
 /** Posisjoner angis på trafikanten, ikke ved at koden tolker kartet. */

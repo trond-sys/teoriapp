@@ -15,6 +15,10 @@ const FRONT: Record<string, number> = { car: -22, emergency: -23, bus: -32, truc
  */
 function IntentArrow({ a, marker }: { a: Actor; marker: string }) {
   const f = (FRONT[a.kind] ?? -22) - 4;
+  if (a.reversing) {
+    const r = -f; // bakenden (kjøretøyet er dreid 180°, så baksiden peker mot krysset)
+    return <path d={`M 0 ${r} L 0 ${r + 30}`} fill="none" stroke={COLORS[a.color] ?? COLORS.blue} strokeWidth={5} strokeDasharray="6 4" strokeLinecap="round" markerEnd={`url(#${marker})`} />;
+  }
   let d = `M 0 ${f} L 0 ${f - 34}`;
   if (a.kind !== 'pedestrian' && a.to) {
     if (a.to === rightOf(a.from)) d = `M 0 ${f} Q 0 ${f - 28} 26 ${f - 30}`;
@@ -28,6 +32,47 @@ const DIRS: Dir[] = ['N', 'E', 'S', 'W'];
 const SIGN_FOR: Partial<Record<Arm['control'], string>> = { yield: '202', stop: '204', priority: '206' };
 
 const poly = (pts: Pt[]) => pts.map((p) => p.join(',')).join(' ');
+
+const LAMP = { red: '#e53935', yellow: '#fbc02d', green: '#43a047', off: '#3a3a3a' };
+
+/** Trafikklys for trafikk som kommer inn fra armen d. Tegnes ved stopplinjen på høyre side. */
+function TrafficLight({ d, state }: { d: Dir; state: NonNullable<Arm['light']> }) {
+  const [x, y] = onArm(d, [C + HALF + 10, 262]);
+  const on = (c: 'red' | 'yellow' | 'green') =>
+    (c === 'red' && (state === 'rod' || state === 'rod-gul')) || (c === 'yellow' && (state === 'gul' || state === 'rod-gul' || state === 'gul-blink')) || (c === 'green' && state === 'gronn');
+  const arrow = state === 'gronn-pil-venstre' ? -1 : state === 'gronn-pil-hoyre' ? 1 : 0;
+  return (
+    <g transform={`translate(${x} ${y})`} className={state === 'gul-blink' ? 'blink' : undefined}>
+      <rect x={-8} y={-22} width={16} height={44} rx={4} fill="#1f1f1f" stroke="#fff" strokeWidth={1.5} />
+      {(['red', 'yellow', 'green'] as const).map((c, i) => (
+        <circle key={c} cy={-13 + i * 13} r={5} fill={on(c) ? LAMP[c] : LAMP.off} />
+      ))}
+      {arrow !== 0 && <path d={`M ${-4 * arrow} 13 L ${4 * arrow} 13 M ${1 * arrow} 10 L ${4 * arrow} 13 L ${1 * arrow} 16`} stroke={LAMP.green} strokeWidth={2} fill="none" />}
+    </g>
+  );
+}
+
+/** Politi midt i krysset, sett ovenfra. Armene viser tegnet: rett opp eller ut til sidene. */
+function Police({ gesture, facing }: { gesture: 'arm-opp' | 'arm-ut'; facing: Dir }) {
+  // Politiet vender ansiktet mot armen `facing`. Grunnfiguren vender mot sør (ned) og dreies.
+  const angle = ARM_ANGLE[facing];
+  return (
+    <g transform={`translate(${C} ${C}) rotate(${angle})`}>
+      <circle r={16} fill="#fff" opacity={0.9} />
+      <ellipse rx={10} ry={6} fill="#1b2b4a" />
+      <circle r={5} fill="#f2d2b6" cy={2} />
+      {gesture === 'arm-ut' ? (
+        <path d="M -24 0 L 24 0" stroke="#1b2b4a" strokeWidth={4} strokeLinecap="round" />
+      ) : (
+        <g>
+          <path d="M 8 0 L 12 -2" stroke="#1b2b4a" strokeWidth={4} strokeLinecap="round" />
+          <circle cx={13} cy={-3} r={4} fill="#f2d2b6" stroke="#1b2b4a" strokeWidth={1.5} />
+        </g>
+      )}
+      <path d="M 0 6 L 0 13" stroke="#e8a400" strokeWidth={3} strokeLinecap="round" />
+    </g>
+  );
+}
 
 function ArmRoad({ d, arm, roundabout }: { d: Dir; arm: Arm; roundabout: boolean }) {
   const a = ARM_ANGLE[d];
@@ -46,7 +91,10 @@ function ArmRoad({ d, arm, roundabout }: { d: Dir; arm: Arm; roundabout: boolean
           ))}
         </>
       )}
-      {exit && arm.look !== 'gardsveg' && (
+      {exit && arm.look === 'sykkelveg' && (
+        <polygon points={poly([rot([C - w, inner - 2], a), rot([C + w, inner - 2], a), rot([C + w, SIZE], a), rot([C - w, SIZE], a)])} fill="#b5654f" opacity={0.85} />
+      )}
+      {exit && arm.look !== 'gardsveg' && arm.look !== 'sykkelveg' && (
         <>
           {/* Fortau/kantstein som avkjørselen krysser, og en parkeringsplass. */}
           <polygon points={poly([rot([C - 60, 240], a), rot([C + 60, 240], a), rot([C + 60, 252], a), rot([C - 60, 252], a)])} fill="#cfcac0" />
@@ -60,6 +108,13 @@ function ArmRoad({ d, arm, roundabout }: { d: Dir; arm: Arm; roundabout: boolean
         // Midtlinje (stiplet) langs armen.
         <line x1={rot([C, inner + 8], a)[0]} y1={rot([C, inner + 8], a)[1]} x2={rot([C, SIZE], a)[0]} y2={rot([C, SIZE], a)[1]} stroke="var(--marking)" strokeWidth={2} strokeDasharray="12 10" />
       )}
+      {arm.busBay && (
+        <g>
+          <polygon points={poly([rot([C + HALF - 2, 278], a), rot([C + HALF + 26, 292], a), rot([C + HALF + 26, 360], a), rot([C + HALF - 2, 374], a)])} fill="var(--road)" />
+          <line x1={rot([C + HALF + 30, 288], a)[0]} y1={rot([C + HALF + 30, 288], a)[1]} x2={rot([C + HALF + 30, 364], a)[0]} y2={rot([C + HALF + 30, 364], a)[1]} stroke="#cfcac0" strokeWidth={6} />
+        </g>
+      )}
+      {arm.light && <TrafficLight d={d} state={arm.light} />}
       {arm.tram && (
         <g stroke="#3d3d3d" strokeWidth={1.5}>
           {[C - 6, C + 6].map((x) => (
@@ -166,6 +221,11 @@ function VehicleShape({ a }: { a: Actor }) {
           <rect x={-13} y={-22} width={26} height={44} rx={7} fill={fill} stroke={stroke} strokeWidth={1.5} />
           <rect x={-10} y={-15} width={20} height={9} rx={2} fill="#cfe3f5" />
           <rect x={-10} y={9} width={20} height={6} rx={2} fill="#cfe3f5" opacity={0.8} />
+          {/* Frontlys og baklys viser hvilken vei bilen står. */}
+          <rect x={-11} y={-22} width={6} height={3} rx={1} fill="#fff3a0" />
+          <rect x={5} y={-22} width={6} height={3} rx={1} fill="#fff3a0" />
+          <rect x={-11} y={19} width={6} height={3} rx={1} fill="#b71c1c" />
+          <rect x={5} y={19} width={6} height={3} rx={1} fill="#b71c1c" />
         </g>
       );
   }
@@ -220,6 +280,7 @@ export function SceneView({ scene, label, onActorClick, badges = {}, dimmed = []
             return nr ? <SignPost key={d} d={d} nr={nr} /> : null;
           })}
       {roundabout && !signs && <SignPost d="S" nr="406" />}
+      {j.police && <Police gesture={j.police.gesture} facing={j.police.facing} />}
 
       {scene.actors.map((a) => {
         const pose = actorPose(a, j.kind);

@@ -1166,3 +1166,17 @@ h2.t-main,
   font-weight: 600;
   font-size: var(--fs-4);
 }
+
+.scene .blink {
+  animation: blink 1s steps(2, start) infinite;
+}
+@keyframes blink {
+  to {
+    opacity: 0.35;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene .blink {
+    animation: none;
+  }
+}

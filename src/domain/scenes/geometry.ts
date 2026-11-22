@@ -70,6 +70,13 @@ export function intentsCross(layout: Scenario['layout'], a: ScenarioActor, b: Sc
     if (aIn !== bIn) return 'yes';
     return 'unknown'; // to som skal inn fra ulike armer, eller to som er inne: ikke avklart (funn B5)
   }
-  if (a.intent === 'krysser' || b.intent === 'krysser') return 'unknown';
+  if (a.intent === 'krysser' || b.intent === 'krysser' || a.intent === 'rygger' || b.intent === 'rygger') return 'unknown';
+  if (a.from === b.from) {
+    // Samme arm: buss som kjører ut fra holdeplass inn i feltet, eller syklist rett fram mens kjøretøyet svinger til høyre.
+    if ((a.position === 'pa-holdeplass') !== (b.position === 'pa-holdeplass')) return 'yes';
+    const bikeStraight = (x: ScenarioActor) => x.kind === 'syklist' && x.intent === 'rett-fram';
+    if ((bikeStraight(a) && b.intent === 'hoyre') || (bikeStraight(b) && a.intent === 'hoyre')) return 'yes';
+    return 'no';
+  }
   return vehiclesCross(a.from, a.intent, b.from, b.intent) ? 'yes' : 'no';
 }

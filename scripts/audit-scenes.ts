@@ -36,6 +36,9 @@ for (const f of readdirSync(dir).filter((x) => x.endsWith('.json')).sort()) {
   if (s.layout.police) notes.push('Scenen har politi. Motoren kjenner ikke politiets tegn.');
   if (s.actors.some((a) => a.position === 'pa-holdeplass')) notes.push('Buss fra holdeplass (§ 7 nr. 5) finnes ikke i motoren.');
   if (s.layout.signs.some((x) => !['202', '204', '206'].includes(x.nr))) notes.push('Motoren leser bare skilt 202, 204 og 206. Andre skilt i scenen er ikke med.');
+  if (s.actors.some((a) => a.intent === 'rygger')) notes.push('Scenen har rygging. Motoren kjenner ikke rygging.');
+  const fromArms = s.actors.filter((a) => a.kind !== 'gaende' && a.position !== 'inne-i-rundkjoring').map((a) => a.from);
+  if (new Set(fromArms).size !== fromArms.length) notes.push('Flere trafikanter kommer fra samme arm. Motoren støtter ikke det.');
 
   const a = analyze(scenarioToDrawing(s));
   if (a.error) {

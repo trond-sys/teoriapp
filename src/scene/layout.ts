@@ -38,7 +38,8 @@ export function actorPose(a: Actor, kind: 'cross' | 't' | 'roundabout'): { at: P
     return { at: rot(p, ARM_ANGLE[a.from]), angle: ARM_ANGLE[a.from] + 135 };
   }
   const len = a.kind === 'tram' ? 40 : a.kind === 'bus' || a.kind === 'truck' ? 16 : 0;
-  return { at: onArm(a.from, [BASE.vehicle[0], BASE.vehicle[1] + len / 2]), angle: ARM_ANGLE[a.from] };
+  const at = onArm(a.from, [BASE.vehicle[0] + (a.dx ?? 0), BASE.vehicle[1] + len / 2 + (a.dy ?? 0)]);
+  return { at, angle: ARM_ANGLE[a.from] + (a.reversing ? 180 : 0) };
 }
 
 export const COLORS: Record<string, string> = {
