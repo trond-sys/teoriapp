@@ -1,0 +1,337 @@
+{
+  "generated": "2026-11-22",
+  "rows": [
+    {
+      "id": "vp-scene-bensinstasjon-01",
+      "agree": true,
+      "fasit": "B → A",
+      "motor": "B → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-buss-01",
+      "agree": false,
+      "fasit": "B → A",
+      "motor": "feil: A og B kommer fra samme arm (kø støttes ikke)",
+      "notes": [
+        "Buss fra holdeplass (§ 7 nr. 5) finnes ikke i motoren.",
+        "Flere trafikanter kommer fra samme arm. Motoren støtter ikke det."
+      ]
+    },
+    {
+      "id": "vp-scene-buss-02",
+      "agree": false,
+      "fasit": "A → B",
+      "motor": "feil: A og B kommer fra samme arm (kø støttes ikke)",
+      "notes": [
+        "Buss fra holdeplass (§ 7 nr. 5) finnes ikke i motoren.",
+        "Flere trafikanter kommer fra samme arm. Motoren støtter ikke det."
+      ]
+    },
+    {
+      "id": "vp-scene-forkjorsveg-01",
+      "agree": true,
+      "fasit": "B → C → A",
+      "motor": "B → C → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-gangfelt-01",
+      "agree": true,
+      "fasit": "P → A",
+      "motor": "P → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-gardsveg-01",
+      "agree": true,
+      "fasit": "B → A",
+      "motor": "B → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-hoyreregel-01",
+      "agree": true,
+      "fasit": "B → A",
+      "motor": "B → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-hoyreregel-02",
+      "agree": true,
+      "fasit": "B → A",
+      "motor": "B → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-hoyreregel-03",
+      "agree": true,
+      "fasit": "C → B → A",
+      "motor": "C → B → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-hoyreregel-04",
+      "agree": true,
+      "fasit": "B → A",
+      "motor": "B → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-hoyresving-syklist-01",
+      "agree": false,
+      "fasit": "B → A",
+      "motor": "feil: A og B kommer fra samme arm (kø støttes ikke)",
+      "notes": [
+        "Flere trafikanter kommer fra samme arm. Motoren støtter ikke det."
+      ]
+    },
+    {
+      "id": "vp-scene-lys-01",
+      "agree": true,
+      "fasit": "B → A",
+      "motor": "B → A",
+      "notes": [
+        "Scenen har trafikklys. Motoren kjenner ikke lys, så sammenligningen gjelder bare uten lys."
+      ]
+    },
+    {
+      "id": "vp-scene-lys-02",
+      "agree": false,
+      "fasit": "B → A",
+      "motor": "A → B",
+      "notes": [
+        "Scenen har trafikklys. Motoren kjenner ikke lys, så sammenligningen gjelder bare uten lys.",
+        "Etter motoren bryter fasitens rekkefølge disse vikepliktene: B før A (Trafikkreglene § 7 nr. 2 første punktum).",
+        "Motoren mener B viker for A (regel «hoyreregel», Trafikkreglene § 7 nr. 2 første punktum), men fasiten har ikke dette steget.",
+        "Fasiten sier A viker for B, men motoren finner ingen vikeplikt mellom dem."
+      ]
+    },
+    {
+      "id": "vp-scene-lys-03",
+      "agree": false,
+      "fasit": "A → B",
+      "motor": "B → A",
+      "notes": [
+        "Scenen har trafikklys. Motoren kjenner ikke lys, så sammenligningen gjelder bare uten lys.",
+        "Etter motoren bryter fasitens rekkefølge disse vikepliktene: A før B (Trafikkreglene § 3 nr. 1 (skilt går foran trafikkreglene); skiltforskriften § 6, skilt 202 Vikeplikt, 204 Stopp og 206 Forkjørsveg).",
+        "Motoren mener A viker for B (regel «skilt», Trafikkreglene § 3 nr. 1 (skilt går foran trafikkreglene); skiltforskriften § 6, skilt 202 Vikeplikt, 204 Stopp og 206 Forkjørsveg), men fasiten har ikke dette steget.",
+        "Fasiten sier B viker for A, men motoren finner ingen vikeplikt mellom dem."
+      ]
+    },
+    {
+      "id": "vp-scene-lys-04",
+      "agree": true,
+      "fasit": "B → A",
+      "motor": "B → A",
+      "notes": [
+        "Scenen har trafikklys. Motoren kjenner ikke lys, så sammenligningen gjelder bare uten lys."
+      ]
+    },
+    {
+      "id": "vp-scene-lys-05",
+      "agree": false,
+      "fasit": "A → B",
+      "motor": "B → A",
+      "notes": [
+        "Scenen har trafikklys. Motoren kjenner ikke lys, så sammenligningen gjelder bare uten lys.",
+        "Etter motoren bryter fasitens rekkefølge disse vikepliktene: A før B (Trafikkreglene § 7 nr. 2 annet punktum).",
+        "Motoren mener A viker for B (regel «venstresving», Trafikkreglene § 7 nr. 2 annet punktum), men fasiten har ikke dette steget.",
+        "Fasiten sier B viker for A, men motoren finner ingen vikeplikt mellom dem."
+      ]
+    },
+    {
+      "id": "vp-scene-parkering-01",
+      "agree": true,
+      "fasit": "B → A",
+      "motor": "B → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-parkering-02",
+      "agree": true,
+      "fasit": "B + C → A",
+      "motor": "B + C → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-politi-01",
+      "agree": true,
+      "fasit": "",
+      "motor": "A",
+      "notes": [
+        "Scenen har politi. Motoren kjenner ikke politiets tegn."
+      ]
+    },
+    {
+      "id": "vp-scene-politi-02",
+      "agree": false,
+      "fasit": "B → A",
+      "motor": "A → B",
+      "notes": [
+        "Scenen har politi. Motoren kjenner ikke politiets tegn.",
+        "Etter motoren bryter fasitens rekkefølge disse vikepliktene: B før A (Trafikkreglene § 7 nr. 2 første punktum).",
+        "Motoren mener B viker for A (regel «hoyreregel», Trafikkreglene § 7 nr. 2 første punktum), men fasiten har ikke dette steget.",
+        "Fasiten sier A viker for B, men motoren finner ingen vikeplikt mellom dem."
+      ]
+    },
+    {
+      "id": "vp-scene-politi-03",
+      "agree": true,
+      "fasit": "",
+      "motor": "A",
+      "notes": [
+        "Scenen har trafikklys. Motoren kjenner ikke lys, så sammenligningen gjelder bare uten lys.",
+        "Scenen har politi. Motoren kjenner ikke politiets tegn."
+      ]
+    },
+    {
+      "id": "vp-scene-rundkjoring-01",
+      "agree": true,
+      "fasit": "B → A",
+      "motor": "B → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-rundkjoring-02",
+      "agree": true,
+      "fasit": "A → B",
+      "motor": "A → B",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-rundkjoring-03",
+      "agree": true,
+      "fasit": "C → A",
+      "motor": "C → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-rygging-01",
+      "agree": false,
+      "fasit": "B → A",
+      "motor": "feil: A: ugyldig «to»",
+      "notes": [
+        "Scenen har rygging. Motoren kjenner ikke rygging."
+      ]
+    },
+    {
+      "id": "vp-scene-rygging-02",
+      "agree": false,
+      "fasit": "",
+      "motor": "feil: A: ugyldig «to»",
+      "notes": [
+        "Scenen har rygging. Motoren kjenner ikke rygging."
+      ]
+    },
+    {
+      "id": "vp-scene-skilt-202-01",
+      "agree": true,
+      "fasit": "B → A",
+      "motor": "B → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-skilt-204-01",
+      "agree": true,
+      "fasit": "",
+      "motor": "A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-skilt-206-01",
+      "agree": true,
+      "fasit": "A → B",
+      "motor": "A → B",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-skilt-208-01",
+      "agree": true,
+      "fasit": "B → A",
+      "motor": "B → A",
+      "notes": [
+        "Motoren leser bare skilt 202, 204 og 206. Andre skilt i scenen er ikke med."
+      ]
+    },
+    {
+      "id": "vp-scene-skilt-210-01",
+      "agree": true,
+      "fasit": "A → B",
+      "motor": "A → B",
+      "notes": [
+        "Motoren leser bare skilt 202, 204 og 206. Andre skilt i scenen er ikke med."
+      ]
+    },
+    {
+      "id": "vp-scene-sykkelveg-01",
+      "agree": true,
+      "fasit": "B → A",
+      "motor": "B → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-sykkelveg-02",
+      "agree": true,
+      "fasit": "A → B",
+      "motor": "A → B",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-trikk-01",
+      "agree": true,
+      "fasit": "T → A",
+      "motor": "T → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-trikk-gangfelt-01",
+      "agree": true,
+      "fasit": "T → P",
+      "motor": "T → P",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-utrykning-01",
+      "agree": true,
+      "fasit": "U → A",
+      "motor": "U → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-utrykning-trikk-01",
+      "agree": true,
+      "fasit": "U → T",
+      "motor": "U → T",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-venstre-venstre-01",
+      "agree": true,
+      "fasit": "A + B",
+      "motor": "A + B",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-venstresving-01",
+      "agree": true,
+      "fasit": "B + C → A",
+      "motor": "B + C → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-venstresving-02",
+      "agree": true,
+      "fasit": "B → A",
+      "motor": "B → A",
+      "notes": []
+    },
+    {
+      "id": "vp-scene-venstresving-syklist-01",
+      "agree": true,
+      "fasit": "B → A",
+      "motor": "B → A",
+      "notes": []
+    }
+  ]
+}

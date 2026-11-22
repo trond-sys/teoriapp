@@ -1180,3 +1180,31 @@ h2.t-main,
     animation: none;
   }
 }
+
+.pill--warn {
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+.name-input {
+  font: inherit;
+  font-size: var(--fs-1);
+  min-height: 40px;
+  width: 120px;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+}
+.audit {
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+}
+.audit ul {
+  margin: 4px 0 0;
+  padding-left: 1.2em;
+}
+.audit--ok {
+  background: var(--ok-soft);
+}
+.audit--diff {
+  background: var(--warn-soft);
+}

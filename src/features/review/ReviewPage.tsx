@@ -2,13 +2,19 @@
 // Siden er bare for redaktøren og vises på norsk med engelsk for UI-overskrifter.
 import { useLiveQuery } from 'dexie-react-hooks';
 import { QUESTIONS, SCENARIOS, SIGNS } from '../../content/index';
-import { ScenarioPreview } from './ScenarioPreview';
+import { ScenarioPreview, type AuditRow } from './ScenarioPreview';
+import { exportVerifications, loadReviewerName, loadVerifications, setVerification } from './verifications';
+import auditJson from '../../content/audit/scene-audit.json';
+
+const AUDIT = new Map((auditJson.rows as AuditRow[]).map((r) => [r.id, r]));
 import { TEMALISTE } from '../../config/temaliste';
 import { db } from '../../db/db';
 import { exportThaiReports } from '../../db/export';
 import { U } from '../../i18n/T';
 
 export function ReviewPage() {
+  const local = useLiveQuery(() => loadVerifications(), []);
+  const reviewer = useLiveQuery(() => loadReviewerName(), []);
   const reports = useLiveQuery(() => db.thReports.orderBy('id').toArray(), [], []);
   const unverified = [
     ...QUESTIONS.filter((q) => !q.verified).map((q) => ({ id: q.id, what: q.prompt.nb, source: q.source, todo: q.todo })),
@@ -23,12 +29,32 @@ export function ReviewPage() {
 
       <section className="stack">
         <h2>Håndlagde scenarier – Endring 01 ({SCENARIOS.length})</h2>
+        <p className="small">
+          Verifisert i filene: {SCENARIOS.filter((s) => s.verified).length} · kontrollert lokalt: {Object.keys(local ?? {}).length} · uenige med
+          motoren: {[...AUDIT.values()].filter((r) => !r.agree).length} (revisjon {auditJson.generated})
+        </p>
+        <div className="row-wrap">
+          <button type="button" className="btn btn--small" disabled={!Object.keys(local ?? {}).length} onClick={() => void exportVerifications()}>
+            Eksporter markeringer (JSON)
+          </button>
+        </div>
+        <p className="muted small">
+          Slik lagres en kontroll: marker scenene her, eksporter JSON, og kjør <code>npm run apply-verifications -- fil.json</code> i repoet. Commit
+          etterpå. Først da vises scenen for eleven.
+        </p>
         <p className="muted small">
           Fasit og hjemmel er data i src/content/scenes/. Pilene viser bare hvor hver trafikant skal, ikke kjørebanen. Advarslene kommer fra
           validatoren (geometri, ingen trafikkregler). Scenene vises ikke for eleven ennå.
         </p>
         {SCENARIOS.map((sc) => (
-          <ScenarioPreview key={sc.id} s={sc} />
+          <ScenarioPreview
+            key={sc.id}
+            s={sc}
+            audit={AUDIT.get(sc.id)}
+            local={local?.[sc.id]}
+            reviewer={reviewer ?? 'Trond'}
+            onVerify={(v) => void setVerification(sc.id, v)}
+          />
         ))}
       </section>
 

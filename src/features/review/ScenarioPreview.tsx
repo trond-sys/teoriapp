@@ -1,16 +1,25 @@
 // Forhåndsvisning av et håndlagd scenario for redaktøren (/review): tegning med intensjonspiler,
 // spørsmål og fasit på alle tre språk, hjemmel per steg og advarsler fra validatoren.
 // Siden er for Trond, så teksten er på norsk.
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { GLOSSARY, SIGNS } from '../../content/index';
 import type { L3, Scenario } from '../../content/schema';
 import { validateScenario } from '../../domain/scenes/validate';
 import { SceneView } from '../../scene/SceneView';
 import { scenarioToDrawing } from '../../scene/fromScenario';
+import type { Verification } from './verifications';
+
+export interface AuditRow {
+  id: string;
+  agree: boolean;
+  fasit: string;
+  motor: string;
+  notes: string[];
+}
 
 const KIND_NB: Record<string, string> = { bil: 'bil', buss: 'buss', lastebil: 'lastebil', trikk: 'trikk', utrykning: 'utrykning', gaende: 'gående', syklist: 'syklist' };
-const INTENT_NB: Record<string, string> = { 'rett-fram': 'rett fram', hoyre: 'til høyre', venstre: 'til venstre', krysser: 'krysser' };
+const INTENT_NB: Record<string, string> = { 'rett-fram': 'rett fram', hoyre: 'til høyre', venstre: 'til venstre', krysser: 'krysser', rygger: 'rygger' };
 
 function Tri({ t }: { t: L3 }) {
   return (
@@ -26,7 +35,17 @@ function Tri({ t }: { t: L3 }) {
   );
 }
 
-export function ScenarioPreview({ s }: { s: Scenario }) {
+interface Props {
+  s: Scenario;
+  audit?: AuditRow;
+  /** Lokal markering fra denne enheten (ikke lagret i filene ennå). */
+  local?: Verification;
+  reviewer: string;
+  onVerify: (v: Verification | null) => void;
+}
+
+export function ScenarioPreview({ s, audit, local, reviewer, onVerify }: Props) {
+  const [name, setName] = useState(reviewer);
   const ctx = useMemo(() => ({ signNrs: new Set(SIGNS.map((x) => x.nr)), termIds: new Set(GLOSSARY.map((g) => g.id)) }), []);
   const issues = useMemo(() => validateScenario(s, ctx), [s, ctx]);
   const drawing = useMemo(() => scenarioToDrawing(s), [s]);
@@ -41,13 +60,57 @@ export function ScenarioPreview({ s }: { s: Scenario }) {
             <code>{s.id}</code>
           </h3>
           <p className="small muted">
-            {s.tier} · {s.subtopic} · {s.temalisteRef ?? 'ingen temalisteRef'} · vanskelighet {s.difficulty} ·{' '}
-            <strong>{s.verified ? `verifisert av ${s.verifiedBy ?? '?'} ${s.verifiedAt ?? ''}` : 'ikke verifisert'}</strong>
+            {s.tier} · {s.subtopic} · {s.temalisteRef ?? 'ingen temalisteRef'} · {s.question.type} · vanskelighet {s.difficulty}
           </p>
-          <Link to={`/practice/yield/${s.id}`} className="btn btn--small">
-            Prøv i krysset
-          </Link>
+          <p className="small">
+            {s.verified ? (
+              <span className="pill pill--ok">Verifisert i filene av {s.verifiedBy ?? '?'} {s.verifiedAt ?? ''}</span>
+            ) : local ? (
+              <span className="pill pill--warn">Kontrollert lokalt av {local.verifiedBy} {local.verifiedAt} – ikke lagret i filene ennå</span>
+            ) : (
+              <span className="pill pill--bad">Ikke verifisert</span>
+            )}
+          </p>
+          <div className="row-wrap">
+            <Link to={`/practice/yield/${s.id}`} className="btn btn--small">
+              Prøv i krysset
+            </Link>
+            {!s.verified &&
+              (local ? (
+                <button type="button" className="btn btn--small" onClick={() => onVerify(null)}>
+                  Angre markering
+                </button>
+              ) : (
+                <>
+                  <input className="name-input" aria-label="Navn" value={name} onChange={(e) => setName(e.target.value)} />
+                  <button
+                    type="button"
+                    className="btn btn--small btn--primary"
+                    disabled={!name.trim()}
+                    onClick={() => onVerify({ verifiedBy: name.trim(), verifiedAt: new Date().toLocaleDateString('sv-SE') })}
+                  >
+                    Marker som kontrollert
+                  </button>
+                </>
+              ))}
+          </div>
         </header>
+
+        {audit && (
+          <section className={`audit ${audit.agree ? 'audit--ok' : 'audit--diff'}`}>
+            <h4 className="small-head">Revisjon mot den gamle motoren</h4>
+            <p className="small">
+              {audit.agree ? 'Enig' : 'Uenig'} · fasit {audit.fasit || '–'} · motor {audit.motor}
+            </p>
+            {audit.notes.length > 0 && (
+              <ul className="small">
+                {audit.notes.map((n, i) => (
+                  <li key={i}>{n}</li>
+                ))}
+              </ul>
+            )}
+          </section>
+        )}
 
         {issues.length > 0 && (
           <ul className="plain-list">

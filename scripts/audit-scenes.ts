@@ -12,6 +12,8 @@ import { RULES } from './audit/rules';
 const root = join(import.meta.dirname, '..');
 const dir = join(root, 'src', 'content', 'scenes');
 const out = join(root, 'docs', 'scene-audit.md');
+/** Samme resultat som JSON, så /review kan vise revisjonen per scene. */
+const outJson = join(root, 'src', 'content', 'audit', 'scene-audit.json');
 
 const norm = (groups: string[][]) => groups.map((g) => [...g].sort().join(' + ')).join(' → ');
 const pairs = (edges: { yielder: string; priority: string }[]) => new Set(edges.map((e) => `${e.yielder}>${e.priority}`));
@@ -108,5 +110,9 @@ ${
 }
 `;
 writeFileSync(out, md);
+writeFileSync(
+  outJson,
+  JSON.stringify({ generated: today, rows: rows.map((r) => ({ id: r.id, agree: r.agree, fasit: r.fasit, motor: r.motor, notes: r.notes })) }, null, 2) + '\n',
+);
 console.log(`docs/scene-audit.md: ${rows.length} scener, ${disagree.length} uenige.`);
 for (const r of disagree) console.log(`  uenig: ${r.id} (fasit ${r.fasit} / motor ${r.motor})`);
