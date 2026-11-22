@@ -1,0 +1,100 @@
+{
+  "id": "vp-scene-lys-05",
+  "topic": "vikeplikt",
+  "subtopic": "lysregulering",
+  "temalisteRef": "vp-lysregulering",
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [],
+    "lights": {
+      "N": "rod",
+      "E": "rod",
+      "S": "gronn-pil-venstre",
+      "W": "rod"
+    },
+    "police": null
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "S",
+      "intent": "venstre",
+      "color": "red"
+    },
+    {
+      "id": "B",
+      "kind": "bil",
+      "from": "N",
+      "intent": "rett-fram",
+      "color": "blue"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "A har grønn pil til venstre. Den møtende bilen B har rødt lys. Hvem kjører først?",
+      "en": "A has a green arrow to the left. The oncoming car B has a red light. Who goes first?",
+      "th": "A ได้ไฟลูกศรสีเขียวเลี้ยวซ้าย รถ B ที่สวนมาได้ไฟแดง ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "A"
+      ],
+      [
+        "B"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [],
+        "explanation": {
+          "nb": "Grønn pil gjelder for dem som skal i pilens retning. Når A har grønn pil, har møtende trafikk rødt, så A kan svinge.",
+          "en": "A green arrow applies to those going in the direction of the arrow. When A has a green arrow, oncoming traffic has red, so A may turn.",
+          "th": "ไฟลูกศรสีเขียวใช้กับผู้ที่จะไปตามทิศทางของลูกศร เมื่อ A ได้ลูกศรเขียว รถที่สวนมาได้ไฟแดง A จึงเลี้ยวได้"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 24, signal 1082 Pilsignal",
+          "quote": "Signalet gjelder for dem som vil kjøre i den retning pilen viser.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      },
+      {
+        "who": "B",
+        "yieldsTo": [
+          "A"
+        ],
+        "explanation": {
+          "nb": "B har rødt lys og må vente.",
+          "en": "B has a red light and must wait.",
+          "th": "B ได้ไฟแดงและต้องรอ"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 24, signal 1080 Hovedsignal",
+          "quote": "Ved rødt lys må kjørende ikke passere signal eller stopplinje.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "trafikklys",
+    "venstresving"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Ordlyden for pilsignal er bare lest som sammendrag (funn A3). At grønn pil betyr at møtende har rødt, bygger på håndbok 048 (grønn pil vises bare der det ikke er konflikt), ikke på forskriften. Ordlyden i skiltforskriften § 24 er hentet fra funnene (A3: Lovdata-søketreff og håndbok N303), ikke lest direkte på Lovdata i Claude Code."
+}

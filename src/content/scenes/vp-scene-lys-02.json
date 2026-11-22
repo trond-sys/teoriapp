@@ -1,0 +1,87 @@
+{
+  "id": "vp-scene-lys-02",
+  "topic": "vikeplikt",
+  "subtopic": "lysregulering",
+  "temalisteRef": "vp-lysregulering",
+  "tier": "kjerne",
+  "difficulty": 1,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [],
+    "lights": {
+      "N": "rod",
+      "E": "gronn",
+      "S": "rod",
+      "W": "gronn"
+    },
+    "police": null
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "S",
+      "intent": "rett-fram",
+      "color": "red"
+    },
+    {
+      "id": "B",
+      "kind": "bil",
+      "from": "W",
+      "intent": "rett-fram",
+      "color": "blue"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "A har rødt lys. B kommer fra venstre for A og har grønt lys. Hvem kjører først?",
+      "en": "A has a red light. B comes from A's left and has a green light. Who goes first?",
+      "th": "A ได้ไฟแดง B มาจากทางซ้ายของ A และได้ไฟเขียว ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "B"
+      ],
+      [
+        "A"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [
+          "B"
+        ],
+        "explanation": {
+          "nb": "A har rødt lys og må vente ved stopplinjen. Trafikklyset gjelder foran høyreregelen, så det spiller ingen rolle at B kommer fra venstre.",
+          "en": "A has a red light and must wait at the stop line. The traffic light applies before the right-hand rule, so it does not matter that B comes from the left.",
+          "th": "A ได้ไฟแดงและต้องรอที่เส้นหยุด สัญญาณไฟจราจรมีผลเหนือกฎให้ทางรถทางขวา การที่ B มาจากทางซ้ายจึงไม่มีผล"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 24, signal 1080 Hovedsignal",
+          "quote": "Ved rødt lys må kjørende ikke passere signal eller stopplinje.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "trafikklys",
+    "stopplinje",
+    "hoyreregelen"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Ordlyden i skiltforskriften § 24 er hentet fra funnene (A3: Lovdata-søketreff og håndbok N303), ikke lest direkte på Lovdata i Claude Code."
+}

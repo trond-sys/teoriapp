@@ -1,0 +1,112 @@
+{
+  "id": "vp-scene-lys-03",
+  "topic": "vikeplikt",
+  "subtopic": "lysregulering",
+  "temalisteRef": "vp-lysregulering",
+  "alsoRefs": [
+    "so-skilt"
+  ],
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [
+      {
+        "arm": "S",
+        "nr": "202"
+      },
+      {
+        "arm": "N",
+        "nr": "202"
+      }
+    ],
+    "lights": {
+      "N": "gronn",
+      "E": "rod",
+      "S": "gronn",
+      "W": "rod"
+    },
+    "police": null
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "S",
+      "intent": "rett-fram",
+      "color": "red"
+    },
+    {
+      "id": "B",
+      "kind": "bil",
+      "from": "E",
+      "intent": "rett-fram",
+      "color": "blue"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "A har både vikepliktskilt og grønt lys. B kommer fra høyre og har rødt lys. Hvem kjører først?",
+      "en": "A has both a give way sign and a green light. B comes from the right and has a red light. Who goes first?",
+      "th": "A มีทั้งป้ายให้ทางและไฟเขียว B มาจากทางขวาและได้ไฟแดง ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "A"
+      ],
+      [
+        "B"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [],
+        "explanation": {
+          "nb": "Når trafikklyset virker, gjelder det foran vikepliktskiltet. A har grønt og kan kjøre når vegen er fri.",
+          "en": "When the traffic light is working, it applies before the give way sign. A has green and may go when the road is clear.",
+          "th": "เมื่อสัญญาณไฟจราจรทำงาน สัญญาณไฟมีผลเหนือป้ายให้ทาง A ได้ไฟเขียวและไปได้เมื่อถนนว่าง"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 3 nr. 1 annet ledd",
+          "quote": "Anvisning gitt ved trafikklyssignal gjelder foran anvisning om vikeplikt gitt ved offentlig trafikkskilt.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      },
+      {
+        "who": "B",
+        "yieldsTo": [
+          "A"
+        ],
+        "explanation": {
+          "nb": "B har rødt lys og må vente, selv om B kommer fra høyre.",
+          "en": "B has a red light and must wait, even though B comes from the right.",
+          "th": "B ได้ไฟแดงและต้องรอ แม้ว่า B จะมาจากทางขวา"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 24, signal 1080 Hovedsignal",
+          "quote": "Ved rødt lys må kjørende ikke passere signal eller stopplinje.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "trafikklys",
+    "vikeplikt"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Ordlyden i skiltforskriften § 24 er hentet fra funnene (A3: Lovdata-søketreff og håndbok N303), ikke lest direkte på Lovdata i Claude Code."
+}

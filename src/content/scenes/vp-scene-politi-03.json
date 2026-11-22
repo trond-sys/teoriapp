@@ -1,0 +1,123 @@
+{
+  "id": "vp-scene-politi-03",
+  "topic": "vikeplikt",
+  "subtopic": "politi",
+  "temalisteRef": "vp-lysregulering",
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [],
+    "lights": {
+      "N": "gronn",
+      "E": "rod",
+      "S": "gronn",
+      "W": "rod"
+    },
+    "police": {
+      "gesture": "arm-opp",
+      "facing": "S"
+    }
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "S",
+      "intent": "rett-fram",
+      "color": "red"
+    }
+  ],
+  "question": {
+    "type": "velg",
+    "prompt": {
+      "nb": "A har grønt lys, men politiet i krysset holder armen rett opp. Hva gjør A?",
+      "en": "A has a green light, but the police officer in the junction is holding one arm straight up. What does A do?",
+      "th": "A ได้ไฟเขียว แต่ตำรวจในทางแยกยกแขนขึ้นตรง A ทำอย่างไร?"
+    },
+    "options": [
+      {
+        "id": "a",
+        "text": {
+          "nb": "Kjører, fordi lyset er grønt",
+          "en": "Drives on, because the light is green",
+          "th": "ขับไป เพราะไฟเขียว"
+        },
+        "whyWrong": {
+          "nb": "Politiets tegn gjelder foran trafikklyset.",
+          "en": "The police officer's signals apply before the traffic light.",
+          "th": "สัญญาณของตำรวจมีผลเหนือสัญญาณไฟจราจร"
+        }
+      },
+      {
+        "id": "b",
+        "text": {
+          "nb": "Kjører sakte forbi politiet",
+          "en": "Drives slowly past the police officer",
+          "th": "ขับผ่านตำรวจไปช้า ๆ"
+        },
+        "whyWrong": {
+          "nb": "Arm rett opp betyr at alle skal stanse.",
+          "en": "An arm straight up means everyone must stop.",
+          "th": "การยกแขนขึ้นตรงหมายความว่าทุกคนต้องหยุด"
+        }
+      },
+      {
+        "id": "c",
+        "text": {
+          "nb": "Stanser",
+          "en": "Stops",
+          "th": "หยุดรถ"
+        }
+      }
+    ]
+  },
+  "answer": {
+    "correct": "c",
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [],
+        "explanation": {
+          "nb": "Anvisning fra politiet gjelder foran anvisning gitt på annen måte. Trafikklys er en slik annen anvisning, så politiets tegn gjelder.",
+          "en": "Directions from the police apply before directions given in any other way. A traffic light is such a direction, so the police signal applies.",
+          "th": "คำสั่งของตำรวจมีผลเหนือคำสั่งที่ให้ด้วยวิธีอื่น สัญญาณไฟจราจรเป็นคำสั่งแบบนั้น จึงต้องทำตามสัญญาณของตำรวจ"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 3 nr. 2",
+          "quote": "Anvisning gitt av politiet, Statens vegvesen, tollvesenet eller militærpolitiet gjelder foran anvisning gitt på annen måte.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      },
+      {
+        "who": "A",
+        "yieldsTo": [],
+        "explanation": {
+          "nb": "Arm rett opp betyr at alle skal stanse.",
+          "en": "An arm straight up means everyone must stop.",
+          "th": "การยกแขนขึ้นตรงหมายความว่าทุกคนต้องหยุด"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 25",
+          "quote": "Er arm rettet oppad, skal enhver trafikant stanse.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "politi",
+    "trafikklys"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "At trafikklys er «anvisning gitt på annen måte» er bekreftet i funn A1 (også håndbok 051). Ordlyden i skiltforskriften § 25 er hentet fra funnene (A2: Lovdata-søketreff og lovnorge.no), ikke lest direkte på Lovdata i Claude Code."
+}

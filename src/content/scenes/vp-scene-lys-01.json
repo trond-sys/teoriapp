@@ -1,0 +1,101 @@
+{
+  "id": "vp-scene-lys-01",
+  "topic": "vikeplikt",
+  "subtopic": "lysregulering",
+  "temalisteRef": "vp-lysregulering",
+  "tier": "kjerne",
+  "difficulty": 2,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [],
+    "lights": {
+      "N": "gronn",
+      "E": "rod",
+      "S": "gronn",
+      "W": "rod"
+    },
+    "police": null
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "S",
+      "intent": "venstre",
+      "color": "red"
+    },
+    {
+      "id": "B",
+      "kind": "bil",
+      "from": "N",
+      "intent": "rett-fram",
+      "color": "blue"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "Begge har grønt lys. A skal til venstre, og den møtende bilen B skal rett fram. Hvem kjører først?",
+      "en": "Both have a green light. A is turning left, and the oncoming car B is going straight ahead. Who goes first?",
+      "th": "ทั้งสองคันได้ไฟเขียว A จะเลี้ยวซ้าย และรถ B ที่สวนมาจะตรงไป ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "B"
+      ],
+      [
+        "A"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [],
+        "explanation": {
+          "nb": "Grønt lys betyr at du kan kjøre hvis vegen er fri. Det betyr ikke at du har forkjørsrett.",
+          "en": "A green light means you may go if the road is clear. It does not mean you have priority.",
+          "th": "ไฟเขียวหมายความว่าคุณไปได้ถ้าถนนว่าง ไม่ได้หมายความว่าคุณมีสิทธิ์ไปก่อน"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 24, signal 1080 Hovedsignal",
+          "quote": "Ved grønt lys kan kjørende passere signal eller stopplinje dersom vegen er fri.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      },
+      {
+        "who": "A",
+        "yieldsTo": [
+          "B"
+        ],
+        "explanation": {
+          "nb": "A svinger til venstre og får den møtende bilen B på sin høyre side. Derfor har A vikeplikt for B, også på grønt lys.",
+          "en": "A is turning left and will have the oncoming car B on its right. So A must give way to B, also on a green light.",
+          "th": "A เลี้ยวซ้ายและรถ B ที่สวนมาจะอยู่ทางขวาของ A ดังนั้น A ต้องให้ทาง B แม้จะเป็นไฟเขียว"
+        },
+        "source": {
+          "ref": "Trafikkreglene § 7 nr. 2 annet punktum",
+          "quote": "Det samme gjelder når kjørende som vil svinge til venstre, vil få kjøretøy på sin høyre side.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/1986-03-21-747"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "trafikklys",
+    "venstresving",
+    "motende"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Ordlyden i skiltforskriften § 24 er hentet fra funnene (A3: Lovdata-søketreff og håndbok N303), ikke lest direkte på Lovdata i Claude Code."
+}

@@ -1,0 +1,112 @@
+{
+  "id": "vp-scene-lys-04",
+  "topic": "vikeplikt",
+  "subtopic": "lysregulering",
+  "temalisteRef": "vp-lysregulering",
+  "alsoRefs": [
+    "so-skilt"
+  ],
+  "tier": "kjerne",
+  "difficulty": 3,
+  "layout": {
+    "type": "x-kryss",
+    "arms": [
+      "N",
+      "E",
+      "S",
+      "W"
+    ],
+    "signs": [
+      {
+        "arm": "S",
+        "nr": "202"
+      },
+      {
+        "arm": "N",
+        "nr": "202"
+      }
+    ],
+    "lights": {
+      "N": "gul-blink",
+      "E": "gul-blink",
+      "S": "gul-blink",
+      "W": "gul-blink"
+    },
+    "police": null
+  },
+  "actors": [
+    {
+      "id": "A",
+      "kind": "bil",
+      "from": "S",
+      "intent": "rett-fram",
+      "color": "red"
+    },
+    {
+      "id": "B",
+      "kind": "bil",
+      "from": "W",
+      "intent": "rett-fram",
+      "color": "blue"
+    }
+  ],
+  "question": {
+    "type": "rekkefolge",
+    "prompt": {
+      "nb": "Trafikklysene blinker gult. A har vikepliktskilt. B kommer fra venstre for A. Hvem kjører først?",
+      "en": "The traffic lights are flashing yellow. A has a give way sign. B comes from A's left. Who goes first?",
+      "th": "สัญญาณไฟจราจรกะพริบสีเหลือง A มีป้ายให้ทาง B มาจากทางซ้ายของ A ใครไปก่อน?"
+    }
+  },
+  "answer": {
+    "order": [
+      [
+        "B"
+      ],
+      [
+        "A"
+      ]
+    ],
+    "steps": [
+      {
+        "who": "A",
+        "yieldsTo": [],
+        "explanation": {
+          "nb": "Gult blinklys betyr at du skal være særlig oppmerksom og forsiktig. Lyset sier ikke hvem som har vikeplikt, så da gjelder skiltene.",
+          "en": "A flashing yellow light means you must be especially alert and careful. The light does not say who must give way, so the signs apply.",
+          "th": "ไฟเหลืองกะพริบหมายความว่าคุณต้องระมัดระวังและตั้งใจเป็นพิเศษ ไฟไม่ได้บอกว่าใครต้องให้ทาง ดังนั้นให้ใช้ป้าย"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 24, signal 1098 Gult blinksignal",
+          "quote": "Signalet angir at trafikantene må vise særlig aktpågivenhet og varsomhet.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      },
+      {
+        "who": "A",
+        "yieldsTo": [
+          "B"
+        ],
+        "explanation": {
+          "nb": "A har vikepliktskilt og må vike for trafikken på den kryssende vegen – også for B fra venstre.",
+          "en": "A has a give way sign and must give way to traffic on the crossing road – including B from the left.",
+          "th": "A มีป้ายให้ทางและต้องให้ทางแก่รถบนถนนที่ตัดผ่าน รวมถึง B ที่มาจากทางซ้าย"
+        },
+        "source": {
+          "ref": "Skiltforskriften § 6, skilt 202 Vikeplikt",
+          "quote": "Skiltet angir at kjørende har vikeplikt for kjørende trafikk i begge retninger på kryssende veg.",
+          "url": "https://lovdata.no/dokument/SF/forskrift/2005-10-07-1219"
+        }
+      }
+    ]
+  },
+  "glossaryTerms": [
+    "trafikklys",
+    "vikeplikt"
+  ],
+  "verified": false,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "thReview": "pending",
+  "todo": "Ordlyden for gult blinksignal er bare lest som sammendrag (funn A3). At skiltene gjelder når lyset blinker gult, er en slutning av rangordningen i trafikkreglene § 3 nr. 1 – ikke sitat. Les § 24 på Lovdata før denne verifiseres."
+}
