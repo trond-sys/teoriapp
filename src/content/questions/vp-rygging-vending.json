@@ -6,6 +6,41 @@
     "trinn": 3,
     "type": "mc-single",
     "difficulty": 1,
+    "media": {
+      "illustration": {
+        "type": "kryss",
+        "layout": {
+          "signs": [],
+          "crosswalks": [],
+          "tram": [],
+          "lights": null,
+          "police": null,
+          "type": "t-kryss",
+          "arms": [
+            "E",
+            "S",
+            "W"
+          ]
+        },
+        "actors": [
+          {
+            "id": "A",
+            "kind": "bil",
+            "color": "red",
+            "from": "S",
+            "intent": "rygger",
+            "position": "fra-parkering"
+          },
+          {
+            "id": "B",
+            "kind": "bil",
+            "from": "E",
+            "intent": "rett-fram",
+            "color": "blue"
+          }
+        ]
+      }
+    },
     "prompt": {
       "nb": "Du rygger ut fra en parkeringsplass. Hvem har vikeplikt?",
       "en": "You are reversing out of a parking space. Who must give way?",
@@ -55,6 +90,30 @@
     "trinn": 3,
     "type": "mc-single",
     "difficulty": 1,
+    "media": {
+      "illustration": {
+        "type": "strekning",
+        "road": "motorveg",
+        "exitRamp": true,
+        "speed": 110,
+        "actors": [
+          {
+            "id": "A",
+            "kind": "bil",
+            "color": "red",
+            "lane": "eget-felt",
+            "at": 66
+          },
+          {
+            "id": "B",
+            "kind": "bil",
+            "lane": "venstre-felt",
+            "at": 30,
+            "color": "blue"
+          }
+        ]
+      }
+    },
     "prompt": {
       "nb": "Du har kjørt forbi avkjøringen du skulle ta på motorvegen. Hva gjør du?",
       "en": "You have missed the exit you wanted on the motorway. What do you do?",

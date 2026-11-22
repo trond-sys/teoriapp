@@ -3,6 +3,7 @@
 import { useLiveQuery } from 'dexie-react-hooks';
 import { QUESTIONS, SCENARIOS, SIGNS } from '../../content/index';
 import { ScenarioPreview, type AuditRow } from './ScenarioPreview';
+import { IllustrationView } from '../../scene/IllustrationView';
 import { exportVerifications, loadReviewerName, loadVerifications, setVerification } from './verifications';
 import auditJson from '../../content/audit/scene-audit.json';
 
@@ -56,6 +57,24 @@ export function ReviewPage() {
             onVerify={(v) => void setVerification(sc.id, v)}
           />
         ))}
+      </section>
+
+      <section className="stack">
+        <h2>Tegninger i oppgavene ({QUESTIONS.filter((q) => q.media?.illustration).length})</h2>
+        <p className="muted small">
+          Tegningen viser bare situasjonen i oppgaven, ikke svaret. A er alltid «deg». Kontroller at bildet stemmer med teksten. Tegningene ligger i
+          media.illustration i src/content/questions/.
+        </p>
+        <div className="ill-grid">
+          {QUESTIONS.filter((q) => q.media?.illustration).map((q) => (
+            <figure key={q.id} className="ill-card">
+              <IllustrationView ill={q.media!.illustration!} id={q.id} />
+              <figcaption>
+                <code>{q.id}</code> {q.prompt.nb}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
 
       <section className="card stack">

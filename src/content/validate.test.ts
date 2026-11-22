@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { validateContent, type RawContent } from './validate';
+import { illustrationIssues, validateContent, type RawContent } from './validate';
+import { Illustration } from './schema';
 
 const l3 = (s: string) => ({ nb: `${s} nb`, en: `${s} en`, th: `${s} th` });
 
@@ -108,5 +109,40 @@ describe('validateContent', () => {
     expect(r.warnings.join('\n')).toMatch(/202\.svg mangler/);
     const r2 = validateContent(raw([question()], { signs: { file: 'signs.json', data: [sign] }, signFiles: ['202.svg'], licensesMd: '' }));
     expect(r2.errors.join('\n')).toMatch(/LICENSES/);
+  });
+});
+
+describe('tegninger til oppgaver', () => {
+  const signs = new Set(['202', '516']);
+  it('godtar en vegstrekning med holdeplass og buss', () => {
+    const ill = Illustration.parse({
+      type: 'strekning',
+      busStop: true,
+      actors: [
+        { id: 'A', kind: 'bil', lane: 'eget-felt', at: 10 },
+        { id: 'B', kind: 'buss', lane: 'holdeplass', at: 50, intent: 'kjorer-ut', blink: 'venstre' },
+      ],
+    });
+    expect(illustrationIssues(ill, signs)).toEqual([]);
+  });
+  it('avviser buss på holdeplass uten busslomme, og tog utenfor sporet', () => {
+    const ill = Illustration.parse({
+      type: 'strekning',
+      actors: [
+        { id: 'B', kind: 'buss', lane: 'holdeplass', at: 50 },
+        { id: 'T', kind: 'tog', lane: 'eget-felt', at: 80 },
+      ],
+    });
+    const issues = illustrationIssues(ill, signs);
+    expect(issues.some((m) => m.includes('busStop'))).toBe(true);
+    expect(issues.some((m) => m.includes('sporet'))).toBe(true);
+  });
+  it('avviser kryss der en trafikant kommer fra en arm som ikke finnes', () => {
+    const ill = Illustration.parse({
+      type: 'kryss',
+      layout: { type: 't-kryss', arms: ['E', 'S', 'W'] },
+      actors: [{ id: 'A', kind: 'bil', from: 'N', intent: 'rett-fram' }],
+    });
+    expect(illustrationIssues(ill, signs).some((m) => m.includes('armen N'))).toBe(true);
   });
 });

@@ -1,5 +1,5 @@
 // Felles visningsmodell for alt som vises som flervalg: oppgaver fra banken og genererte skiltoppgaver.
-import type { L3, Option, Question, Sign } from '../../content/schema';
+import type { Illustration, L3, Option, Question, Sign } from '../../content/schema';
 import { ui } from '../../i18n/strings';
 import { signItemId, SIGN_TEMA } from '../../content/index';
 import type { ItemKind } from '../../domain/types';
@@ -13,7 +13,7 @@ export interface QuizItem {
   correct: string;
   explanation: L3;
   thaiContrast?: L3;
-  media?: { scene?: string; sign?: string; signs?: Record<string, string> };
+  media?: { scene?: string; sign?: string; signs?: Record<string, string>; illustration?: Illustration };
   roadTextNb: string[];
   glossaryTerms: string[];
   source: string;

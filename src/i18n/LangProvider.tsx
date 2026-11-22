@@ -11,6 +11,8 @@ export interface Settings {
   onboarded: boolean;
   /** Prøveeksamen (Fase 2): thai av som standard. */
   examThaiAllowed: boolean;
+  /** Lys eller mørk modus. «auto» følger nettbrettets innstilling. */
+  theme: 'auto' | 'light' | 'dark';
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -19,6 +21,7 @@ export const DEFAULT_SETTINGS: Settings = {
   ttsRate: 1,
   onboarded: false,
   examThaiAllowed: false,
+  theme: 'auto',
 };
 
 interface SettingsCtx {
@@ -60,6 +63,13 @@ export function LangProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     document.documentElement.lang = settings.scaffold === 'forsta' ? 'th' : settings.examLang;
   }, [settings.scaffold, settings.examLang]);
+
+  useEffect(() => {
+    // Fargene ligger i tokens.css. Uten data-theme følger appen nettbrettets lys/mørk-innstilling.
+    const el = document.documentElement;
+    if (settings.theme === 'auto') el.removeAttribute('data-theme');
+    else el.dataset.theme = settings.theme;
+  }, [settings.theme]);
 
   const value = useMemo<SettingsCtx>(
     () => ({ settings, ready, set, mainLang: settings.scaffold === 'forsta' ? 'th' : settings.examLang }),

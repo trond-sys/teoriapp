@@ -7,7 +7,7 @@ import { ARM_ANGLE, BASE, C, COLORS, HALF, SIZE, actorPose, onArm, rot, type Pt 
 import { leftOf, rightOf } from '../domain/scenes/geometry';
 
 /** Hvor langt fram kjøretøyets front er i lokale koordinater (kjøretøyet peker oppover). */
-const FRONT: Record<string, number> = { car: -22, emergency: -23, bus: -32, truck: -32, tram: -60, bicycle: -15, pedestrian: -10 };
+export const FRONT: Record<string, number> = { car: -22, emergency: -23, bus: -32, truck: -32, tram: -60, train: -70, bicycle: -15, pedestrian: -10 };
 
 /**
  * Intensjonspil (Endring 01, prinsipp 4): viser bare hvor trafikanten skal – høyre, rett fram eller venstre –
@@ -97,8 +97,8 @@ function ArmRoad({ d, arm, roundabout }: { d: Dir; arm: Arm; roundabout: boolean
       {exit && arm.look !== 'gardsveg' && arm.look !== 'sykkelveg' && (
         <>
           {/* Fortau/kantstein som avkjørselen krysser, og en parkeringsplass. */}
-          <polygon points={poly([rot([C - 60, 240], a), rot([C + 60, 240], a), rot([C + 60, 252], a), rot([C - 60, 252], a)])} fill="#cfcac0" />
-          <polygon points={poly([rot([C - 70, 330], a), rot([C + 70, 330], a), rot([C + 70, SIZE], a), rot([C - 70, SIZE], a)])} fill="#b8b3a8" />
+          <polygon points={poly([rot([C - 60, 240], a), rot([C + 60, 240], a), rot([C + 60, 252], a), rot([C - 60, 252], a)])} fill="var(--curb)" />
+          <polygon points={poly([rot([C - 70, 330], a), rot([C + 70, 330], a), rot([C + 70, SIZE], a), rot([C - 70, SIZE], a)])} fill="var(--scene-gravel)" />
           {[-45, -15, 15, 45].map((x) => (
             <line key={x} x1={rot([C + x, 345], a)[0]} y1={rot([C + x, 345], a)[1]} x2={rot([C + x, SIZE], a)[0]} y2={rot([C + x, SIZE], a)[1]} stroke="#fff" strokeWidth={2} />
           ))}
@@ -111,7 +111,7 @@ function ArmRoad({ d, arm, roundabout }: { d: Dir; arm: Arm; roundabout: boolean
       {arm.busBay && (
         <g>
           <polygon points={poly([rot([C + HALF - 2, 278], a), rot([C + HALF + 26, 292], a), rot([C + HALF + 26, 360], a), rot([C + HALF - 2, 374], a)])} fill="var(--road)" />
-          <line x1={rot([C + HALF + 30, 288], a)[0]} y1={rot([C + HALF + 30, 288], a)[1]} x2={rot([C + HALF + 30, 364], a)[0]} y2={rot([C + HALF + 30, 364], a)[1]} stroke="#cfcac0" strokeWidth={6} />
+          <line x1={rot([C + HALF + 30, 288], a)[0]} y1={rot([C + HALF + 30, 288], a)[1]} x2={rot([C + HALF + 30, 364], a)[0]} y2={rot([C + HALF + 30, 364], a)[1]} stroke="var(--curb)" strokeWidth={6} />
         </g>
       )}
       {arm.light && <TrafficLight d={d} state={arm.light} />}
@@ -167,7 +167,7 @@ function SignPost({ d, nr }: { d: Dir; nr: string }) {
   );
 }
 
-function VehicleShape({ a }: { a: Actor }) {
+export function VehicleShape({ a }: { a: Pick<Actor, 'kind' | 'color' | 'siren'> }) {
   const fill = COLORS[a.color] ?? COLORS.blue;
   const stroke = a.color === 'white' || a.color === 'yellow' ? '#555' : 'rgba(0,0,0,.35)';
   switch (a.kind) {
@@ -184,6 +184,16 @@ function VehicleShape({ a }: { a: Actor }) {
         <g>
           <rect x={-14} y={-32} width={28} height={64} rx={4} fill={fill} stroke={stroke} strokeWidth={1.5} />
           <rect x={-11} y={-29} width={22} height={a.kind === 'bus' ? 8 : 14} rx={2} fill="#cfe3f5" />
+        </g>
+      );
+    case 'train':
+      return (
+        <g>
+          <rect x={-15} y={-70} width={30} height={68} rx={5} fill={fill} stroke={stroke} strokeWidth={1.5} />
+          <rect x={-15} y={2} width={30} height={68} rx={5} fill={fill} stroke={stroke} strokeWidth={1.5} />
+          <rect x={-12} y={-67} width={24} height={7} rx={2} fill="#cfe3f5" />
+          <rect x={-15} y={-40} width={30} height={4} fill="rgba(0,0,0,.25)" />
+          <rect x={-15} y={32} width={30} height={4} fill="rgba(0,0,0,.25)" />
         </g>
       );
     case 'tram':

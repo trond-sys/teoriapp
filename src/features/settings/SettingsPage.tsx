@@ -65,6 +65,19 @@ export function SettingsPage() {
 
       <section className="card stack">
         <h2>
+          <U k="settings.theme" />
+        </h2>
+        <div className="segmented" role="radiogroup">
+          {(['auto', 'light', 'dark'] as const).map((th) => (
+            <button key={th} type="button" role="radio" aria-checked={settings.theme === th} className={settings.theme === th ? 'is-selected' : ''} onClick={() => set('theme', th)}>
+              <U k={th === 'auto' ? 'settings.themeAuto' : th === 'light' ? 'settings.themeLight' : 'settings.themeDark'} />
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section className="card stack">
+        <h2>
           <U k="settings.voices" />
         </h2>
         <VoiceStatus />

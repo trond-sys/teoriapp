@@ -7,7 +7,19 @@ import { planSession } from '../../domain/session';
 import { useSettings } from '../../i18n/LangProvider';
 import { U } from '../../i18n/T';
 import { QuestionRunner, type Entry } from '../quiz/QuestionRunner';
+import { IllustrationView } from '../../scene/IllustrationView';
+import type { Illustration } from '../../content/schema';
 import { toEntries } from '../quiz/entries';
+
+const HERO_ART: Illustration = {
+  type: 'kryss',
+  layout: { type: 'x-kryss', arms: ['N', 'E', 'S', 'W'], signs: [], crosswalks: ['N'], tram: [], lights: null, police: null },
+  actors: [
+    { id: 'A', kind: 'bil', from: 'S', intent: 'venstre', color: 'red', bluelight: false },
+    { id: 'B', kind: 'buss', from: 'E', intent: 'rett-fram', color: 'orange', bluelight: false },
+    { id: 'C', kind: 'syklist', from: 'N', intent: 'rett-fram', color: 'green', bluelight: false },
+  ],
+};
 
 const startOfDay = () => {
   const d = new Date();
@@ -45,7 +57,8 @@ export function TodayPage() {
 
   return (
     <div className="page stack">
-      <section className="card hero stack">
+      <section className="card hero">
+        <div className="hero-body stack">
         <h1>
           <U k="today.title" sub />
         </h1>
@@ -68,6 +81,11 @@ export function TodayPage() {
             <U k="quiz.noItems" />
           </p>
         )}
+        </div>
+        {/* Pynt: et kryss i samme tegnestil som oppgavene. Ingen oppgave, ingen fasit. */}
+        <div className="hero-art" aria-hidden>
+          <IllustrationView ill={HERO_ART} id="hero" />
+        </div>
       </section>
       {showSuggest && (
         <section className="card note stack">

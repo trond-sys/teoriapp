@@ -6,6 +6,28 @@
     "trinn": 3,
     "type": "mc-single",
     "difficulty": 1,
+    "media": {
+      "illustration": {
+        "type": "strekning",
+        "actors": [
+          {
+            "id": "A",
+            "kind": "bil",
+            "color": "red",
+            "lane": "eget-felt",
+            "at": 56
+          },
+          {
+            "id": "B",
+            "kind": "utrykning",
+            "lane": "eget-felt",
+            "at": 14,
+            "bluelight": true,
+            "color": "white"
+          }
+        ]
+      }
+    },
     "prompt": {
       "nb": "Et utrykningskjøretøy med blått blinklys nærmer seg bakfra. Sirenen er ikke på. Hva gjør du?",
       "en": "An emergency vehicle with a flashing blue light is approaching from behind. The siren is not on. What do you do?",
@@ -63,6 +85,44 @@
     "trinn": 3,
     "type": "mc-single",
     "difficulty": 2,
+    "media": {
+      "illustration": {
+        "type": "kryss",
+        "layout": {
+          "signs": [],
+          "crosswalks": [],
+          "tram": [
+            "W",
+            "E"
+          ],
+          "lights": null,
+          "police": null,
+          "type": "x-kryss",
+          "arms": [
+            "N",
+            "E",
+            "S",
+            "W"
+          ]
+        },
+        "actors": [
+          {
+            "id": "A",
+            "kind": "bil",
+            "color": "red",
+            "from": "S",
+            "intent": "rett-fram"
+          },
+          {
+            "id": "T",
+            "kind": "trikk",
+            "from": "W",
+            "intent": "rett-fram",
+            "color": "blue"
+          }
+        ]
+      }
+    },
     "prompt": {
       "nb": "Du skal rett fram i et kryss uten skilt eller lys. En trikk kommer fra venstre. Hvem kjører først?",
       "en": "You are going straight ahead at a junction with no signs or lights. A tram is coming from the left. Who goes first?",
@@ -113,6 +173,31 @@
     "trinn": 3,
     "type": "mc-single",
     "difficulty": 1,
+    "media": {
+      "illustration": {
+        "type": "strekning",
+        "railway": {
+          "barrier": false,
+          "lights": true
+        },
+        "actors": [
+          {
+            "id": "A",
+            "kind": "bil",
+            "color": "red",
+            "lane": "eget-felt",
+            "at": 10
+          },
+          {
+            "id": "T",
+            "kind": "tog",
+            "lane": "spor",
+            "at": 86,
+            "color": "green"
+          }
+        ]
+      }
+    },
     "prompt": {
       "nb": "Du nærmer deg en planovergang uten bom. Lyset blinker ikke, men du ser et tog komme. Hva gjør du?",
       "en": "You are approaching a level crossing without barriers. The light is not flashing, but you see a train coming. What do you do?",

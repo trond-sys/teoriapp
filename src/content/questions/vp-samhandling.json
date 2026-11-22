@@ -7,6 +7,30 @@
     "trinn": 3,
     "type": "mc-single",
     "difficulty": 1,
+    "media": {
+      "illustration": {
+        "type": "strekning",
+        "sidewalks": true,
+        "crosswalk": true,
+        "actors": [
+          {
+            "id": "A",
+            "kind": "bil",
+            "color": "red",
+            "lane": "eget-felt",
+            "at": 14
+          },
+          {
+            "id": "C",
+            "kind": "gaende",
+            "lane": "fortau",
+            "at": 61,
+            "intent": "krysser",
+            "color": "green"
+          }
+        ]
+      }
+    },
     "prompt": {
       "nb": "Du nærmer deg et gangfelt uten trafikklys. En fotgjenger står på fortauskanten og er tydelig på veg ut i gangfeltet. Hva gjør du?",
       "en": "You are approaching a pedestrian crossing without traffic lights. A pedestrian is standing at the kerb and is clearly about to step onto the crossing. What do you do?",
@@ -65,6 +89,36 @@
     "trinn": 3,
     "type": "mc-single",
     "difficulty": 2,
+    "media": {
+      "illustration": {
+        "type": "strekning",
+        "road": "smal",
+        "actors": [
+          {
+            "id": "A",
+            "kind": "bil",
+            "color": "red",
+            "lane": "eget-felt",
+            "at": 14
+          },
+          {
+            "id": "C",
+            "kind": "bil",
+            "lane": "eget-felt",
+            "at": 50,
+            "intent": "star",
+            "color": "white"
+          },
+          {
+            "id": "B",
+            "kind": "bil",
+            "lane": "motgaende",
+            "at": 84,
+            "color": "blue"
+          }
+        ]
+      }
+    },
     "prompt": {
       "nb": "Vegen er smal. Det står en parkert bil i din kjørebane, og en bil kommer imot deg. Hvem har vikeplikt?",
       "en": "The road is narrow. A parked car is standing in your lane, and a car is coming towards you. Who must give way?",

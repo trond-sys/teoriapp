@@ -21,7 +21,8 @@ export function TopicPractice() {
   return (
     <div className="page stack">
       {t && <h1 lang={main}>{t[main]}</h1>}
-      <QuestionRunner entries={entries} mode="practice" onExit={() => nav('/practice')} />
+      {/* key: ny økt når temaet i adressen endres (ellers beholder runneren køen fra forrige tema). */}
+      <QuestionRunner key={ref} entries={entries} mode="practice" onExit={() => nav('/practice')} />
     </div>
   );
 }

@@ -594,6 +594,26 @@
     "en": "Reading speed",
     "th": "ความเร็วในการอ่าน"
   },
+  "settings.theme": {
+    "nb": "Lys og mørk",
+    "en": "Light and dark",
+    "th": "โหมดสว่างและมืด"
+  },
+  "settings.themeAuto": {
+    "nb": "Som nettbrettet",
+    "en": "Same as device",
+    "th": "ตามอุปกรณ์"
+  },
+  "settings.themeLight": {
+    "nb": "Lys",
+    "en": "Light",
+    "th": "สว่าง"
+  },
+  "settings.themeDark": {
+    "nb": "Mørk",
+    "en": "Dark",
+    "th": "มืด"
+  },
   "settings.rateSlow": {
     "nb": "Langsom (0,8×)",
     "en": "Slow (0.8×)",

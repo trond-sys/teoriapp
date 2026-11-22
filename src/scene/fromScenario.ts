@@ -1,6 +1,9 @@
 // Oversetter et håndlagd scenario (Endring 01) til tegnemodellen SceneView bruker.
 // Den oversetter bare utseende (armtype, skilt, kjøretøytype). Den avgjør ikke vikeplikt.
 import type { Actor, Arm, ArmControl, Dir, Junction, Scenario, ScenarioKind } from '../content/schema';
+
+/** Det tegningen trenger: en scene, eller en kryss-tegning til en oppgave (uten fasit). */
+export type DrawableJunction = Pick<Scenario, 'layout' | 'actors'> & { id: string };
 import { exitArm } from '../domain/scenes/geometry';
 
 const KIND: Record<ScenarioKind, Actor['kind']> = {
@@ -14,7 +17,7 @@ const KIND: Record<ScenarioKind, Actor['kind']> = {
 };
 
 /** Utseendet på armen: skiltet som står der, eller «avkjørsel» når noen kommer fra parkering e.l. */
-function armLook(s: Scenario, d: Dir): ArmControl {
+function armLook(s: DrawableJunction, d: Dir): ArmControl {
   if (s.actors.some((a) => a.from === d && (a.position === 'fra-parkering' || a.position === 'fra-gardsveg' || a.position === 'fra-sykkelveg'))) return 'exit';
   const nrs = s.layout.signs.filter((x) => x.arm === d).map((x) => x.nr);
   if (nrs.includes('204')) return 'stop';
@@ -35,7 +38,7 @@ export const ACTOR_UI_KEY = {
 } as const satisfies Record<ScenarioKind, string>;
 
 /** Plassering når flere trafikanter kommer fra samme arm (bare utseende). */
-function offset(s: Scenario, a: Scenario['actors'][number]): { dx?: number; dy?: number } {
+function offset(s: DrawableJunction, a: Scenario['actors'][number]): { dx?: number; dy?: number } {
   if (a.kind === 'gaende' || a.position === 'inne-i-rundkjoring') return {};
   if (a.position === 'pa-holdeplass') return { dx: 32, dy: 18 }; // i busslomma
   const same = s.actors.filter((x) => x.from === a.from && x.kind !== 'gaende' && x.position !== 'inne-i-rundkjoring');
@@ -46,7 +49,7 @@ function offset(s: Scenario, a: Scenario['actors'][number]): { dx?: number; dy?:
   return { dy: same.indexOf(a) * 56 }; // kø
 }
 
-export function scenarioToDrawing(s: Scenario): { id: string; junction: Junction; actors: Actor[] } {
+export function scenarioToDrawing(s: DrawableJunction): { id: string; junction: Junction; actors: Actor[] } {
   const arms: Junction['arms'] = {};
   for (const d of s.layout.arms) {
     const from = s.actors.filter((a) => a.from === d);

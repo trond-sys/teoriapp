@@ -182,6 +182,28 @@ Målet er at fasiten er data, ikke beregning: ingen kode i `src/` skal avgjøre 
   - Funnene A1–A4 og skilt 139 er dermed gjort.
 - Fortsatt en tolkning: venstre-venstre-01 (to møtende som svinger til venstre). Lovteksten og forum støtter fasiten, men ingen offisiell kilde viser det med figur.
 
+## Nytt utseende og tegninger (22.11.2026)
+- **Utseende «Skilt og asfalt»**, valgt av Trond blant tre forslag. Se `DESIGN.md` og `docs/design/retning-skilt-og-asfalt.md`.
+  - Skiltblått sidefelt og skiltblå bunnfaner.
+  - Svarplater og gult for valgt.
+  - Fremdriften er en stiplet midtlinje.
+  - Skriften er Atkinson Hyperlegible (latin) og Noto Sans Thai. Noto Sans for latin er fjernet.
+- **Mørk modus** følger nettbrettet. I Innstillinger kan hun låse lys eller mørk under «Lys og mørk» (ny innstilling `theme`, UI-tekst på tre språk).
+- **Tegninger til alle 20 oppgavene:**
+  - Ny modell `media.illustration`: et kryss (samme modell som scenene) eller en rett vegstrekning (`StretchView`). Vegstrekningen kan vise holdeplass, gangfelt, smal veg, motorveg med avkjøring, planovergang, fartsgrense og blinklys.
+  - 14 oppgaver har fått tegning. De 6 andre hadde scene eller skilt fra før.
+  - Tegningen viser situasjonen, ikke svaret.
+  - `validate-content` sjekker at tegningen henger sammen. Det er tester for kontrollen.
+  - Alle tegningene vises på `/review` under «Tegninger i oppgavene». **Kontroller at de stemmer med teksten.**
+- **Oppgaveskjermen på liggende nettbrett:** tegningen står til venstre, og spørsmål, svar og tilbakemelding står til høyre.
+- **Rettet:** temaøvingen beholdt køen fra forrige tema når temaet i adressen ble endret.
+- **Testet** i nettleserpanelet:
+  - liggende nettbrett, stående nettbrett og telefon (375 px)
+  - lys og mørk modus
+  - ingen vannrett rulling
+  - kontrast minst 4,5:1
+- **Ikke sjekket:** finish review med designverktøyets egne agenter. Startskriptet til verktøyet finnes ikke på maskinen, så gjennomgangen er gjort her.
+
 ## Uverifiserte elementer og åpne spørsmål
 Alt innhold er `verified: false` til Trond har kontrollert det. Dette er det jeg er mest usikker på:
 - **vikeplikt-011, -012, -013, -015 og -020 og skilt 204:** Sjekket ordrett på Lovdata 22.11.2026 (se `docs/KILDEKONTROLL-2026-11-22.md`). Det som er sjekket, står i `todo`.

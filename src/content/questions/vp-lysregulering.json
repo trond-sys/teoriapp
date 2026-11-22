@@ -6,6 +6,55 @@
     "trinn": 3,
     "type": "mc-single",
     "difficulty": 2,
+    "media": {
+      "illustration": {
+        "type": "kryss",
+        "layout": {
+          "signs": [
+            {
+              "arm": "S",
+              "nr": "202"
+            },
+            {
+              "arm": "N",
+              "nr": "202"
+            }
+          ],
+          "crosswalks": [],
+          "tram": [],
+          "lights": {
+            "N": "gronn",
+            "S": "gronn",
+            "E": "rod",
+            "W": "rod"
+          },
+          "police": null,
+          "type": "x-kryss",
+          "arms": [
+            "N",
+            "E",
+            "S",
+            "W"
+          ]
+        },
+        "actors": [
+          {
+            "id": "A",
+            "kind": "bil",
+            "color": "red",
+            "from": "S",
+            "intent": "rett-fram"
+          },
+          {
+            "id": "B",
+            "kind": "bil",
+            "from": "E",
+            "intent": "rett-fram",
+            "color": "blue"
+          }
+        ]
+      }
+    },
     "prompt": {
       "nb": "I et kryss er det både trafikklys og vikepliktskilt. Lyset er grønt for deg, og du skal rett fram. Hva gjelder?",
       "en": "At a junction there are both traffic lights and a give way sign. The light is green for you, and you are going straight ahead. What applies?",
@@ -55,6 +104,44 @@
     "trinn": 3,
     "type": "mc-single",
     "difficulty": 2,
+    "media": {
+      "illustration": {
+        "type": "kryss",
+        "layout": {
+          "signs": [],
+          "crosswalks": [],
+          "tram": [],
+          "lights": null,
+          "police": {
+            "gesture": "arm-opp",
+            "facing": "S"
+          },
+          "type": "x-kryss",
+          "arms": [
+            "N",
+            "E",
+            "S",
+            "W"
+          ]
+        },
+        "actors": [
+          {
+            "id": "A",
+            "kind": "bil",
+            "color": "red",
+            "from": "S",
+            "intent": "rett-fram"
+          },
+          {
+            "id": "B",
+            "kind": "bil",
+            "from": "W",
+            "intent": "rett-fram",
+            "color": "blue"
+          }
+        ]
+      }
+    },
     "prompt": {
       "nb": "En politibetjent står i krysset og holder den ene armen rett opp. Hva betyr det?",
       "en": "A police officer is standing in the junction holding one arm straight up. What does that mean?",
@@ -108,6 +195,42 @@
     "trinn": 3,
     "type": "mc-single",
     "difficulty": 2,
+    "media": {
+      "illustration": {
+        "type": "kryss",
+        "layout": {
+          "signs": [],
+          "crosswalks": [],
+          "tram": [],
+          "lights": {
+            "N": "gronn",
+            "S": "gronn",
+            "E": "rod",
+            "W": "rod"
+          },
+          "police": {
+            "gesture": "arm-ut",
+            "facing": "S"
+          },
+          "type": "x-kryss",
+          "arms": [
+            "N",
+            "E",
+            "S",
+            "W"
+          ]
+        },
+        "actors": [
+          {
+            "id": "A",
+            "kind": "bil",
+            "color": "red",
+            "from": "S",
+            "intent": "rett-fram"
+          }
+        ]
+      }
+    },
     "prompt": {
       "nb": "Lyset er grønt for deg, men en politibetjent i krysset gir deg tegn om å stanse. Hva gjør du?",
       "en": "The light is green for you, but a police officer in the junction signals you to stop. What do you do?",

@@ -1,8 +1,9 @@
 // Ett flervalg: spørsmål, media (scene eller skilt), svaralternativer og tilbakemelding.
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { SCENARIO_BY_ID, SIGN_BY_NR, signUrl } from '../../content/index';
 import { scenarioToDrawing } from '../../scene/fromScenario';
 import { SceneView } from '../../scene/SceneView';
+import { IllustrationView } from '../../scene/IllustrationView';
 import { SpeakButton, T, TLine, TranslateAllButton, U, useLayers } from '../../i18n/T';
 import { Icon } from '../../components/Icon';
 import { UnverifiedBadge } from '../../components/UnverifiedBadge';
@@ -26,21 +27,24 @@ function Media({ item }: { item: QuizItem }) {
   // Scenen vises som bilde selv om den er uverifisert: oppgavens egen «verified» styrer merket.
   const scene = item.media?.scene ? SCENARIO_BY_ID.get(item.media.scene) : undefined;
   if (scene) return <SceneView scene={scenarioToDrawing(scene)} signs={scene.layout.signs} />;
+  if (item.media?.illustration) return <IllustrationView ill={item.media.illustration} id={item.itemId} />;
   if (item.media?.sign) return <SignImage nr={item.media.sign} size={200} />;
   return null;
 }
 
 export function hasMedia(item: QuizItem) {
-  return !!(item.media?.scene || item.media?.sign);
+  return !!(item.media?.scene || item.media?.sign || item.media?.illustration);
 }
 
 interface Props {
   item: QuizItem;
   chosen: string | null;
   onChoose: (id: string) => void;
+  /** Vises under svarene i samme kolonne (tilbakemeldingen), så tegningen blir stående synlig ved siden av. */
+  children?: ReactNode;
 }
 
-export function QuestionCard({ item, chosen, onChoose }: Props) {
+export function QuestionCard({ item, chosen, onChoose, children }: Props) {
   const answered = chosen !== null;
   const { main } = useLayers();
   const report = (field: string) => ({ itemId: item.itemId, field });
@@ -87,6 +91,7 @@ export function QuestionCard({ item, chosen, onChoose }: Props) {
             );
           })}
         </ul>
+        {children}
       </div>
     </div>
   );

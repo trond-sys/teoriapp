@@ -2,7 +2,37 @@
 import { z } from 'zod';
 import { TEMALISTE } from '../config/temaliste';
 import { validateScenario } from '../domain/scenes/validate';
-import { GlossaryTerm, Question, Scenario, Sign, UiStrings } from './schema';
+import { GlossaryTerm, Question, Scenario, Sign, UiStrings, type Illustration } from './schema';
+
+/** Sjekker at en tegning til en oppgave henger sammen (bare utseende, ingen fasit). */
+export function illustrationIssues(ill: Illustration, signNrs: Set<string>): string[] {
+  const out: string[] = [];
+  const ids = ill.actors.map((a) => a.id);
+  if (new Set(ids).size !== ids.length) out.push('to trafikanter har samme ID');
+  if (ill.type === 'kryss') {
+    const arms = new Set(ill.layout.arms);
+    const want = ill.layout.type === 't-kryss' ? 3 : 4;
+    if (ill.layout.arms.length !== want) out.push(`${ill.layout.type} skal ha ${want} armer`);
+    for (const a of ill.actors) if (!arms.has(a.from)) out.push(`${a.id} kommer fra armen ${a.from}, som ikke finnes`);
+    for (const s of ill.layout.signs) {
+      if (!arms.has(s.arm)) out.push(`skilt ${s.nr} står på armen ${s.arm}, som ikke finnes`);
+      if (!signNrs.has(s.nr)) out.push(`skilt ${s.nr} finnes ikke i signs.json`);
+    }
+    for (const d of Object.keys(ill.layout.lights ?? {})) if (!arms.has(d as never)) out.push(`trafikklys på armen ${d}, som ikke finnes`);
+    return out;
+  }
+  for (const a of ill.actors) {
+    if (a.lane === 'holdeplass' && !ill.busStop) out.push(`${a.id} står på holdeplassen, men busStop er ikke satt`);
+    if (a.lane === 'rampe' && !(ill.exitRamp && ill.road === 'motorveg')) out.push(`${a.id} er på rampen, men vegen har ingen avkjøringsrampe`);
+    if (a.lane === 'venstre-felt' && ill.road !== 'motorveg') out.push(`${a.id} er i venstre felt, som bare finnes på motorveg`);
+    if (a.lane === 'spor' && (!ill.railway || a.kind !== 'tog')) out.push(`${a.id}: bare tog kan stå på sporet, og vegen må ha planovergang`);
+    if (a.kind === 'tog' && a.lane !== 'spor') out.push(`${a.id}: toget må stå på sporet`);
+    if (a.lane === 'fortau' && !(ill.sidewalks || ill.crosswalk)) out.push(`${a.id} står på fortauet, men vegen har ikke fortau`);
+    if (a.lane === 'fortau' && a.kind !== 'gaende' && a.kind !== 'syklist') out.push(`${a.id}: bare gående og syklende kan stå på fortauet`);
+  }
+  if (ill.crosswalk && !signNrs.has('516')) out.push('gangfelt krever skilt 516 i signs.json');
+  return out;
+}
 
 export interface RawFile {
   file: string;
@@ -116,6 +146,7 @@ export function validateContent(raw: RawContent): ValidationResult {
     checkTerms(q.id, q.glossaryTerms);
     if (q.media?.scene && !sceneIds.has(q.media.scene)) errors.push(`${q.id}: scenen «${q.media.scene}» finnes ikke`);
     if (q.media?.sign && !signNrs.has(q.media.sign)) errors.push(`${q.id}: skiltet «${q.media.sign}» finnes ikke`);
+    if (q.media?.illustration) for (const m of illustrationIssues(q.media.illustration, signNrs)) errors.push(`${q.id}: tegningen – ${m}`);
     if (q.alsoRefs.includes(q.temalisteRef)) warnings.push(`${q.id}: alsoRefs gjentar temalisteRef`);
     if (q.type === 'true-false' && q.options.length !== 2) errors.push(`${q.id}: sant/usant må ha 2 alternativer`);
   }

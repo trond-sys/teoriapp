@@ -38,6 +38,8 @@ export const Media = z.strictObject({
   scene: z.string().optional(),
   /** Skiltnummer i signs.json. */
   sign: z.string().optional(),
+  /** Tegning laget for oppgaven: et kryss eller en rett vegstrekning sett ovenfra. Viser situasjonen, ikke svaret. */
+  illustration: z.lazy(() => Illustration).optional(),
 });
 
 export const Question = z
@@ -67,8 +69,8 @@ export const Question = z
     message: 'to svaralternativer har samme id',
     path: ['options'],
   })
-  .refine((q) => q.type !== 'mc-image' || !!(q.media?.scene || q.media?.sign), {
-    message: 'mc-image må ha media.scene eller media.sign',
+  .refine((q) => q.type !== 'mc-image' || !!(q.media?.scene || q.media?.sign || q.media?.illustration), {
+    message: 'mc-image må ha media.scene, media.sign eller media.illustration',
     path: ['media'],
   });
 export type Question = z.infer<typeof Question>;
@@ -151,7 +153,7 @@ export const Arm = z.strictObject({
 });
 export type Arm = z.infer<typeof Arm>;
 
-export const ActorKind = z.enum(['car', 'bus', 'truck', 'bicycle', 'tram', 'emergency', 'pedestrian']);
+export const ActorKind = z.enum(['car', 'bus', 'truck', 'bicycle', 'tram', 'train', 'emergency', 'pedestrian']);
 export type ActorKind = z.infer<typeof ActorKind>;
 
 export const ActorColor = z.enum(['red', 'blue', 'yellow', 'green', 'white', 'black', 'orange']);
@@ -306,6 +308,59 @@ export const Scenario = z.strictObject({
   todo: z.string().optional(),
 });
 export type Scenario = z.infer<typeof Scenario>;
+
+// ---------- Tegninger til oppgaver ----------
+// Bare bilde: tegningen viser situasjonen i oppgaven og har ingen fasit.
+
+/** Kryss tegnet med samme modell som scenene. */
+export const JunctionIllustration = z.strictObject({
+  type: z.literal('kryss'),
+  layout: ScenarioLayout,
+  actors: z.array(ScenarioActor).min(1).max(6),
+});
+
+/**
+ * Felt på en rett vegstrekning sett ovenfra. «Du» kjører oppover i eget felt.
+ * venstre-felt = venstre felt i din retning (motorveg), holdeplass = busslomme på høyre side,
+ * fortau = høyre fortau, rampe = avkjøringsrampe (motorveg), spor = jernbanesporet som krysser vegen.
+ */
+export const StretchLane = z.enum(['eget-felt', 'venstre-felt', 'motgaende', 'holdeplass', 'fortau', 'rampe', 'spor']);
+
+export const StretchActor = z.strictObject({
+  id: actorId,
+  kind: z.enum([...ScenarioKind.options, 'tog']),
+  lane: StretchLane,
+  /** Plassering langs vegen: 0 = nederst, 100 = øverst. På sporet: 0 = venstre kant, 100 = høyre kant. */
+  at: z.number().min(0).max(100),
+  /** Det trafikanten gjør. Tegnes som en pil. «star» = står stille (parkert eller venter). */
+  intent: z.enum(['rett-fram', 'kjorer-ut', 'krysser', 'rygger', 'star']).default('rett-fram'),
+  /** Blinklys som er på. */
+  blink: z.enum(['venstre', 'hoyre']).optional(),
+  bluelight: z.boolean().default(false),
+  color: ActorColor.default('blue'),
+});
+export type StretchActor = z.infer<typeof StretchActor>;
+
+export const StretchIllustration = z.strictObject({
+  type: z.literal('strekning'),
+  /** vanlig = to felt med midtlinje, smal = uten midtlinje, motorveg = to felt hver veg med midtdeler. */
+  road: z.enum(['vanlig', 'smal', 'motorveg']).default('vanlig'),
+  /** Fartsgrenseskilt ved vegen (km/t). */
+  speed: z.number().int().min(20).max(120).optional(),
+  sidewalks: z.boolean().default(false),
+  /** Busslomme med holdeplass på høyre side. */
+  busStop: z.boolean().default(false),
+  crosswalk: z.boolean().default(false),
+  /** Planovergang: jernbanespor som krysser vegen. */
+  railway: z.strictObject({ barrier: z.boolean().default(false), lights: z.boolean().default(false) }).optional(),
+  /** Avkjøringsrampe til høyre (motorveg). */
+  exitRamp: z.boolean().default(false),
+  actors: z.array(StretchActor).min(1).max(6),
+});
+export type StretchIllustration = z.infer<typeof StretchIllustration>;
+
+export const Illustration = z.discriminatedUnion('type', [JunctionIllustration, StretchIllustration]);
+export type Illustration = z.infer<typeof Illustration>;
 
 // ---------- UI-tekst ----------
 export const UiStrings = z.record(z.string(), L3);

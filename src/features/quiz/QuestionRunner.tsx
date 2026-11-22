@@ -45,7 +45,9 @@ export function QuestionRunner({ entries, mode, onExit, exitLabel }: Props) {
     const right = results.filter(Boolean).length;
     return (
       <div className="card stack center done">
-        <Icon name="check" size={40} />
+        <span className="done-plate">
+          <Icon name="check" size={40} />
+        </span>
         <h2>
           <U k="quiz.finished" sub />
         </h2>
@@ -73,12 +75,17 @@ export function QuestionRunner({ entries, mode, onExit, exitLabel }: Props) {
 
   return (
     <div className="runner stack">
-      <div className="runner-progress" aria-hidden>
-        <div className="runner-bar" style={{ width: `${(pos / queue.length) * 100}%` }} />
+      <div className="runner-head">
+        {/* Fremdriften som vegens midtlinje: én strek per oppgave. Grønn = riktig, rød = feil, gul = nå. */}
+        <ol className="lane" aria-hidden>
+          {queue.map((q, i) => (
+            <li key={q.key} className={`lane-dash${results[i] === true ? ' is-ok' : results[i] === false ? ' is-bad' : i === pos ? ' is-current' : ''}`} />
+          ))}
+        </ol>
+        <p className="runner-count">
+          <U k="common.of" vars={{ a: pos + 1, b: queue.length }} />
+        </p>
       </div>
-      <p className="muted small">
-        <U k="common.of" vars={{ a: pos + 1, b: queue.length }} />
-      </p>
       <ThaiScope key={current.key} scopeKey={current.key}>
         <EntryView entry={current.entry} mode={mode} willRepeat={!current.repeat} onAnswered={onAnswered} onNext={() => setPos(pos + 1)} />
       </ThaiScope>
@@ -124,8 +131,9 @@ function EntryView({ entry, mode, willRepeat, onAnswered, onNext }: { entry: Ent
               setChosen(id);
               save(id === entry.item.correct);
             }}
-          />
-          {chosen !== null && <Feedback item={entry.item} chosen={chosen} />}
+          >
+            {chosen !== null && <Feedback item={entry.item} chosen={chosen} />}
+          </QuestionCard>
         </>
       ) : (
         <YieldBoard

@@ -60,6 +60,41 @@
     "trinn": 3,
     "type": "mc-single",
     "difficulty": 2,
+    "media": {
+      "illustration": {
+        "type": "kryss",
+        "layout": {
+          "signs": [],
+          "crosswalks": [],
+          "tram": [],
+          "lights": null,
+          "police": null,
+          "type": "x-kryss",
+          "arms": [
+            "N",
+            "E",
+            "S",
+            "W"
+          ]
+        },
+        "actors": [
+          {
+            "id": "A",
+            "kind": "bil",
+            "color": "red",
+            "from": "S",
+            "intent": "venstre"
+          },
+          {
+            "id": "B",
+            "kind": "bil",
+            "from": "N",
+            "intent": "rett-fram",
+            "color": "blue"
+          }
+        ]
+      }
+    },
     "prompt": {
       "nb": "Du skal svinge til venstre i et kryss uten skilt. En møtende bil skal rett fram. Hvem har vikeplikt?",
       "en": "You are turning left at a junction with no signs. An oncoming car is going straight ahead. Who must give way?",
@@ -162,6 +197,41 @@
     "trinn": 3,
     "type": "mc-single",
     "difficulty": 2,
+    "media": {
+      "illustration": {
+        "type": "kryss",
+        "layout": {
+          "signs": [],
+          "crosswalks": [],
+          "tram": [],
+          "lights": null,
+          "police": null,
+          "type": "t-kryss",
+          "arms": [
+            "N",
+            "E",
+            "S"
+          ]
+        },
+        "actors": [
+          {
+            "id": "A",
+            "kind": "bil",
+            "color": "red",
+            "from": "S",
+            "intent": "rett-fram"
+          },
+          {
+            "id": "B",
+            "kind": "bil",
+            "from": "E",
+            "intent": "hoyre",
+            "position": "fra-gardsveg",
+            "color": "blue"
+          }
+        ]
+      }
+    },
     "prompt": {
       "nb": "Du kjører på en vanlig veg uten skilt. En bil skal kjøre ut fra en gårdsveg (avkjørsel) på høyre side. Hvem har vikeplikt?",
       "en": "You are driving on an ordinary road with no signs. A car is about to come out of a farm road (driveway) on the right. Who must give way?",
@@ -210,6 +280,31 @@
     "trinn": 3,
     "type": "mc-single",
     "difficulty": 2,
+    "media": {
+      "illustration": {
+        "type": "strekning",
+        "speed": 50,
+        "busStop": true,
+        "actors": [
+          {
+            "id": "A",
+            "kind": "bil",
+            "color": "red",
+            "lane": "eget-felt",
+            "at": 8
+          },
+          {
+            "id": "B",
+            "kind": "buss",
+            "lane": "holdeplass",
+            "at": 52,
+            "intent": "kjorer-ut",
+            "blink": "venstre",
+            "color": "orange"
+          }
+        ]
+      }
+    },
     "prompt": {
       "nb": "Fartsgrensen er 50 km/t. En buss står på holdeplassen og blinker for å kjøre ut foran deg. Hva gjør du?",
       "en": "The speed limit is 50 km/h. A bus at a bus stop is signalling to pull out in front of you. What do you do?",
@@ -258,6 +353,31 @@
     "trinn": 3,
     "type": "mc-single",
     "difficulty": 3,
+    "media": {
+      "illustration": {
+        "type": "strekning",
+        "speed": 80,
+        "busStop": true,
+        "actors": [
+          {
+            "id": "A",
+            "kind": "bil",
+            "color": "red",
+            "lane": "eget-felt",
+            "at": 8
+          },
+          {
+            "id": "B",
+            "kind": "buss",
+            "lane": "holdeplass",
+            "at": 52,
+            "intent": "kjorer-ut",
+            "blink": "venstre",
+            "color": "orange"
+          }
+        ]
+      }
+    },
     "prompt": {
       "nb": "Fartsgrensen er 80 km/t. En buss på holdeplassen blinker for å kjøre ut. Har du vikeplikt for bussen?",
       "en": "The speed limit is 80 km/h. A bus at a bus stop is signalling to pull out. Must you give way to the bus?",
