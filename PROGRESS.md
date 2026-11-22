@@ -21,7 +21,15 @@ npm run validate-scenes   # struktur og geometriske advarsler for de håndlagde 
 npm run audit-scenes      # revisjon: den gamle motoren mot hver scene → docs/scene-audit.md (hjelpemiddel, ikke dommer)
 npm run apply-verifications -- fil.json   # skriver markeringer fra /review inn i scenefilene
 ```
-Git: repoet har lokal `user.email` = GitHub noreply for `trond-sys`. **Ikke bruk BT Flyt-adressen her.** Ingenting er pushet. `.github/workflows/pages.yml` publiserer til GitHub Pages når repoet er pushet til `trond-sys/teoriapp` (offentlig) og Pages er satt til «GitHub Actions».
+Git: repoet har lokal `user.email` = GitHub noreply for `trond-sys`. **Ikke bruk BT Flyt-adressen her.**
+
+**Publisert 22.11.2026** (Tronds ja):
+- Repo: https://github.com/trond-sys/teoriapp (offentlig, som avtalt i Fase 0).
+- App: **https://trond-sys.github.io/teoriapp/**
+- `.github/workflows/pages.yml` kjører `npm run check` og `npm run build` og publiserer ved hver push til `main`. Pages er satt til «GitHub Actions».
+- Sjekket på den publiserte siden: manifest, skilt og fonter lastes, og det er ingen feil i konsollen. Service workeren er aktiv, med precache.
+- Rettet samme dag: service workeren ble først registrert etter oppsettsveiviseren. Nå registreres den fra første besøk.
+- GitHub varsler at `actions/checkout@v4`, `setup-node@v4` og `upload-artifact@v4` bruker Node 20, som er utdatert. Det virker fortsatt, men versjonene bør oppgraderes senere.
 
 ## Hva Fase 1 inneholder (kode)
 | Del | Filer | Tester |
@@ -204,5 +212,5 @@ Alt innhold er `verified: false` til Trond har kontrollert det. Dette er det jeg
    - Kjør `npm run apply-verifications -- fil.json`, `npm run check` og commit.
    - Rettelser i en scene gjøres i `src/content/scenes/<id>.json`. Kjør `npm run validate-scenes` og `npm run audit-scenes` etterpå.
 2. **Trond kontrollerer batch 1.** Funnene står i `docs/TODO-kontroll-batch1.md`. Sett `verified: true` (og eventuelt `thReview`) i JSON-filene for det som er riktig.
-3. Test på Xiaomi Pad 5 (Chrome, installert som app) og iPhone (Safari, Legg til på Hjem-skjerm). Krever at appen er publisert, se «Git» over.
+3. Test på Xiaomi Pad 5 (Chrome, installert som app) og iPhone (Safari, Legg til på Hjem-skjerm). Appen ligger på https://trond-sys.github.io/teoriapp/.
 4. Deretter, i nye økter: én innholdsbatch per tema. Foreslått rekkefølge er resten av `vp-hoyreregel`, deretter `so-skilt` med ~58 skilt, `fp-veggrep` (vinter), `fa-trafikkuhell` (tunnel), `fp-sikt-lys` og så resten. De 8 siste vikeplikt-scenene kan komme med trikk, utrykning, gangfelt og rundkjøring.
